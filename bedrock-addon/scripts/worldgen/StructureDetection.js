@@ -1,14 +1,13 @@
 import { world } from "@minecraft/server";
 import { classifyStructure, villageSupport, hamletSupport, monumentSupport, mineshaftSupport } from "./StructureSupport.js";
 
-const DB = "sky_archipelago:structure_detection_v3";
+const DB = "sky_archipelago:structure_detection_v4";
 const AIR = "minecraft:air";
 const SIGNATURES = {
   monument: { ids: ["minecraft:prismarine", "minecraft:prismarine_bricks", "minecraft:dark_prismarine", "minecraft:sea_lantern"], min: 12, radius: 24 },
   mineshaft: { ids: ["minecraft:rail", "minecraft:oak_fence", "minecraft:oak_planks", "minecraft:torch"], min: 6, radius: 20 },
   village: { ids: ["minecraft:crafting_table", "minecraft:hay_block", "minecraft:composter", "minecraft:oak_log", "minecraft:oak_planks", "minecraft:chest"], min: 8, radius: 24 }
 };
-
 const box = (minX, minY, minZ, maxX, maxY, maxZ) => ({ min: { x: minX, y: minY, z: minZ }, max: { x: maxX, y: maxY, z: maxZ } });
 const footprint = b => ({ minX: b.min.x, maxX: b.max.x, minZ: b.min.z, maxZ: b.max.z });
 const expand = (b, n) => box(b.min.x - n, b.min.y, b.min.z - n, b.max.x + n, b.max.y, b.max.z + n);
@@ -28,13 +27,14 @@ export class StructureDetection {
   }
 
   save() {
-    try { world.setDynamicProperty(DB, JSON.stringify({ version: 3, seen: [...this.seen], records: [...this.records.values()] })); }
+    try { world.setDynamicProperty(DB, JSON.stringify({ version: 4, seen: [...this.seen], records: [...this.records.values()] })); }
     catch (e) { console.warn(`[Sky Archipelago] structure persistence failed: ${e}`); }
   }
 
-  key(category, x, z) { return `${category}:${Math.floor(x / 16)}:${Math.floor(z / 16)}`; }
+  stableKey(category, id, center, bounds) {
+    return `${category}:${id}:${Math.floor(center.x / 16)}:${Math.floor(center.z / 16)}:${bounds.min.x}:${bounds.min.y}:${bounds.min.z}`;
+  }
 
-  /** Exact metadata for a structure template that the addon itself places. */
   detectPlacedStructure(structureId, origin, size, categoryHint = null) {
     if (!origin || !size) return null;
     const b = box(origin.x, origin.y, origin.z, origin.x + size.x - 1, origin.y + size.y - 1, origin.z + size.z - 1);
@@ -42,7 +42,6 @@ export class StructureDetection {
     return this.register({ id: structureId, category, center: { x: Math.floor((b.min.x + b.max.x) / 2), z: Math.floor((b.min.z + b.max.z) / 2) }, baseY: b.min.y, box: b, exact: true, confidence: 1 });
   }
 
-  /** Register the exact bounds returned by StructureManager jigsaw placement. */
   registerJigsaw(structureId, boundingBox, categoryHint = null) {
     if (!boundingBox?.min || !boundingBox?.max) return null;
     const b = box(boundingBox.min.x, boundingBox.min.y, boundingBox.min.z, boundingBox.max.x, boundingBox.max.y, boundingBox.max.z);
@@ -52,13 +51,12 @@ export class StructureDetection {
 
   register(r) {
     if (!r?.box) return null;
-    const key = this.key(r.category, r.center.x, r.center.z);
+    const key = this.stableKey(r.category, r.id, r.center, r.box);
     const stored = { key, ...r };
     this.seen.add(key); this.records.set(key, stored); this.save();
     return stored;
   }
 
-  /** Best-effort discovery of world structure IDs. This does not assume that every ID is placeable. */
   discoverKnownStructures() {
     const sm = world.structureManager;
     if (!sm) return { pack: [], world: [] };
@@ -72,17 +70,15 @@ export class StructureDetection {
     const found = [];
     const minX = centerX - radius * 16, maxX = centerX + radius * 16;
     const minZ = centerZ - radius * 16, maxZ = centerZ + radius * 16;
-    for (let x = Math.floor(minX / 16) * 16; x <= maxX; x += 16) {
-      for (let z = Math.floor(minZ / 16) * 16; z <= maxZ; z += 16) {
-        const candidate = this.infer(dim, x + 8, z + 8);
-        if (!candidate) continue;
-        const existing = this.findNearby(candidate.center.x, candidate.center.z, candidate.category, 32);
-        if (existing) { this.merge(existing, candidate); continue; }
-        found.push(this.register(candidate));
-      }
+    for (let x = Math.floor(minX / 16) * 16; x <= maxX; x += 16) for (let z = Math.floor(minZ / 16) * 16; z <= maxZ; z += 16) {
+      const candidate = this.infer(dim, x + 8, z + 8);
+      if (!candidate) continue;
+      const existing = this.findNearby(candidate.center.x, candidate.center.z, candidate.category, 32);
+      if (existing) { this.merge(existing, candidate); continue; }
+      const r = this.register(candidate); if (r) found.push(r);
     }
     if (found.length) this.save();
-    return found.filter(Boolean);
+    return found;
   }
 
   infer(dim, cx, cz) {
@@ -113,12 +109,10 @@ export class StructureDetection {
   }
 
   merge(a, b) {
-    a.box = union(a.box, b.box);
-    a.center = { x: Math.floor((a.box.min.x + a.box.max.x) / 2), z: Math.floor((a.box.min.z + a.box.max.z) / 2) };
-    a.baseY = Math.min(a.baseY, b.baseY);
-    a.confidence = Math.max(a.confidence ?? 0, b.confidence ?? 0);
-    a.exact = Boolean(a.exact || b.exact);
-    this.records.set(a.key, a); this.save();
+    if (a.exact) return a;
+    a.box = union(a.box, b.box); a.center = { x: Math.floor((a.box.min.x + a.box.max.x) / 2), z: Math.floor((a.box.min.z + a.box.max.z) / 2) };
+    a.baseY = Math.min(a.baseY, b.baseY); a.confidence = Math.max(a.confidence ?? 0, b.confidence ?? 0); a.exact = Boolean(a.exact || b.exact);
+    this.records.set(a.key, a); this.save(); return a;
   }
 
   apply(dim, r) {

@@ -1,0 +1,12 @@
+{
+  "format_version": "1.20.0",
+  "minecraft:jigsaw": {
+    "description": { "identifier": "sky_archipelago:hamlet" },
+    "pool": "sky_archipelago:hamlet/start",
+    "target": "sky_archipelago:hamlet/house",
+    "max_depth": 5,
+    "start_height": { "type": "constant", "value": 0 },
+    "max_distance_from_center": 48,
+    "terrain_adaptation": "beard_thin"
+  }
+}

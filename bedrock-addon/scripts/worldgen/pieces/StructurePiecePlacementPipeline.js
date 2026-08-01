@@ -1,0 +1,8 @@
+import { RelocatedPlacementContext, PostProcessDriftTelemetry } from "./RelocatedPlacementContext.js";
+import { PostProcessDriftPolicy } from "./PostProcessDriftPolicy.js";
+import { PieceAwareSupportPlaneResolver } from "./PieceAwareSupportPlaneResolver.js";
+
+export class StructurePiecePlacementPipeline {
+ constructor({adapter,overlap,generator,debug=false}={}){this.adapter=adapter;this.overlap=overlap;this.generator=generator;this.debug=debug;this.driftPolicy=new PostProcessDriftPolicy();this.support=new PieceAwareSupportPlaneResolver(generator);}
+ placeGraph(graph,{structureId,dimension,authorityAnchorY,yLockEnabled=true,padding=2}={}){const telemetry=new PostProcessDriftTelemetry(this.debug),ctx=new RelocatedPlacementContext({structureId,startChunk:{x:Math.floor(graph.origin.x/16),z:Math.floor(graph.origin.z/16)},dimension,authorityAnchorY,yLockEnabled,policy:this.driftPolicy,adapter:this.adapter,telemetry});let placed=0;for(const piece of graph.pieces){const support=this.support.resolve(piece);if(support&&!support.accepted){continue;}const id=`${structureId}:piece:${placed}`;const b=piece.bounds;if(b&&!this.overlap.canReserve(id,b,padding))continue;const before=b?structuredClone(b):null;const result=this.adapter.placeTemplate(piece.template,dimension,piece.position,{rotation:piece.rotation},id,0);if(!result?.placed)continue;const after=result.bounds??before;const decision=ctx.evaluateDrift(piece,before,after);if(decision.correctionDy){piece.position.y+=decision.correctionDy;}ctx.recordDrift(piece,before,after,decision);if(b)this.overlap.reserve(id,b,padding,{type:"piece",role:piece.role,structureId});placed++;}return{placed,total:graph.pieces.length,telemetry};}
+}

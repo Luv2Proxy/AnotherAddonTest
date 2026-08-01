@@ -2,9 +2,9 @@
   "format_version": 2,
   "header": {
     "name": "Sky Archipelago Bedrock",
-    "description": "Procedural floating islands in a Microsoft-style custom void dimension.",
+    "description": "Procedural floating islands ported from Sky Archipelago.",
     "uuid": "b7e7a7d8-4f8d-4d8e-9d8e-4c1a6a1b7e21",
-    "version": [1, 0, 0],
+    "version": [1, 1, 0],
     "min_engine_version": [1, 21, 80]
   },
   "modules": [
@@ -13,13 +13,11 @@
       "language": "javascript",
       "entry": "scripts/main.js",
       "uuid": "5a0c7e11-2a4f-46c9-9f24-6c7e3d2a8b10",
-      "version": [1, 0, 0]
+      "version": [1, 1, 0]
     }
   ],
   "dependencies": [
-    {
-      "module_name": "@minecraft/server",
-      "version": "beta"
-    }
+    { "module_name": "@minecraft/server", "version": "beta" },
+    { "module_name": "@minecraft/server-ui", "version": "2.1.0" }
   ]
 }

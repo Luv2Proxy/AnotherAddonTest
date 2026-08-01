@@ -26,12 +26,14 @@ export class NativeStructureAdapter {
    * projection and jigsaw cleanup. No fixed composite offsets are used. */
   placeJigsawStructure(id, location, options = {}, reservationId = `jigsaw:${id}:${location.x}:${location.y}:${location.z}`, padding = 2) {
     if (typeof this.manager.placeJigsawStructure !== "function") throw new Error("StructureManager.placeJigsawStructure is unavailable");
-    let bounds;
     try {
-      bounds = this.jigsaw.placeStructure(id, location, { includeEntities: true, keepJigsaws: false, ...options }).bounds;
+      const bounds = this.jigsaw.placeStructure(id, location, { includeEntities: true, keepJigsaws: false, ...options }).bounds;
       if (!bounds) return { placed: false, reason: "no_bounds_returned" };
-      if (!this.overlapGuard.canReserve(reservationId, bounds, padding)) return { placed: false, reason: "overlap_after_place", bounds };
-      if (!this.overlapGuard.reserve(reservationId, bounds, padding, { type: "jigsaw", structureId: id })) return { placed: false, reason: "reservation_failed", bounds };
+      // The native assembler has already performed its own connector-aware
+      // placement. Record its exact returned bounds for the addon overlap DB;
+      // do not attempt to reject after placement, which would leave the world
+      // changed but the reservation absent.
+      this.overlapGuard.replace(reservationId, bounds, padding, { type: "jigsaw", structureId: id });
       return { placed: true, id, bounds, native: true, reservationId };
     } catch (e) {
       this.overlapGuard.release(reservationId);
@@ -41,12 +43,10 @@ export class NativeStructureAdapter {
 
   placeJigsaw(pool, target, maxDepth, location, options = {}, reservationId = `jigsaw:${pool}:${target}:${location.x}:${location.y}:${location.z}`, padding = 2) {
     if (typeof this.manager.placeJigsaw !== "function") throw new Error("StructureManager.placeJigsaw is unavailable");
-    let bounds;
     try {
-      bounds = this.jigsaw.placePool(pool, target, maxDepth, location, { includeEntities: true, keepJigsaws: false, ...options }).bounds;
+      const bounds = this.jigsaw.placePool(pool, target, maxDepth, location, { includeEntities: true, keepJigsaws: false, ...options }).bounds;
       if (!bounds) return { placed: false, reason: "no_bounds_returned" };
-      if (!this.overlapGuard.canReserve(reservationId, bounds, padding)) return { placed: false, reason: "overlap_after_place", bounds };
-      if (!this.overlapGuard.reserve(reservationId, bounds, padding, { type: "jigsaw", pool, target })) return { placed: false, reason: "reservation_failed", bounds };
+      this.overlapGuard.replace(reservationId, bounds, padding, { type: "jigsaw", pool, target });
       return { placed: true, pool, target, bounds, native: true, reservationId };
     } catch (e) {
       this.overlapGuard.release(reservationId);

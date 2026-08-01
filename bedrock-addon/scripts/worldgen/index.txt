@@ -14,8 +14,17 @@ IslandGenerator.js
 IslandNoise.js
 IslandShapeSampler.js
 IslandSurfacePass.js
+JigsawGenerator.js
+JigsawRegistry.js
+JigsawTransform.js
+NativeStructureAdapter.js
 PackSettings.js
 StructureDetection.js
 StructurePlacement.js
 StructureSupport.js
 
+GENERATED
+---------
+generated\README.md
+
+generated\jigsaw-data.json is produced by tools\extract_bedrock_jigsaw_assets.py and should not be hand-authored.

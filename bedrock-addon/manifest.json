@@ -1,11 +1,11 @@
 {
-  "format_version": 2,
+  "format_version": 3,
   "header": {
     "name": "Sky Archipelago Bedrock",
     "description": "Procedural floating islands ported from Sky Archipelago.",
     "uuid": "b7e7a7d8-4f8d-4d8e-9d8e-4c1a6a1b7e21",
-    "version": [1, 1, 0],
-    "min_engine_version": [1, 21, 80]
+    "version": "1.2.0",
+    "min_engine_version": "1.21.130"
   },
   "modules": [
     {
@@ -13,11 +13,18 @@
       "language": "javascript",
       "entry": "scripts/main.js",
       "uuid": "5a0c7e11-2a4f-46c9-9f24-6c7e3d2a8b10",
-      "version": [1, 1, 0]
+      "version": "1.2.0"
     }
   ],
   "dependencies": [
-    { "module_name": "@minecraft/server", "version": "beta" },
-    { "module_name": "@minecraft/server-ui", "version": "2.1.0" }
+    { "module_name": "@minecraft/server", "version": "beta" }
+  ],
+  "settings": [
+    { "type": "label", "text": "§e§lSky Archipelago Configuration§r" },
+    { "type": "label", "text": "§7These settings control the procedural island generator and visual presentation." },
+    { "type": "slider", "name": "sky_archipelago:terrain_relief", "text": "Terrain Relief", "default": 1.0, "min": 0.0, "max": 2.0, "step": 0.05 },
+    { "type": "toggle", "name": "sky_archipelago:surface_enabled", "text": "Generate Surface Layers", "default": true },
+    { "type": "toggle", "name": "sky_archipelago:vegetation_enabled", "text": "Generate Vegetation", "default": true },
+    { "type": "toggle", "name": "sky_archipelago:ocean_enabled", "text": "Enable Ocean", "default": false }
   ]
 }

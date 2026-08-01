@@ -1,0 +1,25 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Sky Archipelago - Bedrock",
+    "description": "Procedural floating island generation inspired by the Sky Archipelago generator.",
+    "uuid": "7c3e5a3e-9e4a-4f6f-9a1a-0d3a8e2c5b11",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 21, 0]
+  },
+  "modules": [
+    {
+      "type": "script",
+      "language": "javascript",
+      "uuid": "4a8c7d21-5b39-4d4f-8c3b-2e9f6a1d7c44",
+      "version": [1, 0, 0],
+      "entry": "scripts/main.js"
+    }
+  ],
+  "dependencies": [
+    {
+      "module_name": "@minecraft/server",
+      "version": "1.17.0"
+    }
+  ]
+}

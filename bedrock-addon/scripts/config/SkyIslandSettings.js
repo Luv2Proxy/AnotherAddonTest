@@ -1,3 +1,5 @@
+// Server-side generation constants. Native pack settings live in manifest.json
+// and are consumed by Molang on the resource-pack/client side.
 export const SETTINGS = Object.freeze({
   spacing: 96,
   minIslandY: 32,

@@ -3,17 +3,40 @@ export class StructureOverlapGuard {
 
   key(x, y, z) { return `${Math.floor(x)},${Math.floor(y)},${Math.floor(z)}`; }
 
-  reserve(id, bounds, padding = 0) {
+  normalizedBounds(bounds, padding = 0) {
+    if (!bounds?.min || !bounds?.max) return null;
+    return {
+      min: { x: Math.floor(bounds.min.x) - padding, y: Math.floor(bounds.min.y) - padding, z: Math.floor(bounds.min.z) - padding },
+      max: { x: Math.floor(bounds.max.x) + padding, y: Math.floor(bounds.max.y) + padding, z: Math.floor(bounds.max.z) + padding }
+    };
+  }
+
+  *sample(bounds, padding = 0) {
+    const b = this.normalizedBounds(bounds, padding);
+    if (!b) return;
+    const stepX = 4, stepY = 8, stepZ = 4;
+    for (let x = b.min.x; x <= b.max.x; x += stepX) {
+      for (let y = b.min.y; y <= b.max.y; y += stepY) {
+        for (let z = b.min.z; z <= b.max.z; z += stepZ) yield this.key(x, y, z);
+      }
+    }
+    // Always include the far boundary so thin structures do not miss an edge.
+    for (const x of [b.min.x, b.max.x]) for (const y of [b.min.y, b.max.y]) for (const z of [b.min.z, b.max.z]) yield this.key(x, y, z);
+  }
+
+  canReserve(id, bounds, padding = 0) {
     if (!bounds) return false;
-    const minX = Math.floor(bounds.min.x) - padding, maxX = Math.floor(bounds.max.x) + padding;
-    const minY = Math.floor(bounds.min.y) - padding, maxY = Math.floor(bounds.max.y) + padding;
-    const minZ = Math.floor(bounds.min.z) - padding, maxZ = Math.floor(bounds.max.z) + padding;
-    for (let x = minX; x <= maxX; x += 4) for (let y = minY; y <= maxY; y += 8) for (let z = minZ; z <= maxZ; z += 4) {
-      const owners = this.occupancy.get(this.key(x, y, z));
+    for (const k of this.sample(bounds, padding)) {
+      const owners = this.occupancy.get(k);
       if (owners && owners.some(o => o !== id)) return false;
     }
-    for (let x = minX; x <= maxX; x += 4) for (let y = minY; y <= maxY; y += 8) for (let z = minZ; z <= maxZ; z += 4) {
-      const k = this.key(x, y, z), owners = this.occupancy.get(k) ?? [];
+    return true;
+  }
+
+  reserve(id, bounds, padding = 0) {
+    if (!this.canReserve(id, bounds, padding)) return false;
+    for (const k of this.sample(bounds, padding)) {
+      const owners = this.occupancy.get(k) ?? [];
       if (!owners.includes(id)) owners.push(id);
       this.occupancy.set(k, owners);
     }
@@ -28,7 +51,6 @@ export class StructureOverlapGuard {
   }
 
   clear() { this.occupancy.clear(); }
-
   serialize() { return [...this.occupancy.entries()]; }
   restore(data) { this.occupancy = new Map(Array.isArray(data) ? data : []); }
 }

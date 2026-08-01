@@ -1,5 +1,5 @@
-export const SETTINGS = {
-  spacing: 192,
+export const SETTINGS = Object.freeze({
+  spacing: 96,
   minIslandY: 32,
   maxIslandY: 220,
   minIslandRadius: 18,
@@ -13,9 +13,9 @@ export const SETTINGS = {
     veryHighOffset: 0,
     terrainReliefScale: 1.0,
     channelCarveScale: 1.0,
-    basinCarveScale: 1.0
+    basinCarveScale: 1.0,
+    ocean: { oceanEnabled: false, oceanLevelY: 0, oceanFloorNoiseEnabled: false }
   },
-  archetypes: { classic: 1, bowl_crater: 1, crescent: 1, terrace: 1 },
-  overlapMode: "crater",
-  oceanEnabled: false
-};
+  advanced: { deepslateStartY: 0, terrainOverlapMode: "crater" },
+  archetypes: { classic: 1, bowl_crater: 1, crescent: 1, terrace: 1 }
+});

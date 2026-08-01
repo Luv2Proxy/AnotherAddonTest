@@ -1,0 +1,14 @@
+﻿Directory: org\sathrek\sky_archipelago\worldgen\generator\structure\v2\common\model
+================================================================================
+
+FILES
+-----
+AcceptedStructurePlacement.java
+HostIsland.java
+HostIslandKey.java
+HostQuery.java
+IslandPlacementSite.java
+PlannedStructurePlacement.java
+PreAnchorPlacementContext.java
+StructurePlacementPolicy.java
+

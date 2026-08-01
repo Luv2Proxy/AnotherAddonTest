@@ -1,0 +1,19 @@
+﻿Directory: org\sathrek\sky_archipelago\worldgen\structure\sky\model
+================================================================================
+
+FILES
+-----
+LandBudget.java
+LandCandidateEvaluation.java
+LandRefinementResult.java
+LandSizeTier.java
+LandSupportMask.java
+LocalOffset.java
+PlacementCandidate.java
+PlacementFailureDiagnostics.java
+PlacementResult.java
+RejectedHostCandidate.java
+RejectedSkyCandidate.java
+RelativePoint.java
+SkyCandidate.java
+

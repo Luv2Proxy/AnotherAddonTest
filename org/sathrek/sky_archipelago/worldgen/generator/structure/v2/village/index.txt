@@ -1,0 +1,12 @@
+﻿Directory: org\sathrek\sky_archipelago\worldgen\generator\structure\v2\village
+================================================================================
+
+FILES
+-----
+GroundVillagePlacementEngine.java
+VillageIslandBoundsEvaluator.java
+VillageLayoutTrimmer.java
+VillagePieceClassifier.java
+VillagePieceGroundingPlanner.java
+VillagePreAnchorPlanner.java
+

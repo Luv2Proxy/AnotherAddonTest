@@ -1,0 +1,11 @@
+﻿Directory: org\sathrek\sky_archipelago\worldgen\generator
+================================================================================
+
+DIRECTORIES
+-----------
+core
+field
+structure
+surface
+terrain
+

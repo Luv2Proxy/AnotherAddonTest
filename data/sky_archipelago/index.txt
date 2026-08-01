@@ -1,0 +1,9 @@
+﻿Directory: data\sky_archipelago
+================================================================================
+
+DIRECTORIES
+-----------
+presets
+tags
+worldgen
+

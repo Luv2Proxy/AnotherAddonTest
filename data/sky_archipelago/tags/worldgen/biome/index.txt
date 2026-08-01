@@ -1,0 +1,12 @@
+﻿Directory: data\sky_archipelago\tags\worldgen\biome
+================================================================================
+
+FILES
+-----
+surface_badlands.json
+surface_coarse_dirt.json
+surface_gravel.json
+surface_mushroom.json
+surface_sand.json
+surface_snow.json
+

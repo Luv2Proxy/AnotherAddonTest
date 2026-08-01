@@ -1,0 +1,13 @@
+﻿Directory: org\sathrek\sky_archipelago\worldgen\generator\structure\v2
+================================================================================
+
+DIRECTORIES
+-----------
+common
+ground
+sky
+stronghold
+underground
+village
+water
+

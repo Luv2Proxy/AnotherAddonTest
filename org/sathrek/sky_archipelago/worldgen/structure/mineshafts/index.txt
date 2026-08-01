@@ -1,0 +1,10 @@
+﻿Directory: org\sathrek\sky_archipelago\worldgen\structure\mineshafts
+================================================================================
+
+FILES
+-----
+MineshaftAnchorResolver.java
+MineshaftAnchorStrategy.java
+MineshaftPlacementCoordinator.java
+MineshaftPlacementDecision.java
+

@@ -1,0 +1,10 @@
+﻿Directory: data\sky_archipelago\presets
+================================================================================
+
+FILES
+-----
+continental_waters.json
+default_values.json
+from_the_lowest_low_to_the_highest_high.json
+index.json
+

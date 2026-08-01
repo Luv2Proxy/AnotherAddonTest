@@ -1,0 +1,16 @@
+﻿Directory: org\sathrek\sky_archipelago\worldgen\generator\structure\v2\common
+================================================================================
+
+FILES
+-----
+CategoryPlacementEngine.java
+PlacementDecision.java
+PlacementRequest.java
+
+DIRECTORIES
+-----------
+model
+placement
+policy
+registry
+

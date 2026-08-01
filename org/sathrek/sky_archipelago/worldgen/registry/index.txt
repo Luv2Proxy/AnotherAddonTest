@@ -1,0 +1,7 @@
+﻿Directory: org\sathrek\sky_archipelago\worldgen\registry
+================================================================================
+
+FILES
+-----
+ModWorldgenRegistries.java
+

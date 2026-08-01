@@ -1,0 +1,21 @@
+﻿Directory: org\sathrek\sky_archipelago\worldgen\generator\structure\v2\water
+================================================================================
+
+FILES
+-----
+DynamicWaterStructureAdapter.java
+DynamicWaterStructureAdapters.java
+OceanMonumentWaterAdapter.java
+WaterAnchorPlanner.java
+WaterConstraintEvaluator.java
+WaterDepthProbe.java
+WaterModeSelector.java
+WaterPlacementCommitter.java
+WaterTelemetry.java
+WaterV2PlacementEngine.java
+
+DIRECTORIES
+-----------
+model
+monument
+

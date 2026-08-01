@@ -1,0 +1,16 @@
+﻿Directory: .
+================================================================================
+
+FILES
+-----
+pack.mcmeta
+sky_archipelago.mixins.json
+test.ps1
+
+DIRECTORIES
+-----------
+assets
+data
+META-INF
+org
+

@@ -1,0 +1,7 @@
+﻿Directory: data\sky_archipelago\tags
+================================================================================
+
+DIRECTORIES
+-----------
+worldgen
+

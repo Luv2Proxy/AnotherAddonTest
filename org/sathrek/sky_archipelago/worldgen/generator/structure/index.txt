@@ -1,0 +1,17 @@
+﻿Directory: org\sathrek\sky_archipelago\worldgen\generator\structure
+================================================================================
+
+FILES
+-----
+FeaturePlacementCrashShield.java
+SkyIslandStructurePlacementPass.java
+StructurePlacementOrchestrator.java
+StructureRegistryGuard.java
+StructureSaveDataSanitizer.java
+TerrainIntrusionAnalyzer.java
+WaterVolumePostPlacementNormalizer.java
+
+DIRECTORIES
+-----------
+v2
+

@@ -1,0 +1,9 @@
+﻿Directory: data\sky_archipelago\worldgen
+================================================================================
+
+DIRECTORIES
+-----------
+structure
+structure_set
+world_preset
+

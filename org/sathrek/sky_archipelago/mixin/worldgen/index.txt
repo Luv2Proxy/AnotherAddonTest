@@ -1,0 +1,16 @@
+﻿Directory: org\sathrek\sky_archipelago\mixin\worldgen
+================================================================================
+
+FILES
+-----
+ChunkGeneratorFeaturePlacementMixin.java
+ChunkGeneratorLocateStructureMixin.java
+ChunkMapSaveSanitizerMixin.java
+JigsawStructureAccessor.java
+OceanMonumentBuildingMixin.java
+OceanMonumentPieceAccessor.java
+OceanMonumentStructureRegenerationMixin.java
+ServerLevelLocateStructureMixin.java
+StructurePieceCaptureMixin.java
+StructureStartPostProcessMixin.java
+

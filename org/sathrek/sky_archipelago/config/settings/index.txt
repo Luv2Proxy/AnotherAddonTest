@@ -1,0 +1,17 @@
+﻿Directory: org\sathrek\sky_archipelago\config\settings
+================================================================================
+
+FILES
+-----
+AdvancedGeneratorSettings.java
+AdvancedRuntimeSettings.java
+ArchetypeSettings.java
+ClusterSpacingSettings.java
+IslandSizeSettings.java
+OceanSettings.java
+SkyIslandSettingLimits.java
+SkyIslandSettingsFactory.java
+StructureCategorySettings.java
+StructureSupportSettings.java
+TerrainSettings.java
+

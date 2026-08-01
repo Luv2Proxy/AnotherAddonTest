@@ -1,0 +1,25 @@
+﻿Directory: org\sathrek\sky_archipelago\worldgen\structure
+================================================================================
+
+FILES
+-----
+AnchorResolverStrategy.java
+JigsawAnchorResolver.java
+JigsawStartHeightOffsetResolver.java
+PieceAwareSupportPlaneResolver.java
+ResolvedStructureSupportPlane.java
+StructureFootprint.java
+StructurePlacementCategory.java
+StructurePlacementPolicy.java
+StructureSupportContext.java
+StructureSupportPlaneResolver.java
+StructureSupportValidator.java
+StructureWhitelist.java
+WaterPlacementMode.java
+
+DIRECTORIES
+-----------
+mineshafts
+sky
+underground
+

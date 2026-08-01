@@ -1,0 +1,7 @@
+﻿Directory: data\sky_archipelago\worldgen\world_preset
+================================================================================
+
+FILES
+-----
+sky_islands.json
+

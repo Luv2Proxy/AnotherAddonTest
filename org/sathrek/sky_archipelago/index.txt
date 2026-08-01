@@ -1,0 +1,15 @@
+﻿Directory: org\sathrek\sky_archipelago
+================================================================================
+
+FILES
+-----
+SkyArchipelago.java
+
+DIRECTORIES
+-----------
+client
+command
+config
+mixin
+worldgen
+

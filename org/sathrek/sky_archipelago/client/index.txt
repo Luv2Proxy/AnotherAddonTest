@@ -1,0 +1,11 @@
+﻿Directory: org\sathrek\sky_archipelago\client
+================================================================================
+
+FILES
+-----
+SkyIslandAdvancedCustomizeScreen.java
+SkyIslandCustomizeScreen.java
+SkyIslandLayoutHelper.java
+SkyIslandPresetCustomizeScreen.java
+SkyIslandPresetEditorRegistration.java
+

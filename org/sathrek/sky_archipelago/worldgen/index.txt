@@ -1,0 +1,14 @@
+﻿Directory: org\sathrek\sky_archipelago\worldgen
+================================================================================
+
+FILES
+-----
+WorldgenPerformanceMetrics.java
+
+DIRECTORIES
+-----------
+generator
+registry
+spawn
+structure
+

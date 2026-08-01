@@ -1,0 +1,15 @@
+﻿Directory: org\sathrek\sky_archipelago\worldgen\generator\field\internal
+================================================================================
+
+FILES
+-----
+CrescentFootprintSampler.java
+IslandClusterSampler.java
+IslandColumnResolver.java
+IslandDensityEvaluator.java
+IslandDescriptorFactory.java
+IslandFieldCacheSupport.java
+IslandNoise.java
+IslandOverlapResolver.java
+IslandShapeSampler.java
+

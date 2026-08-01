@@ -1,0 +1,22 @@
+﻿Directory: org\sathrek\sky_archipelago\worldgen\structure\sky
+================================================================================
+
+FILES
+-----
+LandCandidateEvaluator.java
+LandEvaluationCache.java
+LandPlacementRefinementService.java
+LandRejectionClassifier.java
+LandSupportMaskFactory.java
+LocalOffsetSampler.java
+SkyCandidateEvaluator.java
+SkyCandidateOrdering.java
+SkyIslandPlacementService.java
+SkyStructurePlacementResolver.java
+SkyStructurePlacementTarget.java
+StructureGroundingFootprintResolver.java
+
+DIRECTORIES
+-----------
+model
+

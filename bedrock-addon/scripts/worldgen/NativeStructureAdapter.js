@@ -1,14 +1,6 @@
 import { world } from "@minecraft/server";
 
-/**
- * Real Bedrock StructureManager integration.
- *
- * Saved structures use StructureManager.place(). Jigsaw structures use
- * placeJigsawStructure()/placeJigsaw(), whose returned bounding boxes are
- * immediately committed to the shared overlap guard. Strongholds and
- * mineshafts remain procedural plans because StructureManager.place() accepts
- * saved Structure templates, not vanilla StructureStart/Piece graphs.
- */
+/** Real Bedrock StructureManager integration for saved and Jigsaw structures. */
 export class NativeStructureAdapter {
   constructor(dimension, generator, overlapGuard) {
     this.dimension = dimension;
@@ -20,15 +12,16 @@ export class NativeStructureAdapter {
   placeTemplate(id, location, options = {}, reservationId = `template:${id}:${location.x}:${location.y}:${location.z}`, padding = 2) {
     const structure = this.manager.get(id);
     if (!structure) throw new Error(`[Sky Archipelago] Structure not found: ${id}`);
-    const bounds = this.boundsFromSize(location, structure.size);
+    const transformedSize = this.transformedSize(structure.size, options.rotation);
+    const bounds = this.boundsFromSize(location, transformedSize);
     if (!this.overlapGuard.canReserve(reservationId, bounds, padding)) return { placed: false, reason: "overlap", bounds };
     this.manager.place(structure, this.dimension, location, {
       includeBlocks: true,
       includeEntities: true,
       ...options
     });
-    this.overlapGuard.reserve(reservationId, bounds, padding);
-    return { placed: true, id, location, bounds, native: false };
+    if (!this.overlapGuard.reserve(reservationId, bounds, padding)) return { placed: false, reason: "reservation_failed", bounds };
+    return { placed: true, id, location, bounds, transformedSize, native: false };
   }
 
   placeJigsawStructure(id, location, options = {}, reservationId = `jigsaw:${id}:${location.x}:${location.y}:${location.z}`, padding = 2) {
@@ -39,14 +32,10 @@ export class NativeStructureAdapter {
       ...options
     });
     if (!bounds) return { placed: false, reason: "no_bounds_returned" };
-    if (!this.overlapGuard.canReserve(reservationId, bounds, padding)) {
-      // The API has already placed the structure, so this is a post-placement
-      // collision report rather than a rollback. Future planning should reserve
-      // the footprint before placement when exact bounds are known.
-      return { placed: true, collision: true, id, bounds, native: true };
-    }
-    this.overlapGuard.reserve(reservationId, bounds, padding);
-    return { placed: true, id, bounds, native: true };
+    // The API returns exact bounds only after placement. Reserve them immediately
+    // so subsequent structures cannot claim the same space.
+    const reserved = this.overlapGuard.reserve(reservationId, bounds, padding);
+    return { placed: true, collision: !reserved, id, bounds, native: true };
   }
 
   placeJigsaw(pool, target, maxDepth, location, options = {}, reservationId = `jigsaw:${pool}:${target}:${location.x}:${location.y}:${location.z}`, padding = 2) {
@@ -58,24 +47,28 @@ export class NativeStructureAdapter {
       ...options
     });
     if (!bounds) return { placed: false, reason: "no_bounds_returned" };
-    if (!this.overlapGuard.canReserve(reservationId, bounds, padding)) return { placed: true, collision: true, pool, target, bounds, native: true };
-    this.overlapGuard.reserve(reservationId, bounds, padding);
-    return { placed: true, pool, target, bounds, native: true };
+    const reserved = this.overlapGuard.reserve(reservationId, bounds, padding);
+    return { placed: true, collision: !reserved, pool, target, bounds, native: true };
   }
 
   placeStronghold(plan) {
-    return { placed: false, procedural: true, plan, reason: "requires_native_structure_start" };
+    return { placed: false, procedural: true, plan, reason: "requires_ported_procedural_generator" };
   }
 
   placeMineshaft(plan) {
-    return { placed: false, procedural: true, plan, reason: "requires_native_structure_start" };
+    return { placed: false, procedural: true, plan, reason: "requires_ported_procedural_generator" };
+  }
+
+  transformedSize(size, rotation = "None") {
+    const x = Number(size?.x ?? 0), y = Number(size?.y ?? 0), z = Number(size?.z ?? 0);
+    return rotation === "90_degrees" || rotation === "270_degrees" ? { x: z, y, z: x } : { x, y, z };
   }
 
   boundsFromSize(location, size) {
-    const sx = Number(size?.x ?? 0), sy = Number(size?.y ?? 0), sz = Number(size?.z ?? 0);
+    const sx = Math.max(0, Number(size?.x ?? 0) - 1), sy = Math.max(0, Number(size?.y ?? 0) - 1), sz = Math.max(0, Number(size?.z ?? 0) - 1);
     return {
       min: { x: Math.floor(location.x), y: Math.floor(location.y), z: Math.floor(location.z) },
-      max: { x: Math.floor(location.x + Math.max(0, sx - 1)), y: Math.floor(location.y + Math.max(0, sy - 1)), z: Math.floor(location.z + Math.max(0, sz - 1)) }
+      max: { x: Math.floor(location.x + sx), y: Math.floor(location.y + sy), z: Math.floor(location.z + sz) }
     };
   }
 }

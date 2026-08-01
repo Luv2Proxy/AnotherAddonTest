@@ -1,0 +1,2 @@
+import { profileForBiome } from "./ExactSurfaceSelector.js";
+export function applyExactSurface(dim,x,z,segments,biomeId,cold=false){if(!segments.length)return;const top=Math.max(...segments.map(s=>s[1]));const [surface,under,deep,depth]=profileForBiome(biomeId,cold,x,z);const steep=segments.some(s=>s[1]===top&&s[1]-s[0]<8);const skinDepth=steep?2:depth;for(let d=0;d<skinDepth;d++){const y=top-d;if(y<segments[0][0])break;dim.setBlockPermutation({x,y,z,d===0?surface:d===1?under:deep});}}

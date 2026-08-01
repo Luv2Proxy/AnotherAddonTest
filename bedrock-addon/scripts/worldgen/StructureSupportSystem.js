@@ -1,0 +1,9 @@
+import { StructureFootprint, StructurePlacementCategory, WaterPlacementMode } from "./StructurePlacementModel.js";
+
+export class StructureSupportSystem {
+ constructor(generator,policy){this.generator=generator;this.policy=policy;}
+ footprintFromBounds(b){return new StructureFootprint(b.min.x,b.max.x,b.min.z,b.max.z)}
+ sampleSupport(footprint){const points=footprint.sampleGrid(7),samples=[];for(const p of points){const y=this.generator.surfaceY?.(p.x,p.z)??this.generator.columnTop?.(p.x,p.z);if(y==null)return null;samples.push({x:p.x,z:p.z,y});}const avg=samples.reduce((a,p)=>a+p.y,0)/samples.length,stable=samples.filter(p=>Math.abs(p.y-avg)<=2),ratio=stable.length/samples.length;return{samples,avg,stable,ratio,min:Math.min(...samples.map(p=>p.y)),max:Math.max(...samples.map(p=>p.y))};}
+ resolve(category,bounds){const fp=this.footprintFromBounds(bounds),s=this.sampleSupport(fp);if(!s)return{accepted:false,reason:"no_terrain"};const threshold=category===StructurePlacementCategory.SMALL_SKY?this.policy.smallSkySupportThreshold:this.policy.surfaceSkySupportThreshold;if([StructurePlacementCategory.SURFACE_SKY,StructurePlacementCategory.SMALL_SKY].includes(category)&&s.ratio<threshold)return{accepted:false,reason:"insufficient_support",support:s};if(category===StructurePlacementCategory.GROUND_VILLAGE&&s.ratio<.58)return{accepted:false,reason:"village_support",support:s};return{accepted:true,footprint:fp,support:s,y:Math.floor(s.min)};}
+ resolveWater(category,bounds,id){if(category!==StructurePlacementCategory.WATER)return null;const mode=this.policy.waterMode(id)??WaterPlacementMode.OCEAN_FLOOR;const fp=this.footprintFromBounds(bounds),s=this.sampleSupport(fp);if(!s)return{accepted:false,reason:"no_water_floor"};return{accepted:true,mode,y:mode===WaterPlacementMode.SURFACE?s.max:s.min};}
+}

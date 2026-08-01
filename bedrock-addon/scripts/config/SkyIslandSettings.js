@@ -1,23 +1,10 @@
-// Server-side generation constants. Native pack settings live in manifest.json
-// and are consumed by Molang on the resource-pack/client side.
-export const SETTINGS = Object.freeze({
-  spacing: 96,
-  minIslandY: 32,
-  maxIslandY: 220,
-  minIslandRadius: 18,
-  maxIslandRadius: 72,
-  maxIslandThickness: 150,
-  terrain: {
-    lowWeight: 1.0,
-    midHighWeight: 3.0,
-    veryHighWeight: 1.0,
-    lowOffset: 0,
-    veryHighOffset: 0,
-    terrainReliefScale: 1.0,
-    channelCarveScale: 1.0,
-    basinCarveScale: 1.0,
-    ocean: { oceanEnabled: false, oceanLevelY: 0, oceanFloorNoiseEnabled: false }
-  },
-  advanced: { deepslateStartY: 0, terrainOverlapMode: "crater" },
-  archetypes: { classic: 1, bowl_crater: 1, crescent: 1, terrace: 1 }
+import { world } from "@minecraft/server";
+
+export const SETTING_IDS = Object.freeze({
+  spacing:"sky_archipelago:cluster_spacing",minY:"sky_archipelago:min_island_y",maxY:"sky_archipelago:max_island_y",minRadius:"sky_archipelago:min_island_radius",maxRadius:"sky_archipelago:max_island_radius",maxThickness:"sky_archipelago:max_island_thickness",relief:"sky_archipelago:terrain_relief",channelCarve:"sky_archipelago:channel_carving",basinCarve:"sky_archipelago:basin_carving",deepslateY:"sky_archipelago:deepslate_start_y",overlap:"sky_archipelago:overlap_mode",classicWeight:"sky_archipelago:classic_weight",bowlWeight:"sky_archipelago:bowl_crater_weight",crescentWeight:"sky_archipelago:crescent_weight",terraceWeight:"sky_archipelago:terrace_weight",surface:"sky_archipelago:surface_enabled",vegetation:"sky_archipelago:vegetation_enabled",ocean:"sky_archipelago:ocean_enabled",oceanLevel:"sky_archipelago:ocean_level_y"
 });
+const DEFAULTS=Object.freeze({spacing:96,minIslandY:32,maxIslandY:220,minIslandRadius:18,maxIslandRadius:72,maxIslandThickness:150,terrainReliefScale:1,channelCarveScale:1,basinCarveScale:1,deepslateStartY:0,terrainOverlapMode:"crater",classicWeight:1,bowlCraterWeight:1,crescentWeight:1,terraceWeight:1,surfaceEnabled:true,vegetationEnabled:true,oceanEnabled:false,oceanLevelY:0});
+const num=(v,d)=>typeof v==="number"&&Number.isFinite(v)?v:d;
+const bool=(v,d)=>typeof v==="boolean"?v:d;
+export function readPackSettings(){try{const p=world.getPackSettings?.()??{};return{spacing:num(p[SETTING_IDS.spacing],DEFAULTS.spacing),minIslandY:num(p[SETTING_IDS.minY],DEFAULTS.minIslandY),maxIslandY:num(p[SETTING_IDS.maxY],DEFAULTS.maxIslandY),minIslandRadius:num(p[SETTING_IDS.minRadius],DEFAULTS.minIslandRadius),maxIslandRadius:num(p[SETTING_IDS.maxRadius],DEFAULTS.maxIslandRadius),maxIslandThickness:num(p[SETTING_IDS.maxThickness],DEFAULTS.maxIslandThickness),terrainReliefScale:num(p[SETTING_IDS.relief],DEFAULTS.terrainReliefScale),channelCarveScale:num(p[SETTING_IDS.channelCarve],DEFAULTS.channelCarveScale),basinCarveScale:num(p[SETTING_IDS.basinCarve],DEFAULTS.basinCarveScale),deepslateStartY:num(p[SETTING_IDS.deepslateY],DEFAULTS.deepslateStartY),terrainOverlapMode:typeof p[SETTING_IDS.overlap]==="string"?p[SETTING_IDS.overlap]:DEFAULTS.terrainOverlapMode,classicWeight:num(p[SETTING_IDS.classicWeight],DEFAULTS.classicWeight),bowlCraterWeight:num(p[SETTING_IDS.bowlWeight],DEFAULTS.bowlCraterWeight),crescentWeight:num(p[SETTING_IDS.crescentWeight],DEFAULTS.crescentWeight),terraceWeight:num(p[SETTING_IDS.terraceWeight],DEFAULTS.terraceWeight),surfaceEnabled:bool(p[SETTING_IDS.surface],DEFAULTS.surfaceEnabled),vegetationEnabled:bool(p[SETTING_IDS.vegetation],DEFAULTS.vegetationEnabled),oceanEnabled:bool(p[SETTING_IDS.ocean],DEFAULTS.oceanEnabled),oceanLevelY:num(p[SETTING_IDS.oceanLevel],DEFAULTS.oceanLevelY)}}catch(e){console.warn(`[Sky Archipelago] getPackSettings unavailable; defaults used: ${e}`);return{...DEFAULTS};}}
+export const SETTINGS=Object.freeze({get:readPackSettings});

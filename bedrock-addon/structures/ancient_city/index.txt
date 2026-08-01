@@ -1,0 +1,10 @@
+﻿Directory: bedrock-addon\structures\ancient_city
+================================================================================
+
+DIRECTORIES
+-----------
+city
+city_center
+structures
+walls
+

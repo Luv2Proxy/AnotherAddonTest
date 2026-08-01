@@ -1,0 +1,9 @@
+﻿Directory: bedrock-addon\structures\bastion\bridge\starting_pieces
+================================================================================
+
+FILES
+-----
+entrance.mcstructure
+entrance_base.mcstructure
+entrance_face.mcstructure
+

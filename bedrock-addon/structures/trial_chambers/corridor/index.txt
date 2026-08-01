@@ -1,0 +1,8 @@
+﻿Directory: bedrock-addon\structures\trial_chambers\corridor
+================================================================================
+
+DIRECTORIES
+-----------
+addon
+atrium
+

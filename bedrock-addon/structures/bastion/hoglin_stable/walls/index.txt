@@ -1,0 +1,9 @@
+﻿Directory: bedrock-addon\structures\bastion\hoglin_stable\walls
+================================================================================
+
+FILES
+-----
+side_wall_0.mcstructure
+side_wall_1.mcstructure
+wall_base.mcstructure
+

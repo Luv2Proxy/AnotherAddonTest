@@ -1,0 +1,23 @@
+﻿Directory: bedrock-addon\structures\ancient_city\walls
+================================================================================
+
+FILES
+-----
+intact_corner_wall_1.mcstructure
+intact_horizontal_wall_1.mcstructure
+intact_horizontal_wall_2.mcstructure
+intact_horizontal_wall_bridge.mcstructure
+intact_horizontal_wall_passage_1.mcstructure
+intact_horizontal_wall_stairs_1.mcstructure
+intact_horizontal_wall_stairs_2.mcstructure
+intact_horizontal_wall_stairs_3.mcstructure
+intact_horizontal_wall_stairs_4.mcstructure
+intact_intersection_wall_1.mcstructure
+intact_lshape_wall_1.mcstructure
+ruined_corner_wall_1.mcstructure
+ruined_corner_wall_2.mcstructure
+ruined_horizontal_wall_stairs_1.mcstructure
+ruined_horizontal_wall_stairs_2.mcstructure
+ruined_horizontal_wall_stairs_3.mcstructure
+ruined_horizontal_wall_stairs_4.mcstructure
+

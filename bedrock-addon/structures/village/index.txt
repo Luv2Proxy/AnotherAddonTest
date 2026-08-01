@@ -1,0 +1,13 @@
+﻿Directory: bedrock-addon\structures\village
+================================================================================
+
+DIRECTORIES
+-----------
+common
+decays
+desert
+plains
+savanna
+snowy
+taiga
+

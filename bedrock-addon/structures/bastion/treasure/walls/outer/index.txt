@@ -1,0 +1,12 @@
+﻿Directory: bedrock-addon\structures\bastion\treasure\walls\outer
+================================================================================
+
+FILES
+-----
+bottom_corner.mcstructure
+medium_outer_wall.mcstructure
+mid_corner.mcstructure
+outer_wall.mcstructure
+tall_outer_wall.mcstructure
+top_corner.mcstructure
+

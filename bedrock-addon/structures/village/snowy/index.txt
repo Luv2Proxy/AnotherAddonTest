@@ -1,0 +1,11 @@
+﻿Directory: bedrock-addon\structures\village\snowy
+================================================================================
+
+DIRECTORIES
+-----------
+houses
+streets
+town_centers
+villagers
+zombie
+

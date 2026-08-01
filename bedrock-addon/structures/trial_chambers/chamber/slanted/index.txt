@@ -1,0 +1,3 @@
+﻿Directory: bedrock-addon\structures\trial_chambers\chamber\slanted
+================================================================================
+

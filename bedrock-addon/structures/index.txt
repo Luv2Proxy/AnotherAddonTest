@@ -1,0 +1,24 @@
+﻿Directory: bedrock-addon\structures
+================================================================================
+
+FILES
+-----
+README.md
+
+DIRECTORIES
+-----------
+ancient_city
+bastion
+end_city
+fossil
+igloo
+nether_fossils
+pillager_outpost
+ruined_portal
+shipwreck
+trail_ruins
+trial_chambers
+underwater_ruin
+village
+woodland_mansion
+

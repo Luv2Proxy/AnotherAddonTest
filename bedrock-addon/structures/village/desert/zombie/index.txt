@@ -1,0 +1,11 @@
+﻿Directory: bedrock-addon\structures\village\desert\zombie
+================================================================================
+
+DIRECTORIES
+-----------
+houses
+streets
+terminators
+town_centers
+villagers
+

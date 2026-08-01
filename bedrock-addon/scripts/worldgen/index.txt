@@ -1,0 +1,21 @@
+﻿Directory: bedrock-addon\scripts\worldgen
+================================================================================
+
+FILES
+-----
+BiomeTerrainProfiles.js
+ExactMaterialPlan.js
+ExactSurfacePass.js
+ExactSurfaceSelector.js
+IslandClusterSampler.js
+IslandDensityEvaluator.js
+IslandDescriptorFactory.js
+IslandGenerator.js
+IslandNoise.js
+IslandShapeSampler.js
+IslandSurfacePass.js
+PackSettings.js
+StructureDetection.js
+StructurePlacement.js
+StructureSupport.js
+

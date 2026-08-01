@@ -1,17 +1,12 @@
-﻿Directory: .
+﻿Directory: bedrock-addon\scripts
 ================================================================================
 
 FILES
 -----
-pack.mcmeta
-sky_archipelago.mixins.json
-test.ps1
+main.js
 
 DIRECTORIES
 -----------
-assets
-bedrock-addon
-data
-META-INF
-org
+config
+worldgen
 

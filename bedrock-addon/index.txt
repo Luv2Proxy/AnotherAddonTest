@@ -1,17 +1,13 @@
-﻿Directory: .
+﻿Directory: bedrock-addon
 ================================================================================
 
 FILES
 -----
-pack.mcmeta
-sky_archipelago.mixins.json
-test.ps1
+manifest.json
+README.md
 
 DIRECTORIES
 -----------
-assets
-bedrock-addon
-data
-META-INF
-org
+scripts
+structures
 

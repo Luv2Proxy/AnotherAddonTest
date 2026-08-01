@@ -1,0 +1,12 @@
+﻿Directory: bedrock-addon\structures\bastion\treasure\ramparts
+================================================================================
+
+FILES
+-----
+bottom_wall_0.mcstructure
+lava_basin_main.mcstructure
+lava_basin_side.mcstructure
+mid_wall_main.mcstructure
+mid_wall_side.mcstructure
+top_wall.mcstructure
+

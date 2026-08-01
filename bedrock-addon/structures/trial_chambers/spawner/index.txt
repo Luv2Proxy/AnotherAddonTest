@@ -1,0 +1,12 @@
+﻿Directory: bedrock-addon\structures\trial_chambers\spawner
+================================================================================
+
+DIRECTORIES
+-----------
+breeze
+connectors
+melee
+ranged
+slow_ranged
+small_melee
+

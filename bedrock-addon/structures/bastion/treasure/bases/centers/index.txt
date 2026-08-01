@@ -1,0 +1,10 @@
+﻿Directory: bedrock-addon\structures\bastion\treasure\bases\centers
+================================================================================
+
+FILES
+-----
+center_0.mcstructure
+center_1.mcstructure
+center_2.mcstructure
+center_3.mcstructure
+

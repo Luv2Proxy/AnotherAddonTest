@@ -1,0 +1,15 @@
+﻿Directory: bedrock-addon\structures\bastion\treasure\walls
+================================================================================
+
+FILES
+-----
+entrance_wall.mcstructure
+lava_wall.mcstructure
+
+DIRECTORIES
+-----------
+bottom
+mid
+outer
+top
+

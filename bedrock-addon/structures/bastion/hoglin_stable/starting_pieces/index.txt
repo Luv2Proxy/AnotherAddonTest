@@ -1,0 +1,16 @@
+﻿Directory: bedrock-addon\structures\bastion\hoglin_stable\starting_pieces
+================================================================================
+
+FILES
+-----
+stairs_0_mirrored.mcstructure
+stairs_1_mirrored.mcstructure
+stairs_2_mirrored.mcstructure
+stairs_3_mirrored.mcstructure
+stairs_4_mirrored.mcstructure
+starting_stairs_0.mcstructure
+starting_stairs_1.mcstructure
+starting_stairs_2.mcstructure
+starting_stairs_3.mcstructure
+starting_stairs_4.mcstructure
+

@@ -1,0 +1,8 @@
+﻿Directory: bedrock-addon\scripts\config
+================================================================================
+
+FILES
+-----
+SkyIslandConfig.js
+SkyIslandSettings.js
+

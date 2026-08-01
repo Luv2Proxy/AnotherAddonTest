@@ -1,0 +1,8 @@
+﻿Directory: bedrock-addon\structures\bastion\bridge\legs
+================================================================================
+
+FILES
+-----
+leg_0.mcstructure
+leg_1.mcstructure
+

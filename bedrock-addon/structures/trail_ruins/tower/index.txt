@@ -1,0 +1,3 @@
+﻿Directory: bedrock-addon\structures\trail_ruins\tower
+================================================================================
+

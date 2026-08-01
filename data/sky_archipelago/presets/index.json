@@ -1,0 +1,17 @@
+[
+  {
+    "stem": "default_values",
+    "name": "Default Values",
+    "description": "Matches the mod's hardcoded baseline settings."
+  },
+  {
+    "stem": "from_the_lowest_low_to_the_highest_high",
+    "name": "From the Lowest Low, to the Highest High",
+    "description": "Best for survival gameplay, with islands spread across the full Y range and accessible ores by default."
+  },
+  {
+    "stem": "continental_waters",
+    "name": "Continental Waters",
+    "description": "Massive continent-style islands with ocean enabled and very large spacing between landmasses."
+  }
+]

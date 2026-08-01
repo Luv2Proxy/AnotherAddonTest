@@ -1,0 +1,88 @@
+package org.sathrek.sky_archipelago.worldgen.generator.field.cache;
+
+import org.sathrek.sky_archipelago.config.ClusterSpacingMode;
+import org.sathrek.sky_archipelago.config.IslandSizeMode;
+import org.sathrek.sky_archipelago.config.SkyIslandSettings;
+import org.sathrek.sky_archipelago.config.TerrainOverlapMode;
+
+public record IslandFieldSettingsKey(
+   ClusterSpacingMode clusterSpacingMode,
+   int clusterSpacing,
+   int minClusterSpacing,
+   int maxClusterSpacing,
+   int minIslandRadius,
+   int maxIslandRadius,
+   IslandSizeMode islandSizeMode,
+   int smallMinRadius,
+   int smallMaxRadius,
+   long smallWeightBits,
+   int mediumMinRadius,
+   int mediumMaxRadius,
+   long mediumWeightBits,
+   int largeMinRadius,
+   int largeMaxRadius,
+   long largeWeightBits,
+   int minIslandY,
+   int maxIslandY,
+   long densityBits,
+   long lowBandWeightBits,
+   long midHighBandWeightBits,
+   long veryHighBandWeightBits,
+   int lowBandCenterOffset,
+   int veryHighBandCenterOffset,
+   long reliefBits,
+   boolean classicArchetypeEnabled,
+   long classicArchetypeWeightBits,
+   boolean bowlCraterArchetypeEnabled,
+   long bowlCraterArchetypeWeightBits,
+   boolean crescentArchetypeEnabled,
+   long crescentArchetypeWeightBits,
+   boolean terraceArchetypeEnabled,
+   long terraceArchetypeWeightBits,
+   boolean clusterCompanionIslandsEnabled,
+   boolean disableIslandsOverOceanBiomes,
+   TerrainOverlapMode terrainOverlapMode,
+   int maxIslandThicknessBlocks
+) {
+   public static IslandFieldSettingsKey from(SkyIslandSettings settings) {
+      return new IslandFieldSettingsKey(
+         settings.terrain().spacing().clusterSpacingMode(),
+         settings.terrain().spacing().clusterSpacing(),
+         settings.terrain().spacing().minClusterSpacing(),
+         settings.terrain().spacing().maxClusterSpacing(),
+         settings.terrain().minIslandRadius(),
+         settings.terrain().maxIslandRadius(),
+         settings.terrain().islandSize().islandSizeMode(),
+         settings.terrain().islandSize().smallIslandSizeBand().minRadius(),
+         settings.terrain().islandSize().smallIslandSizeBand().maxRadius(),
+         Double.doubleToLongBits(settings.terrain().islandSize().smallIslandSizeBand().weight()),
+         settings.terrain().islandSize().mediumIslandSizeBand().minRadius(),
+         settings.terrain().islandSize().mediumIslandSizeBand().maxRadius(),
+         Double.doubleToLongBits(settings.terrain().islandSize().mediumIslandSizeBand().weight()),
+         settings.terrain().islandSize().largeIslandSizeBand().minRadius(),
+         settings.terrain().islandSize().largeIslandSizeBand().maxRadius(),
+         Double.doubleToLongBits(settings.terrain().islandSize().largeIslandSizeBand().weight()),
+         settings.terrain().minIslandY(),
+         settings.terrain().maxIslandY(),
+         Double.doubleToLongBits(settings.terrain().islandDensity()),
+         Double.doubleToLongBits(settings.terrain().lowBandWeight()),
+         Double.doubleToLongBits(settings.terrain().midHighBandWeight()),
+         Double.doubleToLongBits(settings.terrain().veryHighBandWeight()),
+         settings.terrain().lowBandCenterOffset(),
+         settings.terrain().veryHighBandCenterOffset(),
+         Double.doubleToLongBits(settings.terrain().terrainReliefScale()),
+         settings.terrain().archetypes().classicArchetypeEnabled(),
+         Double.doubleToLongBits(settings.terrain().archetypes().classicArchetypeWeight()),
+         settings.terrain().archetypes().bowlCraterArchetypeEnabled(),
+         Double.doubleToLongBits(settings.terrain().archetypes().bowlCraterArchetypeWeight()),
+         settings.terrain().archetypes().crescentArchetypeEnabled(),
+         Double.doubleToLongBits(settings.terrain().archetypes().crescentArchetypeWeight()),
+         settings.terrain().archetypes().terraceArchetypeEnabled(),
+         Double.doubleToLongBits(settings.terrain().archetypes().terraceArchetypeWeight()),
+         settings.advanced().clusterCompanionIslandsEnabled(),
+         settings.advanced().disableIslandsOverOceanBiomes(),
+         settings.advanced().terrainOverlapMode(),
+         settings.terrain().maxIslandThicknessBlocks()
+      );
+   }
+}

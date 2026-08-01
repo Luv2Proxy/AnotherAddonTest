@@ -1,0 +1,67 @@
+{
+  "terrain": {
+    "island_density": 0.4,
+    "min_island_radius": 24,
+    "max_island_radius": 75,
+    "min_island_y": 20,
+    "max_island_y": 170,
+    "max_island_thickness_blocks": 140,
+    "low_band_weight": 0.15,
+    "mid_high_band_weight": 0.75,
+    "very_high_band_weight": 0.1,
+    "low_band_center_offset": -18,
+    "very_high_band_center_offset": 12,
+    "cluster_spacing": 96,
+    "terrain_relief_scale": 1.0,
+    "archetypes": {
+      "classic_enabled": true,
+      "classic_weight": 1.0,
+      "bowl_crater_enabled": true,
+      "bowl_crater_weight": 1.0,
+      "crescent_enabled": true,
+      "crescent_weight": 1.0,
+      "terrace_enabled": true,
+      "terrace_weight": 1.0
+    },
+    "ocean_enabled": false,
+    "ocean_level_y": 0
+  },
+  "structure_support": {
+    "support_check_depth": 48,
+    "support_sample_grid_size": 5,
+    "support_threshold": 0.6
+  },
+  "surface_sky": {
+    "support_threshold": 0.42,
+    "footprint_inset_ratio": 0.18,
+    "search_radius_chunks": 3,
+    "min_stable_top_cells": 12,
+    "top_offset": 1,
+    "local_search_step_blocks": 8,
+    "local_search_radius_blocks": 24,
+    "grounded_sample_threshold": 0.7,
+    "max_ground_gap_blocks": 1,
+    "min_host_island_radius": 26,
+    "min_host_stable_top_cells": 10
+  },
+  "small_sky": {
+    "support_threshold": 0.32,
+    "footprint_inset_ratio": 0.28,
+    "search_radius_chunks": 8,
+    "min_stable_top_cells": 5,
+    "top_offset": 1,
+    "local_search_step_blocks": 4,
+    "local_search_radius_blocks": 20,
+    "grounded_sample_threshold": 0.75,
+    "max_ground_gap_blocks": 1,
+    "min_host_island_radius": 22,
+    "min_host_stable_top_cells": 7
+  },
+  "advanced": {
+    "default_near_miss_fallback_enabled": false,
+    "ocean_block_type": "water",
+    "structure_whitelist": [],
+    "structure_denylist": [],
+    "structure_category_overrides": []
+  }
+}

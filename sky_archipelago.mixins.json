@@ -1,0 +1,20 @@
+{
+  "required": true,
+  "package": "org.sathrek.sky_archipelago.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "worldgen.ChunkGeneratorLocateStructureMixin",
+    "worldgen.ChunkMapSaveSanitizerMixin",
+    "worldgen.ChunkGeneratorFeaturePlacementMixin",
+    "worldgen.JigsawStructureAccessor",
+    "worldgen.OceanMonumentBuildingMixin",
+    "worldgen.OceanMonumentPieceAccessor",
+    "worldgen.OceanMonumentStructureRegenerationMixin",
+    "worldgen.ServerLevelLocateStructureMixin",
+    "worldgen.StructurePieceCaptureMixin",
+    "worldgen.StructureStartPostProcessMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 0
+  }
+}

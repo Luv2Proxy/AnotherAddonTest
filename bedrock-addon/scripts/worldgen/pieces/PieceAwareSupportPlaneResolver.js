@@ -1,0 +1,4 @@
+export class PieceAwareSupportPlaneResolver {
+ constructor(generator,{tolerance=2,sampleGrid=7}={}){this.generator=generator;this.tolerance=tolerance;this.sampleGrid=sampleGrid;}
+ resolve(piece){const b=piece.bounds;if(!b)return null;const samples=[];for(let ix=0;ix<this.sampleGrid;ix++){for(let iz=0;iz<this.sampleGrid;iz++){const x=Math.floor(b.min.x+(b.max.x-b.min.x)*(this.sampleGrid===1?.5:ix/(this.sampleGrid-1))),z=Math.floor(b.min.z+(b.max.z-b.min.z)*(this.sampleGrid===1?.5:iz/(this.sampleGrid-1)));const y=this.generator.surfaceY?.(x,z)??this.generator.columnTop?.(x,z);if(y!=null)samples.push({x,z,y});}}if(!samples.length)return{accepted:false,reason:"no_surface"};const avg=samples.reduce((a,s)=>a+s.y,0)/samples.length,stable=samples.filter(s=>Math.abs(s.y-avg)<=this.tolerance),ratio=stable.length/samples.length;return{accepted:ratio>=.6,ratio,averageY:avg,minY:Math.min(...samples.map(s=>s.y)),maxY:Math.max(...samples.map(s=>s.y)),samples};}
+}

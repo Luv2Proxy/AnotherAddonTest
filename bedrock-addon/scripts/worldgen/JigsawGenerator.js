@@ -3,16 +3,9 @@ import { JigsawRegistry } from "./JigsawRegistry.js";
 import { JigsawLayoutPlanner } from "./JigsawLayoutPlanner.js";
 import { StructureSetGenerator } from "./StructureSetGenerator.js";
 import { getGeneratedJigsawData, generatedStructure } from "./JigsawDataLoader.js";
+import { ProcessorEngine } from "./ProcessorEngine.js";
 
-/**
- * Runtime facade for generated vanilla Jigsaw metadata.
- *
- * Runtime input is intentionally limited to generated jigsaw-data.js and
- * packaged .mcstructure assets. The native StructureManager is used for
- * final placement when the current Bedrock API exposes the relevant Jigsaw
- * methods; otherwise the deterministic layout planner can produce a complete
- * piece graph for a custom placement backend.
- */
+/** Runtime facade for generated vanilla Jigsaw metadata and packaged templates. */
 export class JigsawGenerator {
   constructor(dimension, options = {}) {
     this.dimension = dimension;
@@ -22,10 +15,10 @@ export class JigsawGenerator {
     this.structureSets = options.structureSets ?? new StructureSetGenerator(this.registry);
     this.overlap = options.overlapGuard ?? null;
     this.layoutSeed = options.layoutSeed ?? 0;
+    this.processors = options.processorEngine ?? new ProcessorEngine(options.data ?? getGeneratedJigsawData(), this.layoutSeed);
   }
 
   dataSnapshot() { return this.registry.snapshot(); }
-
   definition(identifier) { return generatedStructure(identifier) ?? this.registry.structure(identifier); }
 
   resolveStructureIdentifier(identifier) {
@@ -35,21 +28,14 @@ export class JigsawGenerator {
     return value.includes(":") ? value : `minecraft:${value}`;
   }
 
-  /** Deterministically plan a Jigsaw graph without touching the world. */
   plan(identifier, location = { x: 0, y: 0, z: 0 }, seed = this.layoutSeed, options = {}) {
     return this.planner.planStructure(this.resolveStructureIdentifier(identifier), location, seed, options);
   }
 
-  /** Deterministically plan a structure-set placement. */
   planStructureSet(setId, seed = this.layoutSeed, options = {}) {
     return this.structureSets.plan(setId, seed, options);
   }
 
-  /**
-   * Place a complete Jigsaw structure using the native Bedrock API.
-   * Bedrock's native implementation handles the actual recursive assembly,
-   * processor lists and terrain matching when available.
-   */
   placeStructure(identifier, location, options = {}) {
     const resolved = this.resolveStructureIdentifier(identifier);
     if (typeof this.manager?.placeJigsawStructure !== "function") {
@@ -77,11 +63,18 @@ export class JigsawGenerator {
     return { placed: true, native: true, pool: poolId, target, maxDepth: depth, location, bounds };
   }
 
-  placeRoot(identifier, location, options = {}) { return this.placeStructure(identifier, location, options); }
-
-  placeByPool(pool, target = "", maxDepth = 5, location = { x: 0, y: 0, z: 0 }, options = {}) {
-    return this.placePool(pool, target, maxDepth, location, options);
+  /** Apply the generated processor list to an abstract block representation. */
+  processBlock(block, processorList, context = {}) {
+    return this.processors.apply(block, { ...context, processorList });
   }
+
+  /** Apply a processor list to a decoded template block array before custom placement. */
+  processTemplateBlocks(blocks, processorList, context = {}) {
+    return this.processors.applyTemplateBlocks(blocks, { ...context, processorList });
+  }
+
+  placeRoot(identifier, location, options = {}) { return this.placeStructure(identifier, location, options); }
+  placeByPool(pool, target = "", maxDepth = 5, location = { x: 0, y: 0, z: 0 }, options = {}) { return this.placePool(pool, target, maxDepth, location, options); }
 
   validatePieceGraph(identifier, maxDepth = 20) {
     const root = this.registry.piece(identifier);

@@ -1,0 +1,20 @@
+﻿Directory: tools\json\template_pool\bastion\hoglin_stable
+================================================================================
+
+FILES
+-----
+connectors.json
+mirrored_starting_pieces.json
+posts.json
+ramparts.json
+rampart_plates.json
+stairs.json
+starting_pieces.json
+walls.json
+wall_bases.json
+
+DIRECTORIES
+-----------
+large_stables
+small_stables
+

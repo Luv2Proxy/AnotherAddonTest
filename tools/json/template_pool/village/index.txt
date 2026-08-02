@@ -1,0 +1,12 @@
+﻿Directory: tools\json\template_pool\village
+================================================================================
+
+DIRECTORIES
+-----------
+common
+desert
+plains
+savanna
+snowy
+taiga
+

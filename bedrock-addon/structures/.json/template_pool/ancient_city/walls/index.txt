@@ -1,7 +1,0 @@
-﻿Directory: bedrock-addon\structures\.json\template_pool\ancient_city\walls
-================================================================================
-
-FILES
------
-no_corners.json
-

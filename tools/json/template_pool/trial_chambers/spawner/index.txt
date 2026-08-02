@@ -1,0 +1,20 @@
+﻿Directory: tools\json\template_pool\trial_chambers\spawner
+================================================================================
+
+FILES
+-----
+all.json
+breeze.json
+melee.json
+ranged.json
+slow_ranged.json
+small_melee.json
+
+DIRECTORIES
+-----------
+contents
+melee
+ranged
+slow_ranged
+small_melee
+

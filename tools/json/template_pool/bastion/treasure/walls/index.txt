@@ -1,0 +1,10 @@
+﻿Directory: tools\json\template_pool\bastion\treasure\walls
+================================================================================
+
+FILES
+-----
+bottom.json
+mid.json
+outer.json
+top.json
+

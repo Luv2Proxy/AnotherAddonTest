@@ -1,0 +1,10 @@
+﻿Directory: tools\json\template_pool\pillager_outpost
+================================================================================
+
+FILES
+-----
+base_plates.json
+features.json
+feature_plates.json
+towers.json
+

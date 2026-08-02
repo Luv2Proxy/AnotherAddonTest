@@ -1,0 +1,7 @@
+﻿Directory: tools\json\template_pool\bastion\blocks
+================================================================================
+
+FILES
+-----
+gold.json
+

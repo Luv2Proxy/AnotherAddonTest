@@ -1,0 +1,7 @@
+﻿Directory: tools\json\template_pool\trial_chambers\dispensers
+================================================================================
+
+FILES
+-----
+chamber.json
+

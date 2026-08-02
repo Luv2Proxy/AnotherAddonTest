@@ -1,0 +1,12 @@
+﻿Directory: tools\json\template_pool\trial_chambers\reward
+================================================================================
+
+FILES
+-----
+all.json
+ominous_vault.json
+
+DIRECTORIES
+-----------
+contents
+

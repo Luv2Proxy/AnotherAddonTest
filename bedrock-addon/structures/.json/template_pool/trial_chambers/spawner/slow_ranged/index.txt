@@ -1,9 +1,0 @@
-﻿Directory: bedrock-addon\structures\.json\template_pool\trial_chambers\spawner\slow_ranged
-================================================================================
-
-FILES
------
-poison_skeleton.json
-skeleton.json
-stray.json
-

@@ -3,6 +3,7 @@
 
 FILES
 -----
+emit_jigsaw_runtime_data.py
 extract_bedrock_jigsaw_assets.py
 import_vanilla_jigsaw_data.py
 import_vanilla_jigsaw_data_fixed.py
@@ -10,4 +11,5 @@ import_vanilla_jigsaw_data_fixed.py
 DIRECTORIES
 -----------
 bedrock-addon
+json
 

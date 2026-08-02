@@ -1,0 +1,13 @@
+﻿Directory: tools\json\template_pool\trial_chambers\chamber
+================================================================================
+
+FILES
+-----
+addon.json
+assembly.json
+end.json
+entrance_cap.json
+eruption.json
+pedestal.json
+slanted.json
+

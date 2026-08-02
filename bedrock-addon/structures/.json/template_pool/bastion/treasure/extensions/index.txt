@@ -1,9 +1,0 @@
-﻿Directory: bedrock-addon\structures\.json\template_pool\bastion\treasure\extensions
-================================================================================
-
-FILES
------
-houses.json
-large_pool.json
-small_pool.json
-

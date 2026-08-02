@@ -1,0 +1,11 @@
+﻿Directory: tools\json\template_pool\trial_chambers\chests
+================================================================================
+
+FILES
+-----
+supply.json
+
+DIRECTORIES
+-----------
+contents
+

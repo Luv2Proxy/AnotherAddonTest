@@ -1,8 +1,0 @@
-﻿Directory: bedrock-addon\structures\.json\template_pool\bastion\hoglin_stable\large_stables
-================================================================================
-
-FILES
------
-inner.json
-outer.json
-

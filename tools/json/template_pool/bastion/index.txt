@@ -1,0 +1,16 @@
+﻿Directory: tools\json\template_pool\bastion
+================================================================================
+
+FILES
+-----
+starts.json
+
+DIRECTORIES
+-----------
+blocks
+bridge
+hoglin_stable
+mobs
+treasure
+units
+

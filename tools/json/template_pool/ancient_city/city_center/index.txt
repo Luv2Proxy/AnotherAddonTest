@@ -1,0 +1,7 @@
+﻿Directory: tools\json\template_pool\ancient_city\city_center
+================================================================================
+
+FILES
+-----
+walls.json
+

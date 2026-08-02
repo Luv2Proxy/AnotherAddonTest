@@ -1,0 +1,7 @@
+﻿Directory: tools\json\template_pool\bastion\units\stages\rot
+================================================================================
+
+FILES
+-----
+stage_1.json
+

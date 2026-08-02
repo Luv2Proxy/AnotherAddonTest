@@ -1,7 +1,0 @@
-﻿Directory: bedrock-addon\structures\.json\template_pool\bastion\units\fillers
-================================================================================
-
-FILES
------
-stage_0.json
-

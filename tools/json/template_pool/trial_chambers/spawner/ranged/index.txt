@@ -1,0 +1,9 @@
+﻿Directory: tools\json\template_pool\trial_chambers\spawner\ranged
+================================================================================
+
+FILES
+-----
+poison_skeleton.json
+skeleton.json
+stray.json
+

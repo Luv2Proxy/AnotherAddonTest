@@ -1,0 +1,10 @@
+﻿Directory: tools\json\template_pool\village\taiga\zombie
+================================================================================
+
+FILES
+-----
+decor.json
+houses.json
+streets.json
+villagers.json
+

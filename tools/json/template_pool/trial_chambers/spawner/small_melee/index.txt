@@ -1,0 +1,10 @@
+﻿Directory: tools\json\template_pool\trial_chambers\spawner\small_melee
+================================================================================
+
+FILES
+-----
+baby_zombie.json
+cave_spider.json
+silverfish.json
+slime.json
+

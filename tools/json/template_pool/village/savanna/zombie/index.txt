@@ -1,0 +1,11 @@
+﻿Directory: tools\json\template_pool\village\savanna\zombie
+================================================================================
+
+FILES
+-----
+decor.json
+houses.json
+streets.json
+terminators.json
+villagers.json
+

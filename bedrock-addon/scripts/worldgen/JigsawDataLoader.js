@@ -1,10 +1,5 @@
 import generatedData from "./generated/jigsaw-data.js";
 
-/**
- * Runtime access to the build-generated vanilla jigsaw registry.
- * Bedrock Script modules consume the generated JavaScript module rather than
- * attempting to read JSON files from the filesystem at runtime.
- */
 export function normalizeGeneratedJigsawData(data = generatedData) {
   const source = data && typeof data === "object" ? data : {};
   return {
@@ -24,16 +19,11 @@ export function normalizeGeneratedJigsawData(data = generatedData) {
 
 export const GENERATED_JIGSAW_DATA = Object.freeze(normalizeGeneratedJigsawData());
 
-export function getGeneratedJigsawData() {
-  return GENERATED_JIGSAW_DATA;
-}
+export function getGeneratedJigsawData() { return GENERATED_JIGSAW_DATA; }
 
 export function generatedTemplateId(id) {
   if (!id) return null;
-  const value = String(id)
-    .replace(/\\/g, "/")
-    .replace(/\.mcstructure$/i, "")
-    .replace(/\.nbt$/i, "");
+  const value = String(id).replace(/\\/g, "/").replace(/\.mcstructure$/i, "").replace(/\.nbt$/i, "");
   return value.includes(":") ? value : `minecraft:${value}`;
 }
 
@@ -53,14 +43,31 @@ export function generatedPool(id) {
 export function generatedStructure(id) {
   const key = generatedTemplateId(id);
   if (!key) return null;
-  const value = GENERATED_JIGSAW_DATA.structures[key]
-    ?? GENERATED_JIGSAW_DATA.jigsaw_structures[key]
-    ?? GENERATED_JIGSAW_DATA.structures[String(id)]
-    ?? GENERATED_JIGSAW_DATA.jigsaw_structures[String(id)];
+  const value = GENERATED_JIGSAW_DATA.structures[key] ?? GENERATED_JIGSAW_DATA.jigsaw_structures[key] ?? GENERATED_JIGSAW_DATA.structures[String(id)] ?? GENERATED_JIGSAW_DATA.jigsaw_structures[String(id)];
+  return value?.definition ?? value ?? null;
+}
+
+export function generatedProcessor(id) {
+  const key = generatedTemplateId(id);
+  if (!key) return null;
+  const value = GENERATED_JIGSAW_DATA.processors[key] ?? GENERATED_JIGSAW_DATA.processors[String(id)];
+  return value?.definition ?? value ?? null;
+}
+
+export function generatedStructureSet(id) {
+  const key = generatedTemplateId(id);
+  if (!key) return null;
+  const value = GENERATED_JIGSAW_DATA.structure_sets[key] ?? GENERATED_JIGSAW_DATA.structure_sets[String(id)];
   return value?.definition ?? value ?? null;
 }
 
 export function generatedResolvedTemplatePath(id) {
   const key = generatedTemplateId(id);
-  return key ? GENERATED_JIGSAW_DATA.resolved_templates[key] ?? null : null;
+  if (!key) return null;
+  return GENERATED_JIGSAW_DATA.resolved_templates[key] ?? GENERATED_JIGSAW_DATA.template_aliases[key]?.source ?? null;
+}
+
+export function generatedAlias(id) {
+  const key = generatedTemplateId(id);
+  return key ? GENERATED_JIGSAW_DATA.template_aliases[key] ?? null : null;
 }

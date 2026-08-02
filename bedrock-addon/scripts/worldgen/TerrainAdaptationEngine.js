@@ -1,79 +1,180 @@
 import { BlockPermutation } from "@minecraft/server";
 
 const AIR = "minecraft:air";
-const SOLID_FALLBACK = ["minecraft:stone", "minecraft:dirt"];
 const WATER = new Set(["minecraft:water", "minecraft:flowing_water"]);
+const DEFAULT_SOLID = ["minecraft:stone", "minecraft:dirt"];
 
-function xyz(p) { return { x: Math.floor(Number(p?.x ?? 0)), y: Math.floor(Number(p?.y ?? 0)), z: Math.floor(Number(p?.z ?? 0)) }; }
-function blockId(block) { try { return block?.typeId ?? block?.permutation?.type?.id ?? null; } catch { return null; } }
-function safeBlock(dimension,p) { try { return dimension.getBlock(p); } catch { return null; } }
-function isAir(block) { const id=blockId(block); return !block || id===AIR || id===undefined || id===null; }
-function isWater(block) { return WATER.has(blockId(block)); }
-function isReplaceable(block) { return isAir(block) || isWater(block); }
-function resolvePermutation(id,states={}) { try { return BlockPermutation.resolve(id,states); } catch { return null; } }
+function p3(p) { return { x: Math.floor(Number(p?.x ?? 0)), y: Math.floor(Number(p?.y ?? 0)), z: Math.floor(Number(p?.z ?? 0)) }; }
+function id(block) { try { return block?.typeId ?? null; } catch { return null; } }
+function blockAt(d,p) { try { return d?.getBlock(p) ?? null; } catch { return null; } }
+function perm(idValue, states) { try { return typeof idValue === "string" ? BlockPermutation.resolve(idValue, states) : idValue; } catch { return null; } }
+function air(b) { return !b || id(b) === AIR; }
+function water(b) { return WATER.has(id(b)); }
+function replaceable(b) { return air(b) || water(b); }
+
+/*
+ * Vanilla-inspired Beardifier / terrain adaptation.
+ *
+ * Minecraft does not simply fill a rectangular foundation. Its structure
+ * beardifier samples a density field around the complete generated structure
+ * and blends the structure's target terrain height into the existing terrain.
+ * The exact Java implementation is internal, so this is a deterministic
+ * Bedrock-side reconstruction of the same model:
+ *
+ *   - collect all generated piece bounding boxes
+ *   - expand the union by the adaptation radius
+ *   - compute a radial/vertical falloff (beard kernel)
+ *   - blend target structure ground with sampled terrain
+ *   - use a stronger kernel for beard_box
+ *   - use a thin kernel for beard_thin
+ *   - bury uses the structure's actual lower bounds
+ *   - only replace air/water or terrain blocks selected by the density result
+ *
+ * This avoids the old column-fill approximation and produces smooth sloped
+ * transitions around structures.
+ */
 
 export class TerrainAdaptationEngine {
-  constructor(dimension, options={}) { this.dimension=dimension; this.options=options; this.changes=[]; }
-  reset() { this.changes.length=0; return this; }
-  setBlock(position,id,states={}) {
-    const p=xyz(position), permutation=typeof id === "string" ? resolvePermutation(id,states) : id;
-    if(!permutation)return false;
-    try { this.dimension.setBlockPermutation(p,permutation); this.changes.push({position:p,id:typeof id === "string" ? id : null}); return true; } catch { return false; }
+  constructor(dimension, options = {}) {
+    this.dimension = dimension;
+    this.options = options;
+    this.changes = [];
   }
-  fillColumn(x,z,fromY,toY,id,states={}) {
-    const a=Math.min(fromY,toY), b=Math.max(fromY,toY), permutation=resolvePermutation(id,states); if(!permutation)return 0; let count=0;
-    for(let y=a;y<=b;y++) { try { this.dimension.setBlockPermutation({x,y,z},permutation); count++; } catch {} }
-    return count;
+
+  reset() { this.changes.length = 0; return this; }
+
+  setBlock(position, blockId, states = {}) {
+    const pos = p3(position), permutation = perm(blockId, states);
+    if (!permutation) return false;
+    try {
+      this.dimension.setBlockPermutation(pos, permutation);
+      this.changes.push({ position: pos, id: typeof blockId === "string" ? blockId : null });
+      return true;
+    } catch { return false; }
   }
-  sampleSurface(x,z) {
-    const base=Number(this.options.minY ?? -64), max=Number(this.options.maxY ?? 320);
-    for(let y=max;y>=base;y--) { const b=safeBlock(this.dimension,{x,y,z}); if(b && !isAir(b) && !isWater(b)) return y; }
-    return base;
-  }
-  footprint(candidate, origin) {
-    const size=candidate?.size ?? candidate?.transformedSize ?? {x:1,y:1,z:1};
-    const radius=Number(candidate?.footprintRadius ?? candidate?.footprint?.radius ?? Math.max(size.x,size.z)/2);
-    const halfX=Math.max(1,Math.ceil(Number(candidate?.footprint?.x ?? radius))), halfZ=Math.max(1,Math.ceil(Number(candidate?.footprint?.z ?? radius)));
-    const points=[]; for(let x=-halfX;x<=halfX;x++) for(let z=-halfZ;z<=halfZ;z++) points.push({x:origin.x+x,z:origin.z+z}); return {points,halfX,halfZ};
-  }
-  adapt(candidate, context={}) {
-    const mode=String(context.mode ?? candidate?.terrain_adaptation ?? candidate?.terrainAdaptation?.mode ?? "none").toLowerCase();
-    const origin=xyz(context.location ?? candidate?.location ?? candidate ?? {}), footprint=this.footprint(candidate,origin);
-    const targetY=Number(context.targetY ?? candidate?.targetY ?? origin.y), maxDepth=Number(context.depth ?? candidate?.buryDepth ?? candidate?.terrainAdaptation?.depth ?? 8);
-    const foundationId=context.foundationBlock ?? candidate?.foundationBlock ?? "minecraft:dirt";
-    const result={mode,origin,targetY,changed:0,columns:0,skipped:0,operations:[]};
-    if(mode==="none")return result;
-    if(mode==="bury") {
-      for(const p of footprint.points) { const surface=this.sampleSurface(p.x,p.z), top=Math.min(surface,targetY-1), bottom=Math.max(-64,top-maxDepth); result.changed+=this.fillColumn(p.x,p.z,bottom,top,foundationId); result.columns++; }
-      result.operations.push("bury"); return result;
+
+  surfaceY(x, z) {
+    const minY = Number(this.options.minY ?? -64), maxY = Number(this.options.maxY ?? 320);
+    for (let y = maxY; y >= minY; y--) {
+      const b = blockAt(this.dimension, { x, y, z });
+      if (b && !air(b) && !water(b)) return y;
     }
-    if(mode==="beard_thin" || mode==="beard_box") {
-      for(const p of footprint.points) { const surface=this.sampleSurface(p.x,p.z), delta=targetY-surface; if(Math.abs(delta)>maxDepth && mode==="beard_thin"){result.skipped++;continue;} const depth=mode==="beard_box" ? Math.min(maxDepth,Math.max(1,Math.abs(delta)+2)) : Math.min(maxDepth,Math.max(1,Math.abs(delta))); const top=targetY-1,bottom=Math.min(surface,top-depth); result.changed+=this.fillColumn(p.x,p.z,bottom,top,foundationId); result.columns++; }
-      result.operations.push(mode); return result;
+    return minY;
+  }
+
+  boxes(candidate, origin) {
+    const list = candidate?.pieceBounds ?? candidate?.boundingBoxes ?? candidate?.pieces?.map(p => p.boundingBox ?? p.bounds).filter(Boolean) ?? [];
+    if (list.length) return list.map(b => ({ minX: Number(b.minX ?? b.x ?? origin.x), minY: Number(b.minY ?? b.y ?? origin.y), minZ: Number(b.minZ ?? b.z ?? origin.z), maxX: Number(b.maxX ?? (b.x ?? origin.x) + (b.sizeX ?? b.width ?? 1) - 1), maxY: Number(b.maxY ?? (b.y ?? origin.y) + (b.sizeY ?? b.height ?? 1) - 1), maxZ: Number(b.maxZ ?? (b.z ?? origin.z) + (b.sizeZ ?? b.depth ?? 1) - 1) }));
+    const size = candidate?.size ?? candidate?.transformedSize ?? { x: 1, y: 1, z: 1 };
+    const hx = Math.max(1, Math.ceil(Number(candidate?.footprint?.x ?? candidate?.footprintRadius ?? size.x / 2)));
+    const hz = Math.max(1, Math.ceil(Number(candidate?.footprint?.z ?? candidate?.footprintRadius ?? size.z / 2)));
+    return [{ minX: origin.x - hx, minY: origin.y, minZ: origin.z - hz, maxX: origin.x + hx, maxY: origin.y + Number(size.y ?? 1) - 1, maxZ: origin.z + hz }];
+  }
+
+  union(boxes) {
+    return boxes.reduce((a,b) => ({ minX:Math.min(a.minX,b.minX), minY:Math.min(a.minY,b.minY), minZ:Math.min(a.minZ,b.minZ), maxX:Math.max(a.maxX,b.maxX), maxY:Math.max(a.maxY,b.maxY), maxZ:Math.max(a.maxZ,b.maxZ) }), boxes[0]);
+  }
+
+  kernel(dx, dy, dz, mode) {
+    const horizontal = Math.sqrt(dx * dx + dz * dz);
+    const radius = mode === "beard_box" ? 8 : 4;
+    const vertical = mode === "beard_box" ? 8 : 4;
+    if (horizontal > radius || dy < -vertical || dy > 2) return 0;
+    const h = Math.max(0, 1 - horizontal / radius);
+    const v = Math.max(0, 1 - Math.abs(dy) / vertical);
+    // Smoothstep is close to the smooth density falloff used by vanilla's
+    // beardifier rather than the hard rectangular fill used previously.
+    const smooth = t => t * t * (3 - 2 * t);
+    return smooth(h) * smooth(v);
+  }
+
+  adapt(candidate, context = {}) {
+    const mode = String(context.mode ?? candidate?.terrain_adaptation ?? candidate?.terrainAdaptation?.mode ?? "none").toLowerCase();
+    const origin = p3(context.location ?? candidate?.location ?? candidate ?? {});
+    const boxes = this.boxes(candidate, origin);
+    const bounds = this.union(boxes);
+    const targetY = Number(context.targetY ?? candidate?.targetY ?? bounds.minY);
+    const foundation = context.foundationBlock ?? candidate?.foundationBlock ?? "minecraft:dirt";
+    const surfaceBlocks = context.surfaceBlocks ?? candidate?.surfaceBlocks ?? DEFAULT_SOLID;
+    const radius = mode === "beard_box" ? 8 : mode === "beard_thin" ? 4 : 0;
+    const result = { mode, targetY, bounds, changed: 0, columns: 0, operations: [], densitySamples: 0 };
+    if (mode === "none") return result;
+
+    if (mode === "bury") {
+      const depth = Number(context.depth ?? candidate?.buryDepth ?? 8);
+      for (let x = bounds.minX - 1; x <= bounds.maxX + 1; x++) for (let z = bounds.minZ - 1; z <= bounds.maxZ + 1; z++) {
+        const surface = this.surfaceY(x,z), bottom = Math.max(-64, bounds.maxY - depth);
+        for (let y = bottom; y < Math.min(surface, bounds.minY); y++) {
+          const b = blockAt(this.dimension,{x,y,z});
+          if (replaceable(b)) { if (this.setBlock({x,y,z}, foundation)) result.changed++; }
+        }
+        result.columns++;
+      }
+      result.operations.push("bury");
+      return result;
     }
-    if(mode==="encapsulate") {
-      const minY=targetY-maxDepth, maxY=targetY+Number(candidate?.size?.y ?? candidate?.transformedSize?.y ?? 1);
-      for(const p of footprint.points) { const below=safeBlock(this.dimension,{x:p.x,y:minY,z:p.z}); if(isReplaceable(below))this.setBlock({x:p.x,y:minY,z:p.z},foundationId); const above=safeBlock(this.dimension,{x:p.x,y:maxY,z:p.z}); if(isAir(above))this.setBlock({x:p.x,y:maxY,z:p.z},context.surfaceBlock ?? "minecraft:stone"); result.columns++; }
-      result.operations.push("encapsulate"); return result;
+
+    if (radius > 0) {
+      for (let x = bounds.minX - radius; x <= bounds.maxX + radius; x++) for (let z = bounds.minZ - radius; z <= bounds.maxZ + radius; z++) {
+        const surface = this.surfaceY(x,z);
+        for (let y = Math.max(-64, Math.min(surface, targetY + 2) - radius); y <= Math.min(320, targetY + 2); y++) {
+          const nearestX = Math.max(bounds.minX, Math.min(x, bounds.maxX));
+          const nearestY = Math.max(bounds.minY, Math.min(y, bounds.maxY));
+          const nearestZ = Math.max(bounds.minZ, Math.min(z, bounds.maxZ));
+          const density = this.kernel(x-nearestX, y-nearestY, z-nearestZ, mode);
+          if (density <= 0) continue;
+          result.densitySamples++;
+          const desired = targetY + Math.round((1 - density) * (surface - targetY));
+          if (y < desired) {
+            const b = blockAt(this.dimension,{x,y,z});
+            if (replaceable(b) && this.setBlock({x,y,z}, foundation)) result.changed++;
+          } else if (y > desired && y <= surface && density > 0.72) {
+            const b = blockAt(this.dimension,{x,y,z});
+            if (b && !air(b) && !water(b)) {
+              const top = perm(AIR);
+              try { this.dimension.setBlockPermutation({x,y,z}, top); result.changed++; } catch {}
+            }
+          }
+        }
+        result.columns++;
+      }
+      result.operations.push(mode);
+    }
+
+    if (mode === "encapsulate") {
+      const top = bounds.maxY + 1, bottom = bounds.minY - 1;
+      for (let x=bounds.minX;x<=bounds.maxX;x++) for(let z=bounds.minZ;z<=bounds.maxZ;z++) {
+        const below=blockAt(this.dimension,{x,bottom,z}); if(replaceable(below)) this.setBlock({x,bottom,z},foundation);
+        const above=blockAt(this.dimension,{x,top,z}); if(air(above)) this.setBlock({x,top,z},surfaceBlocks[0] ?? DEFAULT_SOLID[0]);
+      }
+      result.operations.push("encapsulate");
     }
     return result;
   }
-  flatten(candidate,context={}) {
-    const origin=xyz(context.location ?? candidate?.location ?? candidate ?? {}), footprint=this.footprint(candidate,origin), targetY=Number(context.targetY ?? origin.y), foundation=context.foundationBlock ?? "minecraft:dirt", air=resolvePermutation(AIR); let changed=0;
-    for(const p of footprint.points) { const surface=this.sampleSurface(p.x,p.z); if(surface<targetY) changed+=this.fillColumn(p.x,p.z,surface,targetY-1,foundation); else if(surface>targetY && air) { for(let y=targetY;y<surface;y++){const b=safeBlock(this.dimension,{x:p.x,y,z:p.z});if(b&&!isAir(b))try{this.dimension.setBlockPermutation({x:p.x,y,z:p.z},air);changed++;}catch{}} } }
-    return {mode:"flatten",targetY,changed};
+
+  flatten(candidate, context = {}) {
+    const origin = p3(context.location ?? candidate?.location ?? candidate ?? {}), boxes = this.boxes(candidate,origin), bounds=this.union(boxes), targetY=Number(context.targetY ?? bounds.minY), foundation=context.foundationBlock ?? "minecraft:dirt", airPerm=perm(AIR);
+    let changed=0;
+    for(let x=bounds.minX;x<=bounds.maxX;x++) for(let z=bounds.minZ;z<=bounds.maxZ;z++) {
+      const surface=this.surfaceY(x,z);
+      if(surface<targetY) for(let y=surface;y<targetY;y++) if(this.setBlock({x,y,z},foundation))changed++;
+      else if(surface>targetY && airPerm) for(let y=targetY;y<surface;y++){const b=blockAt(this.dimension,{x,y,z});if(b&&!air(b)&&!water(b))try{this.dimension.setBlockPermutation({x,y,z},airPerm);changed++;}catch{}}
+    }
+    return {mode:"flatten",targetY,changed,bounds};
   }
-  waterline(candidate,context={}) {
-    const origin=xyz(context.location ?? candidate?.location ?? candidate ?? {}), footprint=this.footprint(candidate,origin), waterLevel=Number(context.waterLevel ?? 63), floorY=Number(context.seaFloorY ?? waterLevel-1), waterPermutation=resolvePermutation("minecraft:water"); let changed=0;
-    if(!waterPermutation)return {mode:"waterline",changed:0};
-    for(const p of footprint.points) for(let y=floorY+1;y<=waterLevel;y++){const b=safeBlock(this.dimension,{x:p.x,y,z:p.z});if(isAir(b)){try{this.dimension.setBlockPermutation({x:p.x,y,z:p.z},waterPermutation);changed++;}catch{}}}
-    return {mode:"waterline",waterLevel,floorY,changed};
+
+  waterline(candidate, context = {}) {
+    const origin=p3(context.location ?? candidate?.location ?? candidate ?? {}), boxes=this.boxes(candidate,origin), bounds=this.union(boxes), waterLevel=Number(context.waterLevel ?? 63), floorY=Number(context.seaFloorY ?? waterLevel-1), wp=perm("minecraft:water");
+    let changed=0; if(!wp)return {mode:"waterline",changed:0};
+    for(let x=bounds.minX;x<=bounds.maxX;x++)for(let z=bounds.minZ;z<=bounds.maxZ;z++)for(let y=floorY+1;y<=waterLevel;y++){const b=blockAt(this.dimension,{x,y,z});if(air(b))try{this.dimension.setBlockPermutation({x,y,z},wp);changed++;}catch{}}
+    return {mode:"waterline",waterLevel,floorY,changed,bounds};
   }
 }
 
 export function applyTerrainAdaptation(dimension,candidate,context={}) {
-  const engine=new TerrainAdaptationEngine(dimension,context.options ?? {}), adaptation=engine.adapt(candidate,context);
-  if(context.flatten || adaptation.mode === "beard_thin" || adaptation.mode === "beard_box") adaptation.flatten=engine.flatten(candidate,{...context,targetY:adaptation.targetY});
+  if(!dimension)return {mode:context.mode??"none",changed:0,skipped:"no_dimension"};
+  const engine=new TerrainAdaptationEngine(dimension,context.options??{}), adaptation=engine.adapt(candidate,context);
+  if(context.flatten || adaptation.mode==="beard_thin" || adaptation.mode==="beard_box") adaptation.flatten=engine.flatten(candidate,{...context,targetY:adaptation.targetY});
   if(context.waterline) adaptation.waterline=engine.waterline(candidate,context);
   return adaptation;
 }

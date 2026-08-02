@@ -2,10 +2,14 @@ import { world, system } from "@minecraft/server";
 import { IslandGenerator } from "./worldgen/IslandGenerator.js";
 import { JigsawRegistry } from "./worldgen/JigsawRegistry.js";
 import { StructureSetRuntime } from "./worldgen/StructureSetRuntime.js";
+import { StructurePlacementCoordinator } from "./worldgen/StructurePlacementCoordinator.js";
+import { StructurePlacementQueue } from "./worldgen/StructurePlacementQueue.js";
 
 const DIMENSION_ID = "sky_archipelago:archipelago";
 const generator = new IslandGenerator();
 let structureSets = null;
+let placementCoordinator = null;
+let placementQueue = null;
 
 function archipelago(){return world.getDimension(DIMENSION_ID);}
 
@@ -15,14 +19,17 @@ system.beforeEvents.startup.subscribe((event) => {
 
 world.afterEvents.worldLoad.subscribe(() => {
   generator.load();
-  // Generated jigsaw-data.js is the runtime source for vanilla structure-set
-  // metadata. Keep it separate from StructureRegistry, which maps pack assets.
+  const registry = new JigsawRegistry();
+  placementCoordinator = new StructurePlacementCoordinator(generator, { registry });
+  placementQueue = new StructurePlacementQueue({ maxPerTick: 2, maxRetries: 3, retryDelay: 20 });
   structureSets = new StructureSetRuntime(generator, {
-    registry: new JigsawRegistry(),
+    registry,
     dimensionId: DIMENSION_ID,
     radius: 512,
     maxPlansPerTick: 1,
-    maxPlacementsPerTick: 2
+    maxPlacementsPerTick: 2,
+    placementCoordinator,
+    placementQueue
   });
   structureSets.refresh();
   world.sendMessage("§aSky Archipelago loaded. §e/scriptevent sky_archipelago:enter §7to enter the archipelago.");
@@ -37,6 +44,7 @@ system.runInterval(() => {
   }
   generator.tick();
   structureSets?.process().catch(error => console.warn(`[Sky Archipelago] structure-set runtime error: ${error}`));
+  placementQueue?.process(placementCoordinator).catch(error => console.warn(`[Sky Archipelago] placement queue error: ${error}`));
 }, 1);
 
 world.afterEvents.scriptEventReceive.subscribe((event) => {
@@ -57,7 +65,10 @@ world.afterEvents.scriptEventReceive.subscribe((event) => {
 
   if (event.id === "sky_archipelago:reset") {
     generator.reset();
-    structureSets = new StructureSetRuntime(generator, { registry: new JigsawRegistry(), dimensionId: DIMENSION_ID });
+    const registry = new JigsawRegistry();
+    placementCoordinator = new StructurePlacementCoordinator(generator, { registry });
+    placementQueue = new StructurePlacementQueue({ maxPerTick: 2, maxRetries: 3, retryDelay: 20 });
+    structureSets = new StructureSetRuntime(generator, { registry, dimensionId: DIMENSION_ID, placementCoordinator, placementQueue });
     player.sendMessage("§eSky Archipelago generation state reset. Existing blocks are not erased.");
     return;
   }
@@ -66,16 +77,19 @@ world.afterEvents.scriptEventReceive.subscribe((event) => {
     const snapshot = generator.native?.snapshot?.() ?? {};
     const setCount = structureSets?.sets?.length ?? 0;
     const pending = structureSets?.pending?.length ?? 0;
+    const placementPending = placementQueue?.size?.() ?? 0;
     player.sendMessage(`§bSky Archipelago §7| generated=${generator.generated?.size ?? 0} queued=${generator.queue?.length ?? 0} structures=${generator.structureJobs?.length ?? 0}`);
-    player.sendMessage(`§7Generated structure sets: ${setCount} | pending plans: ${pending}`);
+    player.sendMessage(`§7Generated structure sets: ${setCount} | pending plans: ${pending} | pending placements: ${placementPending}`);
     player.sendMessage(`§7Native overlap records: ${snapshot.overlap?.length ?? 0}`);
     return;
   }
 
   if (event.id === "sky_archipelago:refresh_structures") {
     try {
+      const registry = new JigsawRegistry();
       generator.registry?.refresh?.();
-      structureSets?.refresh?.();
+      structureSets?.refresh?.(registry);
+      placementCoordinator?.refresh?.(registry);
       player.sendMessage("§aStructure registries refreshed from generated jigsaw data and the active Bedrock pack.");
     } catch (e) {
       player.sendMessage(`§cStructure registry refresh failed: ${e}`);

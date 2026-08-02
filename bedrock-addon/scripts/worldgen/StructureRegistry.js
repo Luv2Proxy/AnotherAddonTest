@@ -1,5 +1,5 @@
 import { world } from "@minecraft/server";
-import { assetFamily, assetRole, assetCandidates, chooseAsset, splitComposite, validateAssetMapping, ASSET_ROLES } from "./StructureAssetMapping.js";
+import { assetFamily, assetRole, assetCandidates, chooseAsset, splitComposite, validateAssetMapping, ASSET_ROLES, jigsawRootId } from "./StructureAssetMapping.js";
 import { getGeneratedJigsawData, generatedStructure, generatedPiece, generatedPool } from "./JigsawDataLoader.js";
 
 export const StructureCategory = Object.freeze({
@@ -37,7 +37,9 @@ const NATIVE_FAMILIES = Object.freeze({
   "minecraft:stronghold": StructureCategory.STRONGHOLD,
   stronghold: StructureCategory.STRONGHOLD,
   "minecraft:mineshaft": StructureCategory.UNDERGROUND,
-  mineshaft: StructureCategory.UNDERGROUND
+  mineshaft: StructureCategory.UNDERGROUND,
+  "minecraft:monument": StructureCategory.WATER,
+  monument: StructureCategory.WATER
 });
 
 function normalize(id) {
@@ -96,7 +98,7 @@ export class StructureRegistry {
         id,
         normalized: normalize(id),
         category,
-        kind: id.includes("mineshaft") ? "native_mineshaft" : "native_stronghold"
+        kind: id.includes("mineshaft") ? "native_mineshaft" : id.includes("monument") ? "native_monument" : "native_stronghold"
       });
     }
 
@@ -126,6 +128,18 @@ export class StructureRegistry {
 
   generatedStructureSets() { return this.generated.structure_sets ?? {}; }
   generatedProcessors() { return this.generated.processors ?? {}; }
+
+  // Returns the generated jigsaw root definition when the importer has one.
+  // This lets runtime code distinguish "we have metadata" from "we only have
+  // loose structure pieces" and avoids silently pretending a composite family
+  // is a complete jigsaw definition.
+  jigsawRoot(family) {
+    const id = jigsawRootId(family);
+    if (!id) return null;
+    return { id, definition: generatedStructure(id) ?? generatedStructure(family) ?? null };
+  }
+
+  hasGeneratedJigsaw(family) { return Boolean(this.jigsawRoot(family)?.definition); }
 
   byCategory(category) { return [...this.ensure().values()].filter(e => e.category === category); }
   byFamily(family) { return [...this.ensure().values()].filter(e => e.family === family); }

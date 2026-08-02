@@ -415,24 +415,5 @@
         }
       ]
     }
-  },
-  "minecraft:woodland_mansions": {
-    "source": "structure_set/woodland_mansions.json",
-    "sha256": "00e208b4f85200e5b1824ca1aa3b491340aa25865ba4a5f38f0ad62394296693",
-    "definition": {
-      "placement": {
-        "type": "minecraft:random_spread",
-        "salt": 10387319,
-        "separation": 20,
-        "spacing": 80,
-        "spread_type": "triangular"
-      },
-      "structures": [
-        {
-          "structure": "minecraft:mansion",
-          "weight": 1
-        }
-      ]
-    }
   }
 }

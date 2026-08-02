@@ -164,16 +164,6 @@
       "step": "surface_structures"
     }
   },
-  "minecraft:mansion": {
-    "source": "structure/mansion.json",
-    "sha256": "e346aee24f384b1edc4f18f3a3f09c663ce1087660305c466fe1d100e7694d6f",
-    "definition": {
-      "type": "minecraft:woodland_mansion",
-      "biomes": "#minecraft:has_structure/woodland_mansion",
-      "spawn_overrides": {},
-      "step": "surface_structures"
-    }
-  },
   "minecraft:mineshaft": {
     "source": "structure/mineshaft.json",
     "sha256": "6c5a9fd4b35c4269e856bc495a95c1240a106f755987d379e245d342931e0044",

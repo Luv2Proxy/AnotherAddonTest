@@ -1,0 +1,9 @@
+﻿Directory: bedrock-addon\structures\json\template_pool\bastion\mobs
+================================================================================
+
+FILES
+-----
+hoglin.json
+piglin.json
+piglin_melee.json
+

@@ -1,0 +1,7 @@
+﻿Directory: bedrock-addon\structures\json\template_pool\ancient_city\city
+================================================================================
+
+FILES
+-----
+entrance.json
+

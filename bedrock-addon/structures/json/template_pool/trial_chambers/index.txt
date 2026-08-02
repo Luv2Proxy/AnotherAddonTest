@@ -1,0 +1,24 @@
+﻿Directory: bedrock-addon\structures\json\template_pool\trial_chambers
+================================================================================
+
+FILES
+-----
+atrium.json
+corridor.json
+decor.json
+entrance.json
+hallway.json
+
+DIRECTORIES
+-----------
+chamber
+chambers
+chests
+corridor
+corridors
+decor
+dispensers
+hallway
+reward
+spawner
+

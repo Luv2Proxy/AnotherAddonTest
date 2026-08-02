@@ -1,25 +1,16 @@
-﻿Directory: bedrock-addon\structures
+﻿Directory: bedrock-addon\structures\json\template_pool
 ================================================================================
 
 FILES
 -----
-README.md
+empty.json
 
 DIRECTORIES
 -----------
 ancient_city
 bastion
-end_city
-fossil
-igloo
-json
-nether_fossils
 pillager_outpost
-ruined_portal
-shipwreck
 trail_ruins
 trial_chambers
-underwater_ruin
 village
-woodland_mansion
 

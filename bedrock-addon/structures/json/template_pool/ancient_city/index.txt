@@ -1,0 +1,16 @@
+﻿Directory: bedrock-addon\structures\json\template_pool\ancient_city
+================================================================================
+
+FILES
+-----
+city_center.json
+sculk.json
+structures.json
+walls.json
+
+DIRECTORIES
+-----------
+city
+city_center
+walls
+

@@ -1,0 +1,14 @@
+﻿Directory: bedrock-addon\structures\json\template_pool\bastion\units\stages
+================================================================================
+
+FILES
+-----
+stage_0.json
+stage_1.json
+stage_2.json
+stage_3.json
+
+DIRECTORIES
+-----------
+rot
+

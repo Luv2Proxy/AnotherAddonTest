@@ -1,0 +1,20 @@
+﻿Directory: bedrock-addon\structures\json\template_pool\bastion\units
+================================================================================
+
+FILES
+-----
+center_pieces.json
+edges.json
+edge_wall_units.json
+large_ramparts.json
+pathways.json
+ramparts.json
+rampart_plates.json
+wall_units.json
+
+DIRECTORIES
+-----------
+fillers
+stages
+walls
+

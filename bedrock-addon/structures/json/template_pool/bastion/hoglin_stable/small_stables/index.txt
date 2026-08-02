@@ -1,0 +1,8 @@
+﻿Directory: bedrock-addon\structures\json\template_pool\bastion\hoglin_stable\small_stables
+================================================================================
+
+FILES
+-----
+inner.json
+outer.json
+

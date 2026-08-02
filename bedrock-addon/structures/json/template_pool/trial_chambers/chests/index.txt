@@ -1,18 +1,11 @@
-﻿Directory: .
+﻿Directory: bedrock-addon\structures\json\template_pool\trial_chambers\chests
 ================================================================================
 
 FILES
 -----
-pack.mcmeta
-sky_archipelago.mixins.json
-test.ps1
+supply.json
 
 DIRECTORIES
 -----------
-assets
-bedrock-addon
-data
-META-INF
-org
-tools
+contents
 

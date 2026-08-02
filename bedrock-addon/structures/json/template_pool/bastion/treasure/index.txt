@@ -1,0 +1,21 @@
+﻿Directory: bedrock-addon\structures\json\template_pool\bastion\treasure
+================================================================================
+
+FILES
+-----
+bases.json
+brains.json
+connectors.json
+entrances.json
+ramparts.json
+roofs.json
+stairs.json
+walls.json
+
+DIRECTORIES
+-----------
+bases
+corners
+extensions
+walls
+

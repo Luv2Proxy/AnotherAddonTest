@@ -1,0 +1,10 @@
+﻿Directory: bedrock-addon\structures\json\template_pool\bastion\treasure\corners
+================================================================================
+
+FILES
+-----
+bottom.json
+edges.json
+middle.json
+top.json
+

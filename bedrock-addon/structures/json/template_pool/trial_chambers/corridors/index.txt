@@ -1,14 +1,7 @@
-﻿Directory: bedrock-addon
+﻿Directory: bedrock-addon\structures\json\template_pool\trial_chambers\corridors
 ================================================================================
-
-FILES
------
-manifest.json
-README.md
-structures-index.txt
 
 DIRECTORIES
 -----------
-scripts
-structures
+addon
 

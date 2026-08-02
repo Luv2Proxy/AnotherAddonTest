@@ -1,0 +1,9 @@
+﻿Directory: bedrock-addon\structures\json\template_pool\trial_chambers\spawner\melee
+================================================================================
+
+FILES
+-----
+husk.json
+spider.json
+zombie.json
+

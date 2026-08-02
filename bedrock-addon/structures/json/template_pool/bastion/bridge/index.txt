@@ -1,0 +1,13 @@
+﻿Directory: bedrock-addon\structures\json\template_pool\bastion\bridge
+================================================================================
+
+FILES
+-----
+bridge_pieces.json
+connectors.json
+legs.json
+ramparts.json
+rampart_plates.json
+starting_pieces.json
+walls.json
+

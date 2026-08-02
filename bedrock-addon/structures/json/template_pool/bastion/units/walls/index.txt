@@ -1,0 +1,7 @@
+﻿Directory: bedrock-addon\structures\json\template_pool\bastion\units\walls
+================================================================================
+
+FILES
+-----
+wall_bases.json
+

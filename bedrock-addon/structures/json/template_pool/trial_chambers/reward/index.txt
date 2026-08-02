@@ -1,18 +1,12 @@
-﻿Directory: .
+﻿Directory: bedrock-addon\structures\json\template_pool\trial_chambers\reward
 ================================================================================
 
 FILES
 -----
-pack.mcmeta
-sky_archipelago.mixins.json
-test.ps1
+all.json
+ominous_vault.json
 
 DIRECTORIES
 -----------
-assets
-bedrock-addon
-data
-META-INF
-org
-tools
+contents
 

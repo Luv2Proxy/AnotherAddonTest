@@ -1,0 +1,15 @@
+﻿Directory: bedrock-addon\structures\json\template_pool\trail_ruins
+================================================================================
+
+FILES
+-----
+buildings.json
+decor.json
+roads.json
+tower.json
+
+DIRECTORIES
+-----------
+buildings
+tower
+

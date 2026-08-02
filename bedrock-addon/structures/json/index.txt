@@ -1,14 +1,9 @@
-﻿Directory: bedrock-addon
+﻿Directory: bedrock-addon\structures\json
 ================================================================================
-
-FILES
------
-manifest.json
-README.md
-structures-index.txt
 
 DIRECTORIES
 -----------
-scripts
-structures
+structure
+structure_set
+template_pool
 

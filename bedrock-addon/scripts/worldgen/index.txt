@@ -4,6 +4,7 @@
 FILES
 -----
 BiomeTerrainProfiles.js
+DynamicUndergroundPlacement.js
 ExactMaterialPlan.js
 ExactSurfacePass.js
 ExactSurfaceSelector.js
@@ -18,13 +19,26 @@ JigsawGenerator.js
 JigsawRegistry.js
 JigsawTransform.js
 NativeStructureAdapter.js
+NativeStructureCoordinator.js
+NativeStructurePlacement.js
 PackSettings.js
+ProceduralStructureGenerator.js
+StrongholdPlacementEngine.js
+StructureAssetMapping.js
+StructureCandidateEvaluator.js
 StructureDetection.js
+StructureHostSelector.js
+StructureOverlapGuard.js
 StructurePlacement.js
+StructurePlacementModel.js
+StructurePlacementPolicy.js
+StructureRegistry.js
+StructureStartRelocator.js
 StructureSupport.js
+StructureSupportSystem.js
 
-GENERATED
----------
-generated\README.md
+DIRECTORIES
+-----------
+generated
+pieces
 
-generated\jigsaw-data.json is produced by tools\extract_bedrock_jigsaw_assets.py and should not be hand-authored.

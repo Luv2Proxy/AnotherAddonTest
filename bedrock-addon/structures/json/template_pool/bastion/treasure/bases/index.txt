@@ -1,0 +1,7 @@
+﻿Directory: bedrock-addon\structures\json\template_pool\bastion\treasure\bases
+================================================================================
+
+FILES
+-----
+centers.json
+

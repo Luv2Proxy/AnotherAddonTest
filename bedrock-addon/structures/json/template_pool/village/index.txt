@@ -1,14 +1,12 @@
-﻿Directory: bedrock-addon
+﻿Directory: bedrock-addon\structures\json\template_pool\village
 ================================================================================
-
-FILES
------
-manifest.json
-README.md
-structures-index.txt
 
 DIRECTORIES
 -----------
-scripts
-structures
+common
+desert
+plains
+savanna
+snowy
+taiga
 

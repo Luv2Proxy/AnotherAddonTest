@@ -95,5 +95,3 @@ NativeStructureAdapter
 The generated registry is used for pool graphs, weighted candidates, fallback pools, processors, structure definitions, structure sets, connector metadata, template resolution and validation.
 
 When the active Bedrock behavior pack exposes a native jigsaw structure, final assembly should continue to use `StructureManager.placeJigsawStructure` or `StructureManager.placeJigsaw`. These APIs are the authoritative engine implementation for recursive jigsaw assembly. The generated data is therefore primarily the source for validation and custom planning, rather than a duplicate implementation of all engine semantics.
-
-Microsoft's current documentation describes template pools as weighted collections of structure elements, with optional processors, projections and fallback pools; jigsaw structures reference a starting pool and recursively connect templates through jigsaw blocks. The Script API exposes `placeJigsaw` and `placeJigsawStructure`, returning the generated bounding box. citeturn0search0turn0search14

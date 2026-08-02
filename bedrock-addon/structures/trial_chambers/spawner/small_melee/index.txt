@@ -1,0 +1,10 @@
+﻿Directory: bedrock-addon\structures\trial_chambers\spawner\small_melee
+================================================================================
+
+FILES
+-----
+baby_zombie.mcstructure
+cave_spider.mcstructure
+silverfish.mcstructure
+slime.mcstructure
+

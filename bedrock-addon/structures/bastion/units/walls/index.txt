@@ -1,0 +1,8 @@
+﻿Directory: bedrock-addon\structures\bastion\units\walls
+================================================================================
+
+FILES
+-----
+connected_wall.mcstructure
+wall_base.mcstructure
+

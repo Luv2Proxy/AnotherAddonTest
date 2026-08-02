@@ -1,0 +1,9 @@
+﻿Directory: bedrock-addon\structures\trial_chambers\intersection
+================================================================================
+
+FILES
+-----
+intersection_1.mcstructure
+intersection_2.mcstructure
+intersection_3.mcstructure
+

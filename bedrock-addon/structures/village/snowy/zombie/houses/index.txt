@@ -1,0 +1,17 @@
+﻿Directory: bedrock-addon\structures\village\snowy\zombie\houses
+================================================================================
+
+FILES
+-----
+snowy_medium_house_1.mcstructure
+snowy_medium_house_2.mcstructure
+snowy_medium_house_3.mcstructure
+snowy_small_house_1.mcstructure
+snowy_small_house_2.mcstructure
+snowy_small_house_3.mcstructure
+snowy_small_house_4.mcstructure
+snowy_small_house_5.mcstructure
+snowy_small_house_6.mcstructure
+snowy_small_house_7.mcstructure
+snowy_small_house_8.mcstructure
+

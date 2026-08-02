@@ -1,0 +1,7 @@
+﻿Directory: bedrock-addon\structures\bastion\units\edges
+================================================================================
+
+FILES
+-----
+edge_0.mcstructure
+

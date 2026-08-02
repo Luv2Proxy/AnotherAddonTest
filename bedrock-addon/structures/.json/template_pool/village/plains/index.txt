@@ -1,4 +1,4 @@
-﻿Directory: bedrock-addon\structures\json\template_pool\village\plains
+﻿Directory: bedrock-addon\structures\.json\template_pool\village\plains
 ================================================================================
 
 FILES

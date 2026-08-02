@@ -1,0 +1,23 @@
+﻿Directory: bedrock-addon\structures\trial_chambers\hallway
+================================================================================
+
+FILES
+-----
+cache_1.mcstructure
+corner_staircase.mcstructure
+corner_staircase_down.mcstructure
+corridor_connector_1.mcstructure
+left_corner.mcstructure
+long_straight_staircase.mcstructure
+long_straight_staircase_down.mcstructure
+lower_hallway_connector.mcstructure
+right_corner.mcstructure
+rubble.mcstructure
+rubble_chamber.mcstructure
+rubble_chamber_thin.mcstructure
+rubble_thin.mcstructure
+straight.mcstructure
+straight_staircase.mcstructure
+straight_staircase_down.mcstructure
+upper_hallway_connector.mcstructure
+

@@ -1,0 +1,9 @@
+﻿Directory: bedrock-addon\structures\bastion\treasure\roofs
+================================================================================
+
+FILES
+-----
+center_roof.mcstructure
+corner_roof.mcstructure
+wall_roof.mcstructure
+

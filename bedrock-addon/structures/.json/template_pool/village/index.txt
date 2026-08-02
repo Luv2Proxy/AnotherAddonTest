@@ -1,4 +1,4 @@
-﻿Directory: bedrock-addon\structures\json\template_pool\village
+﻿Directory: bedrock-addon\structures\.json\template_pool\village
 ================================================================================
 
 DIRECTORIES

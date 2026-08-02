@@ -1,0 +1,10 @@
+﻿Directory: bedrock-addon\structures\village\savanna\town_centers
+================================================================================
+
+FILES
+-----
+savanna_meeting_point_1.mcstructure
+savanna_meeting_point_2.mcstructure
+savanna_meeting_point_3.mcstructure
+savanna_meeting_point_4.mcstructure
+

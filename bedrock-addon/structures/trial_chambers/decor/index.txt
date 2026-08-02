@@ -1,0 +1,17 @@
+﻿Directory: bedrock-addon\structures\trial_chambers\decor
+================================================================================
+
+FILES
+-----
+barrel.mcstructure
+candle_1.mcstructure
+candle_2.mcstructure
+candle_3.mcstructure
+candle_4.mcstructure
+dead_bush_pot.mcstructure
+empty_pot.mcstructure
+flow_pot.mcstructure
+guster_pot.mcstructure
+scrape_pot.mcstructure
+undecorated_pot.mcstructure
+

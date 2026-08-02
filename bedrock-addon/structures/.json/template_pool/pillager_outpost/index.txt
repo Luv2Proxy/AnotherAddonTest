@@ -1,4 +1,4 @@
-﻿Directory: bedrock-addon\structures\json\template_pool\pillager_outpost
+﻿Directory: bedrock-addon\structures\.json\template_pool\pillager_outpost
 ================================================================================
 
 FILES

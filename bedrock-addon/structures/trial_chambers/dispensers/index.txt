@@ -1,0 +1,9 @@
+﻿Directory: bedrock-addon\structures\trial_chambers\dispensers
+================================================================================
+
+FILES
+-----
+chamber.mcstructure
+floor_dispenser.mcstructure
+wall_dispenser.mcstructure
+

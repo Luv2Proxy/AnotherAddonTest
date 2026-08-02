@@ -1,0 +1,8 @@
+﻿Directory: bedrock-addon\structures\village\taiga\zombie\villagers
+================================================================================
+
+FILES
+-----
+nitwit.mcstructure
+unemployed.mcstructure
+

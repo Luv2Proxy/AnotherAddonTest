@@ -1,0 +1,8 @@
+﻿Directory: bedrock-addon\structures\village\desert\terminators
+================================================================================
+
+FILES
+-----
+terminator_01.mcstructure
+terminator_02.mcstructure
+

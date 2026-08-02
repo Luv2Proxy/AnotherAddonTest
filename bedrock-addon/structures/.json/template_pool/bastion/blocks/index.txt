@@ -1,4 +1,4 @@
-﻿Directory: bedrock-addon\structures\json\template_pool\bastion\blocks
+﻿Directory: bedrock-addon\structures\.json\template_pool\bastion\blocks
 ================================================================================
 
 FILES

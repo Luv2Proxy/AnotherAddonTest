@@ -1,0 +1,16 @@
+﻿Directory: bedrock-addon\structures\village\plains
+================================================================================
+
+FILES
+-----
+plains_lamp_1.mcstructure
+
+DIRECTORIES
+-----------
+houses
+streets
+terminators
+town_centers
+villagers
+zombie
+

@@ -1,4 +1,4 @@
-﻿Directory: bedrock-addon\structures\json\template_pool\ancient_city\walls
+﻿Directory: bedrock-addon\structures\.json\template_pool\ancient_city\walls
 ================================================================================
 
 FILES

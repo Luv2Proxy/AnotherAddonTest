@@ -1,0 +1,16 @@
+﻿Directory: bedrock-addon\structures\trial_chambers\chamber\pedestal
+================================================================================
+
+FILES
+-----
+center_1.mcstructure
+ominous_slice_1.mcstructure
+quadrant_1.mcstructure
+quadrant_2.mcstructure
+quadrant_3.mcstructure
+slice_1.mcstructure
+slice_2.mcstructure
+slice_3.mcstructure
+slice_4.mcstructure
+slice_5.mcstructure
+

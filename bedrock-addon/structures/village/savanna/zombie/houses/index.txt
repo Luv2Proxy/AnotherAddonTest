@@ -1,0 +1,19 @@
+﻿Directory: bedrock-addon\structures\village\savanna\zombie\houses
+================================================================================
+
+FILES
+-----
+savanna_animal_pen_2.mcstructure
+savanna_animal_pen_3.mcstructure
+savanna_large_farm_2.mcstructure
+savanna_medium_house_1.mcstructure
+savanna_medium_house_2.mcstructure
+savanna_small_house_1.mcstructure
+savanna_small_house_2.mcstructure
+savanna_small_house_3.mcstructure
+savanna_small_house_4.mcstructure
+savanna_small_house_5.mcstructure
+savanna_small_house_6.mcstructure
+savanna_small_house_7.mcstructure
+savanna_small_house_8.mcstructure
+

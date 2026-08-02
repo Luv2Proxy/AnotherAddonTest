@@ -1,0 +1,10 @@
+﻿Directory: bedrock-addon\structures\bastion\treasure\corners
+================================================================================
+
+DIRECTORIES
+-----------
+bottom
+edges
+middle
+top
+

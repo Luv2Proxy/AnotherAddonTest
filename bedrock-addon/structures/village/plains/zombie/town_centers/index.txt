@@ -1,0 +1,10 @@
+﻿Directory: bedrock-addon\structures\village\plains\zombie\town_centers
+================================================================================
+
+FILES
+-----
+plains_fountain_01.mcstructure
+plains_meeting_point_1.mcstructure
+plains_meeting_point_2.mcstructure
+plains_meeting_point_3.mcstructure
+

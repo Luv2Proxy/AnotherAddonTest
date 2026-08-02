@@ -1,0 +1,13 @@
+﻿Directory: bedrock-addon\structures\trail_ruins\decor
+================================================================================
+
+FILES
+-----
+decor_1.mcstructure
+decor_2.mcstructure
+decor_3.mcstructure
+decor_4.mcstructure
+decor_5.mcstructure
+decor_6.mcstructure
+decor_7.mcstructure
+

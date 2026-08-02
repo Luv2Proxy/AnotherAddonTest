@@ -1,0 +1,17 @@
+﻿Directory: bedrock-addon\structures\village\snowy
+================================================================================
+
+FILES
+-----
+snowy_lamp_post_01.mcstructure
+snowy_lamp_post_02.mcstructure
+snowy_lamp_post_03.mcstructure
+
+DIRECTORIES
+-----------
+houses
+streets
+town_centers
+villagers
+zombie
+

@@ -1,0 +1,3 @@
+﻿Directory: tools\bedrock-addon\scripts\worldgen\generated
+================================================================================
+

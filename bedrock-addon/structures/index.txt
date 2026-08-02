@@ -7,12 +7,12 @@ README.md
 
 DIRECTORIES
 -----------
+.json
 ancient_city
 bastion
 end_city
 fossil
 igloo
-json
 nether_fossils
 pillager_outpost
 ruined_portal
@@ -21,5 +21,4 @@ trail_ruins
 trial_chambers
 underwater_ruin
 village
-woodland_mansion
 

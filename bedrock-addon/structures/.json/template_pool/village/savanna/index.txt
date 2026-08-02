@@ -1,4 +1,4 @@
-﻿Directory: bedrock-addon\structures\json\template_pool\village\savanna
+﻿Directory: bedrock-addon\structures\.json\template_pool\village\savanna
 ================================================================================
 
 FILES

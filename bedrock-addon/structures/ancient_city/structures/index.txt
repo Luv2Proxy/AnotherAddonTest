@@ -1,0 +1,27 @@
+﻿Directory: bedrock-addon\structures\ancient_city\structures
+================================================================================
+
+FILES
+-----
+barracks.mcstructure
+camp_1.mcstructure
+camp_2.mcstructure
+camp_3.mcstructure
+chamber_1.mcstructure
+chamber_2.mcstructure
+chamber_3.mcstructure
+ice_box_1.mcstructure
+large_pillar_1.mcstructure
+large_ruin_1.mcstructure
+medium_pillar_1.mcstructure
+medium_ruin_1.mcstructure
+medium_ruin_2.mcstructure
+sauna_1.mcstructure
+small_ruin_1.mcstructure
+small_ruin_2.mcstructure
+small_statue.mcstructure
+tall_ruin_1.mcstructure
+tall_ruin_2.mcstructure
+tall_ruin_3.mcstructure
+tall_ruin_4.mcstructure
+

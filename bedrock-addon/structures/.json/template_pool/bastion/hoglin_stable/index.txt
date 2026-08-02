@@ -1,4 +1,4 @@
-﻿Directory: bedrock-addon\structures\json\template_pool\bastion\hoglin_stable
+﻿Directory: bedrock-addon\structures\.json\template_pool\bastion\hoglin_stable
 ================================================================================
 
 FILES

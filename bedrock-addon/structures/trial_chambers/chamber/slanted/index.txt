@@ -1,0 +1,21 @@
+﻿Directory: bedrock-addon\structures\trial_chambers\chamber\slanted
+================================================================================
+
+FILES
+-----
+center.mcstructure
+hallway_1.mcstructure
+hallway_2.mcstructure
+hallway_3.mcstructure
+hallway_4.mcstructure
+hallway_5.mcstructure
+ominous_upper_arm_1.mcstructure
+quadrant_1.mcstructure
+quadrant_2.mcstructure
+quadrant_3.mcstructure
+quadrant_4.mcstructure
+ramp_1.mcstructure
+ramp_2.mcstructure
+ramp_3.mcstructure
+ramp_4.mcstructure
+

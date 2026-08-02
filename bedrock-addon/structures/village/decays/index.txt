@@ -1,0 +1,9 @@
+﻿Directory: bedrock-addon\structures\village\decays
+================================================================================
+
+FILES
+-----
+grass_11x13.mcstructure
+grass_16x16.mcstructure
+grass_9x9.mcstructure
+

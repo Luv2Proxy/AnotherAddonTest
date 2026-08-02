@@ -1,0 +1,8 @@
+﻿Directory: bedrock-addon\structures\bastion\bridge\connectors
+================================================================================
+
+FILES
+-----
+back_bridge_bottom.mcstructure
+back_bridge_top.mcstructure
+

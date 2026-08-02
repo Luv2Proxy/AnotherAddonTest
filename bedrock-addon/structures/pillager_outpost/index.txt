@@ -1,0 +1,17 @@
+﻿Directory: bedrock-addon\structures\pillager_outpost
+================================================================================
+
+FILES
+-----
+base_plate.mcstructure
+feature_cage1.mcstructure
+feature_cage2.mcstructure
+feature_cage_with_allays.mcstructure
+feature_logs.mcstructure
+feature_plate.mcstructure
+feature_targets.mcstructure
+feature_tent1.mcstructure
+feature_tent2.mcstructure
+watchtower.mcstructure
+watchtower_overgrown.mcstructure
+

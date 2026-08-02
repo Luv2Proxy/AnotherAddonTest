@@ -1,4 +1,4 @@
-﻿Directory: bedrock-addon\structures\json\template_pool\bastion\mobs
+﻿Directory: bedrock-addon\structures\.json\template_pool\bastion\mobs
 ================================================================================
 
 FILES

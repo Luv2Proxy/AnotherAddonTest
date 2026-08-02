@@ -1,0 +1,13 @@
+﻿Directory: bedrock-addon\structures\trial_chambers\corridor\atrium
+================================================================================
+
+FILES
+-----
+bogged_relief.mcstructure
+breeze_relief.mcstructure
+grand_staircase_1.mcstructure
+grand_staircase_2.mcstructure
+grand_staircase_3.mcstructure
+spider_relief.mcstructure
+spiral_relief.mcstructure
+

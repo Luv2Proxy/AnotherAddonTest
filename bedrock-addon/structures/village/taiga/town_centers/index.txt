@@ -1,0 +1,8 @@
+﻿Directory: bedrock-addon\structures\village\taiga\town_centers
+================================================================================
+
+FILES
+-----
+taiga_meeting_point_1.mcstructure
+taiga_meeting_point_2.mcstructure
+

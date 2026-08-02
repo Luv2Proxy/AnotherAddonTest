@@ -1,0 +1,9 @@
+﻿Directory: bedrock-addon\structures\trial_chambers\spawner\ranged
+================================================================================
+
+FILES
+-----
+poison_skeleton.mcstructure
+skeleton.mcstructure
+stray.mcstructure
+

@@ -1,4 +1,4 @@
-﻿Directory: bedrock-addon\structures\json\structure
+﻿Directory: bedrock-addon\structures\.json\structure
 ================================================================================
 
 FILES
@@ -11,7 +11,6 @@ end_city.json
 fortress.json
 igloo.json
 jungle_pyramid.json
-mansion.json
 mineshaft.json
 mineshaft_mesa.json
 monument.json

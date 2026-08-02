@@ -1,0 +1,9 @@
+﻿Directory: bedrock-addon\structures\village\snowy\zombie\town_centers
+================================================================================
+
+FILES
+-----
+snowy_meeting_point_1.mcstructure
+snowy_meeting_point_2.mcstructure
+snowy_meeting_point_3.mcstructure
+

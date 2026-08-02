@@ -1,4 +1,4 @@
-﻿Directory: bedrock-addon\structures\json\template_pool\bastion\units\stages\rot
+﻿Directory: bedrock-addon\structures\.json\template_pool\bastion\units\stages\rot
 ================================================================================
 
 FILES

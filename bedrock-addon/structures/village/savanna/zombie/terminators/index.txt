@@ -1,0 +1,7 @@
+﻿Directory: bedrock-addon\structures\village\savanna\zombie\terminators
+================================================================================
+
+FILES
+-----
+terminator_05.mcstructure
+

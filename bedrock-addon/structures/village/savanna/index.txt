@@ -1,0 +1,16 @@
+﻿Directory: bedrock-addon\structures\village\savanna
+================================================================================
+
+FILES
+-----
+savanna_lamp_post_01.mcstructure
+
+DIRECTORIES
+-----------
+houses
+streets
+terminators
+town_centers
+villagers
+zombie
+

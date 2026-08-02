@@ -1,0 +1,10 @@
+﻿Directory: bedrock-addon\structures\village\plains\zombie
+================================================================================
+
+DIRECTORIES
+-----------
+houses
+streets
+town_centers
+villagers
+

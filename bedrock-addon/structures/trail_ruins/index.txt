@@ -1,0 +1,10 @@
+﻿Directory: bedrock-addon\structures\trail_ruins
+================================================================================
+
+DIRECTORIES
+-----------
+buildings
+decor
+roads
+tower
+

@@ -3,6 +3,15 @@
 
 FILES
 -----
+import-manifest.json
+import-validation.json
+jigsaw-connectors.json
 jigsaw-data.json
+pools.json
+processors.json
 README.md
+resolved-pieces.json
+structure-sets.json
+structures.json
+validation-report.json
 

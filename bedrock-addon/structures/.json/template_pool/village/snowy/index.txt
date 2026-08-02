@@ -1,4 +1,4 @@
-﻿Directory: bedrock-addon\structures\json\template_pool\village\snowy
+﻿Directory: bedrock-addon\structures\.json\template_pool\village\snowy
 ================================================================================
 
 FILES

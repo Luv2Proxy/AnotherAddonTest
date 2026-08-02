@@ -1,0 +1,8 @@
+﻿Directory: bedrock-addon\structures\trial_chambers\reward
+================================================================================
+
+FILES
+-----
+ominous_vault.mcstructure
+vault.mcstructure
+

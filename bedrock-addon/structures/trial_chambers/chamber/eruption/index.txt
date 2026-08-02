@@ -1,0 +1,16 @@
+﻿Directory: bedrock-addon\structures\trial_chambers\chamber\eruption
+================================================================================
+
+FILES
+-----
+breeze_slice_1.mcstructure
+center_1.mcstructure
+quadrant_1.mcstructure
+quadrant_2.mcstructure
+quadrant_3.mcstructure
+quadrant_4.mcstructure
+quadrant_5.mcstructure
+slice_1.mcstructure
+slice_2.mcstructure
+slice_3.mcstructure
+

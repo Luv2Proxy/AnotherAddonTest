@@ -1,0 +1,7 @@
+﻿Directory: bedrock-addon\structures\trial_chambers\spawner\breeze
+================================================================================
+
+FILES
+-----
+breeze.mcstructure
+

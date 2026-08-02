@@ -1,0 +1,9 @@
+﻿Directory: bedrock-addon\structures\bastion\hoglin_stable\ramparts
+================================================================================
+
+FILES
+-----
+ramparts_1.mcstructure
+ramparts_2.mcstructure
+ramparts_3.mcstructure
+

@@ -1,0 +1,7 @@
+﻿Directory: tools\bedrock-addon\scripts
+================================================================================
+
+DIRECTORIES
+-----------
+worldgen
+

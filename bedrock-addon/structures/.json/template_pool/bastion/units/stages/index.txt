@@ -1,4 +1,4 @@
-﻿Directory: bedrock-addon\structures\json\template_pool\bastion\units\stages
+﻿Directory: bedrock-addon\structures\.json\template_pool\bastion\units\stages
 ================================================================================
 
 FILES

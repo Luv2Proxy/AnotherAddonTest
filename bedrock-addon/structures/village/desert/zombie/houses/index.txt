@@ -1,0 +1,16 @@
+﻿Directory: bedrock-addon\structures\village\desert\zombie\houses
+================================================================================
+
+FILES
+-----
+desert_medium_house_1.mcstructure
+desert_medium_house_2.mcstructure
+desert_small_house_1.mcstructure
+desert_small_house_2.mcstructure
+desert_small_house_3.mcstructure
+desert_small_house_4.mcstructure
+desert_small_house_5.mcstructure
+desert_small_house_6.mcstructure
+desert_small_house_7.mcstructure
+desert_small_house_8.mcstructure
+

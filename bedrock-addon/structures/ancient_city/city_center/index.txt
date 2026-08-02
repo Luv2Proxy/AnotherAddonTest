@@ -1,0 +1,13 @@
+﻿Directory: bedrock-addon\structures\ancient_city\city_center
+================================================================================
+
+FILES
+-----
+city_center_1.mcstructure
+city_center_2.mcstructure
+city_center_3.mcstructure
+
+DIRECTORIES
+-----------
+walls
+

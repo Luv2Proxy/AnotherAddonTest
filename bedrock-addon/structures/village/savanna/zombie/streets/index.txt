@@ -1,0 +1,25 @@
+﻿Directory: bedrock-addon\structures\village\savanna\zombie\streets
+================================================================================
+
+FILES
+-----
+corner_01.mcstructure
+corner_03.mcstructure
+crossroad_02.mcstructure
+crossroad_03.mcstructure
+crossroad_04.mcstructure
+crossroad_05.mcstructure
+crossroad_06.mcstructure
+crossroad_07.mcstructure
+split_01.mcstructure
+split_02.mcstructure
+straight_02.mcstructure
+straight_04.mcstructure
+straight_05.mcstructure
+straight_06.mcstructure
+straight_08.mcstructure
+straight_09.mcstructure
+straight_10.mcstructure
+straight_11.mcstructure
+turn_01.mcstructure
+

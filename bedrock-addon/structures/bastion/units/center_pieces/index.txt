@@ -1,0 +1,9 @@
+﻿Directory: bedrock-addon\structures\bastion\units\center_pieces
+================================================================================
+
+FILES
+-----
+center_0.mcstructure
+center_1.mcstructure
+center_2.mcstructure
+

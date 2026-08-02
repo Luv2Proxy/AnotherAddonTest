@@ -1,0 +1,10 @@
+﻿Directory: bedrock-addon\structures\village\plains\terminators
+================================================================================
+
+FILES
+-----
+terminator_01.mcstructure
+terminator_02.mcstructure
+terminator_03.mcstructure
+terminator_04.mcstructure
+

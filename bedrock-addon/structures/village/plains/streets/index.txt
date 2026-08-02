@@ -1,0 +1,22 @@
+﻿Directory: bedrock-addon\structures\village\plains\streets
+================================================================================
+
+FILES
+-----
+corner_01.mcstructure
+corner_02.mcstructure
+corner_03.mcstructure
+crossroad_01.mcstructure
+crossroad_02.mcstructure
+crossroad_03.mcstructure
+crossroad_04.mcstructure
+crossroad_05.mcstructure
+crossroad_06.mcstructure
+straight_01.mcstructure
+straight_02.mcstructure
+straight_03.mcstructure
+straight_04.mcstructure
+straight_05.mcstructure
+straight_06.mcstructure
+turn_01.mcstructure
+

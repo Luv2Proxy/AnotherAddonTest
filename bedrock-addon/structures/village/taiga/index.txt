@@ -1,0 +1,21 @@
+﻿Directory: bedrock-addon\structures\village\taiga
+================================================================================
+
+FILES
+-----
+taiga_decoration_1.mcstructure
+taiga_decoration_2.mcstructure
+taiga_decoration_3.mcstructure
+taiga_decoration_4.mcstructure
+taiga_decoration_5.mcstructure
+taiga_decoration_6.mcstructure
+taiga_lamp_post_1.mcstructure
+
+DIRECTORIES
+-----------
+houses
+streets
+town_centers
+villagers
+zombie
+

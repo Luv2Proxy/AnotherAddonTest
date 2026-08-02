@@ -1,0 +1,21 @@
+﻿Directory: bedrock-addon\structures\trial_chambers\corridor\addon
+================================================================================
+
+FILES
+-----
+arrow_dispenser.mcstructure
+bridge_lower.mcstructure
+chandelier_upper.mcstructure
+decoration_upper.mcstructure
+display_1.mcstructure
+display_2.mcstructure
+display_3.mcstructure
+head_upper.mcstructure
+ladder_to_middle.mcstructure
+open_walkway.mcstructure
+open_walkway_upper.mcstructure
+reward_upper.mcstructure
+staircase.mcstructure
+wall.mcstructure
+walled_walkway.mcstructure
+

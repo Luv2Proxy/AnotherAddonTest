@@ -1,0 +1,10 @@
+﻿Directory: bedrock-addon\structures\bastion\treasure\walls\bottom
+================================================================================
+
+FILES
+-----
+wall_0.mcstructure
+wall_1.mcstructure
+wall_2.mcstructure
+wall_3.mcstructure
+

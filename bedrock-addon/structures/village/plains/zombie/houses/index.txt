@@ -1,0 +1,24 @@
+﻿Directory: bedrock-addon\structures\village\plains\zombie\houses
+================================================================================
+
+FILES
+-----
+plains_animal_pen_3.mcstructure
+plains_big_house_1.mcstructure
+plains_butcher_shop_2.mcstructure
+plains_fletcher_house_1.mcstructure
+plains_medium_house_1.mcstructure
+plains_medium_house_2.mcstructure
+plains_meeting_point_4.mcstructure
+plains_meeting_point_5.mcstructure
+plains_shepherds_house_1.mcstructure
+plains_small_house_1.mcstructure
+plains_small_house_2.mcstructure
+plains_small_house_3.mcstructure
+plains_small_house_4.mcstructure
+plains_small_house_5.mcstructure
+plains_small_house_6.mcstructure
+plains_small_house_7.mcstructure
+plains_small_house_8.mcstructure
+plains_stable_1.mcstructure
+

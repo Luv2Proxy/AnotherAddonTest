@@ -1,0 +1,16 @@
+﻿Directory: bedrock-addon\structures\trial_chambers\chamber\addon
+================================================================================
+
+FILES
+-----
+c1_breeze.mcstructure
+full_corner_column.mcstructure
+full_stacked_walkway.mcstructure
+full_stacked_walkway_2.mcstructure
+grate_bridge.mcstructure
+hanging_platform.mcstructure
+lower_staircase_down.mcstructure
+short_grate_platform.mcstructure
+short_platform.mcstructure
+walkway_with_bridge_1.mcstructure
+

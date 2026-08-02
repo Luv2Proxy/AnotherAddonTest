@@ -1,0 +1,25 @@
+﻿Directory: bedrock-addon\structures\village\common\animals
+================================================================================
+
+FILES
+-----
+cat_black.mcstructure
+cat_british.mcstructure
+cat_calico.mcstructure
+cat_jellie.mcstructure
+cat_persian.mcstructure
+cat_ragdoll.mcstructure
+cat_red.mcstructure
+cat_siamese.mcstructure
+cat_tabby.mcstructure
+cat_white.mcstructure
+cows_1.mcstructure
+horses_1.mcstructure
+horses_2.mcstructure
+horses_3.mcstructure
+horses_4.mcstructure
+horses_5.mcstructure
+pigs_1.mcstructure
+sheep_1.mcstructure
+sheep_2.mcstructure
+

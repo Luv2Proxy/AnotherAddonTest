@@ -1,0 +1,23 @@
+﻿Directory: bedrock-addon\structures\village\taiga\zombie\houses
+================================================================================
+
+FILES
+-----
+taiga_cartographer_house_1.mcstructure
+taiga_fisher_cottage_1.mcstructure
+taiga_large_farm_2.mcstructure
+taiga_library_1.mcstructure
+taiga_medium_house_1.mcstructure
+taiga_medium_house_2.mcstructure
+taiga_medium_house_3.mcstructure
+taiga_medium_house_4.mcstructure
+taiga_shepherds_house_1.mcstructure
+taiga_small_house_1.mcstructure
+taiga_small_house_2.mcstructure
+taiga_small_house_3.mcstructure
+taiga_small_house_4.mcstructure
+taiga_small_house_5.mcstructure
+taiga_temple_1.mcstructure
+taiga_tool_smith_1.mcstructure
+taiga_weaponsmith_2.mcstructure
+

@@ -1,4 +1,4 @@
-﻿Directory: bedrock-addon\structures\json\template_pool\bastion\units\fillers
+﻿Directory: bedrock-addon\structures\.json\template_pool\bastion\units\fillers
 ================================================================================
 
 FILES

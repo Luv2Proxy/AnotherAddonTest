@@ -1,0 +1,8 @@
+﻿Directory: bedrock-addon\structures\bastion\treasure\corners\bottom
+================================================================================
+
+FILES
+-----
+corner_0.mcstructure
+corner_1.mcstructure
+

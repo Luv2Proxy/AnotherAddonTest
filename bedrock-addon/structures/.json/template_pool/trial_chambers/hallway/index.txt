@@ -1,4 +1,4 @@
-﻿Directory: bedrock-addon\structures\json\template_pool\trial_chambers\hallway
+﻿Directory: bedrock-addon\structures\.json\template_pool\trial_chambers\hallway
 ================================================================================
 
 FILES

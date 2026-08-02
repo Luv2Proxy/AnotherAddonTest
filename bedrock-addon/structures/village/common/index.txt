@@ -1,0 +1,12 @@
+﻿Directory: bedrock-addon\structures\village\common
+================================================================================
+
+FILES
+-----
+iron_golem.mcstructure
+well_bottom.mcstructure
+
+DIRECTORIES
+-----------
+animals
+

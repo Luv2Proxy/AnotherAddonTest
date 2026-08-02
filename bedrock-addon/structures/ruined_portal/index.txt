@@ -1,0 +1,19 @@
+﻿Directory: bedrock-addon\structures\ruined_portal
+================================================================================
+
+FILES
+-----
+giant_portal_1.mcstructure
+giant_portal_2.mcstructure
+giant_portal_3.mcstructure
+portal_1.mcstructure
+portal_10.mcstructure
+portal_2.mcstructure
+portal_3.mcstructure
+portal_4.mcstructure
+portal_5.mcstructure
+portal_6.mcstructure
+portal_7.mcstructure
+portal_8.mcstructure
+portal_9.mcstructure
+

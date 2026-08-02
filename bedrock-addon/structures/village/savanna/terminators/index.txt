@@ -1,0 +1,7 @@
+﻿Directory: bedrock-addon\structures\village\savanna\terminators
+================================================================================
+
+FILES
+-----
+terminator_05.mcstructure
+

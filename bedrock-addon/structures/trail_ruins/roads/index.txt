@@ -1,0 +1,13 @@
+﻿Directory: bedrock-addon\structures\trail_ruins\roads
+================================================================================
+
+FILES
+-----
+long_road_end.mcstructure
+road_end_1.mcstructure
+road_section_1.mcstructure
+road_section_2.mcstructure
+road_section_3.mcstructure
+road_section_4.mcstructure
+road_spacer_1.mcstructure
+

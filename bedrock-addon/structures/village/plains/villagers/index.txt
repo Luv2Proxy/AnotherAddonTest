@@ -1,0 +1,9 @@
+﻿Directory: bedrock-addon\structures\village\plains\villagers
+================================================================================
+
+FILES
+-----
+baby.mcstructure
+nitwit.mcstructure
+unemployed.mcstructure
+

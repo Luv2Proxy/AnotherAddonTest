@@ -1,0 +1,11 @@
+﻿Directory: bedrock-addon\structures\bastion\treasure\bases
+================================================================================
+
+FILES
+-----
+lava_basin.mcstructure
+
+DIRECTORIES
+-----------
+centers
+

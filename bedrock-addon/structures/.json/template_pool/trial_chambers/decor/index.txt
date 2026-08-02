@@ -1,4 +1,4 @@
-﻿Directory: bedrock-addon\structures\json\template_pool\trial_chambers\decor
+﻿Directory: bedrock-addon\structures\.json\template_pool\trial_chambers\decor
 ================================================================================
 
 FILES

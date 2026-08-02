@@ -1,0 +1,7 @@
+﻿Directory: bedrock-addon\structures\bastion\units\rampart_plates
+================================================================================
+
+FILES
+-----
+plate_0.mcstructure
+

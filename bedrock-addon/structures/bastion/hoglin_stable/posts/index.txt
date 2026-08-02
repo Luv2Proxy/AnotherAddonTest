@@ -1,0 +1,8 @@
+﻿Directory: bedrock-addon\structures\bastion\hoglin_stable\posts
+================================================================================
+
+FILES
+-----
+end_post.mcstructure
+stair_post.mcstructure
+

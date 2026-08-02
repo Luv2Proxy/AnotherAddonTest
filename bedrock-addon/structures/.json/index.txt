@@ -1,8 +1,9 @@
-﻿Directory: bedrock-addon\structures\json
+﻿Directory: bedrock-addon\structures\.json
 ================================================================================
 
 DIRECTORIES
 -----------
+processor_list
 structure
 structure_set
 template_pool

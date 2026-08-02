@@ -1,0 +1,27 @@
+﻿Directory: bedrock-addon\structures\trial_chambers\corridor
+================================================================================
+
+FILES
+-----
+atrium_1.mcstructure
+end_1.mcstructure
+end_2.mcstructure
+entrance_1.mcstructure
+entrance_2.mcstructure
+entrance_3.mcstructure
+first_plate.mcstructure
+second_plate.mcstructure
+straight_1.mcstructure
+straight_2.mcstructure
+straight_3.mcstructure
+straight_4.mcstructure
+straight_5.mcstructure
+straight_6.mcstructure
+straight_7.mcstructure
+straight_8.mcstructure
+
+DIRECTORIES
+-----------
+addon
+atrium
+

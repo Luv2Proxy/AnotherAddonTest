@@ -1,0 +1,23 @@
+﻿Directory: bedrock-addon\structures\trial_chambers\chamber
+================================================================================
+
+FILES
+-----
+assembly.mcstructure
+chamber_1.mcstructure
+chamber_2.mcstructure
+chamber_4.mcstructure
+chamber_8.mcstructure
+entrance_cap.mcstructure
+eruption.mcstructure
+pedestal.mcstructure
+slanted.mcstructure
+
+DIRECTORIES
+-----------
+addon
+assembly
+eruption
+pedestal
+slanted
+

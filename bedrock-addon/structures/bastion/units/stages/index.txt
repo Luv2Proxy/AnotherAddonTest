@@ -1,0 +1,24 @@
+﻿Directory: bedrock-addon\structures\bastion\units\stages
+================================================================================
+
+FILES
+-----
+stage_0_0.mcstructure
+stage_0_1.mcstructure
+stage_0_2.mcstructure
+stage_0_3.mcstructure
+stage_1_0.mcstructure
+stage_1_1.mcstructure
+stage_1_2.mcstructure
+stage_1_3.mcstructure
+stage_2_0.mcstructure
+stage_2_1.mcstructure
+stage_3_0.mcstructure
+stage_3_1.mcstructure
+stage_3_2.mcstructure
+stage_3_3.mcstructure
+
+DIRECTORIES
+-----------
+rot
+

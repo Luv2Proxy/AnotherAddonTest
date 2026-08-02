@@ -1,0 +1,11 @@
+﻿Directory: bedrock-addon\structures\trial_chambers\spawner\connectors
+================================================================================
+
+FILES
+-----
+breeze.mcstructure
+melee.mcstructure
+ranged.mcstructure
+slow_ranged.mcstructure
+small_melee.mcstructure
+

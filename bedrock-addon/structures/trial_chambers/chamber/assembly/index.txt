@@ -1,0 +1,27 @@
+﻿Directory: bedrock-addon\structures\trial_chambers\chamber\assembly
+================================================================================
+
+FILES
+-----
+cover_1.mcstructure
+cover_2.mcstructure
+cover_3.mcstructure
+cover_4.mcstructure
+cover_5.mcstructure
+cover_6.mcstructure
+cover_7.mcstructure
+full_column.mcstructure
+hanging_1.mcstructure
+hanging_2.mcstructure
+hanging_3.mcstructure
+hanging_4.mcstructure
+hanging_5.mcstructure
+left_staircase_1.mcstructure
+left_staircase_2.mcstructure
+left_staircase_3.mcstructure
+platform_1.mcstructure
+right_staircase_1.mcstructure
+right_staircase_2.mcstructure
+right_staircase_3.mcstructure
+spawner_1.mcstructure
+

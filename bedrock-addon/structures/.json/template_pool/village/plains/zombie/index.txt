@@ -1,4 +1,4 @@
-﻿Directory: bedrock-addon\structures\json\template_pool\village\plains\zombie
+﻿Directory: bedrock-addon\structures\.json\template_pool\village\plains\zombie
 ================================================================================
 
 FILES

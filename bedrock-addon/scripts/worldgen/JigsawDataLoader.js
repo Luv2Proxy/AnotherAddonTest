@@ -2,23 +2,42 @@ import generatedData from "./generated/jigsaw-data.js";
 
 export function normalizeGeneratedJigsawData(data = generatedData) {
   const source = data && typeof data === "object" ? data : {};
+  const pools = source.template_pools ?? source.pools ?? {};
+  const structures = source.structures ?? source.jigsaw_structures ?? {};
+  const processors = source.processors ?? {};
+  const sets = source.structure_sets ?? source.structureSets ?? {};
+  const pieces = source.pieces ?? {};
+  const resolved = source.resolved_templates ?? {};
+  const aliases = source.template_aliases ?? {};
+  const missing = new Set(source.missing_templates ?? source.missing ?? []);
+
+  function key(id) {
+    if (!id) return null;
+    return String(id).replace(/\\/g, "/").replace(/\.mcstructure$/i, "").replace(/\.nbt$/i, "").replace(/^minecraft:/, "");
+  }
+  function isMissing(id) {
+    const k = key(id);
+    return !k || missing.has(id) || missing.has(`minecraft:${k}`) || (!resolved[`minecraft:${k}`] && !pieces[`minecraft:${k}`]);
+  }
+
   return {
     schema_version: source.schema_version ?? 0,
-    template_pools: source.template_pools ?? source.pools ?? {},
-    structures: source.structures ?? source.jigsaw_structures ?? {},
-    jigsaw_structures: source.jigsaw_structures ?? source.structures ?? {},
-    processors: source.processors ?? {},
-    structure_sets: source.structure_sets ?? source.structureSets ?? {},
-    pieces: source.pieces ?? {},
-    resolved_templates: source.resolved_templates ?? {},
-    template_aliases: source.template_aliases ?? {},
+    template_pools: pools,
+    structures,
+    jigsaw_structures: structures,
+    processors,
+    structure_sets: sets,
+    pieces,
+    resolved_templates: resolved,
+    template_aliases: aliases,
     connectors: source.connectors ?? source.jigsaw_connectors ?? {},
-    metadata: source.metadata ?? {}
+    metadata: source.metadata ?? {},
+    missing_templates: [...missing],
+    isMissingTemplate: isMissing
   };
 }
 
 export const GENERATED_JIGSAW_DATA = Object.freeze(normalizeGeneratedJigsawData());
-
 export function getGeneratedJigsawData() { return GENERATED_JIGSAW_DATA; }
 
 export function generatedTemplateId(id) {
@@ -29,7 +48,7 @@ export function generatedTemplateId(id) {
 
 export function generatedPiece(id) {
   const key = generatedTemplateId(id);
-  if (!key) return null;
+  if (!key || GENERATED_JIGSAW_DATA.isMissingTemplate(key)) return null;
   return GENERATED_JIGSAW_DATA.pieces[key] ?? GENERATED_JIGSAW_DATA.pieces[String(id)] ?? null;
 }
 
@@ -64,6 +83,7 @@ export function generatedStructureSet(id) {
 export function generatedResolvedTemplatePath(id) {
   const key = generatedTemplateId(id);
   if (!key) return null;
+  if (GENERATED_JIGSAW_DATA.isMissingTemplate(key)) return null;
   return GENERATED_JIGSAW_DATA.resolved_templates[key] ?? GENERATED_JIGSAW_DATA.template_aliases[key]?.source ?? null;
 }
 

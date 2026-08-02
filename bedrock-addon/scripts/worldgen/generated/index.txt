@@ -6,6 +6,7 @@ FILES
 import-manifest.json
 import-validation.json
 jigsaw-connectors.json
+jigsaw-data.js
 jigsaw-data.json
 pools.json
 processors.json
@@ -14,4 +15,3 @@ resolved-pieces.json
 structure-sets.json
 structures.json
 validation-report.json
-

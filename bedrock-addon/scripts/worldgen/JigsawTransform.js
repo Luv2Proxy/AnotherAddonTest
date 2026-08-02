@@ -41,3 +41,25 @@ export function enumerateConnectorTransforms(parentWorld, child, options={}) {
   }
   return out;
 }
+
+// Compatibility helpers used by the processor/placement integration.
+export function normalizeRotation(rotation=0) {
+  if (typeof rotation === 'number') return ((rotation % 4) + 4) % 4;
+  const r=String(rotation).toLowerCase();
+  if (r.includes('180')) return 2;
+  if (r.includes('counter') || r === '270') return 3;
+  if (r.includes('90')) return 1;
+  return 0;
+}
+export function composeRotation(a=0,b=0) { return (normalizeRotation(a)+normalizeRotation(b))%4; }
+export function rotatePosition(position={},rotation=0,size={x:1,y:1,z:1}) {
+  const q=normalizeRotation(rotation), p={x:Number(position.x??0),y:Number(position.y??0),z:Number(position.z??0)};
+  if(q===1) return {x:Number(size.z??1)-1-p.z,y:p.y,z:p.x};
+  if(q===2) return {x:Number(size.x??1)-1-p.x,y:p.y,z:Number(size.z??1)-1-p.z};
+  if(q===3) return {x:p.z,y:p.y,z:Number(size.x??1)-1-p.x};
+  return p;
+}
+export function rotateDirection(direction,rotation=0) { return rotateFacing(direction,normalizeRotation(rotation)); }
+export function transformConnector(connector={},rotation=0,pieceSize={x:1,y:1,z:1}) {
+  return {...connector,position:rotatePosition(connector.position??connector.pos??{},rotation,pieceSize),facing:rotateDirection(connector.facing??connector.front,rotation)};
+}

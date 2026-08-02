@@ -1,0 +1,1456 @@
+{
+  "schema_version": 2,
+  "format": {
+    "mcstructure": "little-endian NBT",
+    "index_formula": "x + size.x * (y + size.y * z)"
+  },
+  "pieces": [
+    {
+      "id": "bastion:bridge/starting_pieces/entrance",
+      "source": "bastion/bridge/starting_pieces/entrance.mcstructure",
+      "size": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "jigsaws": [],
+      "entities": [],
+      "format_version": "unknown"
+    },
+    {
+      "id": "bastion:bridge/starting_pieces/entrance_base",
+      "source": "bastion/bridge/starting_pieces/entrance_base.mcstructure",
+      "size": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "jigsaws": [],
+      "entities": [],
+      "format_version": "unknown"
+    },
+    {
+      "id": "bastion:hoglin_stable/air_base",
+      "source": "bastion/hoglin_stable/air_base.mcstructure",
+      "size": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "jigsaws": [],
+      "entities": [],
+      "format_version": "unknown"
+    },
+    {
+      "id": "bastion:treasure/ramparts/lava_basin_main",
+      "source": "bastion/treasure/ramparts/lava_basin_main.mcstructure",
+      "size": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "jigsaws": [],
+      "entities": [],
+      "format_version": "unknown"
+    },
+    {
+      "id": "bastion:treasure/ramparts/lava_basin_side",
+      "source": "bastion/treasure/ramparts/lava_basin_side.mcstructure",
+      "size": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "jigsaws": [],
+      "entities": [],
+      "format_version": "unknown"
+    },
+    {
+      "id": "bastion:treasure/ramparts/mid_wall_main",
+      "source": "bastion/treasure/ramparts/mid_wall_main.mcstructure",
+      "size": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "jigsaws": [],
+      "entities": [],
+      "format_version": "unknown"
+    },
+    {
+      "id": "bastion:treasure/ramparts/mid_wall_side",
+      "source": "bastion/treasure/ramparts/mid_wall_side.mcstructure",
+      "size": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "jigsaws": [],
+      "entities": [],
+      "format_version": "unknown"
+    },
+    {
+      "id": "bastion:units/air_base",
+      "source": "bastion/units/air_base.mcstructure",
+      "size": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "jigsaws": [],
+      "entities": [],
+      "format_version": "unknown"
+    },
+    {
+      "id": "bastion:units/ramparts/ramparts_0",
+      "source": "bastion/units/ramparts/ramparts_0.mcstructure",
+      "size": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "jigsaws": [],
+      "entities": [],
+      "format_version": "unknown"
+    },
+    {
+      "id": "end_city:ship",
+      "source": "end_city/ship.mcstructure",
+      "size": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "jigsaws": [],
+      "entities": [],
+      "format_version": "unknown"
+    },
+    {
+      "id": "pillager_outpost:base_plate",
+      "source": "pillager_outpost/base_plate.mcstructure",
+      "size": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "jigsaws": [],
+      "entities": [],
+      "format_version": "unknown"
+    }
+  ],
+  "families": {
+    "bastion": [
+      {
+        "id": "bastion:bridge/starting_pieces/entrance",
+        "source": "bastion/bridge/starting_pieces/entrance.mcstructure",
+        "size": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "jigsaws": [],
+        "entities": [],
+        "format_version": "unknown"
+      },
+      {
+        "id": "bastion:bridge/starting_pieces/entrance_base",
+        "source": "bastion/bridge/starting_pieces/entrance_base.mcstructure",
+        "size": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "jigsaws": [],
+        "entities": [],
+        "format_version": "unknown"
+      },
+      {
+        "id": "bastion:hoglin_stable/air_base",
+        "source": "bastion/hoglin_stable/air_base.mcstructure",
+        "size": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "jigsaws": [],
+        "entities": [],
+        "format_version": "unknown"
+      },
+      {
+        "id": "bastion:treasure/ramparts/lava_basin_main",
+        "source": "bastion/treasure/ramparts/lava_basin_main.mcstructure",
+        "size": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "jigsaws": [],
+        "entities": [],
+        "format_version": "unknown"
+      },
+      {
+        "id": "bastion:treasure/ramparts/lava_basin_side",
+        "source": "bastion/treasure/ramparts/lava_basin_side.mcstructure",
+        "size": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "jigsaws": [],
+        "entities": [],
+        "format_version": "unknown"
+      },
+      {
+        "id": "bastion:treasure/ramparts/mid_wall_main",
+        "source": "bastion/treasure/ramparts/mid_wall_main.mcstructure",
+        "size": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "jigsaws": [],
+        "entities": [],
+        "format_version": "unknown"
+      },
+      {
+        "id": "bastion:treasure/ramparts/mid_wall_side",
+        "source": "bastion/treasure/ramparts/mid_wall_side.mcstructure",
+        "size": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "jigsaws": [],
+        "entities": [],
+        "format_version": "unknown"
+      },
+      {
+        "id": "bastion:units/air_base",
+        "source": "bastion/units/air_base.mcstructure",
+        "size": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "jigsaws": [],
+        "entities": [],
+        "format_version": "unknown"
+      },
+      {
+        "id": "bastion:units/ramparts/ramparts_0",
+        "source": "bastion/units/ramparts/ramparts_0.mcstructure",
+        "size": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "jigsaws": [],
+        "entities": [],
+        "format_version": "unknown"
+      }
+    ],
+    "end_city": [
+      {
+        "id": "end_city:ship",
+        "source": "end_city/ship.mcstructure",
+        "size": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "jigsaws": [],
+        "entities": [],
+        "format_version": "unknown"
+      }
+    ],
+    "pillager_outpost": [
+      {
+        "id": "pillager_outpost:base_plate",
+        "source": "pillager_outpost/base_plate.mcstructure",
+        "size": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "jigsaws": [],
+        "entities": [],
+        "format_version": "unknown"
+      }
+    ]
+  },
+  "template_pools": {},
+  "jigsaw_structures": {},
+  "processors": {},
+  "structure_sets": {},
+  "errors": [
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\ancient_city\\city\\entrance\\entrance_connector.mcstructure",
+      "error": "unsupported NBT tag 29"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\ancient_city\\city\\entrance\\entrance_path_1.mcstructure",
+      "error": "unsupported NBT tag 255"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\ancient_city\\city\\entrance\\entrance_path_2.mcstructure",
+      "error": "unsupported NBT tag 255"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\ancient_city\\city\\entrance\\entrance_path_3.mcstructure",
+      "error": "unsupported NBT tag 255"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\ancient_city\\city\\entrance\\entrance_path_4.mcstructure",
+      "error": "unsupported NBT tag 255"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\ancient_city\\city\\entrance\\entrance_path_5.mcstructure",
+      "error": "unsupported NBT tag 255"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\ancient_city\\city_center\\city_center_1.mcstructure",
+      "error": "unsupported NBT tag 255"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\ancient_city\\city_center\\city_center_2.mcstructure",
+      "error": "unsupported NBT tag 255"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\ancient_city\\city_center\\city_center_3.mcstructure",
+      "error": "unsupported NBT tag 255"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\ancient_city\\city_center\\walls\\bottom_1.mcstructure",
+      "error": "unsupported NBT tag 255"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\ancient_city\\city_center\\walls\\bottom_2.mcstructure",
+      "error": "unsupported NBT tag 255"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\ancient_city\\city_center\\walls\\bottom_left_corner.mcstructure",
+      "error": "unsupported NBT tag 255"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\ancient_city\\city_center\\walls\\bottom_right_corner.mcstructure",
+      "error": "unsupported NBT tag 255"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\ancient_city\\city_center\\walls\\bottom_right_corner_1.mcstructure",
+      "error": "unsupported NBT tag 255"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\ancient_city\\city_center\\walls\\bottom_right_corner_2.mcstructure",
+      "error": "unsupported NBT tag 255"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\ancient_city\\city_center\\walls\\left.mcstructure",
+      "error": "unsupported NBT tag 255"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\ancient_city\\city_center\\walls\\right.mcstructure",
+      "error": "unsupported NBT tag 255"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\ancient_city\\city_center\\walls\\top.mcstructure",
+      "error": "unsupported NBT tag 255"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\ancient_city\\city_center\\walls\\top_left_corner.mcstructure",
+      "error": "unsupported NBT tag 255"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\ancient_city\\city_center\\walls\\top_right_corner.mcstructure",
+      "error": "unsupported NBT tag 255"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\ancient_city\\structures\\barracks.mcstructure",
+      "error": "unsupported NBT tag 255"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\ancient_city\\structures\\camp_1.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\ancient_city\\structures\\camp_2.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\ancient_city\\structures\\camp_3.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\ancient_city\\structures\\chamber_1.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\ancient_city\\structures\\chamber_2.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\ancient_city\\structures\\chamber_3.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\ancient_city\\structures\\ice_box_1.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\ancient_city\\structures\\large_pillar_1.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\ancient_city\\structures\\large_ruin_1.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\ancient_city\\structures\\medium_pillar_1.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\ancient_city\\structures\\medium_ruin_1.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\ancient_city\\structures\\medium_ruin_2.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\ancient_city\\structures\\sauna_1.mcstructure",
+      "error": "unsupported NBT tag 255"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\ancient_city\\structures\\small_ruin_1.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\ancient_city\\structures\\small_ruin_2.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\ancient_city\\structures\\small_statue.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\ancient_city\\structures\\tall_ruin_1.mcstructure",
+      "error": "unsupported NBT tag 255"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\ancient_city\\structures\\tall_ruin_2.mcstructure",
+      "error": "unsupported NBT tag 255"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\ancient_city\\structures\\tall_ruin_3.mcstructure",
+      "error": "unsupported NBT tag 255"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\ancient_city\\structures\\tall_ruin_4.mcstructure",
+      "error": "unsupported NBT tag 255"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\ancient_city\\walls\\intact_corner_wall_1.mcstructure",
+      "error": "unsupported NBT tag 255"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\ancient_city\\walls\\intact_horizontal_wall_1.mcstructure",
+      "error": "unsupported NBT tag 255"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\ancient_city\\walls\\intact_horizontal_wall_2.mcstructure",
+      "error": "unsupported NBT tag 255"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\ancient_city\\walls\\intact_horizontal_wall_bridge.mcstructure",
+      "error": "unsupported NBT tag 255"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\ancient_city\\walls\\intact_horizontal_wall_passage_1.mcstructure",
+      "error": "unsupported NBT tag 255"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\ancient_city\\walls\\intact_horizontal_wall_stairs_1.mcstructure",
+      "error": "unsupported NBT tag 255"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\ancient_city\\walls\\intact_horizontal_wall_stairs_2.mcstructure",
+      "error": "unsupported NBT tag 255"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\ancient_city\\walls\\intact_horizontal_wall_stairs_3.mcstructure",
+      "error": "unsupported NBT tag 255"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\ancient_city\\walls\\intact_horizontal_wall_stairs_4.mcstructure",
+      "error": "unsupported NBT tag 255"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\ancient_city\\walls\\intact_intersection_wall_1.mcstructure",
+      "error": "unsupported NBT tag 255"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\ancient_city\\walls\\intact_lshape_wall_1.mcstructure",
+      "error": "unsupported NBT tag 255"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\ancient_city\\walls\\ruined_corner_wall_1.mcstructure",
+      "error": "unsupported NBT tag 255"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\ancient_city\\walls\\ruined_corner_wall_2.mcstructure",
+      "error": "unsupported NBT tag 255"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\ancient_city\\walls\\ruined_horizontal_wall_stairs_1.mcstructure",
+      "error": "unsupported NBT tag 255"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\ancient_city\\walls\\ruined_horizontal_wall_stairs_2.mcstructure",
+      "error": "unsupported NBT tag 255"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\ancient_city\\walls\\ruined_horizontal_wall_stairs_3.mcstructure",
+      "error": "unsupported NBT tag 255"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\ancient_city\\walls\\ruined_horizontal_wall_stairs_4.mcstructure",
+      "error": "unsupported NBT tag 255"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\blocks\\air.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\blocks\\gold.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\bridge\\bridge_pieces\\bridge.mcstructure",
+      "error": "unsupported NBT tag 255"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\bridge\\connectors\\back_bridge_bottom.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\bridge\\connectors\\back_bridge_top.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\bridge\\legs\\leg_0.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\bridge\\legs\\leg_1.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\bridge\\rampart_plates\\plate_0.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\bridge\\ramparts\\rampart_0.mcstructure",
+      "error": "unsupported NBT tag 255"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\bridge\\ramparts\\rampart_1.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\bridge\\starting_pieces\\entrance_face.mcstructure",
+      "error": "unsupported NBT tag 255"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\bridge\\walls\\wall_base_0.mcstructure",
+      "error": "unsupported NBT tag 255"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\bridge\\walls\\wall_base_1.mcstructure",
+      "error": "unsupported NBT tag 255"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\hoglin_stable\\connectors\\end_post_connector.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\hoglin_stable\\large_stables\\inner_0.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\hoglin_stable\\large_stables\\inner_1.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\hoglin_stable\\large_stables\\inner_2.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\hoglin_stable\\large_stables\\inner_3.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\hoglin_stable\\large_stables\\inner_4.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\hoglin_stable\\large_stables\\outer_0.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\hoglin_stable\\large_stables\\outer_1.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\hoglin_stable\\large_stables\\outer_2.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\hoglin_stable\\large_stables\\outer_3.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\hoglin_stable\\large_stables\\outer_4.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\hoglin_stable\\posts\\end_post.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\hoglin_stable\\posts\\stair_post.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\hoglin_stable\\rampart_plates\\rampart_plate_1.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\hoglin_stable\\ramparts\\ramparts_1.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\hoglin_stable\\ramparts\\ramparts_2.mcstructure",
+      "error": "unsupported NBT tag 255"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\hoglin_stable\\ramparts\\ramparts_3.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\hoglin_stable\\small_stables\\inner_0.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\hoglin_stable\\small_stables\\inner_1.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\hoglin_stable\\small_stables\\inner_2.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\hoglin_stable\\small_stables\\inner_3.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\hoglin_stable\\small_stables\\outer_0.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\hoglin_stable\\small_stables\\outer_1.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\hoglin_stable\\small_stables\\outer_2.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\hoglin_stable\\small_stables\\outer_3.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\hoglin_stable\\stairs\\stairs_1_0.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\hoglin_stable\\stairs\\stairs_1_1.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\hoglin_stable\\stairs\\stairs_1_2.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\hoglin_stable\\stairs\\stairs_1_3.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\hoglin_stable\\stairs\\stairs_1_4.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\hoglin_stable\\stairs\\stairs_2_0.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\hoglin_stable\\stairs\\stairs_2_1.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\hoglin_stable\\stairs\\stairs_2_2.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\hoglin_stable\\stairs\\stairs_2_3.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\hoglin_stable\\stairs\\stairs_2_4.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\hoglin_stable\\stairs\\stairs_3_0.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\hoglin_stable\\stairs\\stairs_3_1.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\hoglin_stable\\stairs\\stairs_3_2.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\hoglin_stable\\stairs\\stairs_3_3.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\hoglin_stable\\stairs\\stairs_3_4.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\hoglin_stable\\starting_pieces\\stairs_0_mirrored.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\hoglin_stable\\starting_pieces\\stairs_1_mirrored.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\hoglin_stable\\starting_pieces\\stairs_2_mirrored.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\hoglin_stable\\starting_pieces\\stairs_3_mirrored.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\hoglin_stable\\starting_pieces\\stairs_4_mirrored.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\hoglin_stable\\starting_pieces\\starting_stairs_0.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\hoglin_stable\\starting_pieces\\starting_stairs_1.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\hoglin_stable\\starting_pieces\\starting_stairs_2.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\hoglin_stable\\starting_pieces\\starting_stairs_3.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\hoglin_stable\\starting_pieces\\starting_stairs_4.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\hoglin_stable\\walls\\side_wall_0.mcstructure",
+      "error": "unsupported NBT tag 255"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\hoglin_stable\\walls\\side_wall_1.mcstructure",
+      "error": "unsupported NBT tag 255"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\hoglin_stable\\walls\\wall_base.mcstructure",
+      "error": "unsupported NBT tag 255"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\mobs\\crossbow_piglin.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\mobs\\empty.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\mobs\\hoglin.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\mobs\\melee_piglin.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\mobs\\melee_piglin_always.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\mobs\\sword_piglin.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\treasure\\bases\\centers\\center_0.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\treasure\\bases\\centers\\center_1.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\treasure\\bases\\centers\\center_2.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\treasure\\bases\\centers\\center_3.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\treasure\\bases\\lava_basin.mcstructure",
+      "error": "unsupported NBT tag 255"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\treasure\\big_air_full.mcstructure",
+      "error": "unsupported NBT tag 255"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\treasure\\brains\\center_brain.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\treasure\\connectors\\center_to_wall_middle.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\treasure\\connectors\\center_to_wall_top.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\treasure\\connectors\\center_to_wall_top_entrance.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\treasure\\corners\\bottom\\corner_0.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\treasure\\corners\\bottom\\corner_1.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\treasure\\corners\\edges\\bottom.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\treasure\\corners\\edges\\middle.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\treasure\\corners\\edges\\top.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\treasure\\corners\\middle\\corner_0.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\treasure\\corners\\middle\\corner_1.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\treasure\\corners\\top\\corner_0.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\treasure\\corners\\top\\corner_1.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\treasure\\entrances\\entrance_0.mcstructure",
+      "error": "unsupported NBT tag 255"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\treasure\\extensions\\empty.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\treasure\\extensions\\fire_room.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\treasure\\extensions\\house_0.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\treasure\\extensions\\house_1.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\treasure\\extensions\\large_bridge_0.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\treasure\\extensions\\large_bridge_1.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\treasure\\extensions\\large_bridge_2.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\treasure\\extensions\\large_bridge_3.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\treasure\\extensions\\roofed_bridge.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\treasure\\extensions\\small_bridge_0.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\treasure\\extensions\\small_bridge_1.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\treasure\\extensions\\small_bridge_2.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\treasure\\extensions\\small_bridge_3.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\treasure\\ramparts\\bottom_wall_0.mcstructure",
+      "error": "unsupported NBT tag 255"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\treasure\\ramparts\\top_wall.mcstructure",
+      "error": "unsupported NBT tag 255"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\treasure\\roofs\\center_roof.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\treasure\\roofs\\corner_roof.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\treasure\\roofs\\wall_roof.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\treasure\\stairs\\lower_stairs.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\treasure\\walls\\bottom\\wall_0.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\treasure\\walls\\bottom\\wall_1.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\treasure\\walls\\bottom\\wall_2.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\treasure\\walls\\bottom\\wall_3.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\treasure\\walls\\entrance_wall.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\treasure\\walls\\lava_wall.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\treasure\\walls\\mid\\wall_0.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\treasure\\walls\\mid\\wall_1.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\treasure\\walls\\mid\\wall_2.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\treasure\\walls\\outer\\bottom_corner.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\treasure\\walls\\outer\\medium_outer_wall.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\treasure\\walls\\outer\\mid_corner.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\treasure\\walls\\outer\\outer_wall.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\treasure\\walls\\outer\\tall_outer_wall.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\treasure\\walls\\outer\\top_corner.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\treasure\\walls\\top\\main_entrance.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\treasure\\walls\\top\\wall_0.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\treasure\\walls\\top\\wall_1.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\units\\center_pieces\\center_0.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\units\\center_pieces\\center_1.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\units\\center_pieces\\center_2.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\units\\edges\\edge_0.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\units\\fillers\\stage_0.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\units\\pathways\\pathway_0.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\units\\pathways\\pathway_wall_0.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\units\\rampart_plates\\plate_0.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\units\\ramparts\\ramparts_1.mcstructure",
+      "error": "unsupported NBT tag 255"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\units\\ramparts\\ramparts_2.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\units\\stages\\rot\\stage_1_0.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\units\\stages\\stage_0_0.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\units\\stages\\stage_0_1.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\units\\stages\\stage_0_2.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\units\\stages\\stage_0_3.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\units\\stages\\stage_1_0.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\units\\stages\\stage_1_1.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\units\\stages\\stage_1_2.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\units\\stages\\stage_1_3.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\units\\stages\\stage_2_0.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\units\\stages\\stage_2_1.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\units\\stages\\stage_3_0.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\units\\stages\\stage_3_1.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\units\\stages\\stage_3_2.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\units\\stages\\stage_3_3.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\units\\wall_units\\edge_0_large.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\units\\wall_units\\unit_0.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\units\\walls\\connected_wall.mcstructure",
+      "error": "unsupported NBT tag 255"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\bastion\\units\\walls\\wall_base.mcstructure",
+      "error": "unsupported NBT tag 255"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\end_city\\base_floor.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\end_city\\base_roof.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\end_city\\bridge_end.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\end_city\\bridge_gentle_stairs.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\end_city\\bridge_piece.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\end_city\\bridge_steep_stairs.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\end_city\\fat_tower_base.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\end_city\\fat_tower_middle.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\end_city\\fat_tower_top.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\end_city\\second_floor_1.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\end_city\\second_floor_2.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\end_city\\second_roof.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\end_city\\third_floor_1.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\end_city\\third_floor_2.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\end_city\\third_roof.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\end_city\\tower_base.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\end_city\\tower_floor.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\end_city\\tower_piece.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\end_city\\tower_top.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\fossil\\skull_1.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\fossil\\skull_1_coal.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\fossil\\skull_2.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\fossil\\skull_2_coal.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\fossil\\skull_3.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\fossil\\skull_3_coal.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\fossil\\skull_4.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\fossil\\skull_4_coal.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\fossil\\spine_1.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\fossil\\spine_1_coal.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\fossil\\spine_2.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\fossil\\spine_2_coal.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\fossil\\spine_3.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\fossil\\spine_3_coal.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\fossil\\spine_4.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\fossil\\spine_4_coal.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\igloo\\bottom.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\igloo\\middle.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\igloo\\top.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\nether_fossils\\fossil_1.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\nether_fossils\\fossil_10.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\nether_fossils\\fossil_11.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\nether_fossils\\fossil_12.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\nether_fossils\\fossil_13.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\nether_fossils\\fossil_14.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\nether_fossils\\fossil_2.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\nether_fossils\\fossil_3.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\nether_fossils\\fossil_4.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\nether_fossils\\fossil_5.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\nether_fossils\\fossil_6.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\nether_fossils\\fossil_7.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\nether_fossils\\fossil_8.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\nether_fossils\\fossil_9.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\pillager_outpost\\feature_cage1.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\pillager_outpost\\feature_cage2.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\pillager_outpost\\feature_cage_with_allays.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\pillager_outpost\\feature_logs.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\pillager_outpost\\feature_plate.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\pillager_outpost\\feature_targets.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\pillager_outpost\\feature_tent1.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\pillager_outpost\\feature_tent2.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\pillager_outpost\\watchtower.mcstructure",
+      "error": "unsupported NBT tag 255"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\pillager_outpost\\watchtower_overgrown.mcstructure",
+      "error": "unsupported NBT tag 255"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\ruined_portal\\giant_portal_1.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\ruined_portal\\giant_portal_2.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\ruined_portal\\giant_portal_3.mcstructure",
+      "error": "unsupported NBT tag 255"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\ruined_portal\\portal_1.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\ruined_portal\\portal_10.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\ruined_portal\\portal_2.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\ruined_portal\\portal_3.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\ruined_portal\\portal_4.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\ruined_portal\\portal_5.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\ruined_portal\\portal_6.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\ruined_portal\\portal_7.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\ruined_portal\\portal_8.mcstructure",
+      "error": "truncated NBT"
+    },
+    {
+      "source": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\ruined_portal\\portal_9.mcstructure",
+      "error": "truncated NBT"
+    }
+  ],
+  "sources": {
+    "minecraft_roots": [
+      "C:\\XboxGames\\Minecraft for Windows\\Content"
+    ]
+  }
+}

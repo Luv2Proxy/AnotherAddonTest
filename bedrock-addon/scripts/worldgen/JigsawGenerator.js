@@ -1,49 +1,67 @@
 import { world } from "@minecraft/server";
 import { JigsawRegistry } from "./JigsawRegistry.js";
-import { boxesOverlap } from "./JigsawTransform.js";
+import { getGeneratedJigsawData, generatedStructure } from "./JigsawDataLoader.js";
 
 /**
- * Connector-aware jigsaw entry point.
+ * Common jigsaw placement facade.
  *
- * The Bedrock Script API now exposes the same native jigsaw assembler used by
- * vanilla structures. We deliberately use it for final placement: this keeps
- * vanilla pool fallback, processors, projections, terrain matching, aliases,
- * list/feature/empty elements, selection/placement priorities and jigsaw
- * cleanup in the engine instead of reimplementing those semantics incorrectly.
- *
- * The extracted registry is still used for validation, diagnostics, previews,
- * collision reservations, and for projects that need a custom planner.
+ * Generated vanilla metadata is used for validation, graph inspection and
+ * custom planning. Final assembly remains delegated to Bedrock's native
+ * StructureManager whenever its jigsaw APIs are available. This preserves
+ * the engine's weighted selection, fallbacks, processors, projections,
+ * terrain matching and cleanup semantics.
  */
 export class JigsawGenerator {
   constructor(dimension, options = {}) {
     this.dimension = dimension;
     this.manager = world.structureManager;
-    this.registry = options.registry ?? new JigsawRegistry(options.data ?? null);
+    this.registry = options.registry ?? new JigsawRegistry(options.data ?? getGeneratedJigsawData());
     this.overlap = options.overlapGuard ?? null;
+    this.layoutSeed = options.layoutSeed ?? 0n;
+  }
+
+  dataSnapshot() {
+    return this.registry.snapshot();
+  }
+
+  definition(identifier) {
+    return generatedStructure(identifier) ?? this.registry.structure(identifier);
+  }
+
+  resolveStructureIdentifier(identifier) {
+    const value = String(identifier ?? "");
+    if (!value) return null;
+    if (this.registry.structure(value)) return value;
+    const definition = this.definition(value);
+    if (definition) return value;
+    return value.includes(":") ? value : `minecraft:${value}`;
   }
 
   placeStructure(identifier, location, options = {}) {
     if (typeof this.manager.placeJigsawStructure !== "function") {
       throw new Error("StructureManager.placeJigsawStructure is unavailable in this Bedrock version");
     }
-    const bounds = this.manager.placeJigsawStructure(identifier, this.dimension, location, {
+    const resolved = this.resolveStructureIdentifier(identifier);
+    const bounds = this.manager.placeJigsawStructure(resolved, this.dimension, location, {
       includeEntities: true,
       keepJigsaws: false,
       ...options
     });
-    return { placed: true, native: true, identifier, location, bounds };
+    return { placed: true, native: true, identifier: resolved, location, bounds };
   }
 
   placePool(pool, target, maxDepth, location, options = {}) {
     if (typeof this.manager.placeJigsaw !== "function") {
       throw new Error("StructureManager.placeJigsaw is unavailable in this Bedrock version");
     }
-    const bounds = this.manager.placeJigsaw(pool, target, Math.max(1, Math.min(20, maxDepth)), this.dimension, location, {
+    const poolId = pool.includes(":") ? pool : `minecraft:${pool}`;
+    const depth = Math.max(1, Math.min(20, Number(maxDepth) || 1));
+    const bounds = this.manager.placeJigsaw(poolId, target ?? "", depth, this.dimension, location, {
       includeEntities: true,
       keepJigsaws: false,
       ...options
     });
-    return { placed: true, native: true, pool, target, maxDepth, location, bounds };
+    return { placed: true, native: true, pool: poolId, target, maxDepth: depth, location, bounds };
   }
 
   placeRoot(identifier, location, options = {}) {
@@ -57,28 +75,45 @@ export class JigsawGenerator {
   validatePieceGraph(identifier, maxDepth = 20) {
     const root = this.registry.piece(identifier);
     if (!root) return { valid: false, errors: [`Missing piece: ${identifier}`], nodes: [] };
-    const errors = [], nodes = [], seen = new Set();
-    const visit = (piece, depth) => {
+
+    const errors = [];
+    const nodes = [];
+    const seen = new Set();
+
+    const visitPiece = (piece, depth) => {
       if (!piece || depth > maxDepth) return;
-      if (seen.has(`${piece.id}:${depth}`)) return;
-      seen.add(`${piece.id}:${depth}`); nodes.push(piece.id);
-      for (const c of piece.jigsaws ?? []) {
-        if (!c.pool || c.pool === "unknown") { errors.push(`${piece.id}: connector has no target pool`); continue; }
-        const pool = this.registry.pool(c.pool);
-        if (!pool) { errors.push(`${piece.id}: missing pool ${c.pool}`); continue; }
-        for (const e of pool.elements ?? []) {
-          const el = e.element ?? {};
-          if (el.element_type === "minecraft:empty_pool_element") continue;
-          if (el.location) {
-            const child = this.registry.piece(el.location.includes(":") ? el.location : `unknown:${el.location}`);
-            if (child) visit(child, depth + 1);
-          }
+      const pieceKey = piece.id ?? piece.source;
+      if (seen.has(`${pieceKey}:${depth}`)) return;
+      seen.add(`${pieceKey}:${depth}`);
+      nodes.push(pieceKey);
+
+      for (const connector of piece.connectors ?? piece.jigsaws ?? []) {
+        const poolId = connector.pool ?? connector.target_pool ?? connector.targetPool;
+        if (!poolId || poolId === "unknown") {
+          errors.push(`${pieceKey}: connector has no target pool`);
+          continue;
         }
-        if (pool.fallback && !this.registry.pool(pool.fallback)) errors.push(`${piece.id}: missing fallback pool ${pool.fallback}`);
+        const graph = this.registry.validatePoolGraph(poolId, maxDepth - depth);
+        errors.push(...graph.errors.map(error => `${pieceKey}: ${error}`));
+        for (const candidate of this.registry.candidates(poolId, connector.name)) {
+          if (candidate.piece) visitPiece(candidate.piece, depth + 1);
+        }
+        const fallback = this.registry.fallback(poolId);
+        if (fallback && !this.registry.pool(fallback)) errors.push(`${pieceKey}: missing fallback pool ${fallback}`);
       }
     };
-    visit(root, 0);
+
+    visitPiece(root, 0);
     return { valid: errors.length === 0, errors, nodes };
+  }
+
+  validateStructure(identifier, maxDepth = 20) {
+    const definition = this.definition(identifier);
+    if (!definition) return { valid: false, errors: [`Missing jigsaw structure: ${identifier}`], nodes: [] };
+    const startPool = definition.start_pool ?? definition.startPool;
+    if (!startPool) return { valid: false, errors: [`${identifier}: missing start_pool`], nodes: [] };
+    const graph = this.registry.validatePoolGraph(startPool, maxDepth);
+    return { ...graph, identifier, startPool };
   }
 
   canReserve(bounds, padding = 0) {

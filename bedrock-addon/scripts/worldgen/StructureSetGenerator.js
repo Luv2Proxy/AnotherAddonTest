@@ -3,9 +3,10 @@ import { JigsawRegistry } from "./JigsawRegistry.js";
 function hashSeed(seed){let h=2166136261>>>0;for(const c of String(seed??0)){h^=c.charCodeAt(0);h=Math.imul(h,16777619)>>>0;}return h>>>0;}
 function rng(seed){let s=hashSeed(seed)||1;return()=>{s^=s<<13;s^=s>>>17;s^=s<<5;s>>>=0;return s/4294967296;};}
 function weighted(entries,r){if(!entries.length)return null;const total=entries.reduce((n,e)=>n+Math.max(0,Number(e.weight??e.inclusion_weight??1)),0);if(total<=0)return entries[0];let c=r()*total;for(const e of entries){c-=Math.max(0,Number(e.weight??e.inclusion_weight??1));if(c<0)return e;}return entries.at(-1);}
-function placement(definition){const p=definition?.placement??definition?.placement_settings??definition?.placementSettings??definition??{};return{type:p.type??p.placement_type??"minecraft:random_spread",salt:Number(p.salt??0),spacing:Math.max(1,Math.floor(Number(p.spacing??p.grid_spacing??34))),separation:Math.max(0,Math.floor(Number(p.separation??p.min_separation??8))),spread_type:p.spread_type??p.spreadType??"linear"};}
+function placement(definition){const p=definition?.placement??definition?.placement_settings??definition?.placementSettings??definition??{};return{type:p.type??p.placement_type??"minecraft:random_spread",salt:Number(p.salt??0),spacing:Math.max(1,Math.floor(Number(p.spacing??p.grid_spacing??34))),separation:Math.max(0,Math.floor(Number(p.separation??p.min_separation??8))),spread_type:p.spread_type??p.spreadType??"linear",frequency:Number(p.frequency??1),frequency_reduction_method:p.frequency_reduction_method??p.frequencyReductionMethod??"default"};}
 function spreadOffset(r,span,type){if(span<=0)return 0;return type==="triangular"?Math.floor((r()*span+r()*span)/2):Math.floor(r()*span);}
 function floorDiv(n,d){return Math.floor(n/d);}
+function sampleFrequency(r,p){const f=Math.max(0,Math.min(1,p.frequency));if(f>=1)return true;if(p.frequency_reduction_method==="legacy_type_1")return r()<f;return r()<f;}
 
 export class StructureSetGenerator{
  constructor(registry=new JigsawRegistry()){this.registry=registry;}
@@ -18,9 +19,10 @@ export class StructureSetGenerator{
   if(p.type!=="minecraft:random_spread"&&p.type!=="random_spread")return{ok:false,errors:[`${id}: unsupported placement type ${p.type}`],placements:[]};
   const origin=options.origin??{x:0,y:0,z:0},minX=Number(options.minX??floorDiv(origin.x,p.spacing)),maxX=Number(options.maxX??minX),minZ=Number(options.minZ??floorDiv(origin.z,p.spacing)),maxZ=Number(options.maxZ??minZ),r=rng(`${seed}:${id}:selection`),placements=[];
   for(let cx=minX;cx<=maxX;cx++)for(let cz=minZ;cz<=maxZ;cz++){
-   const point=this.cell(seed,id,cx,cz,p),selected=weighted(structures,r);if(!selected)continue;
+   const point=this.cell(seed,id,cx,cz,p);if(!sampleFrequency(r,p))continue;
+   const selected=weighted(structures,r);if(!selected)continue;
    const structure=selected.structure??selected.id??selected.location??selected.name;if(!structure)continue;
-   placements.push({structure,x:origin.x+point.x-origin.x%p.spacing,y:origin.y,z:origin.z+point.z-origin.z%p.spacing,cell:{x:cx,z:cz},salt:p.salt,spacing:p.spacing,separation:p.separation,spread_type:p.spread_type,weight:Number(selected.weight??1),seed:point.seed});
+   placements.push({structure,x:origin.x+point.x-origin.x%p.spacing,y:origin.y,z:origin.z+point.z-origin.z%p.spacing,cell:{x:cx,z:cz},salt:p.salt,spacing:p.spacing,separation:p.separation,spread_type:p.spread_type,frequency:p.frequency,weight:Number(selected.weight??1),seed:point.seed});
   }
   return{ok:true,structureSet:id,seed,placement:p,placements,errors:[]};
  }
@@ -31,3 +33,4 @@ export class StructureSetGenerator{
  }
  materialize(plan,callback){if(!plan?.placements)return[];return plan.placements.map((p,i)=>{const record={...p,index:i,seed:p.seed??hashSeed(`${plan.seed}:${plan.structureSet}:${i}:${p.x}:${p.z}`)};if(callback)callback(record);return record;});}
 }
+export function createStructureSetGenerator(registry){return new StructureSetGenerator(registry);}

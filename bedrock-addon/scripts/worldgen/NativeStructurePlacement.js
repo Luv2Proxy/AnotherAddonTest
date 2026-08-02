@@ -2,22 +2,20 @@ import { StructureCategory } from "./StructureRegistry.js";
 
 /**
  * Functional Bedrock counterpart to the base mod's native StructureStart flows.
- *
- * These structures are deliberately NOT represented by .mcstructure files:
- * vanilla strongholds and mineshafts are procedural, multi-piece structure graphs.
- * The addon therefore models the same distinction and exposes deterministic
- * placement plans for a native generator/relocation adapter.
+ * Native structures (stronghold/mineshaft/monument) are treated as procedural
+ * roots; generated Jigsaw structures are handled by the generated-data path.
  */
 export class NativeStructurePlacement {
-  constructor(registry, hostResolver) {
+  constructor(registry, hostResolver, candidateEvaluator = null) {
     this.registry = registry;
     this.hostResolver = hostResolver;
+    this.candidateEvaluator = candidateEvaluator;
   }
 
   planStronghold(request) {
     return this.#plan(request, StructureCategory.STRONGHOLD, {
-      minRadius: Math.max(request.minRadius ?? 120, request.footprintRadius ?? 0 + 48),
-      maxRadius: Math.max(request.maxRadius ?? 176, request.minRadius ?? 120 + 56),
+      minRadius: Math.max(request.minRadius ?? 120, (request.footprintRadius ?? 0) + 48),
+      maxRadius: Math.max(request.maxRadius ?? 176, (request.minRadius ?? 120) + 56),
       verticalMin: -96,
       verticalMax: 96,
       verticalStep: 4,
@@ -52,7 +50,7 @@ export class NativeStructurePlacement {
     }) ?? null;
     if (!host) return { accepted: false, category, strategy: policy.strategy, reason: "no_valid_host_island" };
 
-    const candidate = this.#searchCandidates(anchor, preferred, host, request, policy);
+    const candidate = this.#searchCandidates(anchor, preferred, host, request, policy, category);
     if (!candidate) return { accepted: false, category, strategy: policy.strategy, reason: "no_valid_anchor_fit", host };
 
     return {
@@ -62,35 +60,29 @@ export class NativeStructurePlacement {
       host,
       anchor,
       target: candidate,
-      relocation: {
-        dx: candidate.x - anchor.x,
-        dz: candidate.z - anchor.z,
-        dy: candidate.y - anchor.y
-      }
+      relocation: { dx: candidate.x - anchor.x, dz: candidate.z - anchor.z, dy: candidate.y - anchor.y }
     };
   }
 
-  #searchCandidates(anchor, preferred, host, request, policy) {
+  #searchCandidates(anchor, preferred, host, request, policy, category) {
     const offsets = [];
     const radius = request.searchRadius ?? 16;
     for (let r = 0; r <= radius; r += 4) {
-      for (let dx = -r; dx <= r; dx += 4) {
-        for (let dz = -r; dz <= r; dz += 4) {
-          if (Math.abs(dx) !== r && Math.abs(dz) !== r) continue;
-          offsets.push({ dx, dz });
-        }
+      for (let dx = -r; dx <= r; dx += 4) for (let dz = -r; dz <= r; dz += 4) {
+        if (Math.abs(dx) !== r && Math.abs(dz) !== r) continue;
+        offsets.push({ dx, dz });
       }
     }
     const ys = [];
-    if (policy.verticalMin != null) {
-      for (let y = policy.verticalMin; y <= policy.verticalMax; y += policy.verticalStep) ys.push(anchor.y + y);
-    } else ys.push(anchor.y);
+    if (policy.verticalMin != null) for (let y = policy.verticalMin; y <= policy.verticalMax; y += policy.verticalStep) ys.push(anchor.y + y);
+    else ys.push(anchor.y);
 
     let best = null;
     for (const o of offsets) for (const y of ys) {
       const x = preferred.x + o.dx, z = preferred.z + o.dz;
       if (!this.#insideHost(host, x, z, request.footprintRadius ?? policy.minRadius ?? 0)) continue;
-      const evaluation = request.evaluateCandidate?.({ x, y, z, host, policy });
+      const evaluation = request.evaluateCandidate?.({ x, y, z, host, policy, category })
+        ?? this.candidateEvaluator?.evaluate({ category, x, y, z, host, footprint: request.footprint, native: true });
       if (!evaluation?.valid) continue;
       const score = evaluation.score ?? this.#score(anchor, preferred, host, x, y, z, evaluation);
       if (!best || score > best.score) best = { x, y, z, score, evaluation };

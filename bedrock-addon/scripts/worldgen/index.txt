@@ -15,6 +15,7 @@ IslandGenerator.js
 IslandNoise.js
 IslandShapeSampler.js
 IslandSurfacePass.js
+JigsawDataLoader.js
 JigsawGenerator.js
 JigsawRegistry.js
 JigsawTransform.js
@@ -41,4 +42,3 @@ DIRECTORIES
 -----------
 generated
 pieces
-

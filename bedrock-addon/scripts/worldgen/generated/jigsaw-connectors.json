@@ -1,0 +1,3626 @@
+{
+  "minecraft:empty": [
+    {
+      "piece": "minecraft:ancient_city/city/entrance/entrance_connector",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:ancient_city/city/entrance/entrance_connector",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:ancient_city/city/entrance/entrance_connector",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:ancient_city/city/entrance/entrance_path_1",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:ancient_city/city/entrance/entrance_path_1",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:ancient_city/city/entrance/entrance_path_2",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:ancient_city/city/entrance/entrance_path_2",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:ancient_city/city/entrance/entrance_path_3",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:ancient_city/city/entrance/entrance_path_3",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:ancient_city/city/entrance/entrance_path_4",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:ancient_city/city/entrance/entrance_path_4",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:ancient_city/city/entrance/entrance_path_5",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:ancient_city/city/entrance/entrance_path_5",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:ancient_city/city_center/city_center_1",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:ancient_city/city_center/city_center_1",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:ancient_city/city_center/city_center_1",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:ancient_city/city_center/city_center_1",
+      "connector_index": 4
+    },
+    {
+      "piece": "minecraft:ancient_city/city_center/city_center_2",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:ancient_city/city_center/city_center_2",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:ancient_city/city_center/city_center_2",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:ancient_city/city_center/city_center_2",
+      "connector_index": 4
+    },
+    {
+      "piece": "minecraft:ancient_city/city_center/city_center_3",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:ancient_city/city_center/city_center_3",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:ancient_city/city_center/city_center_3",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:ancient_city/city_center/city_center_3",
+      "connector_index": 4
+    },
+    {
+      "piece": "minecraft:ancient_city/city_center/walls/bottom_1",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:ancient_city/city_center/walls/bottom_1",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:ancient_city/city_center/walls/bottom_1",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:ancient_city/city_center/walls/bottom_2",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:ancient_city/city_center/walls/bottom_2",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:ancient_city/city_center/walls/bottom_2",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:ancient_city/city_center/walls/left",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:ancient_city/city_center/walls/right",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:ancient_city/city_center/walls/top",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:ancient_city/city_center/walls/top",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:ancient_city/city_center/walls/top",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:ancient_city/walls/intact_horizontal_wall_1",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:ancient_city/walls/intact_horizontal_wall_1",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:ancient_city/walls/intact_horizontal_wall_2",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:ancient_city/walls/intact_horizontal_wall_2",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:ancient_city/walls/intact_horizontal_wall_bridge",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:ancient_city/walls/intact_horizontal_wall_bridge",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:ancient_city/walls/intact_horizontal_wall_passage_1",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:ancient_city/walls/intact_horizontal_wall_passage_1",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:ancient_city/walls/intact_horizontal_wall_stairs_1",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:ancient_city/walls/intact_horizontal_wall_stairs_1",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:ancient_city/walls/intact_horizontal_wall_stairs_2",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:ancient_city/walls/intact_horizontal_wall_stairs_2",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:ancient_city/walls/intact_horizontal_wall_stairs_3",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:ancient_city/walls/intact_horizontal_wall_stairs_3",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:ancient_city/walls/intact_horizontal_wall_stairs_3",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:ancient_city/walls/intact_horizontal_wall_stairs_4",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:ancient_city/walls/intact_horizontal_wall_stairs_4",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:ancient_city/walls/ruined_horizontal_wall_stairs_1",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:ancient_city/walls/ruined_horizontal_wall_stairs_1",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:ancient_city/walls/ruined_horizontal_wall_stairs_2",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:ancient_city/walls/ruined_horizontal_wall_stairs_2",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:ancient_city/walls/ruined_horizontal_wall_stairs_3",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:ancient_city/walls/ruined_horizontal_wall_stairs_3",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:ancient_city/walls/ruined_horizontal_wall_stairs_3",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:ancient_city/walls/ruined_horizontal_wall_stairs_4",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:ancient_city/walls/ruined_horizontal_wall_stairs_4",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/bridge/bridge_pieces/bridge",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/bridge/bridge_pieces/bridge",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/bridge/bridge_pieces/bridge",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/bridge/ramparts/rampart_0",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/bridge/ramparts/rampart_0",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/bridge/ramparts/rampart_1",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/bridge/ramparts/rampart_1",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/bridge/ramparts/rampart_1",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:bastion/bridge/ramparts/rampart_1",
+      "connector_index": 4
+    },
+    {
+      "piece": "minecraft:bastion/bridge/ramparts/rampart_1",
+      "connector_index": 5
+    },
+    {
+      "piece": "minecraft:bastion/bridge/ramparts/rampart_1",
+      "connector_index": 6
+    },
+    {
+      "piece": "minecraft:bastion/bridge/ramparts/rampart_1",
+      "connector_index": 7
+    },
+    {
+      "piece": "minecraft:bastion/bridge/starting_pieces/entrance",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/bridge/starting_pieces/entrance",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/bridge/starting_pieces/entrance",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:bastion/bridge/starting_pieces/entrance",
+      "connector_index": 4
+    },
+    {
+      "piece": "minecraft:bastion/bridge/starting_pieces/entrance",
+      "connector_index": 5
+    },
+    {
+      "piece": "minecraft:bastion/bridge/starting_pieces/entrance",
+      "connector_index": 6
+    },
+    {
+      "piece": "minecraft:bastion/bridge/starting_pieces/entrance",
+      "connector_index": 7
+    },
+    {
+      "piece": "minecraft:bastion/bridge/starting_pieces/entrance",
+      "connector_index": 8
+    },
+    {
+      "piece": "minecraft:bastion/bridge/starting_pieces/entrance",
+      "connector_index": 9
+    },
+    {
+      "piece": "minecraft:bastion/bridge/starting_pieces/entrance",
+      "connector_index": 10
+    },
+    {
+      "piece": "minecraft:bastion/bridge/starting_pieces/entrance",
+      "connector_index": 11
+    },
+    {
+      "piece": "minecraft:bastion/bridge/starting_pieces/entrance",
+      "connector_index": 12
+    },
+    {
+      "piece": "minecraft:bastion/bridge/starting_pieces/entrance",
+      "connector_index": 13
+    },
+    {
+      "piece": "minecraft:bastion/bridge/starting_pieces/entrance",
+      "connector_index": 14
+    },
+    {
+      "piece": "minecraft:bastion/bridge/starting_pieces/entrance",
+      "connector_index": 15
+    },
+    {
+      "piece": "minecraft:bastion/bridge/starting_pieces/entrance",
+      "connector_index": 16
+    },
+    {
+      "piece": "minecraft:bastion/bridge/starting_pieces/entrance",
+      "connector_index": 17
+    },
+    {
+      "piece": "minecraft:bastion/bridge/starting_pieces/entrance",
+      "connector_index": 18
+    },
+    {
+      "piece": "minecraft:bastion/bridge/starting_pieces/entrance",
+      "connector_index": 19
+    },
+    {
+      "piece": "minecraft:bastion/bridge/starting_pieces/entrance",
+      "connector_index": 20
+    },
+    {
+      "piece": "minecraft:bastion/bridge/starting_pieces/entrance_base",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/bridge/starting_pieces/entrance_base",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/bridge/starting_pieces/entrance_base",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/bridge/starting_pieces/entrance_base",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:bastion/bridge/starting_pieces/entrance_base",
+      "connector_index": 4
+    },
+    {
+      "piece": "minecraft:bastion/bridge/starting_pieces/entrance_base",
+      "connector_index": 5
+    },
+    {
+      "piece": "minecraft:bastion/bridge/starting_pieces/entrance_base",
+      "connector_index": 6
+    },
+    {
+      "piece": "minecraft:bastion/bridge/starting_pieces/entrance_base",
+      "connector_index": 7
+    },
+    {
+      "piece": "minecraft:bastion/bridge/starting_pieces/entrance_base",
+      "connector_index": 8
+    },
+    {
+      "piece": "minecraft:bastion/bridge/starting_pieces/entrance_base",
+      "connector_index": 9
+    },
+    {
+      "piece": "minecraft:bastion/bridge/starting_pieces/entrance_base",
+      "connector_index": 10
+    },
+    {
+      "piece": "minecraft:bastion/bridge/walls/wall_base_0",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/bridge/walls/wall_base_0",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/bridge/walls/wall_base_0",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:bastion/bridge/walls/wall_base_1",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/air_base",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/air_base",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/connectors/end_post_connector",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/large_stables/inner_1",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/large_stables/inner_2",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/large_stables/inner_3",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/large_stables/inner_3",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/large_stables/inner_4",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/large_stables/outer_0",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/large_stables/outer_0",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/large_stables/outer_1",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/large_stables/outer_1",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/large_stables/outer_2",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/large_stables/outer_2",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/posts/stair_post",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/posts/stair_post",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/ramparts/ramparts_1",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/ramparts/ramparts_1",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/ramparts/ramparts_1",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/ramparts/ramparts_1",
+      "connector_index": 4
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/ramparts/ramparts_1",
+      "connector_index": 5
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/ramparts/ramparts_1",
+      "connector_index": 6
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/ramparts/ramparts_1",
+      "connector_index": 7
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/ramparts/ramparts_1",
+      "connector_index": 8
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/ramparts/ramparts_1",
+      "connector_index": 9
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/ramparts/ramparts_2",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/ramparts/ramparts_2",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/ramparts/ramparts_2",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/ramparts/ramparts_3",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/ramparts/ramparts_3",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/small_stables/inner_0",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/small_stables/inner_1",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/small_stables/inner_1",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/small_stables/inner_2",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/small_stables/inner_2",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/small_stables/inner_2",
+      "connector_index": 4
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/small_stables/inner_3",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/small_stables/outer_0",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/small_stables/outer_0",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/small_stables/outer_1",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/small_stables/outer_1",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/small_stables/outer_2",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/small_stables/outer_3",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/stairs/stairs_3_0",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/stairs/stairs_3_0",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/stairs/stairs_3_1",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/stairs/stairs_3_1",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/stairs/stairs_3_2",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/stairs/stairs_3_2",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/stairs/stairs_3_3",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/stairs/stairs_3_3",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/stairs/stairs_3_4",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/stairs/stairs_3_4",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/starting_pieces/starting_stairs_2",
+      "connector_index": 4
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/walls/side_wall_0",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/walls/side_wall_0",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/walls/side_wall_0",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/walls/side_wall_0",
+      "connector_index": 4
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/walls/side_wall_1",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/walls/side_wall_1",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/walls/side_wall_1",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/walls/side_wall_1",
+      "connector_index": 4
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/walls/side_wall_1",
+      "connector_index": 5
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/walls/side_wall_1",
+      "connector_index": 6
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/walls/wall_base",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/walls/wall_base",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/walls/wall_base",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/walls/wall_base",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:bastion/treasure/bases/centers/center_0",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/treasure/bases/centers/center_1",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/treasure/bases/centers/center_1",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/treasure/bases/centers/center_2",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/treasure/bases/centers/center_2",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/treasure/bases/centers/center_3",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/treasure/bases/lava_basin",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/treasure/bases/lava_basin",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/treasure/bases/lava_basin",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/treasure/bases/lava_basin",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:bastion/treasure/bases/lava_basin",
+      "connector_index": 4
+    },
+    {
+      "piece": "minecraft:bastion/treasure/bases/lava_basin",
+      "connector_index": 5
+    },
+    {
+      "piece": "minecraft:bastion/treasure/bases/lava_basin",
+      "connector_index": 6
+    },
+    {
+      "piece": "minecraft:bastion/treasure/bases/lava_basin",
+      "connector_index": 7
+    },
+    {
+      "piece": "minecraft:bastion/treasure/bases/lava_basin",
+      "connector_index": 9
+    },
+    {
+      "piece": "minecraft:bastion/treasure/big_air_full",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/treasure/big_air_full",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/treasure/brains/center_brain",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/treasure/brains/center_brain",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/treasure/brains/center_brain",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:bastion/treasure/brains/center_brain",
+      "connector_index": 4
+    },
+    {
+      "piece": "minecraft:bastion/treasure/brains/center_brain",
+      "connector_index": 5
+    },
+    {
+      "piece": "minecraft:bastion/treasure/brains/center_brain",
+      "connector_index": 6
+    },
+    {
+      "piece": "minecraft:bastion/treasure/brains/center_brain",
+      "connector_index": 7
+    },
+    {
+      "piece": "minecraft:bastion/treasure/brains/center_brain",
+      "connector_index": 8
+    },
+    {
+      "piece": "minecraft:bastion/treasure/brains/center_brain",
+      "connector_index": 9
+    },
+    {
+      "piece": "minecraft:bastion/treasure/connectors/center_to_wall_middle",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/treasure/connectors/center_to_wall_top",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/treasure/connectors/center_to_wall_top_entrance",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/treasure/corners/bottom/corner_0",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/treasure/corners/bottom/corner_0",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:bastion/treasure/corners/bottom/corner_1",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/treasure/corners/bottom/corner_1",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/treasure/corners/middle/corner_0",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/treasure/corners/middle/corner_0",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/treasure/corners/middle/corner_1",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/treasure/corners/middle/corner_1",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/treasure/corners/top/corner_0",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/treasure/corners/top/corner_0",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/treasure/corners/top/corner_0",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/treasure/corners/top/corner_1",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/treasure/corners/top/corner_1",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/treasure/corners/top/corner_1",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/treasure/entrances/entrance_0",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/treasure/entrances/entrance_0",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/treasure/ramparts/lava_basin_main",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/treasure/ramparts/lava_basin_side",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/treasure/ramparts/mid_wall_main",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/treasure/ramparts/mid_wall_main",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/treasure/ramparts/mid_wall_main",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/treasure/ramparts/mid_wall_main",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:bastion/treasure/ramparts/mid_wall_main",
+      "connector_index": 4
+    },
+    {
+      "piece": "minecraft:bastion/treasure/ramparts/mid_wall_main",
+      "connector_index": 5
+    },
+    {
+      "piece": "minecraft:bastion/treasure/ramparts/mid_wall_main",
+      "connector_index": 6
+    },
+    {
+      "piece": "minecraft:bastion/treasure/ramparts/mid_wall_main",
+      "connector_index": 7
+    },
+    {
+      "piece": "minecraft:bastion/treasure/ramparts/mid_wall_side",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/treasure/ramparts/mid_wall_side",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/treasure/ramparts/mid_wall_side",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/treasure/ramparts/mid_wall_side",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:bastion/treasure/ramparts/mid_wall_side",
+      "connector_index": 4
+    },
+    {
+      "piece": "minecraft:bastion/treasure/ramparts/mid_wall_side",
+      "connector_index": 5
+    },
+    {
+      "piece": "minecraft:bastion/treasure/ramparts/mid_wall_side",
+      "connector_index": 6
+    },
+    {
+      "piece": "minecraft:bastion/treasure/ramparts/mid_wall_side",
+      "connector_index": 8
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/bottom/wall_0",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/bottom/wall_0",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/bottom/wall_0",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/bottom/wall_0",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/bottom/wall_0",
+      "connector_index": 4
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/bottom/wall_0",
+      "connector_index": 6
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/bottom/wall_0",
+      "connector_index": 7
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/bottom/wall_1",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/bottom/wall_1",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/bottom/wall_1",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/bottom/wall_1",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/bottom/wall_1",
+      "connector_index": 4
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/bottom/wall_1",
+      "connector_index": 6
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/bottom/wall_1",
+      "connector_index": 7
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/bottom/wall_1",
+      "connector_index": 8
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/bottom/wall_1",
+      "connector_index": 9
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/bottom/wall_2",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/bottom/wall_2",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/bottom/wall_2",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/bottom/wall_2",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/bottom/wall_2",
+      "connector_index": 4
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/bottom/wall_2",
+      "connector_index": 5
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/bottom/wall_3",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/bottom/wall_3",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/bottom/wall_3",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/bottom/wall_3",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/bottom/wall_3",
+      "connector_index": 4
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/entrance_wall",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/mid/wall_0",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/mid/wall_0",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/mid/wall_0",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/mid/wall_0",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/mid/wall_0",
+      "connector_index": 4
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/mid/wall_0",
+      "connector_index": 5
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/mid/wall_0",
+      "connector_index": 7
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/mid/wall_0",
+      "connector_index": 8
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/mid/wall_0",
+      "connector_index": 9
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/mid/wall_0",
+      "connector_index": 10
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/mid/wall_0",
+      "connector_index": 11
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/mid/wall_0",
+      "connector_index": 12
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/mid/wall_1",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/mid/wall_1",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/mid/wall_1",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/mid/wall_1",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/mid/wall_1",
+      "connector_index": 4
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/mid/wall_1",
+      "connector_index": 5
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/mid/wall_1",
+      "connector_index": 7
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/mid/wall_1",
+      "connector_index": 8
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/mid/wall_1",
+      "connector_index": 9
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/mid/wall_1",
+      "connector_index": 10
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/mid/wall_1",
+      "connector_index": 11
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/mid/wall_1",
+      "connector_index": 12
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/mid/wall_2",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/mid/wall_2",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/mid/wall_2",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/mid/wall_2",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/mid/wall_2",
+      "connector_index": 4
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/mid/wall_2",
+      "connector_index": 6
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/mid/wall_2",
+      "connector_index": 7
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/outer/bottom_corner",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/outer/bottom_corner",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/outer/mid_corner",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/outer/mid_corner",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/outer/top_corner",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/outer/top_corner",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/top/main_entrance",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/top/main_entrance",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/top/main_entrance",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/top/main_entrance",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/top/main_entrance",
+      "connector_index": 4
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/top/main_entrance",
+      "connector_index": 5
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/top/main_entrance",
+      "connector_index": 6
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/top/main_entrance",
+      "connector_index": 8
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/top/main_entrance",
+      "connector_index": 9
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/top/main_entrance",
+      "connector_index": 10
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/top/main_entrance",
+      "connector_index": 11
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/top/main_entrance",
+      "connector_index": 12
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/top/wall_0",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/top/wall_0",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/top/wall_0",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/top/wall_0",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/top/wall_0",
+      "connector_index": 5
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/top/wall_0",
+      "connector_index": 6
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/top/wall_0",
+      "connector_index": 7
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/top/wall_0",
+      "connector_index": 8
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/top/wall_0",
+      "connector_index": 9
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/top/wall_1",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/top/wall_1",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/top/wall_1",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/top/wall_1",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/top/wall_1",
+      "connector_index": 4
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/top/wall_1",
+      "connector_index": 5
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/top/wall_1",
+      "connector_index": 7
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/top/wall_1",
+      "connector_index": 8
+    },
+    {
+      "piece": "minecraft:bastion/units/air_base",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/units/air_base",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/units/edges/edge_0",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/units/edges/edge_0",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/units/edges/edge_0",
+      "connector_index": 5
+    },
+    {
+      "piece": "minecraft:bastion/units/ramparts/ramparts_0",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/units/ramparts/ramparts_0",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/units/ramparts/ramparts_0",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:bastion/units/ramparts/ramparts_0",
+      "connector_index": 4
+    },
+    {
+      "piece": "minecraft:bastion/units/ramparts/ramparts_0",
+      "connector_index": 5
+    },
+    {
+      "piece": "minecraft:bastion/units/ramparts/ramparts_1",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/units/stages/stage_0_0",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/units/stages/stage_0_0",
+      "connector_index": 4
+    },
+    {
+      "piece": "minecraft:bastion/units/stages/stage_0_0",
+      "connector_index": 6
+    },
+    {
+      "piece": "minecraft:bastion/units/stages/stage_0_0",
+      "connector_index": 7
+    },
+    {
+      "piece": "minecraft:bastion/units/stages/stage_0_0",
+      "connector_index": 8
+    },
+    {
+      "piece": "minecraft:bastion/units/stages/stage_0_1",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/units/stages/stage_0_1",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/units/stages/stage_0_1",
+      "connector_index": 6
+    },
+    {
+      "piece": "minecraft:bastion/units/stages/stage_0_1",
+      "connector_index": 7
+    },
+    {
+      "piece": "minecraft:bastion/units/stages/stage_0_2",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/units/stages/stage_0_2",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/units/stages/stage_0_2",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/units/stages/stage_0_2",
+      "connector_index": 7
+    },
+    {
+      "piece": "minecraft:bastion/units/stages/stage_0_2",
+      "connector_index": 8
+    },
+    {
+      "piece": "minecraft:bastion/units/stages/stage_0_2",
+      "connector_index": 9
+    },
+    {
+      "piece": "minecraft:bastion/units/stages/stage_0_3",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/units/stages/stage_0_3",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/units/stages/stage_0_3",
+      "connector_index": 4
+    },
+    {
+      "piece": "minecraft:bastion/units/stages/stage_0_3",
+      "connector_index": 7
+    },
+    {
+      "piece": "minecraft:bastion/units/stages/stage_0_3",
+      "connector_index": 8
+    },
+    {
+      "piece": "minecraft:bastion/units/stages/stage_1_0",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/units/stages/stage_1_0",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:bastion/units/stages/stage_1_1",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/units/stages/stage_1_2",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/units/stages/stage_1_3",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/units/stages/stage_1_3",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/units/stages/stage_1_3",
+      "connector_index": 4
+    },
+    {
+      "piece": "minecraft:bastion/units/stages/stage_2_0",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/units/stages/stage_2_1",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/units/stages/stage_3_1",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/units/wall_units/edge_0_large",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/units/wall_units/edge_0_large",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/units/wall_units/edge_0_large",
+      "connector_index": 4
+    },
+    {
+      "piece": "minecraft:bastion/units/wall_units/unit_0",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/units/wall_units/unit_0",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/units/walls/connected_wall",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/units/walls/connected_wall",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/units/walls/connected_wall",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:bastion/units/walls/wall_base",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/units/walls/wall_base",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/units/walls/wall_base",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/units/walls/wall_base",
+      "connector_index": 4
+    },
+    {
+      "piece": "minecraft:bastion/units/walls/wall_base",
+      "connector_index": 5
+    },
+    {
+      "piece": "minecraft:bastion/units/walls/wall_base",
+      "connector_index": 6
+    },
+    {
+      "piece": "minecraft:bastion/units/walls/wall_base",
+      "connector_index": 7
+    },
+    {
+      "piece": "minecraft:ruined_portal/portal_1",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:ruined_portal/portal_2",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:ruined_portal/portal_3",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:ruined_portal/portal_4",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:ruined_portal/portal_5",
+      "connector_index": 0
+    }
+  ],
+  "minecraft:entrance_start": [
+    {
+      "piece": "minecraft:ancient_city/city/entrance/entrance_connector",
+      "connector_index": 3
+    }
+  ],
+  "minecraft:entrance_middle": [
+    {
+      "piece": "minecraft:ancient_city/city/entrance/entrance_path_1",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:ancient_city/city/entrance/entrance_path_2",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:ancient_city/city/entrance/entrance_path_3",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:ancient_city/city/entrance/entrance_path_4",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:ancient_city/city/entrance/entrance_path_5",
+      "connector_index": 2
+    }
+  ],
+  "minecraft:city_anchor": [
+    {
+      "piece": "minecraft:ancient_city/city_center/city_center_1",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:ancient_city/city_center/city_center_2",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:ancient_city/city_center/city_center_3",
+      "connector_index": 2
+    }
+  ],
+  "minecraft:connect_bottom": [
+    {
+      "piece": "minecraft:ancient_city/city_center/walls/bottom_1",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:ancient_city/city_center/walls/bottom_2",
+      "connector_index": 3
+    }
+  ],
+  "minecraft:connect_bottom_left_corner": [
+    {
+      "piece": "minecraft:ancient_city/city_center/walls/bottom_left_corner",
+      "connector_index": 0
+    }
+  ],
+  "minecraft:connect_bottom_right_corner": [
+    {
+      "piece": "minecraft:ancient_city/city_center/walls/bottom_right_corner",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:ancient_city/city_center/walls/bottom_right_corner_1",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:ancient_city/city_center/walls/bottom_right_corner_2",
+      "connector_index": 0
+    }
+  ],
+  "minecraft:connect_left": [
+    {
+      "piece": "minecraft:ancient_city/city_center/walls/left",
+      "connector_index": 1
+    }
+  ],
+  "minecraft:connect_right": [
+    {
+      "piece": "minecraft:ancient_city/city_center/walls/right",
+      "connector_index": 0
+    }
+  ],
+  "minecraft:connect_top": [
+    {
+      "piece": "minecraft:ancient_city/city_center/walls/top",
+      "connector_index": 0
+    }
+  ],
+  "minecraft:connect_top_left_corner": [
+    {
+      "piece": "minecraft:ancient_city/city_center/walls/top_left_corner",
+      "connector_index": 0
+    }
+  ],
+  "minecraft:connect_top_right_corner": [
+    {
+      "piece": "minecraft:ancient_city/city_center/walls/top_right_corner",
+      "connector_index": 0
+    }
+  ],
+  "minecraft:connect_structure": [
+    {
+      "piece": "minecraft:ancient_city/structures/barracks",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:ancient_city/structures/camp_1",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:ancient_city/structures/camp_2",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:ancient_city/structures/camp_3",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:ancient_city/structures/chamber_1",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:ancient_city/structures/chamber_2",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:ancient_city/structures/chamber_3",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:ancient_city/structures/ice_box_1",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:ancient_city/structures/large_pillar_1",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:ancient_city/structures/large_ruin_1",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:ancient_city/structures/medium_pillar_1",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:ancient_city/structures/medium_pillar_1",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:ancient_city/structures/medium_ruin_1",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:ancient_city/structures/medium_ruin_2",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:ancient_city/structures/sauna_1",
+      "connector_index": 4
+    },
+    {
+      "piece": "minecraft:ancient_city/structures/small_ruin_1",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:ancient_city/structures/small_ruin_2",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:ancient_city/structures/small_statue",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:ancient_city/structures/small_statue",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:ancient_city/structures/tall_ruin_1",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:ancient_city/structures/tall_ruin_2",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:ancient_city/structures/tall_ruin_3",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:ancient_city/structures/tall_ruin_4",
+      "connector_index": 0
+    }
+  ],
+  "minecraft:bottom": [
+    {
+      "piece": "minecraft:ancient_city/structures/barracks",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:ancient_city/structures/barracks",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:ancient_city/structures/chamber_1",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:ancient_city/structures/chamber_1",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:ancient_city/structures/chamber_2",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:ancient_city/structures/chamber_3",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:ancient_city/structures/ice_box_1",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:ancient_city/structures/ice_box_1",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:ancient_city/structures/sauna_1",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:ancient_city/structures/sauna_1",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:ancient_city/structures/sauna_1",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:ancient_city/structures/sauna_1",
+      "connector_index": 3
+    }
+  ],
+  "minecraft:connect_wall": [
+    {
+      "piece": "minecraft:ancient_city/walls/intact_corner_wall_1",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:ancient_city/walls/intact_corner_wall_1",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:ancient_city/walls/intact_corner_wall_1",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:ancient_city/walls/intact_corner_wall_1",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:ancient_city/walls/intact_horizontal_wall_1",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:ancient_city/walls/intact_horizontal_wall_1",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:ancient_city/walls/intact_horizontal_wall_2",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:ancient_city/walls/intact_horizontal_wall_2",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:ancient_city/walls/intact_horizontal_wall_bridge",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:ancient_city/walls/intact_horizontal_wall_passage_1",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:ancient_city/walls/intact_horizontal_wall_passage_1",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:ancient_city/walls/intact_horizontal_wall_stairs_1",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:ancient_city/walls/intact_horizontal_wall_stairs_1",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:ancient_city/walls/intact_horizontal_wall_stairs_2",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:ancient_city/walls/intact_horizontal_wall_stairs_2",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:ancient_city/walls/intact_horizontal_wall_stairs_3",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:ancient_city/walls/intact_horizontal_wall_stairs_3",
+      "connector_index": 4
+    },
+    {
+      "piece": "minecraft:ancient_city/walls/intact_horizontal_wall_stairs_4",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:ancient_city/walls/intact_horizontal_wall_stairs_4",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:ancient_city/walls/intact_intersection_wall_1",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:ancient_city/walls/intact_intersection_wall_1",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:ancient_city/walls/intact_intersection_wall_1",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:ancient_city/walls/intact_lshape_wall_1",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:ancient_city/walls/intact_lshape_wall_1",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:ancient_city/walls/ruined_corner_wall_1",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:ancient_city/walls/ruined_corner_wall_1",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:ancient_city/walls/ruined_corner_wall_1",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:ancient_city/walls/ruined_corner_wall_1",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:ancient_city/walls/ruined_corner_wall_2",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:ancient_city/walls/ruined_corner_wall_2",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:ancient_city/walls/ruined_corner_wall_2",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:ancient_city/walls/ruined_corner_wall_2",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:ancient_city/walls/ruined_horizontal_wall_stairs_1",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:ancient_city/walls/ruined_horizontal_wall_stairs_1",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:ancient_city/walls/ruined_horizontal_wall_stairs_2",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:ancient_city/walls/ruined_horizontal_wall_stairs_2",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:ancient_city/walls/ruined_horizontal_wall_stairs_3",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:ancient_city/walls/ruined_horizontal_wall_stairs_3",
+      "connector_index": 4
+    },
+    {
+      "piece": "minecraft:ancient_city/walls/ruined_horizontal_wall_stairs_4",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:ancient_city/walls/ruined_horizontal_wall_stairs_4",
+      "connector_index": 3
+    }
+  ],
+  "minecraft:block_connector": [
+    {
+      "piece": "minecraft:bastion/blocks/air",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/blocks/gold",
+      "connector_index": 0
+    }
+  ],
+  "minecraft:bridge_connector": [
+    {
+      "piece": "minecraft:bastion/bridge/bridge_pieces/bridge",
+      "connector_index": 3
+    }
+  ],
+  "minecraft:back_bridge_connector_bottom": [
+    {
+      "piece": "minecraft:bastion/bridge/connectors/back_bridge_bottom",
+      "connector_index": 0
+    }
+  ],
+  "minecraft:back_bridge_connector_top": [
+    {
+      "piece": "minecraft:bastion/bridge/connectors/back_bridge_top",
+      "connector_index": 0
+    }
+  ],
+  "minecraft:leg_connector": [
+    {
+      "piece": "minecraft:bastion/bridge/legs/leg_0",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/bridge/legs/leg_1",
+      "connector_index": 0
+    }
+  ],
+  "minecraft:rampart_plate_connector": [
+    {
+      "piece": "minecraft:bastion/bridge/rampart_plates/plate_0",
+      "connector_index": 0
+    }
+  ],
+  "minecraft:ramparts": [
+    {
+      "piece": "minecraft:bastion/bridge/ramparts/rampart_0",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/bridge/ramparts/rampart_1",
+      "connector_index": 0
+    }
+  ],
+  "minecraft:entrance_base_connector": [
+    {
+      "piece": "minecraft:bastion/bridge/starting_pieces/entrance",
+      "connector_index": 0
+    }
+  ],
+  "minecraft:entrance_face": [
+    {
+      "piece": "minecraft:bastion/bridge/starting_pieces/entrance_face",
+      "connector_index": 0
+    }
+  ],
+  "minecraft:wall_base_connector_right": [
+    {
+      "piece": "minecraft:bastion/bridge/walls/wall_base_0",
+      "connector_index": 0
+    }
+  ],
+  "minecraft:wall_base_connector_left": [
+    {
+      "piece": "minecraft:bastion/bridge/walls/wall_base_1",
+      "connector_index": 0
+    }
+  ],
+  "minecraft:post_connector": [
+    {
+      "piece": "minecraft:bastion/hoglin_stable/connectors/end_post_connector",
+      "connector_index": 0
+    }
+  ],
+  "minecraft:inner_connector_left": [
+    {
+      "piece": "minecraft:bastion/hoglin_stable/large_stables/inner_0",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/large_stables/inner_1",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/large_stables/inner_2",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/large_stables/inner_3",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/large_stables/inner_4",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/small_stables/inner_0",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/small_stables/inner_1",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/small_stables/inner_2",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/small_stables/inner_3",
+      "connector_index": 0
+    }
+  ],
+  "minecraft:inner_connector_right": [
+    {
+      "piece": "minecraft:bastion/hoglin_stable/large_stables/inner_0",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/large_stables/inner_1",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/large_stables/inner_2",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/large_stables/inner_3",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/large_stables/inner_4",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/small_stables/inner_0",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/small_stables/inner_1",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/small_stables/inner_2",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/small_stables/inner_3",
+      "connector_index": 1
+    }
+  ],
+  "minecraft:outer_connector_left": [
+    {
+      "piece": "minecraft:bastion/hoglin_stable/large_stables/outer_0",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/large_stables/outer_1",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/large_stables/outer_2",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/large_stables/outer_3",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/large_stables/outer_4",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/small_stables/outer_0",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/small_stables/outer_1",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/small_stables/outer_2",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/small_stables/outer_3",
+      "connector_index": 0
+    }
+  ],
+  "minecraft:outer_connector_right": [
+    {
+      "piece": "minecraft:bastion/hoglin_stable/large_stables/outer_0",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/large_stables/outer_1",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/large_stables/outer_2",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/large_stables/outer_3",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/large_stables/outer_4",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/small_stables/outer_0",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/small_stables/outer_1",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/small_stables/outer_2",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/small_stables/outer_3",
+      "connector_index": 1
+    }
+  ],
+  "minecraft:end_post_connector": [
+    {
+      "piece": "minecraft:bastion/hoglin_stable/posts/end_post",
+      "connector_index": 0
+    }
+  ],
+  "minecraft:stair_post": [
+    {
+      "piece": "minecraft:bastion/hoglin_stable/posts/stair_post",
+      "connector_index": 0
+    }
+  ],
+  "minecraft:rampart_plate": [
+    {
+      "piece": "minecraft:bastion/hoglin_stable/rampart_plates/rampart_plate_1",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/units/rampart_plates/plate_0",
+      "connector_index": 0
+    }
+  ],
+  "minecraft:rampart": [
+    {
+      "piece": "minecraft:bastion/hoglin_stable/ramparts/ramparts_1",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/ramparts/ramparts_2",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/ramparts/ramparts_3",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/units/ramparts/ramparts_0",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/units/ramparts/ramparts_1",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/units/ramparts/ramparts_2",
+      "connector_index": 0
+    }
+  ],
+  "minecraft:stable_stairs": [
+    {
+      "piece": "minecraft:bastion/hoglin_stable/stairs/stairs_1_0",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/stairs/stairs_1_0",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/stairs/stairs_1_1",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/stairs/stairs_1_1",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/stairs/stairs_1_2",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/stairs/stairs_1_2",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/stairs/stairs_1_3",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/stairs/stairs_1_3",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/stairs/stairs_1_4",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/stairs/stairs_1_4",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/stairs/stairs_2_0",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/stairs/stairs_2_0",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/stairs/stairs_2_1",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/stairs/stairs_2_1",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/stairs/stairs_2_2",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/stairs/stairs_2_2",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/stairs/stairs_2_3",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/stairs/stairs_2_3",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/stairs/stairs_2_4",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/stairs/stairs_2_4",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/starting_pieces/stairs_0_mirrored",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/starting_pieces/stairs_0_mirrored",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/starting_pieces/stairs_1_mirrored",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/starting_pieces/stairs_1_mirrored",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/starting_pieces/stairs_2_mirrored",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/starting_pieces/stairs_2_mirrored",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/starting_pieces/stairs_3_mirrored",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/starting_pieces/stairs_3_mirrored",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/starting_pieces/stairs_4_mirrored",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/starting_pieces/stairs_4_mirrored",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/starting_pieces/starting_stairs_0",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/starting_pieces/starting_stairs_0",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/starting_pieces/starting_stairs_1",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/starting_pieces/starting_stairs_1",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/starting_pieces/starting_stairs_2",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/starting_pieces/starting_stairs_2",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/starting_pieces/starting_stairs_3",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/starting_pieces/starting_stairs_3",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/starting_pieces/starting_stairs_4",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/starting_pieces/starting_stairs_4",
+      "connector_index": 2
+    }
+  ],
+  "minecraft:stair_1_bottom": [
+    {
+      "piece": "minecraft:bastion/hoglin_stable/stairs/stairs_1_0",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/stairs/stairs_1_1",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/stairs/stairs_1_2",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/stairs/stairs_1_3",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/stairs/stairs_1_4",
+      "connector_index": 1
+    }
+  ],
+  "minecraft:stair_1_top": [
+    {
+      "piece": "minecraft:bastion/hoglin_stable/stairs/stairs_1_0",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/stairs/stairs_1_1",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/stairs/stairs_1_2",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/stairs/stairs_1_3",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/stairs/stairs_1_4",
+      "connector_index": 3
+    }
+  ],
+  "minecraft:stair_2_bottom": [
+    {
+      "piece": "minecraft:bastion/hoglin_stable/stairs/stairs_2_0",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/stairs/stairs_2_1",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/stairs/stairs_2_2",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/stairs/stairs_2_3",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/stairs/stairs_2_4",
+      "connector_index": 1
+    }
+  ],
+  "minecraft:stair_2_top": [
+    {
+      "piece": "minecraft:bastion/hoglin_stable/stairs/stairs_2_0",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/stairs/stairs_2_1",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/stairs/stairs_2_2",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/stairs/stairs_2_3",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/stairs/stairs_2_4",
+      "connector_index": 3
+    }
+  ],
+  "minecraft:stair_3_bottom": [
+    {
+      "piece": "minecraft:bastion/hoglin_stable/stairs/stairs_3_0",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/stairs/stairs_3_1",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/stairs/stairs_3_2",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/stairs/stairs_3_3",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/stairs/stairs_3_4",
+      "connector_index": 1
+    }
+  ],
+  "minecraft:stairs_mirrored": [
+    {
+      "piece": "minecraft:bastion/hoglin_stable/starting_pieces/stairs_0_mirrored",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/starting_pieces/stairs_1_mirrored",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/starting_pieces/stairs_2_mirrored",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/starting_pieces/stairs_3_mirrored",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/starting_pieces/stairs_4_mirrored",
+      "connector_index": 0
+    }
+  ],
+  "minecraft:starting_stairs": [
+    {
+      "piece": "minecraft:bastion/hoglin_stable/starting_pieces/stairs_0_mirrored",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/starting_pieces/stairs_1_mirrored",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/starting_pieces/stairs_2_mirrored",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/starting_pieces/stairs_3_mirrored",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/starting_pieces/stairs_4_mirrored",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/starting_pieces/starting_stairs_0",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/starting_pieces/starting_stairs_0",
+      "connector_index": 4
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/starting_pieces/starting_stairs_1",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/starting_pieces/starting_stairs_1",
+      "connector_index": 4
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/starting_pieces/starting_stairs_2",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/starting_pieces/starting_stairs_3",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/starting_pieces/starting_stairs_3",
+      "connector_index": 4
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/starting_pieces/starting_stairs_4",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/starting_pieces/starting_stairs_4",
+      "connector_index": 4
+    }
+  ],
+  "minecraft:starting_stairs_connector": [
+    {
+      "piece": "minecraft:bastion/hoglin_stable/starting_pieces/starting_stairs_0",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/starting_pieces/starting_stairs_1",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/starting_pieces/starting_stairs_2",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/starting_pieces/starting_stairs_3",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/starting_pieces/starting_stairs_4",
+      "connector_index": 1
+    }
+  ],
+  "minecraft:side_wall": [
+    {
+      "piece": "minecraft:bastion/hoglin_stable/walls/side_wall_0",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/walls/side_wall_0",
+      "connector_index": 5
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/walls/side_wall_1",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/hoglin_stable/walls/side_wall_1",
+      "connector_index": 7
+    }
+  ],
+  "minecraft:wall_base": [
+    {
+      "piece": "minecraft:bastion/hoglin_stable/walls/wall_base",
+      "connector_index": 4
+    },
+    {
+      "piece": "minecraft:bastion/units/walls/wall_base",
+      "connector_index": 3
+    }
+  ],
+  "minecraft:mob_connector": [
+    {
+      "piece": "minecraft:bastion/mobs/crossbow_piglin",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/mobs/empty",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/mobs/hoglin",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/mobs/melee_piglin",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/mobs/sword_piglin",
+      "connector_index": 0
+    }
+  ],
+  "minecraft:melee_connector": [
+    {
+      "piece": "minecraft:bastion/mobs/melee_piglin_always",
+      "connector_index": 0
+    }
+  ],
+  "minecraft:treasure": [
+    {
+      "piece": "minecraft:bastion/treasure/bases/centers/center_0",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/treasure/bases/centers/center_1",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/treasure/bases/centers/center_2",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/treasure/bases/centers/center_3",
+      "connector_index": 1
+    }
+  ],
+  "minecraft:center_piece": [
+    {
+      "piece": "minecraft:bastion/treasure/bases/lava_basin",
+      "connector_index": 8
+    },
+    {
+      "piece": "minecraft:bastion/units/center_pieces/center_0",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/units/center_pieces/center_0",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:bastion/units/center_pieces/center_0",
+      "connector_index": 5
+    },
+    {
+      "piece": "minecraft:bastion/units/center_pieces/center_0",
+      "connector_index": 6
+    },
+    {
+      "piece": "minecraft:bastion/units/center_pieces/center_0",
+      "connector_index": 7
+    },
+    {
+      "piece": "minecraft:bastion/units/center_pieces/center_0",
+      "connector_index": 8
+    },
+    {
+      "piece": "minecraft:bastion/units/center_pieces/center_0",
+      "connector_index": 9
+    },
+    {
+      "piece": "minecraft:bastion/units/center_pieces/center_1",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/units/center_pieces/center_1",
+      "connector_index": 4
+    },
+    {
+      "piece": "minecraft:bastion/units/center_pieces/center_1",
+      "connector_index": 5
+    },
+    {
+      "piece": "minecraft:bastion/units/center_pieces/center_1",
+      "connector_index": 6
+    },
+    {
+      "piece": "minecraft:bastion/units/center_pieces/center_2",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/units/center_pieces/center_2",
+      "connector_index": 4
+    },
+    {
+      "piece": "minecraft:bastion/units/center_pieces/center_2",
+      "connector_index": 5
+    },
+    {
+      "piece": "minecraft:bastion/units/center_pieces/center_2",
+      "connector_index": 6
+    }
+  ],
+  "minecraft:center_brain": [
+    {
+      "piece": "minecraft:bastion/treasure/brains/center_brain",
+      "connector_index": 0
+    }
+  ],
+  "minecraft:mid_connector": [
+    {
+      "piece": "minecraft:bastion/treasure/connectors/center_to_wall_middle",
+      "connector_index": 1
+    }
+  ],
+  "minecraft:top_connector": [
+    {
+      "piece": "minecraft:bastion/treasure/connectors/center_to_wall_top",
+      "connector_index": 1
+    }
+  ],
+  "minecraft:top_connector_entrance": [
+    {
+      "piece": "minecraft:bastion/treasure/connectors/center_to_wall_top_entrance",
+      "connector_index": 1
+    }
+  ],
+  "minecraft:corner_connector": [
+    {
+      "piece": "minecraft:bastion/treasure/corners/bottom/corner_0",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/treasure/corners/bottom/corner_0",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/treasure/corners/bottom/corner_1",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/treasure/corners/bottom/corner_1",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:bastion/treasure/corners/middle/corner_0",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/treasure/corners/middle/corner_0",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:bastion/treasure/corners/middle/corner_1",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/treasure/corners/middle/corner_1",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:bastion/treasure/corners/top/corner_0",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:bastion/treasure/corners/top/corner_0",
+      "connector_index": 4
+    },
+    {
+      "piece": "minecraft:bastion/treasure/corners/top/corner_1",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:bastion/treasure/corners/top/corner_1",
+      "connector_index": 4
+    }
+  ],
+  "minecraft:bottom_edge_connector": [
+    {
+      "piece": "minecraft:bastion/treasure/corners/edges/bottom",
+      "connector_index": 0
+    }
+  ],
+  "minecraft:middle_edge_connector": [
+    {
+      "piece": "minecraft:bastion/treasure/corners/edges/middle",
+      "connector_index": 0
+    }
+  ],
+  "minecraft:top_edge_connector": [
+    {
+      "piece": "minecraft:bastion/treasure/corners/edges/top",
+      "connector_index": 0
+    }
+  ],
+  "minecraft:entrance_bridge_connector": [
+    {
+      "piece": "minecraft:bastion/treasure/entrances/entrance_0",
+      "connector_index": 2
+    }
+  ],
+  "minecraft:extension_connector": [
+    {
+      "piece": "minecraft:bastion/treasure/extensions/empty",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/treasure/extensions/fire_room",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/treasure/extensions/large_bridge_0",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/treasure/extensions/large_bridge_1",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/treasure/extensions/large_bridge_2",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/treasure/extensions/large_bridge_3",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/treasure/extensions/roofed_bridge",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/treasure/extensions/small_bridge_0",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/treasure/extensions/small_bridge_1",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/treasure/extensions/small_bridge_2",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/treasure/extensions/small_bridge_3",
+      "connector_index": 0
+    }
+  ],
+  "minecraft:house_connector": [
+    {
+      "piece": "minecraft:bastion/treasure/extensions/house_0",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/treasure/extensions/house_1",
+      "connector_index": 0
+    }
+  ],
+  "minecraft:ramparts_bottom_connector": [
+    {
+      "piece": "minecraft:bastion/treasure/ramparts/bottom_wall_0",
+      "connector_index": 0
+    }
+  ],
+  "minecraft:lava_basin_connector_side": [
+    {
+      "piece": "minecraft:bastion/treasure/ramparts/lava_basin_main",
+      "connector_index": 0
+    }
+  ],
+  "minecraft:lava_basin_connector_main": [
+    {
+      "piece": "minecraft:bastion/treasure/ramparts/lava_basin_side",
+      "connector_index": 0
+    }
+  ],
+  "minecraft:bridge_wall_connector": [
+    {
+      "piece": "minecraft:bastion/treasure/ramparts/mid_wall_main",
+      "connector_index": 8
+    }
+  ],
+  "minecraft:rampart_mid_side_wall_connector": [
+    {
+      "piece": "minecraft:bastion/treasure/ramparts/mid_wall_side",
+      "connector_index": 7
+    }
+  ],
+  "minecraft:ramparts_top_connector": [
+    {
+      "piece": "minecraft:bastion/treasure/ramparts/top_wall",
+      "connector_index": 0
+    }
+  ],
+  "minecraft:center_roof_connector": [
+    {
+      "piece": "minecraft:bastion/treasure/roofs/center_roof",
+      "connector_index": 0
+    }
+  ],
+  "minecraft:corner_roof_connector": [
+    {
+      "piece": "minecraft:bastion/treasure/roofs/corner_roof",
+      "connector_index": 0
+    }
+  ],
+  "minecraft:wall_roof_connector": [
+    {
+      "piece": "minecraft:bastion/treasure/roofs/wall_roof",
+      "connector_index": 0
+    }
+  ],
+  "minecraft:lower_stairs": [
+    {
+      "piece": "minecraft:bastion/treasure/stairs/lower_stairs",
+      "connector_index": 0
+    }
+  ],
+  "minecraft:center_connector": [
+    {
+      "piece": "minecraft:bastion/treasure/walls/bottom/wall_0",
+      "connector_index": 5
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/bottom/wall_1",
+      "connector_index": 5
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/bottom/wall_2",
+      "connector_index": 6
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/bottom/wall_3",
+      "connector_index": 5
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/mid/wall_0",
+      "connector_index": 6
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/mid/wall_1",
+      "connector_index": 6
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/mid/wall_2",
+      "connector_index": 5
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/top/wall_0",
+      "connector_index": 4
+    },
+    {
+      "piece": "minecraft:bastion/treasure/walls/top/wall_1",
+      "connector_index": 6
+    }
+  ],
+  "minecraft:entrance_wall_connector": [
+    {
+      "piece": "minecraft:bastion/treasure/walls/entrance_wall",
+      "connector_index": 1
+    }
+  ],
+  "minecraft:lava_wall": [
+    {
+      "piece": "minecraft:bastion/treasure/walls/lava_wall",
+      "connector_index": 0
+    }
+  ],
+  "minecraft:bottom_corner_wall_connector": [
+    {
+      "piece": "minecraft:bastion/treasure/walls/outer/bottom_corner",
+      "connector_index": 0
+    }
+  ],
+  "minecraft:medium_outer_wall_connector": [
+    {
+      "piece": "minecraft:bastion/treasure/walls/outer/medium_outer_wall",
+      "connector_index": 0
+    }
+  ],
+  "minecraft:middle_corner_wall_connector": [
+    {
+      "piece": "minecraft:bastion/treasure/walls/outer/mid_corner",
+      "connector_index": 1
+    }
+  ],
+  "minecraft:outer_wall_connector": [
+    {
+      "piece": "minecraft:bastion/treasure/walls/outer/outer_wall",
+      "connector_index": 0
+    }
+  ],
+  "minecraft:tall_outer_wall_connector": [
+    {
+      "piece": "minecraft:bastion/treasure/walls/outer/tall_outer_wall",
+      "connector_index": 0
+    }
+  ],
+  "minecraft:top_corner_wall_connector": [
+    {
+      "piece": "minecraft:bastion/treasure/walls/outer/top_corner",
+      "connector_index": 0
+    }
+  ],
+  "minecraft:entrance_connector": [
+    {
+      "piece": "minecraft:bastion/treasure/walls/top/main_entrance",
+      "connector_index": 7
+    }
+  ],
+  "minecraft:edge_wall_exit": [
+    {
+      "piece": "minecraft:bastion/units/air_base",
+      "connector_index": 0
+    }
+  ],
+  "minecraft:center_piece_wall": [
+    {
+      "piece": "minecraft:bastion/units/center_pieces/center_0",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/units/center_pieces/center_0",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/units/center_pieces/center_1",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/units/center_pieces/center_1",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/units/center_pieces/center_2",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/units/center_pieces/center_2",
+      "connector_index": 1
+    }
+  ],
+  "minecraft:center_piece_connector": [
+    {
+      "piece": "minecraft:bastion/units/center_pieces/center_0",
+      "connector_index": 4
+    },
+    {
+      "piece": "minecraft:bastion/units/center_pieces/center_1",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:bastion/units/center_pieces/center_2",
+      "connector_index": 3
+    }
+  ],
+  "minecraft:edge_entry": [
+    {
+      "piece": "minecraft:bastion/units/edges/edge_0",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/units/edges/edge_0",
+      "connector_index": 4
+    }
+  ],
+  "minecraft:stage_0_top": [
+    {
+      "piece": "minecraft:bastion/units/edges/edge_0",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:bastion/units/fillers/stage_0",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:bastion/units/stages/stage_0_0",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:bastion/units/stages/stage_0_1",
+      "connector_index": 4
+    },
+    {
+      "piece": "minecraft:bastion/units/stages/stage_0_2",
+      "connector_index": 5
+    },
+    {
+      "piece": "minecraft:bastion/units/stages/stage_0_3",
+      "connector_index": 5
+    },
+    {
+      "piece": "minecraft:bastion/units/wall_units/edge_0_large",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/units/wall_units/unit_0",
+      "connector_index": 1
+    }
+  ],
+  "minecraft:filler_0_entry": [
+    {
+      "piece": "minecraft:bastion/units/fillers/stage_0",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/units/fillers/stage_0",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/units/fillers/stage_0",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/units/fillers/stage_0",
+      "connector_index": 4
+    },
+    {
+      "piece": "minecraft:bastion/units/fillers/stage_0",
+      "connector_index": 5
+    },
+    {
+      "piece": "minecraft:bastion/units/fillers/stage_0",
+      "connector_index": 6
+    }
+  ],
+  "minecraft:ground_pathway_entrance": [
+    {
+      "piece": "minecraft:bastion/units/pathways/pathway_0",
+      "connector_index": 0
+    }
+  ],
+  "minecraft:ground_pathway_exit": [
+    {
+      "piece": "minecraft:bastion/units/pathways/pathway_0",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/units/pathways/pathway_wall_0",
+      "connector_index": 1
+    }
+  ],
+  "minecraft:ground_pathway_entrance_wall": [
+    {
+      "piece": "minecraft:bastion/units/pathways/pathway_wall_0",
+      "connector_index": 0
+    }
+  ],
+  "minecraft:stage_1_bottom": [
+    {
+      "piece": "minecraft:bastion/units/stages/rot/stage_1_0",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/units/stages/stage_1_0",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/units/stages/stage_1_1",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/units/stages/stage_1_2",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/units/stages/stage_1_3",
+      "connector_index": 2
+    }
+  ],
+  "minecraft:stage_1_top": [
+    {
+      "piece": "minecraft:bastion/units/stages/rot/stage_1_0",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/units/stages/stage_1_0",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/units/stages/stage_1_1",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/units/stages/stage_1_2",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/units/stages/stage_1_3",
+      "connector_index": 3
+    }
+  ],
+  "minecraft:stage_0_entry": [
+    {
+      "piece": "minecraft:bastion/units/stages/stage_0_0",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/units/stages/stage_0_0",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/units/stages/stage_0_0",
+      "connector_index": 5
+    },
+    {
+      "piece": "minecraft:bastion/units/stages/stage_0_1",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/units/stages/stage_0_1",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:bastion/units/stages/stage_0_1",
+      "connector_index": 5
+    },
+    {
+      "piece": "minecraft:bastion/units/stages/stage_0_2",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:bastion/units/stages/stage_0_2",
+      "connector_index": 4
+    },
+    {
+      "piece": "minecraft:bastion/units/stages/stage_0_2",
+      "connector_index": 6
+    },
+    {
+      "piece": "minecraft:bastion/units/stages/stage_0_3",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/units/stages/stage_0_3",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:bastion/units/stages/stage_0_3",
+      "connector_index": 6
+    }
+  ],
+  "minecraft:stage_2_top": [
+    {
+      "piece": "minecraft:bastion/units/stages/stage_2_0",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/units/stages/stage_2_1",
+      "connector_index": 1
+    }
+  ],
+  "minecraft:stage_2_bottom": [
+    {
+      "piece": "minecraft:bastion/units/stages/stage_2_0",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:bastion/units/stages/stage_2_1",
+      "connector_index": 2
+    }
+  ],
+  "minecraft:stage_3_bottom": [
+    {
+      "piece": "minecraft:bastion/units/stages/stage_3_0",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/units/stages/stage_3_1",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:bastion/units/stages/stage_3_2",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:bastion/units/stages/stage_3_3",
+      "connector_index": 0
+    }
+  ],
+  "minecraft:edge_wall_unit_connector": [
+    {
+      "piece": "minecraft:bastion/units/wall_units/edge_0_large",
+      "connector_index": 3
+    }
+  ],
+  "minecraft:edge_wall_entry": [
+    {
+      "piece": "minecraft:bastion/units/wall_units/unit_0",
+      "connector_index": 3
+    }
+  ],
+  "minecraft:wall_connected_wall": [
+    {
+      "piece": "minecraft:bastion/units/walls/connected_wall",
+      "connector_index": 0
+    }
+  ],
+  "minecraft:wall": [
+    {
+      "piece": "minecraft:bastion/units/walls/connected_wall",
+      "connector_index": 4
+    },
+    {
+      "piece": "minecraft:bastion/units/walls/wall_base",
+      "connector_index": 9
+    }
+  ],
+  "minecraft:path_connected_wall": [
+    {
+      "piece": "minecraft:bastion/units/walls/wall_base",
+      "connector_index": 8
+    }
+  ],
+  "minecraft:plate_entry": [
+    {
+      "piece": "minecraft:pillager_outpost/base_plate",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:pillager_outpost/base_plate",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:pillager_outpost/base_plate",
+      "connector_index": 4
+    },
+    {
+      "piece": "minecraft:pillager_outpost/feature_plate",
+      "connector_index": 15
+    }
+  ],
+  "minecraft:entrance": [
+    {
+      "piece": "minecraft:pillager_outpost/base_plate",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:pillager_outpost/base_plate",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:pillager_outpost/watchtower",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:pillager_outpost/watchtower_overgrown",
+      "connector_index": 0
+    }
+  ],
+  "minecraft:feature": [
+    {
+      "piece": "minecraft:pillager_outpost/feature_cage1",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:pillager_outpost/feature_cage1",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:pillager_outpost/feature_cage1",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:pillager_outpost/feature_cage1",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:pillager_outpost/feature_cage1",
+      "connector_index": 4
+    },
+    {
+      "piece": "minecraft:pillager_outpost/feature_cage2",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:pillager_outpost/feature_cage2",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:pillager_outpost/feature_cage2",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:pillager_outpost/feature_cage2",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:pillager_outpost/feature_cage2",
+      "connector_index": 4
+    },
+    {
+      "piece": "minecraft:pillager_outpost/feature_cage_with_allays",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:pillager_outpost/feature_cage_with_allays",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:pillager_outpost/feature_cage_with_allays",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:pillager_outpost/feature_cage_with_allays",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:pillager_outpost/feature_cage_with_allays",
+      "connector_index": 4
+    },
+    {
+      "piece": "minecraft:pillager_outpost/feature_logs",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:pillager_outpost/feature_logs",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:pillager_outpost/feature_logs",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:pillager_outpost/feature_logs",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:pillager_outpost/feature_plate",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:pillager_outpost/feature_plate",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:pillager_outpost/feature_plate",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:pillager_outpost/feature_plate",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:pillager_outpost/feature_plate",
+      "connector_index": 4
+    },
+    {
+      "piece": "minecraft:pillager_outpost/feature_plate",
+      "connector_index": 5
+    },
+    {
+      "piece": "minecraft:pillager_outpost/feature_plate",
+      "connector_index": 6
+    },
+    {
+      "piece": "minecraft:pillager_outpost/feature_plate",
+      "connector_index": 7
+    },
+    {
+      "piece": "minecraft:pillager_outpost/feature_plate",
+      "connector_index": 8
+    },
+    {
+      "piece": "minecraft:pillager_outpost/feature_plate",
+      "connector_index": 9
+    },
+    {
+      "piece": "minecraft:pillager_outpost/feature_plate",
+      "connector_index": 10
+    },
+    {
+      "piece": "minecraft:pillager_outpost/feature_plate",
+      "connector_index": 11
+    },
+    {
+      "piece": "minecraft:pillager_outpost/feature_plate",
+      "connector_index": 12
+    },
+    {
+      "piece": "minecraft:pillager_outpost/feature_plate",
+      "connector_index": 13
+    },
+    {
+      "piece": "minecraft:pillager_outpost/feature_plate",
+      "connector_index": 14
+    },
+    {
+      "piece": "minecraft:pillager_outpost/feature_targets",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:pillager_outpost/feature_targets",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:pillager_outpost/feature_targets",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:pillager_outpost/feature_targets",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:pillager_outpost/feature_targets",
+      "connector_index": 4
+    },
+    {
+      "piece": "minecraft:pillager_outpost/feature_tent1",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:pillager_outpost/feature_tent1",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:pillager_outpost/feature_tent1",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:pillager_outpost/feature_tent1",
+      "connector_index": 3
+    },
+    {
+      "piece": "minecraft:pillager_outpost/feature_tent2",
+      "connector_index": 0
+    },
+    {
+      "piece": "minecraft:pillager_outpost/feature_tent2",
+      "connector_index": 1
+    },
+    {
+      "piece": "minecraft:pillager_outpost/feature_tent2",
+      "connector_index": 2
+    },
+    {
+      "piece": "minecraft:pillager_outpost/feature_tent2",
+      "connector_index": 3
+    }
+  ]
+}

@@ -1,7 +1,0 @@
-﻿Directory: bedrock-addon\structures\bastion\bridge\rampart_plates
-================================================================================
-
-FILES
------
-plate_0.mcstructure
-

@@ -1,7 +1,0 @@
-﻿Directory: bedrock-addon\structures\village\common
-================================================================================
-
-DIRECTORIES
------------
-animals
-

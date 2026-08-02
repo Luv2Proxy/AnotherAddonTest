@@ -1,7 +1,0 @@
-﻿Directory: bedrock-addon\structures\bastion\treasure\brains
-================================================================================
-
-FILES
------
-center_brain.mcstructure
-

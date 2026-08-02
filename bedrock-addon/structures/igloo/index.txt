@@ -1,9 +1,0 @@
-﻿Directory: bedrock-addon\structures\igloo
-================================================================================
-
-FILES
------
-bottom.mcstructure
-middle.mcstructure
-top.mcstructure
-

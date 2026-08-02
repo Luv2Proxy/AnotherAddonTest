@@ -1,8 +1,0 @@
-﻿Directory: bedrock-addon\structures\bastion\units\wall_units
-================================================================================
-
-FILES
------
-edge_0_large.mcstructure
-unit_0.mcstructure
-

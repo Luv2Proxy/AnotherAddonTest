@@ -1,0 +1,438 @@
+{
+  "minecraft:ancient_cities": {
+    "source": "structure_set/ancient_cities.json",
+    "sha256": "e57b9acb051e440230d03228b42aa310b616d86fdb09f76b6a2d59e55ae0f103",
+    "definition": {
+      "placement": {
+        "type": "minecraft:random_spread",
+        "salt": 20083232,
+        "separation": 8,
+        "spacing": 24
+      },
+      "structures": [
+        {
+          "structure": "minecraft:ancient_city",
+          "weight": 1
+        }
+      ]
+    }
+  },
+  "minecraft:buried_treasures": {
+    "source": "structure_set/buried_treasures.json",
+    "sha256": "14a4a1ad339c49990930f1ef5a97cdd008ed314965e2ac77f6a29caa163058ba",
+    "definition": {
+      "placement": {
+        "type": "minecraft:random_spread",
+        "frequency": 0.01,
+        "frequency_reduction_method": "legacy_type_2",
+        "locate_offset": [
+          9,
+          0,
+          9
+        ],
+        "salt": 0,
+        "separation": 0,
+        "spacing": 1
+      },
+      "structures": [
+        {
+          "structure": "minecraft:buried_treasure",
+          "weight": 1
+        }
+      ]
+    }
+  },
+  "minecraft:desert_pyramids": {
+    "source": "structure_set/desert_pyramids.json",
+    "sha256": "14d6f473334b039456a61fadb61d8a7d908fa4a6c5979c6da84fa46e3f5f42d0",
+    "definition": {
+      "placement": {
+        "type": "minecraft:random_spread",
+        "salt": 14357617,
+        "separation": 8,
+        "spacing": 32
+      },
+      "structures": [
+        {
+          "structure": "minecraft:desert_pyramid",
+          "weight": 1
+        }
+      ]
+    }
+  },
+  "minecraft:end_cities": {
+    "source": "structure_set/end_cities.json",
+    "sha256": "ccef73d4e2d944f5d287ea0ce7c61d10707d6ad8ca8fff8dfa4ad24212eedf47",
+    "definition": {
+      "placement": {
+        "type": "minecraft:random_spread",
+        "salt": 10387313,
+        "separation": 11,
+        "spacing": 20,
+        "spread_type": "triangular"
+      },
+      "structures": [
+        {
+          "structure": "minecraft:end_city",
+          "weight": 1
+        }
+      ]
+    }
+  },
+  "minecraft:igloos": {
+    "source": "structure_set/igloos.json",
+    "sha256": "667e4dd3c3d6638a3a6120258f335325d579aff707b9ab92e1ba99c20fb51c48",
+    "definition": {
+      "placement": {
+        "type": "minecraft:random_spread",
+        "salt": 14357618,
+        "separation": 8,
+        "spacing": 32
+      },
+      "structures": [
+        {
+          "structure": "minecraft:igloo",
+          "weight": 1
+        }
+      ]
+    }
+  },
+  "minecraft:jungle_temples": {
+    "source": "structure_set/jungle_temples.json",
+    "sha256": "86c68716c34379c9b34fd3667b0f31b9f9d467051914fb89ec0d550d28907b9c",
+    "definition": {
+      "placement": {
+        "type": "minecraft:random_spread",
+        "salt": 14357619,
+        "separation": 8,
+        "spacing": 32
+      },
+      "structures": [
+        {
+          "structure": "minecraft:jungle_pyramid",
+          "weight": 1
+        }
+      ]
+    }
+  },
+  "minecraft:mineshafts": {
+    "source": "structure_set/mineshafts.json",
+    "sha256": "7c7a81bcd6ceae54d1331eda8e551a094b7c060e168d5be961f0b06fc9851d69",
+    "definition": {
+      "placement": {
+        "type": "minecraft:random_spread",
+        "frequency": 0.004,
+        "frequency_reduction_method": "legacy_type_3",
+        "salt": 0,
+        "separation": 0,
+        "spacing": 1
+      },
+      "structures": [
+        {
+          "structure": "minecraft:mineshaft",
+          "weight": 1
+        },
+        {
+          "structure": "minecraft:mineshaft_mesa",
+          "weight": 1
+        }
+      ]
+    }
+  },
+  "minecraft:nether_complexes": {
+    "source": "structure_set/nether_complexes.json",
+    "sha256": "000c25be41987e071b95f9cde0406eecede020389b3b5973205168672f3d1a36",
+    "definition": {
+      "placement": {
+        "type": "minecraft:random_spread",
+        "salt": 30084232,
+        "separation": 4,
+        "spacing": 27
+      },
+      "structures": [
+        {
+          "structure": "minecraft:fortress",
+          "weight": 2
+        },
+        {
+          "structure": "minecraft:bastion_remnant",
+          "weight": 3
+        }
+      ]
+    }
+  },
+  "minecraft:nether_fossils": {
+    "source": "structure_set/nether_fossils.json",
+    "sha256": "d18cb5ae49df1235b41e84f6d59acea994f14bbebc236ae06926538c8947d39f",
+    "definition": {
+      "placement": {
+        "type": "minecraft:random_spread",
+        "salt": 14357921,
+        "separation": 1,
+        "spacing": 2
+      },
+      "structures": [
+        {
+          "structure": "minecraft:nether_fossil",
+          "weight": 1
+        }
+      ]
+    }
+  },
+  "minecraft:ocean_monuments": {
+    "source": "structure_set/ocean_monuments.json",
+    "sha256": "d4617258f7102df89345e8837a07c0d2fd94bfb0b802e79fbd4fc59f7b9a1137",
+    "definition": {
+      "placement": {
+        "type": "minecraft:random_spread",
+        "salt": 10387313,
+        "separation": 5,
+        "spacing": 32,
+        "spread_type": "triangular"
+      },
+      "structures": [
+        {
+          "structure": "minecraft:monument",
+          "weight": 1
+        }
+      ]
+    }
+  },
+  "minecraft:ocean_ruins": {
+    "source": "structure_set/ocean_ruins.json",
+    "sha256": "505bf45d3949afb3f4f36a56bdd5741d9cdd5ea9fb1093714e9d38a5ffac375d",
+    "definition": {
+      "placement": {
+        "type": "minecraft:random_spread",
+        "salt": 14357621,
+        "separation": 8,
+        "spacing": 20
+      },
+      "structures": [
+        {
+          "structure": "minecraft:ocean_ruin_cold",
+          "weight": 1
+        },
+        {
+          "structure": "minecraft:ocean_ruin_warm",
+          "weight": 1
+        }
+      ]
+    }
+  },
+  "minecraft:pillager_outposts": {
+    "source": "structure_set/pillager_outposts.json",
+    "sha256": "a0759e4b1431f787e8c7900d99ce9b2f34cdb8da25532ad2adc811f7c498ab02",
+    "definition": {
+      "placement": {
+        "type": "minecraft:random_spread",
+        "exclusion_zone": {
+          "chunk_count": 10,
+          "other_set": "minecraft:villages"
+        },
+        "frequency": 0.2,
+        "frequency_reduction_method": "legacy_type_1",
+        "salt": 165745296,
+        "separation": 8,
+        "spacing": 32
+      },
+      "structures": [
+        {
+          "structure": "minecraft:pillager_outpost",
+          "weight": 1
+        }
+      ]
+    }
+  },
+  "minecraft:ruined_portals": {
+    "source": "structure_set/ruined_portals.json",
+    "sha256": "97bf70842dad8dcfa2f98b9ae570e0efe3d6b897477d916a45bd654d7bce2828",
+    "definition": {
+      "placement": {
+        "type": "minecraft:random_spread",
+        "salt": 34222645,
+        "separation": 15,
+        "spacing": 40
+      },
+      "structures": [
+        {
+          "structure": "minecraft:ruined_portal",
+          "weight": 1
+        },
+        {
+          "structure": "minecraft:ruined_portal_desert",
+          "weight": 1
+        },
+        {
+          "structure": "minecraft:ruined_portal_jungle",
+          "weight": 1
+        },
+        {
+          "structure": "minecraft:ruined_portal_swamp",
+          "weight": 1
+        },
+        {
+          "structure": "minecraft:ruined_portal_mountain",
+          "weight": 1
+        },
+        {
+          "structure": "minecraft:ruined_portal_ocean",
+          "weight": 1
+        },
+        {
+          "structure": "minecraft:ruined_portal_nether",
+          "weight": 1
+        }
+      ]
+    }
+  },
+  "minecraft:shipwrecks": {
+    "source": "structure_set/shipwrecks.json",
+    "sha256": "434001683f2953ed2a5e2512f978af55efe8ae7183fef54e677af9b1b61e1f21",
+    "definition": {
+      "placement": {
+        "type": "minecraft:random_spread",
+        "salt": 165745295,
+        "separation": 4,
+        "spacing": 24
+      },
+      "structures": [
+        {
+          "structure": "minecraft:shipwreck",
+          "weight": 1
+        },
+        {
+          "structure": "minecraft:shipwreck_beached",
+          "weight": 1
+        }
+      ]
+    }
+  },
+  "minecraft:strongholds": {
+    "source": "structure_set/strongholds.json",
+    "sha256": "51308f8e2d4d76d2f2d07c7a5ed8d0b5cf4ab70dd12f2dc2efc5728b65c59e18",
+    "definition": {
+      "placement": {
+        "type": "minecraft:concentric_rings",
+        "count": 128,
+        "distance": 32,
+        "preferred_biomes": "#minecraft:stronghold_biased_to",
+        "salt": 0,
+        "spread": 3
+      },
+      "structures": [
+        {
+          "structure": "minecraft:stronghold",
+          "weight": 1
+        }
+      ]
+    }
+  },
+  "minecraft:swamp_huts": {
+    "source": "structure_set/swamp_huts.json",
+    "sha256": "193eb3b56b13041332b4e8022d953dc612711845af2c81e695469793d588e107",
+    "definition": {
+      "placement": {
+        "type": "minecraft:random_spread",
+        "salt": 14357620,
+        "separation": 8,
+        "spacing": 32
+      },
+      "structures": [
+        {
+          "structure": "minecraft:swamp_hut",
+          "weight": 1
+        }
+      ]
+    }
+  },
+  "minecraft:trail_ruins": {
+    "source": "structure_set/trail_ruins.json",
+    "sha256": "2f638e96366ea32fcbcac0bfbea38b884f4acbc8f089d6e9fde854f7bd540064",
+    "definition": {
+      "placement": {
+        "type": "minecraft:random_spread",
+        "salt": 83469867,
+        "separation": 8,
+        "spacing": 34
+      },
+      "structures": [
+        {
+          "structure": "minecraft:trail_ruins",
+          "weight": 1
+        }
+      ]
+    }
+  },
+  "minecraft:trial_chambers": {
+    "source": "structure_set/trial_chambers.json",
+    "sha256": "1c2ac384fe78a3cc8a9c5b94fb898264244b2da5f0dcaa7a6d776f0c5eac2203",
+    "definition": {
+      "placement": {
+        "type": "minecraft:random_spread",
+        "salt": 94251327,
+        "separation": 12,
+        "spacing": 34
+      },
+      "structures": [
+        {
+          "structure": "minecraft:trial_chambers",
+          "weight": 1
+        }
+      ]
+    }
+  },
+  "minecraft:villages": {
+    "source": "structure_set/villages.json",
+    "sha256": "d6751e2f28905f8a2f41f49db29c349f5b4405ba28d64426f84ad47001a06176",
+    "definition": {
+      "placement": {
+        "type": "minecraft:random_spread",
+        "salt": 10387312,
+        "separation": 8,
+        "spacing": 34
+      },
+      "structures": [
+        {
+          "structure": "minecraft:village_plains",
+          "weight": 1
+        },
+        {
+          "structure": "minecraft:village_desert",
+          "weight": 1
+        },
+        {
+          "structure": "minecraft:village_savanna",
+          "weight": 1
+        },
+        {
+          "structure": "minecraft:village_snowy",
+          "weight": 1
+        },
+        {
+          "structure": "minecraft:village_taiga",
+          "weight": 1
+        }
+      ]
+    }
+  },
+  "minecraft:woodland_mansions": {
+    "source": "structure_set/woodland_mansions.json",
+    "sha256": "00e208b4f85200e5b1824ca1aa3b491340aa25865ba4a5f38f0ad62394296693",
+    "definition": {
+      "placement": {
+        "type": "minecraft:random_spread",
+        "salt": 10387319,
+        "separation": 20,
+        "spacing": 80,
+        "spread_type": "triangular"
+      },
+      "structures": [
+        {
+          "structure": "minecraft:mansion",
+          "weight": 1
+        }
+      ]
+    }
+  }
+}

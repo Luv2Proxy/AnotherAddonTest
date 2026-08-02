@@ -1,7 +1,0 @@
-﻿Directory: bedrock-addon\structures\bastion\bridge\bridge_pieces
-================================================================================
-
-FILES
------
-bridge.mcstructure
-

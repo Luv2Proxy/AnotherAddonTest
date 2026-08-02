@@ -1,9 +1,0 @@
-﻿Directory: bedrock-addon\structures\bastion\treasure\connectors
-================================================================================
-
-FILES
------
-center_to_wall_middle.mcstructure
-center_to_wall_top.mcstructure
-center_to_wall_top_entrance.mcstructure
-

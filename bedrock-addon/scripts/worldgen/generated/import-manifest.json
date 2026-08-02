@@ -1,0 +1,1712 @@
+{
+  "schema_version": 3,
+  "generated_by": "tools/import_vanilla_jigsaw_data_fixed.py",
+  "json_root": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures\\json",
+  "structures_root": "C:\\Users\\armaa\\OneDrive\\Downloads\\sky_islands\\bedrock-addon\\structures",
+  "source_files": {
+    "processor_list/ancient_city_generic_degradation.json": {
+      "sha256": "c6b5f1c3d83d8ebd3eee8c353926bc427e7f098cb3af10ae44509fb01bbef2d3",
+      "kind": "processors",
+      "identifier": "minecraft:ancient_city_generic_degradation"
+    },
+    "processor_list/ancient_city_start_degradation.json": {
+      "sha256": "9017a5a2144c8e0a45c6e2b1a1b18fedbd4f3f41656a5df80d29ed6711c197f4",
+      "kind": "processors",
+      "identifier": "minecraft:ancient_city_start_degradation"
+    },
+    "processor_list/ancient_city_walls_degradation.json": {
+      "sha256": "72f1b7dfd34ffa452edb005856918f780a0a9baf479b2acef9a608091ef68217",
+      "kind": "processors",
+      "identifier": "minecraft:ancient_city_walls_degradation"
+    },
+    "processor_list/bastion_generic_degradation.json": {
+      "sha256": "71e0bec83b0cd2d969ceb51b5569e793ca23bbbba88f6fa11229382bfb75a13e",
+      "kind": "processors",
+      "identifier": "minecraft:bastion_generic_degradation"
+    },
+    "processor_list/bottom_rampart.json": {
+      "sha256": "406607768a303c858b017107c3949f4c1f9e9bb6c6f829452577d56d4115a4f8",
+      "kind": "processors",
+      "identifier": "minecraft:bottom_rampart"
+    },
+    "processor_list/bridge.json": {
+      "sha256": "7aa548044b04435a3efa87cea32b8968d67ba6486f6e255c1ccd2122000100d6",
+      "kind": "processors",
+      "identifier": "minecraft:bridge"
+    },
+    "processor_list/empty.json": {
+      "sha256": "f7100e2ef6823d8efbcb24cfc3bb394e9fcd133db00078ce31cf1fce0fd82cc1",
+      "kind": "processors",
+      "identifier": "minecraft:empty"
+    },
+    "processor_list/entrance_replacement.json": {
+      "sha256": "aed1d4a4d4543824f020818b464c45cdff83b9650a61a17bde8567f856bc1cd3",
+      "kind": "processors",
+      "identifier": "minecraft:entrance_replacement"
+    },
+    "processor_list/farm_desert.json": {
+      "sha256": "6b9f53e95559904959cb9d48060ff3d4273091e3542ff34dbd9d0998a2b52ee6",
+      "kind": "processors",
+      "identifier": "minecraft:farm_desert"
+    },
+    "processor_list/farm_plains.json": {
+      "sha256": "090533fb424f4b9b1e24d0afbcf50f7bbc343795e4623e9189d50da84f724c62",
+      "kind": "processors",
+      "identifier": "minecraft:farm_plains"
+    },
+    "processor_list/farm_savanna.json": {
+      "sha256": "7abcce0f616948837b536c4a7b877c79c78c540602ea2b8f60608257e3aaba22",
+      "kind": "processors",
+      "identifier": "minecraft:farm_savanna"
+    },
+    "processor_list/farm_snowy.json": {
+      "sha256": "e83683148893578564cb68bcaf7f17e917fdf887d4b1eeca874e9ec3b6665ebc",
+      "kind": "processors",
+      "identifier": "minecraft:farm_snowy"
+    },
+    "processor_list/farm_taiga.json": {
+      "sha256": "05be171257b8448284eb6e7631e6450988c55ba104458613b5475b0f0fef02af",
+      "kind": "processors",
+      "identifier": "minecraft:farm_taiga"
+    },
+    "processor_list/fossil_coal.json": {
+      "sha256": "92660081d1bb4ead2eb05343d26669db148fc84a37c26583c2fe296fca1233b7",
+      "kind": "processors",
+      "identifier": "minecraft:fossil_coal"
+    },
+    "processor_list/fossil_diamonds.json": {
+      "sha256": "f01cfb0a1eca2b2bd3ccfcc191963ac0aa4d193b66412652bf4b1ab4cf129a86",
+      "kind": "processors",
+      "identifier": "minecraft:fossil_diamonds"
+    },
+    "processor_list/fossil_rot.json": {
+      "sha256": "d615b6de54331f2dd4441acc9de18b75471a91cfb0e048b308e0ab25fc27dcf4",
+      "kind": "processors",
+      "identifier": "minecraft:fossil_rot"
+    },
+    "processor_list/high_rampart.json": {
+      "sha256": "98d267762b4a16cbb720a1362b014cb289b9ae8defc2116d06150f9bf99b5134",
+      "kind": "processors",
+      "identifier": "minecraft:high_rampart"
+    },
+    "processor_list/high_wall.json": {
+      "sha256": "4f381b9ecf7c37ce2181a97eb5cd4ab608e0b6f26004a938a2f2a3a350f521f8",
+      "kind": "processors",
+      "identifier": "minecraft:high_wall"
+    },
+    "processor_list/housing.json": {
+      "sha256": "2991a93423d95a8d98d92f151ffdc48ef96661a1c668d2bc69f9a4e1dc62c891",
+      "kind": "processors",
+      "identifier": "minecraft:housing"
+    },
+    "processor_list/mossify_10_percent.json": {
+      "sha256": "55b236b5db1ec759c95b9067139dcdfc56e864a9c732d64873c4aa39bc867eed",
+      "kind": "processors",
+      "identifier": "minecraft:mossify_10_percent"
+    },
+    "processor_list/mossify_20_percent.json": {
+      "sha256": "c00d2a124e33cabb1fdf26b29305bdd022bf21fd1c369934f2cbdf4fd083aed1",
+      "kind": "processors",
+      "identifier": "minecraft:mossify_20_percent"
+    },
+    "processor_list/mossify_70_percent.json": {
+      "sha256": "ead47fa208430361a1376191afc70ae20cdc791414396b1c47e2604a99daefab",
+      "kind": "processors",
+      "identifier": "minecraft:mossify_70_percent"
+    },
+    "processor_list/outpost_rot.json": {
+      "sha256": "037707182646d2c6d46d31228cba35c3fcfea4c4d554cfd549a2844a528acb11",
+      "kind": "processors",
+      "identifier": "minecraft:outpost_rot"
+    },
+    "processor_list/rampart_degradation.json": {
+      "sha256": "0d031dffed1d46a56a4e141ff4c74d00a0a4f6b2284d2844d8dcd87d45c12f9b",
+      "kind": "processors",
+      "identifier": "minecraft:rampart_degradation"
+    },
+    "processor_list/roof.json": {
+      "sha256": "48c6e51f9e7e9d654b533fd66cbae4dac5afdfe2e0f81462ffecfa3b459f0113",
+      "kind": "processors",
+      "identifier": "minecraft:roof"
+    },
+    "processor_list/side_wall_degradation.json": {
+      "sha256": "a55bca793001d4daad0f6f5d02d35405a06b5278c4be688a2301a8ede870ea55",
+      "kind": "processors",
+      "identifier": "minecraft:side_wall_degradation"
+    },
+    "processor_list/stable_degradation.json": {
+      "sha256": "906111147e209836e926820e4849cb17d6a28c80bd109fa98e81a770fb1c98ef",
+      "kind": "processors",
+      "identifier": "minecraft:stable_degradation"
+    },
+    "processor_list/street_plains.json": {
+      "sha256": "b95a53cb2a6bb9456e1b05db87ae3915f72ac516c35adb6a865dc845e9bb579a",
+      "kind": "processors",
+      "identifier": "minecraft:street_plains"
+    },
+    "processor_list/street_savanna.json": {
+      "sha256": "838859eabd15175fec67e2eb4de255550577b24540070b95c2eb0adbc3d146bb",
+      "kind": "processors",
+      "identifier": "minecraft:street_savanna"
+    },
+    "processor_list/street_snowy_or_taiga.json": {
+      "sha256": "ab638ea5556b4d6a49abdc353783e79af903c1c19f2e944a5060697bec8f86bc",
+      "kind": "processors",
+      "identifier": "minecraft:street_snowy_or_taiga"
+    },
+    "processor_list/trail_ruins_houses_archaeology.json": {
+      "sha256": "8dbb877420dc3555fea25a7fe413b59b3a939f6820047e3f70530d46c4a5b1cd",
+      "kind": "processors",
+      "identifier": "minecraft:trail_ruins_houses_archaeology"
+    },
+    "processor_list/trail_ruins_roads_archaeology.json": {
+      "sha256": "1b27d1f449935374f6a646f316038c1c43c2646bbe3ff493bb9537c6fc055238",
+      "kind": "processors",
+      "identifier": "minecraft:trail_ruins_roads_archaeology"
+    },
+    "processor_list/trail_ruins_tower_top_archaeology.json": {
+      "sha256": "a0f194a8b30a0723966156451aa982d3ac95465a3445cbfd08fad6b029b2540f",
+      "kind": "processors",
+      "identifier": "minecraft:trail_ruins_tower_top_archaeology"
+    },
+    "processor_list/treasure_rooms.json": {
+      "sha256": "7ce0f18a383e5ba9bafd06ef5d7d7a18f4d66fc0c6e3437fbd41ee4fe1df6c40",
+      "kind": "processors",
+      "identifier": "minecraft:treasure_rooms"
+    },
+    "processor_list/trial_chambers_copper_bulb_degradation.json": {
+      "sha256": "1722f61b5a9d66c4fcb61d9f222a7278142854b6f5c39baa04cd383c159667ac",
+      "kind": "processors",
+      "identifier": "minecraft:trial_chambers_copper_bulb_degradation"
+    },
+    "processor_list/zombie_desert.json": {
+      "sha256": "66e1da4588b35704eb71f24b0fae8cfa8f96168d94ee0f46affba0f46601675c",
+      "kind": "processors",
+      "identifier": "minecraft:zombie_desert"
+    },
+    "processor_list/zombie_plains.json": {
+      "sha256": "b875c9084a62fd4bcb1063012d547a42be314d3cd1b04babf2dc6acf37006ea5",
+      "kind": "processors",
+      "identifier": "minecraft:zombie_plains"
+    },
+    "processor_list/zombie_savanna.json": {
+      "sha256": "391fc1902da706389d4a7f502ea0b125bdf4ff822c0b15029b9ee877cb8c0ac5",
+      "kind": "processors",
+      "identifier": "minecraft:zombie_savanna"
+    },
+    "processor_list/zombie_snowy.json": {
+      "sha256": "24182e1b46f539b8a5ead8e368ed236afcf9b11d6e5d700aec3c2022fc866255",
+      "kind": "processors",
+      "identifier": "minecraft:zombie_snowy"
+    },
+    "processor_list/zombie_taiga.json": {
+      "sha256": "1b0ae501e867d9ff89a39a9150b64b59042a8970171aff9dcb0d99289ea26f5d",
+      "kind": "processors",
+      "identifier": "minecraft:zombie_taiga"
+    },
+    "structure/ancient_city.json": {
+      "sha256": "2e3e2c0f94746e90a81867552ba7d7b58c44f1e5756c977a8814c8c57b5f3bb8",
+      "kind": "structures",
+      "identifier": "minecraft:ancient_city"
+    },
+    "structure/bastion_remnant.json": {
+      "sha256": "4e50eaecad2428ccb3079c9f00eda44505e81e1d03f7a6471113734f28d67310",
+      "kind": "structures",
+      "identifier": "minecraft:bastion_remnant"
+    },
+    "structure/buried_treasure.json": {
+      "sha256": "a4f90ef206ac261c8fca12cdd013c3e0d6f4d6bbfd56ae88dd791521fad33663",
+      "kind": "structures",
+      "identifier": "minecraft:buried_treasure"
+    },
+    "structure/desert_pyramid.json": {
+      "sha256": "1620eb4ccaf9569867b7dbcbbd42fcc322391f2b9175910376e652fffa5b038d",
+      "kind": "structures",
+      "identifier": "minecraft:desert_pyramid"
+    },
+    "structure/end_city.json": {
+      "sha256": "301f4707fa92b51d18a6a57a63d43e5dd76f3d0a45aecd93f966dd4056e06089",
+      "kind": "structures",
+      "identifier": "minecraft:end_city"
+    },
+    "structure/fortress.json": {
+      "sha256": "6f050218d9a00daadc90c9bb41386099c455d6d8df99459959388a32e3f20780",
+      "kind": "structures",
+      "identifier": "minecraft:fortress"
+    },
+    "structure/igloo.json": {
+      "sha256": "80faf607486a8bea4f85c66202512c3110cea828a201f0c1262819bb4b2ef75a",
+      "kind": "structures",
+      "identifier": "minecraft:igloo"
+    },
+    "structure/jungle_pyramid.json": {
+      "sha256": "b217fcc3924e7c7a535d3433209270adf5a27fdfe043d2eba9856f23d97aed9f",
+      "kind": "structures",
+      "identifier": "minecraft:jungle_pyramid"
+    },
+    "structure/mansion.json": {
+      "sha256": "e346aee24f384b1edc4f18f3a3f09c663ce1087660305c466fe1d100e7694d6f",
+      "kind": "structures",
+      "identifier": "minecraft:mansion"
+    },
+    "structure/mineshaft.json": {
+      "sha256": "6c5a9fd4b35c4269e856bc495a95c1240a106f755987d379e245d342931e0044",
+      "kind": "structures",
+      "identifier": "minecraft:mineshaft"
+    },
+    "structure/mineshaft_mesa.json": {
+      "sha256": "e36104ee05d71fed6c644c221ec8980e6fb7e7e03411fd59f74ffc544d391f08",
+      "kind": "structures",
+      "identifier": "minecraft:mineshaft_mesa"
+    },
+    "structure/monument.json": {
+      "sha256": "5ffdaf57260d6cd41077d7a09abad95d8b58453c0cc3d63039796c9064c17506",
+      "kind": "structures",
+      "identifier": "minecraft:monument"
+    },
+    "structure/nether_fossil.json": {
+      "sha256": "05f9fa1b1e1e53a09512f943d1518dea42d9ca798c84e613364aa74a5097ca0a",
+      "kind": "structures",
+      "identifier": "minecraft:nether_fossil"
+    },
+    "structure/ocean_ruin_cold.json": {
+      "sha256": "d50aa6ede8f501b094fdce664a0b789c7b25e51d04361c2abee0599f2d39da54",
+      "kind": "structures",
+      "identifier": "minecraft:ocean_ruin_cold"
+    },
+    "structure/ocean_ruin_warm.json": {
+      "sha256": "9d3ca38f185dd353a78484b41cedb5b15c10d5fc273b2440a7f33e037ca5c8e4",
+      "kind": "structures",
+      "identifier": "minecraft:ocean_ruin_warm"
+    },
+    "structure/pillager_outpost.json": {
+      "sha256": "43a0be5b0684fa5bbdca4951b1f7724e7d385f95fd2fd7e3a6a484b6ea9fa9cc",
+      "kind": "structures",
+      "identifier": "minecraft:pillager_outpost"
+    },
+    "structure/ruined_portal.json": {
+      "sha256": "df33800dcba4df909e5f97f2c25d1287030559065813c52e2c1b7e123361f643",
+      "kind": "structures",
+      "identifier": "minecraft:ruined_portal"
+    },
+    "structure/ruined_portal_desert.json": {
+      "sha256": "42fb1b6abd143b0b9bcc4e7e072db3ae113df97c573ea79326072b62b920be79",
+      "kind": "structures",
+      "identifier": "minecraft:ruined_portal_desert"
+    },
+    "structure/ruined_portal_jungle.json": {
+      "sha256": "b8280f68cea43e6770c29ba6652e94e3876577bc99c4ac55a310f121440d4bc1",
+      "kind": "structures",
+      "identifier": "minecraft:ruined_portal_jungle"
+    },
+    "structure/ruined_portal_mountain.json": {
+      "sha256": "7fdde2fdf45dd1d4d87b36d2b7fbcc41bca654f5b711c004db4ca6933ca0688b",
+      "kind": "structures",
+      "identifier": "minecraft:ruined_portal_mountain"
+    },
+    "structure/ruined_portal_nether.json": {
+      "sha256": "6e872050ef9d7042be08ae3e0b88110ff82f06174c97bd5103ae202a5be5994a",
+      "kind": "structures",
+      "identifier": "minecraft:ruined_portal_nether"
+    },
+    "structure/ruined_portal_ocean.json": {
+      "sha256": "3f02919aaa1c4ac8ce9131afd7bc84d355b39f1052d077661cc7e8cb9e2ef0f8",
+      "kind": "structures",
+      "identifier": "minecraft:ruined_portal_ocean"
+    },
+    "structure/ruined_portal_swamp.json": {
+      "sha256": "493baea6f04bd336e560e7489ca1bb5a3501541596838f03301663d1713b6c2d",
+      "kind": "structures",
+      "identifier": "minecraft:ruined_portal_swamp"
+    },
+    "structure/shipwreck.json": {
+      "sha256": "7e8f0e01a71dc40c849d359a77851abe39dcb591394bd746abda3518d56a6a3f",
+      "kind": "structures",
+      "identifier": "minecraft:shipwreck"
+    },
+    "structure/shipwreck_beached.json": {
+      "sha256": "92c022883d6e6ff74183d2c99a14b265368dd914f79ae989b71d9752cbff95c6",
+      "kind": "structures",
+      "identifier": "minecraft:shipwreck_beached"
+    },
+    "structure/stronghold.json": {
+      "sha256": "7002abbc2ef8fa717ff373acb23d544fbea6eafbd73eaf7fed32474ebe975b95",
+      "kind": "structures",
+      "identifier": "minecraft:stronghold"
+    },
+    "structure/swamp_hut.json": {
+      "sha256": "71181214a11943106b40bf43ae253b76b31700e8b43ead003f6c5ce1f4f06cf9",
+      "kind": "structures",
+      "identifier": "minecraft:swamp_hut"
+    },
+    "structure/trail_ruins.json": {
+      "sha256": "8ed3bdf72ec060de4e9d761b9a1f93199dc19088d0492908b69abb731e4553b6",
+      "kind": "structures",
+      "identifier": "minecraft:trail_ruins"
+    },
+    "structure/trial_chambers.json": {
+      "sha256": "486cb9de3032bffeba87056456234e4da7770db9966509ec8ca91f2aa27a68d5",
+      "kind": "structures",
+      "identifier": "minecraft:trial_chambers"
+    },
+    "structure/village_desert.json": {
+      "sha256": "5e8eeb422b66a3eb78120ddbfc5d8ddaf668e7df005f3eac4eee03bffc3c6033",
+      "kind": "structures",
+      "identifier": "minecraft:village_desert"
+    },
+    "structure/village_plains.json": {
+      "sha256": "9e5229c49cf4d44593f42ca922101f051b326270ac49421805232e8e27654c11",
+      "kind": "structures",
+      "identifier": "minecraft:village_plains"
+    },
+    "structure/village_savanna.json": {
+      "sha256": "43521dd63c2bdc443b82c85740c538052123f76e1f72d540c8c994bf50655f2f",
+      "kind": "structures",
+      "identifier": "minecraft:village_savanna"
+    },
+    "structure/village_snowy.json": {
+      "sha256": "ca705d0a7b451527b6a209da8f235f0bf39933af237cae65e44e2cfc89a1b1a9",
+      "kind": "structures",
+      "identifier": "minecraft:village_snowy"
+    },
+    "structure/village_taiga.json": {
+      "sha256": "4f84ac374ec1477f9e9c891876da68220111985d60267de91722c057bf79cc5d",
+      "kind": "structures",
+      "identifier": "minecraft:village_taiga"
+    },
+    "structure_set/ancient_cities.json": {
+      "sha256": "e57b9acb051e440230d03228b42aa310b616d86fdb09f76b6a2d59e55ae0f103",
+      "kind": "structure_sets",
+      "identifier": "minecraft:ancient_cities"
+    },
+    "structure_set/buried_treasures.json": {
+      "sha256": "14a4a1ad339c49990930f1ef5a97cdd008ed314965e2ac77f6a29caa163058ba",
+      "kind": "structure_sets",
+      "identifier": "minecraft:buried_treasures"
+    },
+    "structure_set/desert_pyramids.json": {
+      "sha256": "14d6f473334b039456a61fadb61d8a7d908fa4a6c5979c6da84fa46e3f5f42d0",
+      "kind": "structure_sets",
+      "identifier": "minecraft:desert_pyramids"
+    },
+    "structure_set/end_cities.json": {
+      "sha256": "ccef73d4e2d944f5d287ea0ce7c61d10707d6ad8ca8fff8dfa4ad24212eedf47",
+      "kind": "structure_sets",
+      "identifier": "minecraft:end_cities"
+    },
+    "structure_set/igloos.json": {
+      "sha256": "667e4dd3c3d6638a3a6120258f335325d579aff707b9ab92e1ba99c20fb51c48",
+      "kind": "structure_sets",
+      "identifier": "minecraft:igloos"
+    },
+    "structure_set/jungle_temples.json": {
+      "sha256": "86c68716c34379c9b34fd3667b0f31b9f9d467051914fb89ec0d550d28907b9c",
+      "kind": "structure_sets",
+      "identifier": "minecraft:jungle_temples"
+    },
+    "structure_set/mineshafts.json": {
+      "sha256": "7c7a81bcd6ceae54d1331eda8e551a094b7c060e168d5be961f0b06fc9851d69",
+      "kind": "structure_sets",
+      "identifier": "minecraft:mineshafts"
+    },
+    "structure_set/nether_complexes.json": {
+      "sha256": "000c25be41987e071b95f9cde0406eecede020389b3b5973205168672f3d1a36",
+      "kind": "structure_sets",
+      "identifier": "minecraft:nether_complexes"
+    },
+    "structure_set/nether_fossils.json": {
+      "sha256": "d18cb5ae49df1235b41e84f6d59acea994f14bbebc236ae06926538c8947d39f",
+      "kind": "structure_sets",
+      "identifier": "minecraft:nether_fossils"
+    },
+    "structure_set/ocean_monuments.json": {
+      "sha256": "d4617258f7102df89345e8837a07c0d2fd94bfb0b802e79fbd4fc59f7b9a1137",
+      "kind": "structure_sets",
+      "identifier": "minecraft:ocean_monuments"
+    },
+    "structure_set/ocean_ruins.json": {
+      "sha256": "505bf45d3949afb3f4f36a56bdd5741d9cdd5ea9fb1093714e9d38a5ffac375d",
+      "kind": "structure_sets",
+      "identifier": "minecraft:ocean_ruins"
+    },
+    "structure_set/pillager_outposts.json": {
+      "sha256": "a0759e4b1431f787e8c7900d99ce9b2f34cdb8da25532ad2adc811f7c498ab02",
+      "kind": "structure_sets",
+      "identifier": "minecraft:pillager_outposts"
+    },
+    "structure_set/ruined_portals.json": {
+      "sha256": "97bf70842dad8dcfa2f98b9ae570e0efe3d6b897477d916a45bd654d7bce2828",
+      "kind": "structure_sets",
+      "identifier": "minecraft:ruined_portals"
+    },
+    "structure_set/shipwrecks.json": {
+      "sha256": "434001683f2953ed2a5e2512f978af55efe8ae7183fef54e677af9b1b61e1f21",
+      "kind": "structure_sets",
+      "identifier": "minecraft:shipwrecks"
+    },
+    "structure_set/strongholds.json": {
+      "sha256": "51308f8e2d4d76d2f2d07c7a5ed8d0b5cf4ab70dd12f2dc2efc5728b65c59e18",
+      "kind": "structure_sets",
+      "identifier": "minecraft:strongholds"
+    },
+    "structure_set/swamp_huts.json": {
+      "sha256": "193eb3b56b13041332b4e8022d953dc612711845af2c81e695469793d588e107",
+      "kind": "structure_sets",
+      "identifier": "minecraft:swamp_huts"
+    },
+    "structure_set/trail_ruins.json": {
+      "sha256": "2f638e96366ea32fcbcac0bfbea38b884f4acbc8f089d6e9fde854f7bd540064",
+      "kind": "structure_sets",
+      "identifier": "minecraft:trail_ruins"
+    },
+    "structure_set/trial_chambers.json": {
+      "sha256": "1c2ac384fe78a3cc8a9c5b94fb898264244b2da5f0dcaa7a6d776f0c5eac2203",
+      "kind": "structure_sets",
+      "identifier": "minecraft:trial_chambers"
+    },
+    "structure_set/villages.json": {
+      "sha256": "d6751e2f28905f8a2f41f49db29c349f5b4405ba28d64426f84ad47001a06176",
+      "kind": "structure_sets",
+      "identifier": "minecraft:villages"
+    },
+    "structure_set/woodland_mansions.json": {
+      "sha256": "00e208b4f85200e5b1824ca1aa3b491340aa25865ba4a5f38f0ad62394296693",
+      "kind": "structure_sets",
+      "identifier": "minecraft:woodland_mansions"
+    },
+    "template_pool/ancient_city/city/entrance.json": {
+      "sha256": "5bf5c0f68bd173f89d3a5e9647908d0c81d5f7e029ab7cc80076d96c17e6c644",
+      "kind": "template_pools",
+      "identifier": "minecraft:ancient_city/city/entrance"
+    },
+    "template_pool/ancient_city/city_center/walls.json": {
+      "sha256": "791878d455525dfc8d18c6cec916f7ff89f0b848d55205abb76c9a2af38ee661",
+      "kind": "template_pools",
+      "identifier": "minecraft:ancient_city/city_center/walls"
+    },
+    "template_pool/ancient_city/city_center.json": {
+      "sha256": "612ce500edae59becbdd659f3e79b3f8ebb75f63c8bc66d447ab5c96c993bf88",
+      "kind": "template_pools",
+      "identifier": "minecraft:ancient_city/city_center"
+    },
+    "template_pool/ancient_city/sculk.json": {
+      "sha256": "23545644ab0a3396c3bc2118b1667b48e1a59a071ebcbca41db0c2c9c5bd1eec",
+      "kind": "template_pools",
+      "identifier": "minecraft:ancient_city/sculk"
+    },
+    "template_pool/ancient_city/structures.json": {
+      "sha256": "95c0a51658545b52962139bb420f3274f5b8986a2d311a9e79fb6e8b27ce5548",
+      "kind": "template_pools",
+      "identifier": "minecraft:ancient_city/structures"
+    },
+    "template_pool/ancient_city/walls/no_corners.json": {
+      "sha256": "8439fd80e16ca52f3d979ae84ee7029bf5f28e48bf83544a934b710d74be6be9",
+      "kind": "template_pools",
+      "identifier": "minecraft:ancient_city/walls/no_corners"
+    },
+    "template_pool/ancient_city/walls.json": {
+      "sha256": "286d1169568537e2fcd49cf1c5e2732657da3f02cf749af3dd6d3b1d18c9dda8",
+      "kind": "template_pools",
+      "identifier": "minecraft:ancient_city/walls"
+    },
+    "template_pool/bastion/blocks/gold.json": {
+      "sha256": "e2f7399bcc910c68be268ab41526f61e0e4521d9413f3345dd99c702573c2bb4",
+      "kind": "template_pools",
+      "identifier": "minecraft:bastion/blocks/gold"
+    },
+    "template_pool/bastion/bridge/bridge_pieces.json": {
+      "sha256": "b2c2886ea39ba7f078eda00ac71880b84299d581ca0d2488fe7a72fbc0c76d38",
+      "kind": "template_pools",
+      "identifier": "minecraft:bastion/bridge/bridge_pieces"
+    },
+    "template_pool/bastion/bridge/connectors.json": {
+      "sha256": "429e49701dcce15f521eaf3763d743f7b528290313e4c8a8e8f0cf236088724c",
+      "kind": "template_pools",
+      "identifier": "minecraft:bastion/bridge/connectors"
+    },
+    "template_pool/bastion/bridge/legs.json": {
+      "sha256": "447a902e7fccbc8c1eac3189db9e8103f1e5148c36a4a4fc8fd6817b8d1b15fd",
+      "kind": "template_pools",
+      "identifier": "minecraft:bastion/bridge/legs"
+    },
+    "template_pool/bastion/bridge/rampart_plates.json": {
+      "sha256": "6298237ab0b820c3e69382870b9e8122821e38c04f3b391ff472b2b45f14df98",
+      "kind": "template_pools",
+      "identifier": "minecraft:bastion/bridge/rampart_plates"
+    },
+    "template_pool/bastion/bridge/ramparts.json": {
+      "sha256": "348c64a71722f4f5117ece06b285eb2239a6ecb3648f822240a4caf229c6bc59",
+      "kind": "template_pools",
+      "identifier": "minecraft:bastion/bridge/ramparts"
+    },
+    "template_pool/bastion/bridge/starting_pieces.json": {
+      "sha256": "83a0d7148e7b624ea791c22a58da2a1d390b3e789656fa6ad5f9a29a1c6455ac",
+      "kind": "template_pools",
+      "identifier": "minecraft:bastion/bridge/starting_pieces"
+    },
+    "template_pool/bastion/bridge/walls.json": {
+      "sha256": "dedae9cd054a9f0439ea41dd1f0b7840fab4d4c598591e61fb108b5dd66c6630",
+      "kind": "template_pools",
+      "identifier": "minecraft:bastion/bridge/walls"
+    },
+    "template_pool/bastion/hoglin_stable/connectors.json": {
+      "sha256": "4be49d4e7679f837872ff8b436a6020543b3f6cef687cef9a9a268c2959f11da",
+      "kind": "template_pools",
+      "identifier": "minecraft:bastion/hoglin_stable/connectors"
+    },
+    "template_pool/bastion/hoglin_stable/large_stables/inner.json": {
+      "sha256": "54e0e6b8fcd5c3aecda9b1057655b7eb6b0fdcfac420aa7d609cb7717003cf70",
+      "kind": "template_pools",
+      "identifier": "minecraft:bastion/hoglin_stable/large_stables/inner"
+    },
+    "template_pool/bastion/hoglin_stable/large_stables/outer.json": {
+      "sha256": "c9bb57745f1be061e6b1f4e5ed77fc46ebf6b853a96408c89f615542df497bb1",
+      "kind": "template_pools",
+      "identifier": "minecraft:bastion/hoglin_stable/large_stables/outer"
+    },
+    "template_pool/bastion/hoglin_stable/mirrored_starting_pieces.json": {
+      "sha256": "507a64ff3f67da13a83b3b6489f88b9f3c29325f980b396048286f718fdd5fc3",
+      "kind": "template_pools",
+      "identifier": "minecraft:bastion/hoglin_stable/mirrored_starting_pieces"
+    },
+    "template_pool/bastion/hoglin_stable/posts.json": {
+      "sha256": "0e5be0487c656d692060cc5c6cc9c72505709808787880b85ac042dce1ccfca5",
+      "kind": "template_pools",
+      "identifier": "minecraft:bastion/hoglin_stable/posts"
+    },
+    "template_pool/bastion/hoglin_stable/rampart_plates.json": {
+      "sha256": "9a52ace3659835cbbc4917276e0902ded351289b465ddb7fb8d46cf995280923",
+      "kind": "template_pools",
+      "identifier": "minecraft:bastion/hoglin_stable/rampart_plates"
+    },
+    "template_pool/bastion/hoglin_stable/ramparts.json": {
+      "sha256": "d8f929954f25b30b2bf5c72bfc5883cd39b2a42aee2bda349c6ec394ab7d8e3f",
+      "kind": "template_pools",
+      "identifier": "minecraft:bastion/hoglin_stable/ramparts"
+    },
+    "template_pool/bastion/hoglin_stable/small_stables/inner.json": {
+      "sha256": "7c60199d68a94cf40365a24e52d41d495f5fb54d1308055515800c255277dc13",
+      "kind": "template_pools",
+      "identifier": "minecraft:bastion/hoglin_stable/small_stables/inner"
+    },
+    "template_pool/bastion/hoglin_stable/small_stables/outer.json": {
+      "sha256": "2fb8e81808c5d1016dc30cc92ba88d8399aad8e044c88758a9d0a55f526b9103",
+      "kind": "template_pools",
+      "identifier": "minecraft:bastion/hoglin_stable/small_stables/outer"
+    },
+    "template_pool/bastion/hoglin_stable/stairs.json": {
+      "sha256": "c1941a544478baa2a224bf83f1911832f430a608ceaaaf55b27ea93ab1c47bcc",
+      "kind": "template_pools",
+      "identifier": "minecraft:bastion/hoglin_stable/stairs"
+    },
+    "template_pool/bastion/hoglin_stable/starting_pieces.json": {
+      "sha256": "0ce0bbaaa658b1568bc72ddca673d7a4570bc30784f6ecbc1bff60b28d8cac75",
+      "kind": "template_pools",
+      "identifier": "minecraft:bastion/hoglin_stable/starting_pieces"
+    },
+    "template_pool/bastion/hoglin_stable/wall_bases.json": {
+      "sha256": "0a207335fbc16f03490faccb8710581dbde08ea0ab1dcadad4c37956f2c67df1",
+      "kind": "template_pools",
+      "identifier": "minecraft:bastion/hoglin_stable/wall_bases"
+    },
+    "template_pool/bastion/hoglin_stable/walls.json": {
+      "sha256": "22423e24802566dd153484f5e7d3dcd2b2e3a58232d1404eaffb43e6623fda9d",
+      "kind": "template_pools",
+      "identifier": "minecraft:bastion/hoglin_stable/walls"
+    },
+    "template_pool/bastion/mobs/hoglin.json": {
+      "sha256": "ad4bdbcc37baa6741fa0c816f10b1dbd93404f2bb9cbc7cb7d73c844efed2082",
+      "kind": "template_pools",
+      "identifier": "minecraft:bastion/mobs/hoglin"
+    },
+    "template_pool/bastion/mobs/piglin.json": {
+      "sha256": "9d0768ffde0bea00041920037a3035179adb950ad2114548984ae0870cea83db",
+      "kind": "template_pools",
+      "identifier": "minecraft:bastion/mobs/piglin"
+    },
+    "template_pool/bastion/mobs/piglin_melee.json": {
+      "sha256": "cc0ae4d41ccf5ec042dbcdc31c0bf2c172254470b0118a961c90a647c5adebd1",
+      "kind": "template_pools",
+      "identifier": "minecraft:bastion/mobs/piglin_melee"
+    },
+    "template_pool/bastion/starts.json": {
+      "sha256": "ade4b260186de492aeea880ad323c2b1d2f1e9fa056c31db2614a3f7eff1b555",
+      "kind": "template_pools",
+      "identifier": "minecraft:bastion/starts"
+    },
+    "template_pool/bastion/treasure/bases/centers.json": {
+      "sha256": "ca8f1a5ef91c4db6e3ffc7f438d7e4e96f5240177a00864edd3075ebda450013",
+      "kind": "template_pools",
+      "identifier": "minecraft:bastion/treasure/bases/centers"
+    },
+    "template_pool/bastion/treasure/bases.json": {
+      "sha256": "589552a8c42b160f657f3771950fede5a00f28bc1855ca6c1fc391d8adb646bb",
+      "kind": "template_pools",
+      "identifier": "minecraft:bastion/treasure/bases"
+    },
+    "template_pool/bastion/treasure/brains.json": {
+      "sha256": "b2e5a4e9b4fefc33bdf50b5eebeef1f9b55864c70ef8a157ab33c1ac770239db",
+      "kind": "template_pools",
+      "identifier": "minecraft:bastion/treasure/brains"
+    },
+    "template_pool/bastion/treasure/connectors.json": {
+      "sha256": "0c2adbbf1589ec298dcc9ae32622657cb931ec8dab7cb8e255234b7113b02222",
+      "kind": "template_pools",
+      "identifier": "minecraft:bastion/treasure/connectors"
+    },
+    "template_pool/bastion/treasure/corners/bottom.json": {
+      "sha256": "c550fca8b825078d9d54c1dcd6b5b2c548bfb6279bc23a0838f190b89b6615b3",
+      "kind": "template_pools",
+      "identifier": "minecraft:bastion/treasure/corners/bottom"
+    },
+    "template_pool/bastion/treasure/corners/edges.json": {
+      "sha256": "5ce8459254795ca0c0b63f8549ddbfe5b579aaf149febcaf0e09f90cc880cc56",
+      "kind": "template_pools",
+      "identifier": "minecraft:bastion/treasure/corners/edges"
+    },
+    "template_pool/bastion/treasure/corners/middle.json": {
+      "sha256": "4d128d43c837573dfae91aa4f818530f839ace1e35c5cf16484c21f3a0a33ec3",
+      "kind": "template_pools",
+      "identifier": "minecraft:bastion/treasure/corners/middle"
+    },
+    "template_pool/bastion/treasure/corners/top.json": {
+      "sha256": "ea5703c5f15985c090ccd6420a950d59c0a139579a6466a9a88792370d254235",
+      "kind": "template_pools",
+      "identifier": "minecraft:bastion/treasure/corners/top"
+    },
+    "template_pool/bastion/treasure/entrances.json": {
+      "sha256": "e3d067e4ca81b7a2df7ecfff243d646e1837b077a1717be5a1c2dc0936e15c78",
+      "kind": "template_pools",
+      "identifier": "minecraft:bastion/treasure/entrances"
+    },
+    "template_pool/bastion/treasure/extensions/houses.json": {
+      "sha256": "850b56765efca79b4cf2934ca27c0c9303c2f9f308524f091641a3affba47fcb",
+      "kind": "template_pools",
+      "identifier": "minecraft:bastion/treasure/extensions/houses"
+    },
+    "template_pool/bastion/treasure/extensions/large_pool.json": {
+      "sha256": "0091540148c46e289d69c791026c2fd8da1469b521ee828331690249758896c0",
+      "kind": "template_pools",
+      "identifier": "minecraft:bastion/treasure/extensions/large_pool"
+    },
+    "template_pool/bastion/treasure/extensions/small_pool.json": {
+      "sha256": "381e05d45eb1dd78d10334bc288563d9d1482b0405e00f8951c4aa0a128f0bb6",
+      "kind": "template_pools",
+      "identifier": "minecraft:bastion/treasure/extensions/small_pool"
+    },
+    "template_pool/bastion/treasure/ramparts.json": {
+      "sha256": "ae0361852b74f1130651c9e4d47865363ea9203d1cf7f43c0ba4a3173bb153cf",
+      "kind": "template_pools",
+      "identifier": "minecraft:bastion/treasure/ramparts"
+    },
+    "template_pool/bastion/treasure/roofs.json": {
+      "sha256": "6527cdacc608389e17fe6d0efa902f764c9ca4ddcd03869bca79de8255b9d511",
+      "kind": "template_pools",
+      "identifier": "minecraft:bastion/treasure/roofs"
+    },
+    "template_pool/bastion/treasure/stairs.json": {
+      "sha256": "fc7c8e61406f78dacbfe1cb7a3d38da033b9af2c5d44518f5c97648785a18735",
+      "kind": "template_pools",
+      "identifier": "minecraft:bastion/treasure/stairs"
+    },
+    "template_pool/bastion/treasure/walls/bottom.json": {
+      "sha256": "e3f0fe015dbcd3cc36410dc1ca20935455de61b12a69b09bb1d5edbbb3b5c0c8",
+      "kind": "template_pools",
+      "identifier": "minecraft:bastion/treasure/walls/bottom"
+    },
+    "template_pool/bastion/treasure/walls/mid.json": {
+      "sha256": "a4d9505690006d67f137be1bfbbdd37cff2a029baac939b311e330638396cffb",
+      "kind": "template_pools",
+      "identifier": "minecraft:bastion/treasure/walls/mid"
+    },
+    "template_pool/bastion/treasure/walls/outer.json": {
+      "sha256": "6232a16e78d129d19a3292f4b2de9674b3904ebdae2a57c74ec18cf9158b308b",
+      "kind": "template_pools",
+      "identifier": "minecraft:bastion/treasure/walls/outer"
+    },
+    "template_pool/bastion/treasure/walls/top.json": {
+      "sha256": "5f0facfea3ca32c7beac845f00191d5c7076e261f693911b3525620421a7c91c",
+      "kind": "template_pools",
+      "identifier": "minecraft:bastion/treasure/walls/top"
+    },
+    "template_pool/bastion/treasure/walls.json": {
+      "sha256": "03ce37abbb891fcfcc6b0e47f78dd7d643490180c144158dcfdffcb88a442e94",
+      "kind": "template_pools",
+      "identifier": "minecraft:bastion/treasure/walls"
+    },
+    "template_pool/bastion/units/center_pieces.json": {
+      "sha256": "eeaa100fe4eb5f687d23356cab60efd17c289efa8a5a336caacbb04e43bd74ac",
+      "kind": "template_pools",
+      "identifier": "minecraft:bastion/units/center_pieces"
+    },
+    "template_pool/bastion/units/edge_wall_units.json": {
+      "sha256": "bf36a210da09ba575bc20d94f80d189f03f873230c8015d00ca547f98478b76f",
+      "kind": "template_pools",
+      "identifier": "minecraft:bastion/units/edge_wall_units"
+    },
+    "template_pool/bastion/units/edges.json": {
+      "sha256": "3e3fc7dd949b849212522fcc0f53d3220a13988c47fc76461e42b2763dfb8f21",
+      "kind": "template_pools",
+      "identifier": "minecraft:bastion/units/edges"
+    },
+    "template_pool/bastion/units/fillers/stage_0.json": {
+      "sha256": "f1188ef08cce9311af024c7048bd6cf35e43dc45cb274389c8006986bc864946",
+      "kind": "template_pools",
+      "identifier": "minecraft:bastion/units/fillers/stage_0"
+    },
+    "template_pool/bastion/units/large_ramparts.json": {
+      "sha256": "7482e993db49864917e7a8292fbfce152167a0f1ae1b50da3540829a8d431bfb",
+      "kind": "template_pools",
+      "identifier": "minecraft:bastion/units/large_ramparts"
+    },
+    "template_pool/bastion/units/pathways.json": {
+      "sha256": "4b79f98470a7441bd6623db772cebe85801f98a890c15e06f50ba139a212be24",
+      "kind": "template_pools",
+      "identifier": "minecraft:bastion/units/pathways"
+    },
+    "template_pool/bastion/units/rampart_plates.json": {
+      "sha256": "e207fe0342e755a84a00d6b0411c7a678e095f64d66a4996ec5e45d21ba20db3",
+      "kind": "template_pools",
+      "identifier": "minecraft:bastion/units/rampart_plates"
+    },
+    "template_pool/bastion/units/ramparts.json": {
+      "sha256": "1d7a0ac0ed8ad0d333bdb7dd4718b76707f46aa7b3823069a5c2dba169350653",
+      "kind": "template_pools",
+      "identifier": "minecraft:bastion/units/ramparts"
+    },
+    "template_pool/bastion/units/stages/rot/stage_1.json": {
+      "sha256": "66e4635d67383acc0250812a7a130233910055a7f90096a6763dee2d35c6ba8e",
+      "kind": "template_pools",
+      "identifier": "minecraft:bastion/units/stages/rot/stage_1"
+    },
+    "template_pool/bastion/units/stages/stage_0.json": {
+      "sha256": "c58b72297ce4a1a88576d6e0efd16dc63084dcc94d30db4ea398a48538de7146",
+      "kind": "template_pools",
+      "identifier": "minecraft:bastion/units/stages/stage_0"
+    },
+    "template_pool/bastion/units/stages/stage_1.json": {
+      "sha256": "12f4375ec1c087cd618602d19bf5c6567d635ff6e274b4e0a509afd2c035cadc",
+      "kind": "template_pools",
+      "identifier": "minecraft:bastion/units/stages/stage_1"
+    },
+    "template_pool/bastion/units/stages/stage_2.json": {
+      "sha256": "d3cdaec389be057cb3c4eea09a2e0db23a94270f366becfb0c8d15ca64b96b4f",
+      "kind": "template_pools",
+      "identifier": "minecraft:bastion/units/stages/stage_2"
+    },
+    "template_pool/bastion/units/stages/stage_3.json": {
+      "sha256": "80de63e78bc23c3792f34fe9878c3f5242e5f3eb3df8998bb1f9b31fd8084f85",
+      "kind": "template_pools",
+      "identifier": "minecraft:bastion/units/stages/stage_3"
+    },
+    "template_pool/bastion/units/wall_units.json": {
+      "sha256": "fc013178c19eab8c6e29a5a83451110dccbc0e95151df55d9a3abc68d8d796f1",
+      "kind": "template_pools",
+      "identifier": "minecraft:bastion/units/wall_units"
+    },
+    "template_pool/bastion/units/walls/wall_bases.json": {
+      "sha256": "0abc0c61c022f2b74636ac789d8504b97230a43b4969ceceec4bd77c8ac77ce6",
+      "kind": "template_pools",
+      "identifier": "minecraft:bastion/units/walls/wall_bases"
+    },
+    "template_pool/empty.json": {
+      "sha256": "67703bd55dd8227b3d34b13bbfda911c4457ecaf4fd1ee0a1979e99ca9a9cd6d",
+      "kind": "template_pools",
+      "identifier": "minecraft:empty"
+    },
+    "template_pool/pillager_outpost/base_plates.json": {
+      "sha256": "9030f1c07a7ebe693d9522431a96b0b01ba96bc02569e6e3a3187c49d516c071",
+      "kind": "template_pools",
+      "identifier": "minecraft:pillager_outpost/base_plates"
+    },
+    "template_pool/pillager_outpost/feature_plates.json": {
+      "sha256": "7d83d5e512d655891e6faaff0b1532720e5197c67f3e24a0e027a8c8ab13c651",
+      "kind": "template_pools",
+      "identifier": "minecraft:pillager_outpost/feature_plates"
+    },
+    "template_pool/pillager_outpost/features.json": {
+      "sha256": "e0d8437b456f1a9605e1f6a08365195f0a07117833c01660ccb8a53618f2dc40",
+      "kind": "template_pools",
+      "identifier": "minecraft:pillager_outpost/features"
+    },
+    "template_pool/pillager_outpost/towers.json": {
+      "sha256": "1975f302f579689647082f7216b90b84eb58c11fa383a6f13cef74a9754c29ec",
+      "kind": "template_pools",
+      "identifier": "minecraft:pillager_outpost/towers"
+    },
+    "template_pool/trail_ruins/buildings/grouped.json": {
+      "sha256": "04947bfd7a8a85429ed32102f1fdead0fbbee0fe827af46df42c021606ee9ea7",
+      "kind": "template_pools",
+      "identifier": "minecraft:trail_ruins/buildings/grouped"
+    },
+    "template_pool/trail_ruins/buildings.json": {
+      "sha256": "6430d6d4f1ebc0c699fb2ace1821287bc1a4304c6a92fca30c5e2ee387d82783",
+      "kind": "template_pools",
+      "identifier": "minecraft:trail_ruins/buildings"
+    },
+    "template_pool/trail_ruins/decor.json": {
+      "sha256": "6884a335592c0d5dac7d0884b10cd3c961a6d740abc75bf2e257904e9fdf09ff",
+      "kind": "template_pools",
+      "identifier": "minecraft:trail_ruins/decor"
+    },
+    "template_pool/trail_ruins/roads.json": {
+      "sha256": "41d968b37630ef4e9863e45c2ea2e3738a35047867d6aea6506554d6d6489c5d",
+      "kind": "template_pools",
+      "identifier": "minecraft:trail_ruins/roads"
+    },
+    "template_pool/trail_ruins/tower/additions.json": {
+      "sha256": "6ae5cf72b0d0f0a9e481c836b4a1ffa75cba8cffff9e143cea83b5564726b0e8",
+      "kind": "template_pools",
+      "identifier": "minecraft:trail_ruins/tower/additions"
+    },
+    "template_pool/trail_ruins/tower/tower_top.json": {
+      "sha256": "1ce8c55fca38691892eb9b2916c7c6de377cf6db1ef935a9b48ec162b182d748",
+      "kind": "template_pools",
+      "identifier": "minecraft:trail_ruins/tower/tower_top"
+    },
+    "template_pool/trail_ruins/tower.json": {
+      "sha256": "b161357fe8e573f8d2881ff4134948546971a60fc08371f6365571024c57db52",
+      "kind": "template_pools",
+      "identifier": "minecraft:trail_ruins/tower"
+    },
+    "template_pool/trial_chambers/atrium.json": {
+      "sha256": "ca5161b8f56ac4d0b56547223d995ff3f2c10aeb56a4a1cfc626a8df8a8742a7",
+      "kind": "template_pools",
+      "identifier": "minecraft:trial_chambers/atrium"
+    },
+    "template_pool/trial_chambers/chamber/addon.json": {
+      "sha256": "c0a515f483bfad6be79479a0e954ad331021b4d11cb65bae430206ac1139053f",
+      "kind": "template_pools",
+      "identifier": "minecraft:trial_chambers/chamber/addon"
+    },
+    "template_pool/trial_chambers/chamber/assembly.json": {
+      "sha256": "863c8b9d759408c0123de9cf04fac5cb12139409956f51998c5047411fcebb7f",
+      "kind": "template_pools",
+      "identifier": "minecraft:trial_chambers/chamber/assembly"
+    },
+    "template_pool/trial_chambers/chamber/end.json": {
+      "sha256": "ec7f77474ccf0e8c893a1a4903e1cc47b3c055eba0cd34627667ba6da2be9586",
+      "kind": "template_pools",
+      "identifier": "minecraft:trial_chambers/chamber/end"
+    },
+    "template_pool/trial_chambers/chamber/entrance_cap.json": {
+      "sha256": "85d703bc08bcefd360acec28e4ce37c0c1076bcd08cc36c46a76f61edfb2bed2",
+      "kind": "template_pools",
+      "identifier": "minecraft:trial_chambers/chamber/entrance_cap"
+    },
+    "template_pool/trial_chambers/chamber/eruption.json": {
+      "sha256": "bc56d705b402f5f108f40938aa0761ede20e7f3f07bec5ca85cf5fc5555f9f62",
+      "kind": "template_pools",
+      "identifier": "minecraft:trial_chambers/chamber/eruption"
+    },
+    "template_pool/trial_chambers/chamber/pedestal.json": {
+      "sha256": "3b0a2d67fda2570849ab11382155ba668ffdc493ed94b280ade577c56fc2791e",
+      "kind": "template_pools",
+      "identifier": "minecraft:trial_chambers/chamber/pedestal"
+    },
+    "template_pool/trial_chambers/chamber/slanted.json": {
+      "sha256": "597936fd12096cf3c3fbf5f04643349cf836cad46328baed05c618f9c527e9db",
+      "kind": "template_pools",
+      "identifier": "minecraft:trial_chambers/chamber/slanted"
+    },
+    "template_pool/trial_chambers/chambers/end.json": {
+      "sha256": "4552be3360978ab8fbb897c96b08112bbe4dc3f46b21c0088c88f19c57339fe1",
+      "kind": "template_pools",
+      "identifier": "minecraft:trial_chambers/chambers/end"
+    },
+    "template_pool/trial_chambers/chests/contents/supply.json": {
+      "sha256": "d1100d8e95e9471b1aa271cdd0e48c7df3fe51af5f0f2c42d6648fbdd2441b0d",
+      "kind": "template_pools",
+      "identifier": "minecraft:trial_chambers/chests/contents/supply"
+    },
+    "template_pool/trial_chambers/chests/supply.json": {
+      "sha256": "f65d6875c28b17246d261f2c1143163d3b7d22e146a46bdb17a090f3cf79eba9",
+      "kind": "template_pools",
+      "identifier": "minecraft:trial_chambers/chests/supply"
+    },
+    "template_pool/trial_chambers/corridor/slices.json": {
+      "sha256": "9699e57b06ff88aa4a0f48e4cc86c9a3fd57a3b7a43d2936a31a16d99beefd29",
+      "kind": "template_pools",
+      "identifier": "minecraft:trial_chambers/corridor/slices"
+    },
+    "template_pool/trial_chambers/corridor.json": {
+      "sha256": "98ab39f779a5005bc000665f470d762b93882912d18f8e7ca6d411adf39eea4e",
+      "kind": "template_pools",
+      "identifier": "minecraft:trial_chambers/corridor"
+    },
+    "template_pool/trial_chambers/corridors/addon/lower.json": {
+      "sha256": "e3cab2e9e404a19f13a1765894c2d73a9106174b3127f47d8dac315c17d7badb",
+      "kind": "template_pools",
+      "identifier": "minecraft:trial_chambers/corridors/addon/lower"
+    },
+    "template_pool/trial_chambers/corridors/addon/middle.json": {
+      "sha256": "aaa09832866154ca609f42204fada00c91fd2f5843cd9ab439330e98ea2783b3",
+      "kind": "template_pools",
+      "identifier": "minecraft:trial_chambers/corridors/addon/middle"
+    },
+    "template_pool/trial_chambers/corridors/addon/middle_upper.json": {
+      "sha256": "fc6460e88c9af210908d7489f0e876ff9b19e526651a7e61c8e75f119f2a9245",
+      "kind": "template_pools",
+      "identifier": "minecraft:trial_chambers/corridors/addon/middle_upper"
+    },
+    "template_pool/trial_chambers/decor/chamber.json": {
+      "sha256": "e424efce37f17aaa60e040c5e35a480bb3c437224e3a93c61e1f1b0735af58dd",
+      "kind": "template_pools",
+      "identifier": "minecraft:trial_chambers/decor/chamber"
+    },
+    "template_pool/trial_chambers/decor.json": {
+      "sha256": "1a120ef4bcd677572701d5d5c70410e76b32252b72b46542a25824d13bec0e00",
+      "kind": "template_pools",
+      "identifier": "minecraft:trial_chambers/decor"
+    },
+    "template_pool/trial_chambers/dispensers/chamber.json": {
+      "sha256": "709da8ca9c3ad6aacec3922129464f73e172f7251d36f08011e51a429f5cb04f",
+      "kind": "template_pools",
+      "identifier": "minecraft:trial_chambers/dispensers/chamber"
+    },
+    "template_pool/trial_chambers/entrance.json": {
+      "sha256": "54743886b3e4a892025ea44afa9cccdd3621a88d2c73a5792bbff9de1bf4accf",
+      "kind": "template_pools",
+      "identifier": "minecraft:trial_chambers/entrance"
+    },
+    "template_pool/trial_chambers/hallway/fallback.json": {
+      "sha256": "c6f2d8656e7b7ab5ba2bca78fdfaea14b5403f07ffc36ca8e96ce4defc4fcb96",
+      "kind": "template_pools",
+      "identifier": "minecraft:trial_chambers/hallway/fallback"
+    },
+    "template_pool/trial_chambers/hallway.json": {
+      "sha256": "49caf8f6dda42f6dd37969feecd591711ed038a41bc6ee3e5c3411cc9b853f68",
+      "kind": "template_pools",
+      "identifier": "minecraft:trial_chambers/hallway"
+    },
+    "template_pool/trial_chambers/reward/all.json": {
+      "sha256": "e8f65bf840f8a66865ccfb7df07999a27ca60adda84499c0db48d441d2c92a61",
+      "kind": "template_pools",
+      "identifier": "minecraft:trial_chambers/reward/all"
+    },
+    "template_pool/trial_chambers/reward/contents/default.json": {
+      "sha256": "e8f65bf840f8a66865ccfb7df07999a27ca60adda84499c0db48d441d2c92a61",
+      "kind": "template_pools",
+      "identifier": "minecraft:trial_chambers/reward/contents/default"
+    },
+    "template_pool/trial_chambers/reward/ominous_vault.json": {
+      "sha256": "7abe55ddc3dd1f6013d0ba9723b4e9150efdb79974bd978ed40bf3231b25da57",
+      "kind": "template_pools",
+      "identifier": "minecraft:trial_chambers/reward/ominous_vault"
+    },
+    "template_pool/trial_chambers/spawner/all.json": {
+      "sha256": "94151073ec439047d447c4a83fecb43eb24a6418764a40f17a46a0f10b9c06a6",
+      "kind": "template_pools",
+      "identifier": "minecraft:trial_chambers/spawner/all"
+    },
+    "template_pool/trial_chambers/spawner/breeze.json": {
+      "sha256": "458976b41d88a22df72d2a1903cfac30ea355e17a3327fc3bc77f4b08cc9d8d9",
+      "kind": "template_pools",
+      "identifier": "minecraft:trial_chambers/spawner/breeze"
+    },
+    "template_pool/trial_chambers/spawner/contents/breeze.json": {
+      "sha256": "903a1293190dbb068fa438a23b91a672d3417009c1ae8254850c9ddf9e393a1e",
+      "kind": "template_pools",
+      "identifier": "minecraft:trial_chambers/spawner/contents/breeze"
+    },
+    "template_pool/trial_chambers/spawner/melee/husk.json": {
+      "sha256": "f1a8fc80bb2fbf2e2c6f73cfb624b5f6bb9c87d0fa278fd81c5d6addc4e64672",
+      "kind": "template_pools",
+      "identifier": "minecraft:trial_chambers/spawner/melee/husk"
+    },
+    "template_pool/trial_chambers/spawner/melee/spider.json": {
+      "sha256": "368f5f94e614d6ec369fd4d964ade85282eddcf91eba695e6651a1d1800119d7",
+      "kind": "template_pools",
+      "identifier": "minecraft:trial_chambers/spawner/melee/spider"
+    },
+    "template_pool/trial_chambers/spawner/melee/zombie.json": {
+      "sha256": "7b2c21225ba5b06fbc5de7fbedc3b510aba34e2abb599664ec26ea2a16440ce7",
+      "kind": "template_pools",
+      "identifier": "minecraft:trial_chambers/spawner/melee/zombie"
+    },
+    "template_pool/trial_chambers/spawner/melee.json": {
+      "sha256": "640eb51942e51ecb7da34bfed9e259f1455cfacea075ca4648d7c62f564310b1",
+      "kind": "template_pools",
+      "identifier": "minecraft:trial_chambers/spawner/melee"
+    },
+    "template_pool/trial_chambers/spawner/ranged/poison_skeleton.json": {
+      "sha256": "05678db14cfd7d997d1c055ded37c6a83fcf19e50ed7728c8f8f0aba1ec82b66",
+      "kind": "template_pools",
+      "identifier": "minecraft:trial_chambers/spawner/ranged/poison_skeleton"
+    },
+    "template_pool/trial_chambers/spawner/ranged/skeleton.json": {
+      "sha256": "b166d4ee65f67e73b44cf070a60b4c42d1c7a8a8a68a7a49b425a9855bb26830",
+      "kind": "template_pools",
+      "identifier": "minecraft:trial_chambers/spawner/ranged/skeleton"
+    },
+    "template_pool/trial_chambers/spawner/ranged/stray.json": {
+      "sha256": "5f87cf363e0bbafa043ea189d941c71ca969b3b3b4bc9fee64253dd92e43fdab",
+      "kind": "template_pools",
+      "identifier": "minecraft:trial_chambers/spawner/ranged/stray"
+    },
+    "template_pool/trial_chambers/spawner/ranged.json": {
+      "sha256": "90260ba00164084a38997026b980a44f98068e3f362dfcab4a861e9e143a6e46",
+      "kind": "template_pools",
+      "identifier": "minecraft:trial_chambers/spawner/ranged"
+    },
+    "template_pool/trial_chambers/spawner/slow_ranged/poison_skeleton.json": {
+      "sha256": "84e42d83a63abf14dfae8f368e3c23dd88ef246e3d3044e805e97248e49fe471",
+      "kind": "template_pools",
+      "identifier": "minecraft:trial_chambers/spawner/slow_ranged/poison_skeleton"
+    },
+    "template_pool/trial_chambers/spawner/slow_ranged/skeleton.json": {
+      "sha256": "6898ee03c87031e4ac68596d1727e8b4e0a6791d98397e3a10ff08f676d083fd",
+      "kind": "template_pools",
+      "identifier": "minecraft:trial_chambers/spawner/slow_ranged/skeleton"
+    },
+    "template_pool/trial_chambers/spawner/slow_ranged/stray.json": {
+      "sha256": "9df54896e2b7a627972f9912cee6b875ea9429a8ec776082a330f328fa44ee98",
+      "kind": "template_pools",
+      "identifier": "minecraft:trial_chambers/spawner/slow_ranged/stray"
+    },
+    "template_pool/trial_chambers/spawner/slow_ranged.json": {
+      "sha256": "1f3e30bd6f1607d3c21fcf01262ee0e602e511b7531eaad297f10db37a1908d4",
+      "kind": "template_pools",
+      "identifier": "minecraft:trial_chambers/spawner/slow_ranged"
+    },
+    "template_pool/trial_chambers/spawner/small_melee/baby_zombie.json": {
+      "sha256": "7f6c061bcffe446a7fd741cdeda2fc06072136fb309d36a858ed3a9013dbc578",
+      "kind": "template_pools",
+      "identifier": "minecraft:trial_chambers/spawner/small_melee/baby_zombie"
+    },
+    "template_pool/trial_chambers/spawner/small_melee/cave_spider.json": {
+      "sha256": "a0f22d52b1b797a1438e4c608b50d0f10ada86a756cdf4625673bab857b1f160",
+      "kind": "template_pools",
+      "identifier": "minecraft:trial_chambers/spawner/small_melee/cave_spider"
+    },
+    "template_pool/trial_chambers/spawner/small_melee/silverfish.json": {
+      "sha256": "6491bac96c1befb770e2276e9e6f8c9ce8f79fd0028dbc377502d803081301ea",
+      "kind": "template_pools",
+      "identifier": "minecraft:trial_chambers/spawner/small_melee/silverfish"
+    },
+    "template_pool/trial_chambers/spawner/small_melee/slime.json": {
+      "sha256": "f7a3a79217763c5df7349be69111cf97f7cd28e7b0858a6425b007a693e0787c",
+      "kind": "template_pools",
+      "identifier": "minecraft:trial_chambers/spawner/small_melee/slime"
+    },
+    "template_pool/trial_chambers/spawner/small_melee.json": {
+      "sha256": "043275a546a0fd04658c6987ccfbc5901b627c1f05ebe83673c7b783e1c95151",
+      "kind": "template_pools",
+      "identifier": "minecraft:trial_chambers/spawner/small_melee"
+    },
+    "template_pool/village/common/animals.json": {
+      "sha256": "398566d786fd874e6870a4b4a1883862560bce7b6245b349ab25cafd8563cbd9",
+      "kind": "template_pools",
+      "identifier": "minecraft:village/common/animals"
+    },
+    "template_pool/village/common/butcher_animals.json": {
+      "sha256": "cb1ad36122c9781e0ae9369f700144f2b3fd46322e5b596aa27c075e5f65224d",
+      "kind": "template_pools",
+      "identifier": "minecraft:village/common/butcher_animals"
+    },
+    "template_pool/village/common/cats.json": {
+      "sha256": "2ce40618818c17b4ec08ae32cf9f0c16754b010cb4c2cdad99fa58c1c881af24",
+      "kind": "template_pools",
+      "identifier": "minecraft:village/common/cats"
+    },
+    "template_pool/village/common/iron_golem.json": {
+      "sha256": "f174fd20d32839a1341a7e2cbcd6bce6e3a45a9018986c55735f0c3092451f1c",
+      "kind": "template_pools",
+      "identifier": "minecraft:village/common/iron_golem"
+    },
+    "template_pool/village/common/sheep.json": {
+      "sha256": "aeb9304f625a49e0712d804371fa81d17f26bcf2c2a3ff302d70eada3d6c5495",
+      "kind": "template_pools",
+      "identifier": "minecraft:village/common/sheep"
+    },
+    "template_pool/village/common/well_bottoms.json": {
+      "sha256": "2e852b6fad656cbdd28bbe0f43f533b2cbb952d5ccee37f775b49e71b4f679e0",
+      "kind": "template_pools",
+      "identifier": "minecraft:village/common/well_bottoms"
+    },
+    "template_pool/village/desert/camel.json": {
+      "sha256": "f8ec6c37d56a1b6a0446a8119c0c309cc8cd4a94ebf96bac4876eb249b8b1feb",
+      "kind": "template_pools",
+      "identifier": "minecraft:village/desert/camel"
+    },
+    "template_pool/village/desert/decor.json": {
+      "sha256": "4775840ba306d0dffc32dbbc54a0302ffdce317f88337ead7388bb3a05956439",
+      "kind": "template_pools",
+      "identifier": "minecraft:village/desert/decor"
+    },
+    "template_pool/village/desert/houses.json": {
+      "sha256": "d85fd8869882ecd8500c0a7a9961577373c57cfa3279b7a8d02cb572ed66fb7a",
+      "kind": "template_pools",
+      "identifier": "minecraft:village/desert/houses"
+    },
+    "template_pool/village/desert/streets.json": {
+      "sha256": "20f0c1a4607894b1cd93a52b659b4528f97f668fe85e1928595fae23ea52d188",
+      "kind": "template_pools",
+      "identifier": "minecraft:village/desert/streets"
+    },
+    "template_pool/village/desert/terminators.json": {
+      "sha256": "797f32cfb7b1a27d3ed6c09817e949f74d212fa0d3859eaf8785e51a0cd3b2bb",
+      "kind": "template_pools",
+      "identifier": "minecraft:village/desert/terminators"
+    },
+    "template_pool/village/desert/town_centers.json": {
+      "sha256": "6ece319ceb6d0e874529265d72b76a3f49611bb7fd546250bad38362644022cf",
+      "kind": "template_pools",
+      "identifier": "minecraft:village/desert/town_centers"
+    },
+    "template_pool/village/desert/villagers.json": {
+      "sha256": "91574358c4b3bfcd695126fd0db78e7af81f339f276ee7566f117f6d2b526edc",
+      "kind": "template_pools",
+      "identifier": "minecraft:village/desert/villagers"
+    },
+    "template_pool/village/desert/zombie/decor.json": {
+      "sha256": "e9ee19d82529be5707b33b25d76d879a274a9e03d3a7d28763eaa6fe3b127315",
+      "kind": "template_pools",
+      "identifier": "minecraft:village/desert/zombie/decor"
+    },
+    "template_pool/village/desert/zombie/houses.json": {
+      "sha256": "256fb35e21b9eb813bad88613695808f9647653e5a9ad09aa1dd41335f6a3309",
+      "kind": "template_pools",
+      "identifier": "minecraft:village/desert/zombie/houses"
+    },
+    "template_pool/village/desert/zombie/streets.json": {
+      "sha256": "1bccee2184a23f78f5502a203773d7eb5c969c627aaa1948d78bb1d5cead766f",
+      "kind": "template_pools",
+      "identifier": "minecraft:village/desert/zombie/streets"
+    },
+    "template_pool/village/desert/zombie/terminators.json": {
+      "sha256": "b17166d45bc20ac9b830a34d423fcc9553fa8030c81622dd0c02caad0d5b1ad2",
+      "kind": "template_pools",
+      "identifier": "minecraft:village/desert/zombie/terminators"
+    },
+    "template_pool/village/desert/zombie/villagers.json": {
+      "sha256": "2223755a78ddcb6b14abffc7a7ebb87cde3cea3c03b41741c96c56be3c0d83ed",
+      "kind": "template_pools",
+      "identifier": "minecraft:village/desert/zombie/villagers"
+    },
+    "template_pool/village/plains/decor.json": {
+      "sha256": "27649e9e257ef0296c2f7ceaddd8bf60e25e962924c75a0d0bfb4ae033800bbc",
+      "kind": "template_pools",
+      "identifier": "minecraft:village/plains/decor"
+    },
+    "template_pool/village/plains/houses.json": {
+      "sha256": "2a230644acca7353321693f9db40d4f9fb489678d5942570bdf56411814e9042",
+      "kind": "template_pools",
+      "identifier": "minecraft:village/plains/houses"
+    },
+    "template_pool/village/plains/streets.json": {
+      "sha256": "3d77802f5ae2e8a10c969d61099bde0d3802445282b09ad94c48244467a05bfc",
+      "kind": "template_pools",
+      "identifier": "minecraft:village/plains/streets"
+    },
+    "template_pool/village/plains/terminators.json": {
+      "sha256": "6049006149ade35c053b0ad336a4add228bea1aa4e2ca0352dcb0587cd5b53b7",
+      "kind": "template_pools",
+      "identifier": "minecraft:village/plains/terminators"
+    },
+    "template_pool/village/plains/town_centers.json": {
+      "sha256": "dc9c242fc87e888af069941133dd2022d405b526e7f1e1b9f942a5d3e87e5089",
+      "kind": "template_pools",
+      "identifier": "minecraft:village/plains/town_centers"
+    },
+    "template_pool/village/plains/trees.json": {
+      "sha256": "232c4791459eebac49f8db88bee9854af391fb40033dd9725b1ea9d68777a2bc",
+      "kind": "template_pools",
+      "identifier": "minecraft:village/plains/trees"
+    },
+    "template_pool/village/plains/villagers.json": {
+      "sha256": "90fbb220635cb45b852d29eaa419d5282c52c478181394ea3d0ff4028027d338",
+      "kind": "template_pools",
+      "identifier": "minecraft:village/plains/villagers"
+    },
+    "template_pool/village/plains/zombie/decor.json": {
+      "sha256": "1f7f5670296ad5632c1cd497904d3be3015ea58c1bcdcd512e855e05d31b3012",
+      "kind": "template_pools",
+      "identifier": "minecraft:village/plains/zombie/decor"
+    },
+    "template_pool/village/plains/zombie/houses.json": {
+      "sha256": "bd797a47f4666b0357c3a42e19d279c604afce1aa0bacfd7142382ee1d9d9aec",
+      "kind": "template_pools",
+      "identifier": "minecraft:village/plains/zombie/houses"
+    },
+    "template_pool/village/plains/zombie/streets.json": {
+      "sha256": "bffa546d03635b5a07394dff1f8485973344dc45c46bd3d2945d6069a83f0d30",
+      "kind": "template_pools",
+      "identifier": "minecraft:village/plains/zombie/streets"
+    },
+    "template_pool/village/plains/zombie/villagers.json": {
+      "sha256": "0c8dd077b96666bdfd3e18a6dbe93574ba6c205c4a32c6d79361164e61260da5",
+      "kind": "template_pools",
+      "identifier": "minecraft:village/plains/zombie/villagers"
+    },
+    "template_pool/village/savanna/decor.json": {
+      "sha256": "7a689e50c2244f32919f7ea12c7136e48285edf65b8957d33afc16cd2e299189",
+      "kind": "template_pools",
+      "identifier": "minecraft:village/savanna/decor"
+    },
+    "template_pool/village/savanna/houses.json": {
+      "sha256": "a2f26b1a6d587a98098b8d0e7399c07163c801dbd3a71317d5ad63412939b573",
+      "kind": "template_pools",
+      "identifier": "minecraft:village/savanna/houses"
+    },
+    "template_pool/village/savanna/streets.json": {
+      "sha256": "52d17196ee5283afffdd153784aa48806af3b044d01df13cb77595316fd99862",
+      "kind": "template_pools",
+      "identifier": "minecraft:village/savanna/streets"
+    },
+    "template_pool/village/savanna/terminators.json": {
+      "sha256": "39e611236e29a9a416d34a3b138d9044b4e16470f8e5c0430afbc94c881636ab",
+      "kind": "template_pools",
+      "identifier": "minecraft:village/savanna/terminators"
+    },
+    "template_pool/village/savanna/town_centers.json": {
+      "sha256": "2c41589cd48a17c9abe282ed2ca939b8e1947de89a66953707e34dc6057c9da7",
+      "kind": "template_pools",
+      "identifier": "minecraft:village/savanna/town_centers"
+    },
+    "template_pool/village/savanna/trees.json": {
+      "sha256": "7a2766f4b169402f41321ffc68ef522449bcd11fa0748a20455adddefe34a3e2",
+      "kind": "template_pools",
+      "identifier": "minecraft:village/savanna/trees"
+    },
+    "template_pool/village/savanna/villagers.json": {
+      "sha256": "96526d6b482f0921136f69ccf03fd3c00159ea19e82c9634a05dde10ea42f9f7",
+      "kind": "template_pools",
+      "identifier": "minecraft:village/savanna/villagers"
+    },
+    "template_pool/village/savanna/zombie/decor.json": {
+      "sha256": "afc85324a318084c0b1f6eebd6a2c99a66d84b273190e8c90b36c7b10d3fce38",
+      "kind": "template_pools",
+      "identifier": "minecraft:village/savanna/zombie/decor"
+    },
+    "template_pool/village/savanna/zombie/houses.json": {
+      "sha256": "cb18cf548f023ce767982005994539721a373fe41189c8da5af054f96fffc827",
+      "kind": "template_pools",
+      "identifier": "minecraft:village/savanna/zombie/houses"
+    },
+    "template_pool/village/savanna/zombie/streets.json": {
+      "sha256": "e68fa5058fba213343e2ea099dcf6bc995742b16faee9bd42553be788af8a87b",
+      "kind": "template_pools",
+      "identifier": "minecraft:village/savanna/zombie/streets"
+    },
+    "template_pool/village/savanna/zombie/terminators.json": {
+      "sha256": "e69d41cd9c6ebb0db9984da2c7173196e67ba0a35cff1d68fc70ebe1c7483425",
+      "kind": "template_pools",
+      "identifier": "minecraft:village/savanna/zombie/terminators"
+    },
+    "template_pool/village/savanna/zombie/villagers.json": {
+      "sha256": "acf384b9eb3a678d5b76bb5b8c37850c456e278ef5b1dd478f49aaa34768cff4",
+      "kind": "template_pools",
+      "identifier": "minecraft:village/savanna/zombie/villagers"
+    },
+    "template_pool/village/snowy/decor.json": {
+      "sha256": "06cebd19f3080d67d600645eb946830cbee4d9708c96e47117f6818b833519c8",
+      "kind": "template_pools",
+      "identifier": "minecraft:village/snowy/decor"
+    },
+    "template_pool/village/snowy/houses.json": {
+      "sha256": "a96ccbc0c618ae868ce4b2a344737c104417a809408c20643dc3baced5e7b63a",
+      "kind": "template_pools",
+      "identifier": "minecraft:village/snowy/houses"
+    },
+    "template_pool/village/snowy/streets.json": {
+      "sha256": "1a375c5a2002f6c3ef1484aaff6c461bb36e2956d58d1370e12764b566d0ad31",
+      "kind": "template_pools",
+      "identifier": "minecraft:village/snowy/streets"
+    },
+    "template_pool/village/snowy/terminators.json": {
+      "sha256": "cef1fa8e419180ee9dd75873eace534c7d22e53151f3f6dfe767eff5f96df62e",
+      "kind": "template_pools",
+      "identifier": "minecraft:village/snowy/terminators"
+    },
+    "template_pool/village/snowy/town_centers.json": {
+      "sha256": "554b0a640491f9837adc4e723f638ab0db95ff0c580875dc0c7f80fe171f7e76",
+      "kind": "template_pools",
+      "identifier": "minecraft:village/snowy/town_centers"
+    },
+    "template_pool/village/snowy/trees.json": {
+      "sha256": "bf19f22e5f88033c36d2c6c60866b3cd6b2ad2d276981c93fc2694e21ece6cd1",
+      "kind": "template_pools",
+      "identifier": "minecraft:village/snowy/trees"
+    },
+    "template_pool/village/snowy/villagers.json": {
+      "sha256": "5ecba767cc151d8b4c6efb350f587f5d15b5c42f9f44c26f80e14f2cde69243a",
+      "kind": "template_pools",
+      "identifier": "minecraft:village/snowy/villagers"
+    },
+    "template_pool/village/snowy/zombie/decor.json": {
+      "sha256": "e29cea176108956f9917780456bb5d4cd7512c6e8238c74f32cca4a8d3243725",
+      "kind": "template_pools",
+      "identifier": "minecraft:village/snowy/zombie/decor"
+    },
+    "template_pool/village/snowy/zombie/houses.json": {
+      "sha256": "624d292eb3d6bd0fb3eb6cc296a416fa5ab354690c3644800044c86cc1a8bc58",
+      "kind": "template_pools",
+      "identifier": "minecraft:village/snowy/zombie/houses"
+    },
+    "template_pool/village/snowy/zombie/streets.json": {
+      "sha256": "095e1cd21c06a58cd7cff42292a6b4d04ed450501af28a97502c794f05e8c1b3",
+      "kind": "template_pools",
+      "identifier": "minecraft:village/snowy/zombie/streets"
+    },
+    "template_pool/village/snowy/zombie/villagers.json": {
+      "sha256": "e4fda0ab622028360801ba56c41df0519a17a7889fbc7bc149776a54d3d7967c",
+      "kind": "template_pools",
+      "identifier": "minecraft:village/snowy/zombie/villagers"
+    },
+    "template_pool/village/taiga/decor.json": {
+      "sha256": "0ddc7325b788d6270d9789e835a8676a0e03c32582ddd412a41c5b609ef15a64",
+      "kind": "template_pools",
+      "identifier": "minecraft:village/taiga/decor"
+    },
+    "template_pool/village/taiga/houses.json": {
+      "sha256": "a5c8a201cb87de6869938639544bc516a1a1b67702dc1c822b857dc6bec1c86e",
+      "kind": "template_pools",
+      "identifier": "minecraft:village/taiga/houses"
+    },
+    "template_pool/village/taiga/streets.json": {
+      "sha256": "80139f6a4296f935996d965e009c71aaa8b8bf6a66bf819bfabcf4688edea0af",
+      "kind": "template_pools",
+      "identifier": "minecraft:village/taiga/streets"
+    },
+    "template_pool/village/taiga/terminators.json": {
+      "sha256": "cef1fa8e419180ee9dd75873eace534c7d22e53151f3f6dfe767eff5f96df62e",
+      "kind": "template_pools",
+      "identifier": "minecraft:village/taiga/terminators"
+    },
+    "template_pool/village/taiga/town_centers.json": {
+      "sha256": "7b96b0a3e3215e8014b3a1bde308369248729f9f5abaa495f55c7a7a2c6844fd",
+      "kind": "template_pools",
+      "identifier": "minecraft:village/taiga/town_centers"
+    },
+    "template_pool/village/taiga/villagers.json": {
+      "sha256": "1374bb1a2c2957fecd9bdd834136d153564d4789dc326a218845b55bbc7f4b32",
+      "kind": "template_pools",
+      "identifier": "minecraft:village/taiga/villagers"
+    },
+    "template_pool/village/taiga/zombie/decor.json": {
+      "sha256": "eba07ecbfc8d11ab32c11895d9b4b4e58f8cbcdd032aecfc18dd2fb0874e9b74",
+      "kind": "template_pools",
+      "identifier": "minecraft:village/taiga/zombie/decor"
+    },
+    "template_pool/village/taiga/zombie/houses.json": {
+      "sha256": "907998106403a7ef706c3a763a6f9f95e6e864e0e11602de0935884014298f16",
+      "kind": "template_pools",
+      "identifier": "minecraft:village/taiga/zombie/houses"
+    },
+    "template_pool/village/taiga/zombie/streets.json": {
+      "sha256": "2c5917f101a8fa13e700181d0c1114be12bc95b24faf83fa3f882db0da23d542",
+      "kind": "template_pools",
+      "identifier": "minecraft:village/taiga/zombie/streets"
+    },
+    "template_pool/village/taiga/zombie/villagers.json": {
+      "sha256": "7f7eb66daac74fc040d56c56edbee53c5a4f3410990e11e24783935e30c764f1",
+      "kind": "template_pools",
+      "identifier": "minecraft:village/taiga/zombie/villagers"
+    }
+  },
+  "structure_files": {
+    "ancient_city/city/entrance/entrance_connector.mcstructure": "52fab8a5845b637d654487d2b990b36c1219a7689ae71e2e2fcde3669934b5e5",
+    "ancient_city/city/entrance/entrance_path_1.mcstructure": "5e0e61d85496b8164ac13dfd8cde82df7a32b0f89a3eccf0a4c483d7a5660413",
+    "ancient_city/city/entrance/entrance_path_2.mcstructure": "a19b6fc0249b23472d59791bd2da33d7decf8c8d40bbf4fc7ebacc7824e6aff5",
+    "ancient_city/city/entrance/entrance_path_3.mcstructure": "27f86f7fe95462c342b3abfefdc5364642aa80cc1d58e4ecacfcf34816d5c386",
+    "ancient_city/city/entrance/entrance_path_4.mcstructure": "a975c213ce1239ab867c4b49cf532a3d7fe63acb6fe556d82f65133a4e6dd934",
+    "ancient_city/city/entrance/entrance_path_5.mcstructure": "38ff9bec45a24b000ff7e6f53d35e043b8e498bbc172acbd9d2e0af03492fee3",
+    "ancient_city/city_center/city_center_1.mcstructure": "3b81387008caf3c2d7bbc398f44eedb0043040b99011ad0b2a44000bfd1988ec",
+    "ancient_city/city_center/city_center_2.mcstructure": "9e78b351b24e40bea26e3a0e6f5ae4bb33aba1dfe6cbc5e7dcec3534c53a2232",
+    "ancient_city/city_center/city_center_3.mcstructure": "bf54f6b9cd84d3cc2f8fc80b2a65686cc72b82eaba676d9083a59391ea688166",
+    "ancient_city/city_center/walls/bottom_1.mcstructure": "abec13d5aaf804c8b318f937974ae1b2ed42481f8a024ad1542e6439534668c9",
+    "ancient_city/city_center/walls/bottom_2.mcstructure": "18f2e75a7daa85214e3d839059da2e3a67b716cce6b6c54b3ece3bc42de01593",
+    "ancient_city/city_center/walls/bottom_left_corner.mcstructure": "95897cda4d865b62aebd35e4aaf15b2c92d206f31dc8ec277a890013086dd28a",
+    "ancient_city/city_center/walls/bottom_right_corner.mcstructure": "ecad61d9193b04214eab49e2ab5c1672878d298bd8900f9fcb8248fd1b3a5e61",
+    "ancient_city/city_center/walls/bottom_right_corner_1.mcstructure": "4861f5630707783875e0a4ec0581247e54aed00674907ae98c684f53806cffaf",
+    "ancient_city/city_center/walls/bottom_right_corner_2.mcstructure": "1abae030e50ef4523ebf1588119492a1ded821caf58ca753fdabcccad2a59c45",
+    "ancient_city/city_center/walls/left.mcstructure": "99c5b0a714ab47eac4941e37c4d4c9cfb888d923de91877a76e3cce81b95e1f3",
+    "ancient_city/city_center/walls/right.mcstructure": "674e2cac692dea3d9cb8ac23311d69092eedb2dfd8d215f848b21de9ef20d7fc",
+    "ancient_city/city_center/walls/top.mcstructure": "e19bcbbcfb115a1bda84758e9ae9dc79556dffbeb13bdc3b27a10292b0afadf6",
+    "ancient_city/city_center/walls/top_left_corner.mcstructure": "2ddfbe090596664ee1eeec73f6753e4f3ea668028b85cd9eaf49f4b2bea61090",
+    "ancient_city/city_center/walls/top_right_corner.mcstructure": "2dfa3482dc9cfcce865668c90d5032a88a678dc56a788f2f8669e4c251b4a90b",
+    "ancient_city/structures/barracks.mcstructure": "b5d82d5f04c08a449161cb3e19ac3743a158207b3358782a9a5a7e27a7d14f90",
+    "ancient_city/structures/camp_1.mcstructure": "3fdc05c834056d7f3f953249757e1c046e076930c1b9647033d8264d3a9f6c23",
+    "ancient_city/structures/camp_2.mcstructure": "3aa68bbeade86c6e0bcdaa585f09ae8a957090c7628e1c2b2bb7363f4b6fb8c9",
+    "ancient_city/structures/camp_3.mcstructure": "70ba05f992ed5f493c703fa29b26a17ac2b9fbbbf1c9b9427dd06dce6dde3c62",
+    "ancient_city/structures/chamber_1.mcstructure": "f093af598160d2324ee4159114cb6259db1a38157446946533c56ec51e6ca91e",
+    "ancient_city/structures/chamber_2.mcstructure": "cd961d5f9875ee9223c3549d2fdc0f811cdb74b10343df27e8a55691f0c294b6",
+    "ancient_city/structures/chamber_3.mcstructure": "4235395caa849fd04f08c8a813088e2225dc07dfb79e4bd2681f751a3dbfbaef",
+    "ancient_city/structures/ice_box_1.mcstructure": "80275c7858e706991b77dcf9b4bb5c9b67335274365d2e3800a91433a27497cc",
+    "ancient_city/structures/large_pillar_1.mcstructure": "01e4714d09d532607f6bf175f93d4c618ec27d9e9a2cc267de5da4f369946765",
+    "ancient_city/structures/large_ruin_1.mcstructure": "c48109a8c8e2f28a030a599940cbcc7e88023643854115aa38e77338150cb2b8",
+    "ancient_city/structures/medium_pillar_1.mcstructure": "c3545e8f0d479bdb4090fab4dd77f3cacd26f9934ad61d5e93bb9e2b9a0134ca",
+    "ancient_city/structures/medium_ruin_1.mcstructure": "99f3a2c5cce4c9656c5d63c1f52f5a2b17396c4962730e88f4d236e02fef3981",
+    "ancient_city/structures/medium_ruin_2.mcstructure": "7643752a9d3dbb6fe503d229a35ae1341d65f2dfcf5436dc78ea74938bf4240e",
+    "ancient_city/structures/sauna_1.mcstructure": "b45915361b76eb9141b82d209d06426b78854316d85eb0ebea18065332462d48",
+    "ancient_city/structures/small_ruin_1.mcstructure": "21530d2f3dd1b1c69e694f5f75b17be6607913137a71370a7ff477cd8c69835a",
+    "ancient_city/structures/small_ruin_2.mcstructure": "6d6f40c228aff0d535c1bad94e037835fc859634c5cfca1d1f0b310a24f38be7",
+    "ancient_city/structures/small_statue.mcstructure": "8e59e47338c845e91975743a8560d8f336a15078fecf802b46073bd9f14a8e24",
+    "ancient_city/structures/tall_ruin_1.mcstructure": "063146fc74ea7d6bd49aaf45ff5a03194ad702dbae2cf63ea0b8058de21a74a8",
+    "ancient_city/structures/tall_ruin_2.mcstructure": "ac32e42109d9769d1519b20aaf7680ca97248053350e2a622b01f716773b8c08",
+    "ancient_city/structures/tall_ruin_3.mcstructure": "1a426d299f8d0c6ba052d4529ef011747e876f83c966b1e42ed67fc67abf4cc8",
+    "ancient_city/structures/tall_ruin_4.mcstructure": "21c72048cf45e6f1272e2209bcfe7b1a20c5ccaf300d81e469601b7a61ccaadc",
+    "ancient_city/walls/intact_corner_wall_1.mcstructure": "6c6448cf8fec0f8fea62dec13e867ef018b1191f1481cd8684efbaf1c8b93f74",
+    "ancient_city/walls/intact_horizontal_wall_1.mcstructure": "81e1dcda55a1959dbcde83f53fa9a33bf992b3dd14b218e263ca9dc3e0f61b2e",
+    "ancient_city/walls/intact_horizontal_wall_2.mcstructure": "5549a1606fd55a1466a9ce2daaa6156893312c76ca1d54c847ebe8997c1910ec",
+    "ancient_city/walls/intact_horizontal_wall_bridge.mcstructure": "01a7269d379a876516eddab1164961d084813751f5b6161bbc3dc7e4d8aac36f",
+    "ancient_city/walls/intact_horizontal_wall_passage_1.mcstructure": "f9590c5154d7c44d7a30b2208177d1104160dcb60030f27f3c7cca7921bc4225",
+    "ancient_city/walls/intact_horizontal_wall_stairs_1.mcstructure": "8515e037497fcec77512425391a6b6b73e3f935bc85cd324c79e74de837cb7ed",
+    "ancient_city/walls/intact_horizontal_wall_stairs_2.mcstructure": "2d40c1d6dc3e02ce6658cd2f4e43f1a4031c6fa98ae643601492392f07d492c1",
+    "ancient_city/walls/intact_horizontal_wall_stairs_3.mcstructure": "84813ead6d2987368db98d24d223e2a0d53097bd26b2f63c3a7726cdce6a4454",
+    "ancient_city/walls/intact_horizontal_wall_stairs_4.mcstructure": "731718973f9c80de1e51ca26159f5f91e4f6cd77817e98d5a749e0663c83a8a6",
+    "ancient_city/walls/intact_intersection_wall_1.mcstructure": "0b1357e8701a93481f159206f1aec9a8839e9b7920861f205111846e3f849e41",
+    "ancient_city/walls/intact_lshape_wall_1.mcstructure": "cf21a3e9718f6b02d90704facead284d64b09da91f5947dc7a7818056aeb8530",
+    "ancient_city/walls/ruined_corner_wall_1.mcstructure": "1bece4137676a34fc66a7783d1c9ad7b27a5147b35062f7f5efa354707cf1d94",
+    "ancient_city/walls/ruined_corner_wall_2.mcstructure": "9c4d427a26421bb99128a7637ed03fff020af5d1c50545f04da308113da97f7e",
+    "ancient_city/walls/ruined_horizontal_wall_stairs_1.mcstructure": "927d284e3cd7e380019214b73e801e5b57b43ff8deb8ecf9984ba6cfb3186a03",
+    "ancient_city/walls/ruined_horizontal_wall_stairs_2.mcstructure": "3220f33a782752bd167339d09e2be8fd90ece8ebddf275779686fa214f5e659f",
+    "ancient_city/walls/ruined_horizontal_wall_stairs_3.mcstructure": "5b53128ef33f6c7778e55312bf5ec21f2123691e350e4d12bb6878c804b6db66",
+    "ancient_city/walls/ruined_horizontal_wall_stairs_4.mcstructure": "b05091e6d43fce5e3202be8e57caae376681d6c0d5f3c80b7be60bc49eb95344",
+    "bastion/blocks/air.mcstructure": "16f083847ed5b161d45a2ba2e3cc04b2ee60fe4e0a7aede8690a2a255d869287",
+    "bastion/blocks/gold.mcstructure": "69cdca24515f1aa68ecc63cff20ec720a00163938500da1fafbdd35e4b60f67b",
+    "bastion/bridge/bridge_pieces/bridge.mcstructure": "21ddc771ae8271a43f0f2ebd3192c4ef43de1b6e819946955e38a94140a474a2",
+    "bastion/bridge/connectors/back_bridge_bottom.mcstructure": "3694ee24c8675c6047b6cec66a80a71e950af8be66ca1c7d854218ea4e37d59e",
+    "bastion/bridge/connectors/back_bridge_top.mcstructure": "23e9852a9ed0dbb9109a46bd2972d981999f09f377187e5cb366f78b48de25cb",
+    "bastion/bridge/legs/leg_0.mcstructure": "61cb3c435bd893c0b4fc039622d0f865b2faa65e0c393b3a3b7a24ce620d5d25",
+    "bastion/bridge/legs/leg_1.mcstructure": "10519e6ae0c5d211e18e5a1cacbf828187355986b9602929c4f0b5cf71e5c930",
+    "bastion/bridge/rampart_plates/plate_0.mcstructure": "f44c5c01f10913aa138a2af3189461939f8dc94d3d2af3e41779cc8c28bdd228",
+    "bastion/bridge/ramparts/rampart_0.mcstructure": "e025dfb1bc1a10ff127cfcd2638ee579dad38c1f9b1061fc65c5f9daf5e8fcfc",
+    "bastion/bridge/ramparts/rampart_1.mcstructure": "71e0ade5ede55f034134e1e3080b41094a1231fdfc7eed73cbbf9e0d504dca29",
+    "bastion/bridge/starting_pieces/entrance.mcstructure": "4dcbfd4f77ab4b5d544eff0bedb32a1ff1000a452f6a868a3e55a239355bd2f0",
+    "bastion/bridge/starting_pieces/entrance_base.mcstructure": "a4c846518afa70337b446bb6410b3e5bacb4f907a854289cf660e38f73ad39ea",
+    "bastion/bridge/starting_pieces/entrance_face.mcstructure": "a6f82294abef778eb4c416f65cf9a5894d1542260118a0de094ae481f0c46100",
+    "bastion/bridge/walls/wall_base_0.mcstructure": "8edb59152997c57300a6302fdd507708d2f9052576d354075d25590de1da98ac",
+    "bastion/bridge/walls/wall_base_1.mcstructure": "ccb77be93e5c2e5d179e4c154860cf92ee495e403bf255e7d88c6a9ea3900590",
+    "bastion/hoglin_stable/air_base.mcstructure": "9f0aa1361cb25fcdf39a24f6019507b5e655791381c5df2045e4c6f871f685ac",
+    "bastion/hoglin_stable/connectors/end_post_connector.mcstructure": "a3c794b9e345361c774d0039a20598596c0699391c0a970577cb9364541e2556",
+    "bastion/hoglin_stable/large_stables/inner_0.mcstructure": "59f8a46e771db1ca0eaf101020fe87c133e1ce1a42fcc2ef71e9e52f2f22bc21",
+    "bastion/hoglin_stable/large_stables/inner_1.mcstructure": "5511cfeb858bc9eba0c37264f5fa8395b9d46e0d59ffc3e4657f3eb3eb6db7c5",
+    "bastion/hoglin_stable/large_stables/inner_2.mcstructure": "4f1e92bc84da8c91562634b2e1c7793971bdd10fb42cee14b768929a2407993c",
+    "bastion/hoglin_stable/large_stables/inner_3.mcstructure": "ba8fff0ffc0acf7b3335c602a35d0cd2913b2d159739bc86becb89491495c693",
+    "bastion/hoglin_stable/large_stables/inner_4.mcstructure": "b31507bfc9f1a18ff12094432cba5e108b4890d43e9a8191f17372d9fd558438",
+    "bastion/hoglin_stable/large_stables/outer_0.mcstructure": "a54f3054476741f0890585b2644653cb374dfa9053d77b2d13dceca3b2736ac6",
+    "bastion/hoglin_stable/large_stables/outer_1.mcstructure": "66681a7486e8c1604d6b8e21236214f1a9ce32a5fc6e1718ac4894ebc42dac69",
+    "bastion/hoglin_stable/large_stables/outer_2.mcstructure": "12e3ce5ef01d27be58c2808e037dd2ddbe06c8f0d4f548122dc3912945310b65",
+    "bastion/hoglin_stable/large_stables/outer_3.mcstructure": "b2a2699603d50e235636041373d650060c090c69c2c320b6dc6ebca7053d9332",
+    "bastion/hoglin_stable/large_stables/outer_4.mcstructure": "2d2454edc2f0a9a655406637521e4afed806395c3f1c8be399d54d2dbe56c6ed",
+    "bastion/hoglin_stable/posts/end_post.mcstructure": "7f4a427313ab13f58e19ac792f69d8dd6cc028a17421e64b98e7d1c090586b84",
+    "bastion/hoglin_stable/posts/stair_post.mcstructure": "19b5bf847307e0655c4c938d72020c87219eb4e603e41cdcdf90eb4cef00904e",
+    "bastion/hoglin_stable/rampart_plates/rampart_plate_1.mcstructure": "c90b543178c68218f8333e5f6b0e8a127686ff59c3eff3abda5ea950e4a9de27",
+    "bastion/hoglin_stable/ramparts/ramparts_1.mcstructure": "0388a57eab30f36a13fc078c847ffb80cf552f79bc1713a9c20adba81421eae9",
+    "bastion/hoglin_stable/ramparts/ramparts_2.mcstructure": "53c2f87185bb2edc7decdb9ea0aec2fd5419ab181f3e8418c73ba6eee4bc8040",
+    "bastion/hoglin_stable/ramparts/ramparts_3.mcstructure": "cd197f2fbea987d88d9a0f4ca8002d0597e654b252919c5f24876dfcbaace716",
+    "bastion/hoglin_stable/small_stables/inner_0.mcstructure": "94028958b77d1473546a0f4bb122d252665f506017e0dd0d1554e4140d8490ee",
+    "bastion/hoglin_stable/small_stables/inner_1.mcstructure": "e1ed89b0ab54c7b69b6c914ea1f550f949517ccd833374b0b1e28b3255116b3d",
+    "bastion/hoglin_stable/small_stables/inner_2.mcstructure": "8f16154b6b99fbd5bb88e855db3c17789870c30ab74087fdd5de5d9c95bc248c",
+    "bastion/hoglin_stable/small_stables/inner_3.mcstructure": "c27f38bd92b3b5a2b7f079614dd8d400a3d668454e9bf3ac870cbe152d71adfa",
+    "bastion/hoglin_stable/small_stables/outer_0.mcstructure": "5772396aff105e71d11c3297c448f29083b8f6530f0913a0522800bb196b8ca4",
+    "bastion/hoglin_stable/small_stables/outer_1.mcstructure": "79810f894db46ff722f7a1a4cc20e2e5151df4aa46381cc73b1fe2b355b8691e",
+    "bastion/hoglin_stable/small_stables/outer_2.mcstructure": "f067f15588dd94abea50c5d55d0a65c2be6bdde65f3117a83357b14b8e701a6f",
+    "bastion/hoglin_stable/small_stables/outer_3.mcstructure": "79cb31f574e9a962998a6c67d724a4e54524f913bfa45ed424e0121e6885d4c3",
+    "bastion/hoglin_stable/stairs/stairs_1_0.mcstructure": "ed65b6d82d97ab8e31d8df07dd57da69849aabb6865316be0f9ca6476f7bde7a",
+    "bastion/hoglin_stable/stairs/stairs_1_1.mcstructure": "c8f1151a33b855e68e8e378756929703f8597544582e0c0f2018febccb7a3939",
+    "bastion/hoglin_stable/stairs/stairs_1_2.mcstructure": "c39fcb402e87a9873217f77e9f12036b2a95cf3e931dd25ae363136c0abb6a10",
+    "bastion/hoglin_stable/stairs/stairs_1_3.mcstructure": "cc3facf43ef525deff39d99bcad427c79a72de1a3fdc4aa16732cf001b1a9744",
+    "bastion/hoglin_stable/stairs/stairs_1_4.mcstructure": "8c2775da39cd9117d2e18a45c2948a6854726ee1a5286646bc6e6f57b0e3ab52",
+    "bastion/hoglin_stable/stairs/stairs_2_0.mcstructure": "f5ca7330b993a1d2106bc6c60fc5d125423de034c58aff5512d0ebcbeb5bc688",
+    "bastion/hoglin_stable/stairs/stairs_2_1.mcstructure": "7a78fbdd6215e743ca343b923a9dd729125ba2c3b936f4ef61d953e6ebdc6f32",
+    "bastion/hoglin_stable/stairs/stairs_2_2.mcstructure": "ae32d4d160e4d51ee40459d690ba47a1481a16fe5c4eba97f12f6383262aae2e",
+    "bastion/hoglin_stable/stairs/stairs_2_3.mcstructure": "5497f5b2c267dd437ba45464b7cd0ba1ee8ba954b6a2548a0432cd51d728457c",
+    "bastion/hoglin_stable/stairs/stairs_2_4.mcstructure": "eb1b90b051d11acf2b9a63a0522698be6ea828ab3fcb2af0f32e7210b39b1df1",
+    "bastion/hoglin_stable/stairs/stairs_3_0.mcstructure": "e3476d8732eceb984573fe4d5b0e3feed448e9a6713fdce977d0a4ae3e465c97",
+    "bastion/hoglin_stable/stairs/stairs_3_1.mcstructure": "97b40623b5bf1f50d2b047faa5e298958c8fb4f12e749576144e31f786fa7353",
+    "bastion/hoglin_stable/stairs/stairs_3_2.mcstructure": "5cce4b64dfa6283adfb0a3a6c9022c00e054b51d78620aaee418b53e18f2e7eb",
+    "bastion/hoglin_stable/stairs/stairs_3_3.mcstructure": "c842461dce9ea151694c1b93326c7a5bca96e152599f7da952a4360fdcb6a171",
+    "bastion/hoglin_stable/stairs/stairs_3_4.mcstructure": "796aa07184d0f4336dc9f71e6b4e8ffcf9829ded9b307a218b11a44c6fa7f7a8",
+    "bastion/hoglin_stable/starting_pieces/stairs_0_mirrored.mcstructure": "958972e99d25335d8092d5fcd8b8cb215b850b2236599440045ac815510ecbe2",
+    "bastion/hoglin_stable/starting_pieces/stairs_1_mirrored.mcstructure": "1ce777abfc33fadf60fd412f5b06c64757262eafef5d27c7eb316bfb72a0704e",
+    "bastion/hoglin_stable/starting_pieces/stairs_2_mirrored.mcstructure": "75aaaafa61a7632abf3e3c2e770d187aef1684dc11d8333c8f1449dd3910a984",
+    "bastion/hoglin_stable/starting_pieces/stairs_3_mirrored.mcstructure": "766acab876b607d91cac8f93a2dc5abafd0fcb48a04d72f88440b425eb27aaa2",
+    "bastion/hoglin_stable/starting_pieces/stairs_4_mirrored.mcstructure": "62902da881cf4372fada1b52ed17dba42f68d4e296cf1fdfa12599910b185f9c",
+    "bastion/hoglin_stable/starting_pieces/starting_stairs_0.mcstructure": "bce6076dc6571b77427d959628cf882d03957ee4d5e565828d055ccd3add6f56",
+    "bastion/hoglin_stable/starting_pieces/starting_stairs_1.mcstructure": "dbdf2544bfb1a279ba6cb3c30ce2f4025c6e9d056601bc090090dc3830d7fe77",
+    "bastion/hoglin_stable/starting_pieces/starting_stairs_2.mcstructure": "2870dd4f1471fd7793e97edaa77c58dd007c20fca45ac180d72129cdcd5bc5f9",
+    "bastion/hoglin_stable/starting_pieces/starting_stairs_3.mcstructure": "3667ed0107fead55770bf730e1675e882a574bffeb84332dce231b8d58b66df5",
+    "bastion/hoglin_stable/starting_pieces/starting_stairs_4.mcstructure": "0be8b85d9578c709e6ad6cd2db49bf95cd883fcda36bd315e977654e68cceef9",
+    "bastion/hoglin_stable/walls/side_wall_0.mcstructure": "5688202583172a43e8aee9091aa1ef02ab4dfb2d81f0cd4049fba02578d21e1f",
+    "bastion/hoglin_stable/walls/side_wall_1.mcstructure": "a304c388a27166154dea015cbdab3fa6a60bf8ded6fbfdc97b63604e782d5fc7",
+    "bastion/hoglin_stable/walls/wall_base.mcstructure": "a427beeea4fde8498425d0824c1c7dcaaa59c261fc7bf21f97a17078ed74a177",
+    "bastion/mobs/crossbow_piglin.mcstructure": "f769ab6e7c1b9c7d95c4ead0bfdba86050fc14e344cbd06617a51c45273f8268",
+    "bastion/mobs/empty.mcstructure": "0840cb1ed3384615099c3ccf06cbb0797cfe6cf7a88eb8fc6b39bce344c10f5f",
+    "bastion/mobs/hoglin.mcstructure": "8c68cb41b9b36c366386d33413deb2b3bcd8676d79dc7e037128d1f1187ea77a",
+    "bastion/mobs/melee_piglin.mcstructure": "141c4fc9db29ca3637c220fafd4ba0f8a986faa6587a20a9285d76843e3dba93",
+    "bastion/mobs/melee_piglin_always.mcstructure": "f66e551579ef279663a53c1e92340e578841e5f57467fc2fbc39fad9089fc529",
+    "bastion/mobs/sword_piglin.mcstructure": "141c4fc9db29ca3637c220fafd4ba0f8a986faa6587a20a9285d76843e3dba93",
+    "bastion/treasure/bases/centers/center_0.mcstructure": "3a8a6b7a8d3d13f0fdad80416335fb587f75093460681b3a59d6a6f0203ab4d5",
+    "bastion/treasure/bases/centers/center_1.mcstructure": "1636e23bd26e591d684b485754d9fe6b47e64beb2cd1244e996f6a865c590e25",
+    "bastion/treasure/bases/centers/center_2.mcstructure": "ead776791b969039995c6caa2e3a80e5e6aedc554c7c08c5dfbded1c129ec506",
+    "bastion/treasure/bases/centers/center_3.mcstructure": "0924d9260c1d6ea3b843e625801aadd4031a14f48be8c38f28393adb886847f0",
+    "bastion/treasure/bases/lava_basin.mcstructure": "6a34f022532687b4d608efdf93ad93435fa2a530e8ba93cc21b9506e46084496",
+    "bastion/treasure/big_air_full.mcstructure": "d609bc94abf7046b395d5e62a9d9082a4277b206a123b0d63f88f42e8fec9135",
+    "bastion/treasure/brains/center_brain.mcstructure": "c5c0556e407730b6b78db08ff1eddb2393ee16d5d66e0c3cb9180f3e6dbbd492",
+    "bastion/treasure/connectors/center_to_wall_middle.mcstructure": "1a69c5dca101efe4b00bd8684510c30e9cdef5f42a9f9273fe92fa53bc45b085",
+    "bastion/treasure/connectors/center_to_wall_top.mcstructure": "524c7b87d2ba4598753578dcab4bc15b4e5f07188d4112e6bf2522e7222a3968",
+    "bastion/treasure/connectors/center_to_wall_top_entrance.mcstructure": "844ad88bce619226d513c4a916969c644471eff6fe92e7053f5d43e52c334e98",
+    "bastion/treasure/corners/bottom/corner_0.mcstructure": "d91e497ce5c9ced004affa3928653d5807935cde0b38ac7a57c03e9aefaea224",
+    "bastion/treasure/corners/bottom/corner_1.mcstructure": "3ef453bfc4635989ceccef5ec50b746cc607e13e54903ce17d8fba4745499c10",
+    "bastion/treasure/corners/edges/bottom.mcstructure": "951922a505bcae0f4e1cb8a1e7a4136d998908552e23d1f76cc4ab646e308cda",
+    "bastion/treasure/corners/edges/middle.mcstructure": "eea6e605d2c14fd42e593582aa7c49e2b7c2f827a99d413808373a3ef31be6cb",
+    "bastion/treasure/corners/edges/top.mcstructure": "28ff513268523c5814cd8e69509f12f345c04fd6030a7aecb20822e4f89f0cfc",
+    "bastion/treasure/corners/middle/corner_0.mcstructure": "146293354d69991d9ba3f509cbbc02eeb188780dc1c8304688d7bae00809312f",
+    "bastion/treasure/corners/middle/corner_1.mcstructure": "a0dfbe4923591e2c77d1ce0886f2ab341a6843c5bb6c83a7b5be68997e283081",
+    "bastion/treasure/corners/top/corner_0.mcstructure": "916545cf23488da4dc1f5853172577c4a4cd9b7a70d9440d1c8d0ce8b5d4f442",
+    "bastion/treasure/corners/top/corner_1.mcstructure": "c935315e5670fd9ae55710832e123658109ac2f6d837f3bd58e01fda4ce65470",
+    "bastion/treasure/entrances/entrance_0.mcstructure": "a538732bf556b86379bfd4c290c1e83e969b6d20481ba21e6f16b2a9c37ef926",
+    "bastion/treasure/extensions/empty.mcstructure": "fed539e7c82cd076c9e878a332e3d7dbb6d7ba14f293907b49ab3350afc61c8c",
+    "bastion/treasure/extensions/fire_room.mcstructure": "fe6b0e6a3780dfbfa6c44ab41739973dd710607e0080029491427db2b7936e05",
+    "bastion/treasure/extensions/house_0.mcstructure": "bff127c909bb8ec2ce95ef84d5e23df57b3b44e246eec25b995256081c6d95d9",
+    "bastion/treasure/extensions/house_1.mcstructure": "8a7270ab7fe42eaa2ac7b9e6e172f25798d9c9fd2081578ea87550cc1ce589ca",
+    "bastion/treasure/extensions/large_bridge_0.mcstructure": "d6b514a5f5b61c0934420acbd1bb0c3c647acc5023937c932e0ac6584d409535",
+    "bastion/treasure/extensions/large_bridge_1.mcstructure": "bdbb0c3b153a9e5dceb899eceaff8f2a78d18f41746be13ebbc1da852d93e77b",
+    "bastion/treasure/extensions/large_bridge_2.mcstructure": "0cdc9e63e821c9644fa1b84bec3f39f2db683327692752a7deb12ae6523b5897",
+    "bastion/treasure/extensions/large_bridge_3.mcstructure": "fc7adbae3b4f664070cc7187b75f94f94a96f4547e1ec92ebfecf4fbf7f1964f",
+    "bastion/treasure/extensions/roofed_bridge.mcstructure": "9e8e00d80e980f62e672e6fe03f8aaaa91e0510a1deb9cda39ed0a70fc5995c5",
+    "bastion/treasure/extensions/small_bridge_0.mcstructure": "7fb14cd7ba495b8e918d4d2f4e9dde0574d9ac120ae1adf98fbf964a8b4b9a03",
+    "bastion/treasure/extensions/small_bridge_1.mcstructure": "4f7057b260b940b0170017f3b4901ca13fda85d3b3ee134bb6686257f364ed34",
+    "bastion/treasure/extensions/small_bridge_2.mcstructure": "8e5c1f6cedd82419639abf28387ffb0d31b4d97f77ad66eee1842c63d6adc9db",
+    "bastion/treasure/extensions/small_bridge_3.mcstructure": "fb1a0d5db9716968be9cb99af70a71fb0d526192ed4903950382ace49d2369b8",
+    "bastion/treasure/ramparts/bottom_wall_0.mcstructure": "c63f8c7851397cc3570c9a7a639e14b20e52d373b6bc8e4073d164d02601cfbd",
+    "bastion/treasure/ramparts/lava_basin_main.mcstructure": "52741981fb6b7582a1f985a177174216d26c28ce46a485253e7f3d6638d072a0",
+    "bastion/treasure/ramparts/lava_basin_side.mcstructure": "2384eb6e8ca9f8613fd83745ff9e989e33d1dddfa064b5c997b314824f74b5cc",
+    "bastion/treasure/ramparts/mid_wall_main.mcstructure": "1df1f3e00a488939a2686c620d58b2e6b0d38d0dd012b3997cee926782c0ca09",
+    "bastion/treasure/ramparts/mid_wall_side.mcstructure": "ed23d31a2f7a1db47abdf21e5102b7f5711fea6f86728d257199795351f08347",
+    "bastion/treasure/ramparts/top_wall.mcstructure": "ed4e31af973ed363ae1b0c05c0fe704029b6812eccedee37646d7d85b90b8231",
+    "bastion/treasure/roofs/center_roof.mcstructure": "a0c1140c5737f03cc317e0d6eb79259dd3c918d04964c5968123dd1c5492caf1",
+    "bastion/treasure/roofs/corner_roof.mcstructure": "fbb40eba7a1c9b4ceb58c1d72da3b92646a59028edb1013c0eb4825b7205eca7",
+    "bastion/treasure/roofs/wall_roof.mcstructure": "eb3cedc4649b3c4b5e065a9c0a73dd62569f42368f457d824f75af6b78db0472",
+    "bastion/treasure/stairs/lower_stairs.mcstructure": "11df905febdc840a5fed4f994863f97d74edf1c21d4713c214c1e5f4afad5747",
+    "bastion/treasure/walls/bottom/wall_0.mcstructure": "6e2148d7cce06a543bfbb6e2ff252e1fee763eb6a29f27d279b8210f3ddbc10c",
+    "bastion/treasure/walls/bottom/wall_1.mcstructure": "5dc50a8d7f0ea5b9b830a450ea6730e89f07dfd456f974bb48af1ac35d6ab916",
+    "bastion/treasure/walls/bottom/wall_2.mcstructure": "bd49260d4a2297b6b6e153f13e721d1296488b66bf820fb909d3e9e36973617c",
+    "bastion/treasure/walls/bottom/wall_3.mcstructure": "22c4704e6538de58b940cbe43189ed8b3e579cf41a700ffe7ca45f2716f325ee",
+    "bastion/treasure/walls/entrance_wall.mcstructure": "d6f69af81fa45e6b15fb83d92baeafd8fd9ec09a5cefb2e6871800851ec26a21",
+    "bastion/treasure/walls/lava_wall.mcstructure": "b2569dc770d9615b4d0f09449b8ba9598e56ae44fcae01f83a844d0760e40464",
+    "bastion/treasure/walls/mid/wall_0.mcstructure": "200ea1ececc477460f8219adb2a4c890a0b199373b00df568d0311276ae2da0d",
+    "bastion/treasure/walls/mid/wall_1.mcstructure": "94f460ccb5ca39c8d30a2a99755ea255e67cdfa31e85f51c51ffa40f8377b649",
+    "bastion/treasure/walls/mid/wall_2.mcstructure": "5740e95efdb0ff2f02107298b1990994a3227e3899d5927c108579e74795229f",
+    "bastion/treasure/walls/outer/bottom_corner.mcstructure": "4924805ae21113d981fe0e1c3f8a949ceecac78eadfa6c2d3029684ea91c8310",
+    "bastion/treasure/walls/outer/medium_outer_wall.mcstructure": "a4d298ebd4810485dcd1b545b06ef48b46c4374515f1e06aff25918576771793",
+    "bastion/treasure/walls/outer/mid_corner.mcstructure": "48b5732c48e13d215191bcb222164747267af5df84411ed7547151916b0c1fc4",
+    "bastion/treasure/walls/outer/outer_wall.mcstructure": "73fb3b9c0c34139833a38d9b0b11e9ab6b87952054edd5fb49beedb8101e1350",
+    "bastion/treasure/walls/outer/tall_outer_wall.mcstructure": "eb2e288819a27d8930699b8d4de2bf6048e97006aa234b950ad31882942a7a2d",
+    "bastion/treasure/walls/outer/top_corner.mcstructure": "6f195770c24e3d09e21e86c4f561596de45259516339643bc772d54d4d2cfd45",
+    "bastion/treasure/walls/top/main_entrance.mcstructure": "92a979b807dd4c70ebc42f13271c41b2b6c2ae5192645a9a019ba922ed9d8b07",
+    "bastion/treasure/walls/top/wall_0.mcstructure": "6a50a1cecd68021dfc49f4b294cc449b58847c0ebe2e3d7e33990e8f8c0a7e32",
+    "bastion/treasure/walls/top/wall_1.mcstructure": "107e4d86eb029811c291fa3b145dac015a13d9ef3eaae0e518f29ef149ae0e5d",
+    "bastion/units/air_base.mcstructure": "d831236fa7351d1c732c5a06855adf7a9d04f8604409140c5bb47426a56e6f92",
+    "bastion/units/center_pieces/center_0.mcstructure": "352044d555c185540d506e194c1e30b8ff060e0987d352bd7228ae61ab94e86d",
+    "bastion/units/center_pieces/center_1.mcstructure": "a6ee2f5b41030ee07b97134128f451427eaf3f860790f20af47246b5033e178d",
+    "bastion/units/center_pieces/center_2.mcstructure": "549c64c41378cce4a7d52670c95e8908cccee4ed0e2f3d175d7734a407b1168c",
+    "bastion/units/edges/edge_0.mcstructure": "30de77b9835082f48ce2699ff1c70f24c4f76e0e40cc105e160b6f3469d87a2b",
+    "bastion/units/fillers/stage_0.mcstructure": "2252ba309f5ed86e8758b3733d492b9880f9908a54ae22e7627f40a98d693b45",
+    "bastion/units/pathways/pathway_0.mcstructure": "1425369a6a5e9c20b625caf5e397ed80c2dc5865b5c3e542dfbcc423a314cb32",
+    "bastion/units/pathways/pathway_wall_0.mcstructure": "3a20c7ef58711f39a8c7778048f0daa57ef7859bf60da400f2f5b481b060c1eb",
+    "bastion/units/rampart_plates/plate_0.mcstructure": "f21273943514fa1eaf465abbed3f5bf52772150103be7653f14e8e25b0e84207",
+    "bastion/units/ramparts/ramparts_0.mcstructure": "ff52015ce951d8abb3df45a3a51a5111db7059268605566c16ff501b220b556c",
+    "bastion/units/ramparts/ramparts_1.mcstructure": "746d2aa7f18eb455e6cad2b3f0efdcb7153130440d9db6debd3a7e52184cc15e",
+    "bastion/units/ramparts/ramparts_2.mcstructure": "00a9c0b929bb61ed73079574b8122cc86c99d7980dc2c320f08a76c433e7ddee",
+    "bastion/units/stages/rot/stage_1_0.mcstructure": "354c69adcdfdb140975b53098c9d0d3325087eb49b212ba089e3e2b21019eaf8",
+    "bastion/units/stages/stage_0_0.mcstructure": "cdd9f37d0cffa23ff48337989e6d21e7209d55924984b3fdab77a66d1ca9f982",
+    "bastion/units/stages/stage_0_1.mcstructure": "4efa863dfc4b2d236a697d0ae129981185c09225233f33f366b40b87edade63a",
+    "bastion/units/stages/stage_0_2.mcstructure": "14bb8d90241d6e18b91949c8dba25092058e5734c70d0180cf755ffa9d72c30b",
+    "bastion/units/stages/stage_0_3.mcstructure": "6ef94a04619d974494fe7f0b9b605a2f111cd274f95eea629f24f52e38b7f828",
+    "bastion/units/stages/stage_1_0.mcstructure": "5259adb18511b59226068ab4df87fd2eb504c6b524482e76b32944135cf7661c",
+    "bastion/units/stages/stage_1_1.mcstructure": "50afcf28241fd848f27bd49d104779596051012894cb1a326d6cc34d1b4562a9",
+    "bastion/units/stages/stage_1_2.mcstructure": "f84d5599158de57a73ae9783d07b3f31c55f9cdbdee61fcfa49a35f3aa193d82",
+    "bastion/units/stages/stage_1_3.mcstructure": "55331b3a952d37dfb40a65919895834e39d8fe2a9c516eaea08e0aa509afd8ee",
+    "bastion/units/stages/stage_2_0.mcstructure": "77b61a4f8dc89768e616fd3e5487325fa973d778b3769d031dd60ead4f85f8ff",
+    "bastion/units/stages/stage_2_1.mcstructure": "577451277c9f5b77ae6135e5902bb26377e2a5d08f401c6501b6bd233d8e309d",
+    "bastion/units/stages/stage_3_0.mcstructure": "6f4ea6453ac86744568689f9c6027bed295190f787572aede35109a6e07f2eff",
+    "bastion/units/stages/stage_3_1.mcstructure": "898b6f1efc41e6f4c2b02e6c0665cf5c0eb2fb5a288219fa7cab4e4b08051560",
+    "bastion/units/stages/stage_3_2.mcstructure": "0114011e7fbf5f2b2b64b3c6aa7117092dbcf53e22c3135d29a4b15fc6b02f02",
+    "bastion/units/stages/stage_3_3.mcstructure": "4e66f9fd913fe5a3473fc9d6d8f816e6bba2e9571f3ce69413f4f2afadba6ebe",
+    "bastion/units/wall_units/edge_0_large.mcstructure": "87842a2f6f4e7582d452a9849911b29e4cbf015886edf9e6b43f2209ce054fa7",
+    "bastion/units/wall_units/unit_0.mcstructure": "32c68c7d367e4f50a310ceda984ab9f87691ac2dbdb452bed3c000239662bb88",
+    "bastion/units/walls/connected_wall.mcstructure": "0f1346dfbbc33b51aa1ecfca699ceaad26d6753a6f7ec828fca7a272fd8fa681",
+    "bastion/units/walls/wall_base.mcstructure": "70f70363bf879836e7dffbe84c762da45b99e17ba37f6183aecc18829e87abf1",
+    "end_city/base_floor.mcstructure": "cb081a4b6d2150fcd76019dc11fb997c1aca21d8eaaa05ff7dcd3d66fb99d9e5",
+    "end_city/base_roof.mcstructure": "c765a7d3159f937256cc9400d6eebb1889c6d9680af4aec5e2b5323194c3e7e2",
+    "end_city/bridge_end.mcstructure": "a1ceabf3719b6a78c4be9684c76204a60c45bbe299886d96ecdf50f9dc51f47b",
+    "end_city/bridge_gentle_stairs.mcstructure": "0be6bdbde2751def2c13005bcb0bcc335a9b873182dc9b30632336e5493993b5",
+    "end_city/bridge_piece.mcstructure": "c439599cc754f50830388e8e2789090f781cd5dca1dcc588437841eef51d4f0a",
+    "end_city/bridge_steep_stairs.mcstructure": "140c9dee9b4ad7bac94d6dcc523dff619da0fc2bb077672485de26f658b25f8d",
+    "end_city/fat_tower_base.mcstructure": "6e04584e066146c6e4615aacc32d3d49de0d7a404694cf0e62a164ce3f637c81",
+    "end_city/fat_tower_middle.mcstructure": "9773e93031b9eeaa83a580b430c3ed85cab8ce0b64405c7d10e146f4f14af83f",
+    "end_city/fat_tower_top.mcstructure": "7f140c8fdb229d8087aa48600be8bb6444674359eb2e2957f28a7a73ceee147f",
+    "end_city/second_floor_1.mcstructure": "254b989be5191deeebc1e0b8d95276f06e967deeabddbfcd3335959a896c7168",
+    "end_city/second_floor_2.mcstructure": "1d8c89e119af35e3cf57705832d7b1b1cf6b24a0ac835d01dc005b52965f0a7e",
+    "end_city/second_roof.mcstructure": "df957c152f0e795c2ec6269bcef08fcf5ad24f462809f926e73341f5fbc473c8",
+    "end_city/ship.mcstructure": "eef335e879770701a44fa06b2b37f67ef92dfabc8cd83e0ad3bca89cfb5beefe",
+    "end_city/third_floor_1.mcstructure": "3a7f99a199dbdf993f4e174c185b4b17fdf13b47d4eede27fab343def8e02f1d",
+    "end_city/third_floor_2.mcstructure": "fc7bd8892a1350be6425d9235f2e9d62107bb64153588ed7fab93a32a178411a",
+    "end_city/third_roof.mcstructure": "9dd2bfe30f156a660f58af81f736f8800c76f5e7bd9908dbd5465b5925130655",
+    "end_city/tower_base.mcstructure": "cb7c7f6c2ac1a0a6f25a6224c52b909889655ef74f8c3765a81ce21f9d18077e",
+    "end_city/tower_floor.mcstructure": "c607485e81d01d743c412a9944e0adf5585dbcfd113fa5a92a29db23b3dd312d",
+    "end_city/tower_piece.mcstructure": "6eeff98ce343f0eafcf0c0484be215f2a94d602ffb479a0ed8c47c06651ffab8",
+    "end_city/tower_top.mcstructure": "54fb1204d0a69f437d5d8fcf77bc9a00f45de67d3a3e9f8a6ed8f5b4f8de3676",
+    "fossil/skull_1.mcstructure": "fbc4edcf70a3209e3123bfc7d7a04333344e48b3090f5397613c23c8e082f645",
+    "fossil/skull_1_coal.mcstructure": "88b4cda2e1df9a05458f9a2ca82979ff3d5d2149dcd55fe19a0d24a530e3f66e",
+    "fossil/skull_2.mcstructure": "ba5455a4948855aa181699ce7f4612aa353b80429d7651f1f5f592e75811fa29",
+    "fossil/skull_2_coal.mcstructure": "67b181d7dfce79e09a19e9c937e9a94a7c6d003ad675ab9980b30cdc8a2a94fc",
+    "fossil/skull_3.mcstructure": "a5ff4f95212e273501653e7c680937bc0b5574714caf4d005229402556a74b12",
+    "fossil/skull_3_coal.mcstructure": "bbb3ce63d3f298f0f508fcc82469d0ad3d362d17c1063edf6f3e5a8fc170aa45",
+    "fossil/skull_4.mcstructure": "63e557969603bd9a8f12f29453f05ab794a187bd42054e70671784766b68ca66",
+    "fossil/skull_4_coal.mcstructure": "3c455c786cc3d9deb784403874991261293545fef2a574bc3ceef48c93d925ff",
+    "fossil/spine_1.mcstructure": "ed4519c209b7d0652d7fbb016e3d0a7665976f24b436520bee80bf6f97d706b6",
+    "fossil/spine_1_coal.mcstructure": "cd9c6ba7bc8413f0879958b61920c0c5f55343f8b83c77b1dba8e9fa73da9bc6",
+    "fossil/spine_2.mcstructure": "8ea2e7e2af27ccf7303adc00286b5ab0c73f5be14d80239ec6d92365c0bd6652",
+    "fossil/spine_2_coal.mcstructure": "933a38cc807674e1f9e6b1073321e8fe649d45bbae11377c8c9f6c7525b5213f",
+    "fossil/spine_3.mcstructure": "4b6b3281cb8ee6d72f9e310e984abc6f2b4bdea55751bf95c5bff6c527a108bd",
+    "fossil/spine_3_coal.mcstructure": "e6bb822db7f525fb7c0b15ea7c207d6f52025bee5899dbf2daf2949fb420339b",
+    "fossil/spine_4.mcstructure": "419f3261a00b205177c083c318e7f07b5860bc72ce3633be0b9f9f0a709cee07",
+    "fossil/spine_4_coal.mcstructure": "cbde787ab811ae5594b3ea45b3e621e3289af3151d14dde6d20496c497d32c88",
+    "igloo/bottom.mcstructure": "a9b0d02b6dac5d3b312707444a4d776e3f8a83650057556d00fdc028ee7cf5c6",
+    "igloo/middle.mcstructure": "0d0f84a3d965dec8b234b7afde2f8cb71794ab3b32ac271810025ed24c8a8598",
+    "igloo/top.mcstructure": "37e27292f653e0e698272ef3cf54a4582ae402cfcb0dce595caecf7d5c266956",
+    "nether_fossils/fossil_1.mcstructure": "9ecccb172dd3b60b354f2b2ae898272213af0705da79cf536b3c606e71a6b2e0",
+    "nether_fossils/fossil_10.mcstructure": "5d28eb8ed9b7601e5a9996cc2bdf55d6dd43e9ab87cf80bdc8f25db620c78171",
+    "nether_fossils/fossil_11.mcstructure": "64fda531106913a5db60836dc4bd8ac5678d903c8b93972c15f44dc859b00248",
+    "nether_fossils/fossil_12.mcstructure": "de010f1d293940166715442c6e05e1c5f155da29c93bd62036e03059d3b41641",
+    "nether_fossils/fossil_13.mcstructure": "238a75040e835fe8937ceed2d89ac28abdb19a465964fa0201e6452a34663ac2",
+    "nether_fossils/fossil_14.mcstructure": "9ec2ff65a98c90399c0c32f28b2abafa4a1359c755e878a878d34b0074e23332",
+    "nether_fossils/fossil_2.mcstructure": "e2a02d63922736b45de9e7141ac1fd438a2e668f7879e15e812fcf7ce598afe9",
+    "nether_fossils/fossil_3.mcstructure": "34bb36d36169eddb13dc0590f5c7f02c8b9d343a46bf23becb1211fe284b952f",
+    "nether_fossils/fossil_4.mcstructure": "5010387c945864a0ef6dbaf6a0cbbb32cc6494b2b81a127ea1f4b610cf6f3a0a",
+    "nether_fossils/fossil_5.mcstructure": "c980c807228f1cccd270711e8938b9a1e3266cf66e5fbfe5d20e258738651cb0",
+    "nether_fossils/fossil_6.mcstructure": "e97a5cb7d60f42127995462ae0eca15566847107517ac71522823e5fab8bab1e",
+    "nether_fossils/fossil_7.mcstructure": "479dc4a3fb4aa916cab899866fcbe75258a4a1f91c43f203ce9419b797fe07b1",
+    "nether_fossils/fossil_8.mcstructure": "fa5cc6c27d8642914ea98785f6da6f01113655cd0e4655379b7997ca3ba65304",
+    "nether_fossils/fossil_9.mcstructure": "0836fdc9a3ac701f00668de8d82f3ce04f2ffc8560d653fdfed68224c9dd1177",
+    "pillager_outpost/base_plate.mcstructure": "5d4da86054ea31f3a965a782da60d8584cf19fdeec1d76dba3cf5c7ffd214f82",
+    "pillager_outpost/feature_cage1.mcstructure": "45f11e7445ea553aae42494b553e623e0cf31449f5d4991d4fc775ba19124efa",
+    "pillager_outpost/feature_cage2.mcstructure": "45f11e7445ea553aae42494b553e623e0cf31449f5d4991d4fc775ba19124efa",
+    "pillager_outpost/feature_cage_with_allays.mcstructure": "a4f382a50ed2419dd7e25dbc155e8958e4302c8154fa5dd0f00776b8e0c6ac75",
+    "pillager_outpost/feature_logs.mcstructure": "130d351626c2adcace402cbbbdc16a49ff52e561695af9bd8c7dc473c90afc1a",
+    "pillager_outpost/feature_plate.mcstructure": "edcd5d1a55adabda762ed7902964006011a4b5a96986ac9f622a4dec98b8b804",
+    "pillager_outpost/feature_targets.mcstructure": "e39e517fd74a0bd1a22f2d12e7d9fde75dc89b58efa2cd5fa32c1f51b96747cd",
+    "pillager_outpost/feature_tent1.mcstructure": "e027541dda5cdb7cda7d31650b1fa430faf90079221b24eadef3a241d9f13f18",
+    "pillager_outpost/feature_tent2.mcstructure": "b465e6dce2bfd083ae858e9f4bcf65f8edb7ef81cfc587d33f621fa1f923fc1a",
+    "pillager_outpost/watchtower.mcstructure": "b2325764280ed86b4c3f773fe89ac1556c98a1b62ec7cddd8c363824d7750052",
+    "pillager_outpost/watchtower_overgrown.mcstructure": "62fc56b4223efc7d3c9981df4b56023d3c2637a7af94f9c039653a88b2100391",
+    "ruined_portal/giant_portal_1.mcstructure": "ae4dc6d2a2490627d84d0116fc9174ba7c4a1a697bf80eba7cff38a46bd0bb26",
+    "ruined_portal/giant_portal_2.mcstructure": "29037d5fc712674979b7f9ed9e228894c6aa91f51f8a873cf2347892c0e07c6f",
+    "ruined_portal/giant_portal_3.mcstructure": "8dce9a43fb5b49c4ac315d667e4898780de989bdf4272bff1f08415fbaa1cbe5",
+    "ruined_portal/portal_1.mcstructure": "53e7f10036841ba825ff95fa301f6cb101a8b66ba9f39f4182c96c2f29ce8b2f",
+    "ruined_portal/portal_10.mcstructure": "aeb01af0431742fbacd5abf7f0b3e260acfee1e12d21166ca4ae0d8c2ea3519b",
+    "ruined_portal/portal_2.mcstructure": "06cbf9b0b8ac68dc85dbaa688b9c92ce73c1579dc3236e3532ff4a23a26979c4",
+    "ruined_portal/portal_3.mcstructure": "b289a6d193f04b87cc6d8da7a3ec9557b7a3f79bc494c73277b9e8f38b6afa6b",
+    "ruined_portal/portal_4.mcstructure": "79601bc5708435a240e9a75f6cc7cae8aecbe4d37f1bd104f513318e421bda63",
+    "ruined_portal/portal_5.mcstructure": "ac3339bf3a4a4509ea58c97ec02d9c5ea20cbc99f3499985f455fa35decea81f",
+    "ruined_portal/portal_6.mcstructure": "cc98786ec836eb9d1f1cf0bc164c3a31a9d7d9e52092812ba4adc5fc1ddf9c7a",
+    "ruined_portal/portal_7.mcstructure": "7f9d56b149d79187ab327a982251393f54170391c86ca29fbb0134bda96a2867",
+    "ruined_portal/portal_8.mcstructure": "0aedbbf52ceae4f2deeeba68d2f543dcae89c40b0048bd3721bba51dc16ae007",
+    "ruined_portal/portal_9.mcstructure": "fefea67062014a1e9e00da830627209d49b9e29e9698fb3f4e0e54a7fdf547a2"
+  }
+}

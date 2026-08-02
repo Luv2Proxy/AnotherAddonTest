@@ -1,8 +1,0 @@
-﻿Directory: bedrock-addon\structures\bastion\bridge\ramparts
-================================================================================
-
-FILES
------
-rampart_0.mcstructure
-rampart_1.mcstructure
-

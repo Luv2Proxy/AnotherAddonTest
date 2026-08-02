@@ -1,9 +1,0 @@
-﻿Directory: bedrock-addon\structures\bastion\units\ramparts
-================================================================================
-
-FILES
------
-ramparts_0.mcstructure
-ramparts_1.mcstructure
-ramparts_2.mcstructure
-

@@ -1,7 +1,0 @@
-﻿Directory: bedrock-addon\structures\bastion\units\stages\rot
-================================================================================
-
-FILES
------
-stage_1_0.mcstructure
-

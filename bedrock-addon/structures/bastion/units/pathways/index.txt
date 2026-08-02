@@ -1,8 +1,0 @@
-﻿Directory: bedrock-addon\structures\bastion\units\pathways
-================================================================================
-
-FILES
------
-pathway_0.mcstructure
-pathway_wall_0.mcstructure
-

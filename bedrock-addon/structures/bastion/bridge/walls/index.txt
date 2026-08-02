@@ -1,8 +1,0 @@
-﻿Directory: bedrock-addon\structures\bastion\bridge\walls
-================================================================================
-
-FILES
------
-wall_base_0.mcstructure
-wall_base_1.mcstructure
-

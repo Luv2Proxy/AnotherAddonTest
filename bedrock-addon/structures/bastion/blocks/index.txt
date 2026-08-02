@@ -1,8 +1,0 @@
-﻿Directory: bedrock-addon\structures\bastion\blocks
-================================================================================
-
-FILES
------
-air.mcstructure
-gold.mcstructure
-

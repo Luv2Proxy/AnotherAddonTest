@@ -1,7 +1,0 @@
-﻿Directory: bedrock-addon\structures\bastion\hoglin_stable\connectors
-================================================================================
-
-FILES
------
-end_post_connector.mcstructure
-

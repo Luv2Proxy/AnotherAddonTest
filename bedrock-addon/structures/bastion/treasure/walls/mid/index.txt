@@ -1,9 +1,0 @@
-﻿Directory: bedrock-addon\structures\bastion\treasure\walls\mid
-================================================================================
-
-FILES
------
-wall_0.mcstructure
-wall_1.mcstructure
-wall_2.mcstructure
-

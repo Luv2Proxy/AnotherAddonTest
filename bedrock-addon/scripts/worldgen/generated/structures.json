@@ -1,0 +1,811 @@
+{
+  "minecraft:ancient_city": {
+    "source": "structure/ancient_city.json",
+    "sha256": "2e3e2c0f94746e90a81867552ba7d7b58c44f1e5756c977a8814c8c57b5f3bb8",
+    "definition": {
+      "type": "minecraft:jigsaw",
+      "biomes": "#minecraft:has_structure/ancient_city",
+      "max_distance_from_center": 116,
+      "size": 7,
+      "spawn_overrides": {
+        "ambient": {
+          "bounding_box": "full",
+          "spawns": []
+        },
+        "axolotls": {
+          "bounding_box": "full",
+          "spawns": []
+        },
+        "creature": {
+          "bounding_box": "full",
+          "spawns": []
+        },
+        "misc": {
+          "bounding_box": "full",
+          "spawns": []
+        },
+        "monster": {
+          "bounding_box": "full",
+          "spawns": []
+        },
+        "underground_water_creature": {
+          "bounding_box": "full",
+          "spawns": []
+        },
+        "water_ambient": {
+          "bounding_box": "full",
+          "spawns": []
+        },
+        "water_creature": {
+          "bounding_box": "full",
+          "spawns": []
+        }
+      },
+      "start_height": {
+        "absolute": -27
+      },
+      "start_jigsaw_name": "minecraft:city_anchor",
+      "start_pool": "minecraft:ancient_city/city_center",
+      "step": "underground_decoration",
+      "terrain_adaptation": "beard_box",
+      "use_expansion_hack": false
+    }
+  },
+  "minecraft:bastion_remnant": {
+    "source": "structure/bastion_remnant.json",
+    "sha256": "4e50eaecad2428ccb3079c9f00eda44505e81e1d03f7a6471113734f28d67310",
+    "definition": {
+      "type": "minecraft:jigsaw",
+      "biomes": "#minecraft:has_structure/bastion_remnant",
+      "max_distance_from_center": 80,
+      "size": 6,
+      "spawn_overrides": {},
+      "start_height": {
+        "absolute": 33
+      },
+      "start_pool": "minecraft:bastion/starts",
+      "step": "surface_structures",
+      "use_expansion_hack": false
+    }
+  },
+  "minecraft:buried_treasure": {
+    "source": "structure/buried_treasure.json",
+    "sha256": "a4f90ef206ac261c8fca12cdd013c3e0d6f4d6bbfd56ae88dd791521fad33663",
+    "definition": {
+      "type": "minecraft:buried_treasure",
+      "biomes": "#minecraft:has_structure/buried_treasure",
+      "spawn_overrides": {},
+      "step": "underground_structures"
+    }
+  },
+  "minecraft:desert_pyramid": {
+    "source": "structure/desert_pyramid.json",
+    "sha256": "1620eb4ccaf9569867b7dbcbbd42fcc322391f2b9175910376e652fffa5b038d",
+    "definition": {
+      "type": "minecraft:desert_pyramid",
+      "biomes": "#minecraft:has_structure/desert_pyramid",
+      "spawn_overrides": {},
+      "step": "surface_structures"
+    }
+  },
+  "minecraft:end_city": {
+    "source": "structure/end_city.json",
+    "sha256": "301f4707fa92b51d18a6a57a63d43e5dd76f3d0a45aecd93f966dd4056e06089",
+    "definition": {
+      "type": "minecraft:end_city",
+      "biomes": "#minecraft:has_structure/end_city",
+      "spawn_overrides": {},
+      "step": "surface_structures"
+    }
+  },
+  "minecraft:fortress": {
+    "source": "structure/fortress.json",
+    "sha256": "6f050218d9a00daadc90c9bb41386099c455d6d8df99459959388a32e3f20780",
+    "definition": {
+      "type": "minecraft:fortress",
+      "biomes": "#minecraft:has_structure/nether_fortress",
+      "spawn_overrides": {
+        "monster": {
+          "bounding_box": "piece",
+          "spawns": [
+            {
+              "type": "minecraft:blaze",
+              "maxCount": 3,
+              "minCount": 2,
+              "weight": 10
+            },
+            {
+              "type": "minecraft:zombified_piglin",
+              "maxCount": 4,
+              "minCount": 4,
+              "weight": 5
+            },
+            {
+              "type": "minecraft:wither_skeleton",
+              "maxCount": 5,
+              "minCount": 5,
+              "weight": 8
+            },
+            {
+              "type": "minecraft:skeleton",
+              "maxCount": 5,
+              "minCount": 5,
+              "weight": 2
+            },
+            {
+              "type": "minecraft:magma_cube",
+              "maxCount": 4,
+              "minCount": 4,
+              "weight": 3
+            }
+          ]
+        }
+      },
+      "step": "underground_decoration"
+    }
+  },
+  "minecraft:igloo": {
+    "source": "structure/igloo.json",
+    "sha256": "80faf607486a8bea4f85c66202512c3110cea828a201f0c1262819bb4b2ef75a",
+    "definition": {
+      "type": "minecraft:igloo",
+      "biomes": "#minecraft:has_structure/igloo",
+      "spawn_overrides": {},
+      "step": "surface_structures"
+    }
+  },
+  "minecraft:jungle_pyramid": {
+    "source": "structure/jungle_pyramid.json",
+    "sha256": "b217fcc3924e7c7a535d3433209270adf5a27fdfe043d2eba9856f23d97aed9f",
+    "definition": {
+      "type": "minecraft:jungle_temple",
+      "biomes": "#minecraft:has_structure/jungle_temple",
+      "spawn_overrides": {},
+      "step": "surface_structures"
+    }
+  },
+  "minecraft:mansion": {
+    "source": "structure/mansion.json",
+    "sha256": "e346aee24f384b1edc4f18f3a3f09c663ce1087660305c466fe1d100e7694d6f",
+    "definition": {
+      "type": "minecraft:woodland_mansion",
+      "biomes": "#minecraft:has_structure/woodland_mansion",
+      "spawn_overrides": {},
+      "step": "surface_structures"
+    }
+  },
+  "minecraft:mineshaft": {
+    "source": "structure/mineshaft.json",
+    "sha256": "6c5a9fd4b35c4269e856bc495a95c1240a106f755987d379e245d342931e0044",
+    "definition": {
+      "type": "minecraft:mineshaft",
+      "biomes": "#minecraft:has_structure/mineshaft",
+      "mineshaft_type": "normal",
+      "spawn_overrides": {},
+      "step": "underground_structures"
+    }
+  },
+  "minecraft:mineshaft_mesa": {
+    "source": "structure/mineshaft_mesa.json",
+    "sha256": "e36104ee05d71fed6c644c221ec8980e6fb7e7e03411fd59f74ffc544d391f08",
+    "definition": {
+      "type": "minecraft:mineshaft",
+      "biomes": "#minecraft:has_structure/mineshaft_mesa",
+      "mineshaft_type": "mesa",
+      "spawn_overrides": {},
+      "step": "underground_structures"
+    }
+  },
+  "minecraft:monument": {
+    "source": "structure/monument.json",
+    "sha256": "5ffdaf57260d6cd41077d7a09abad95d8b58453c0cc3d63039796c9064c17506",
+    "definition": {
+      "type": "minecraft:ocean_monument",
+      "biomes": "#minecraft:has_structure/ocean_monument",
+      "spawn_overrides": {
+        "axolotls": {
+          "bounding_box": "full",
+          "spawns": []
+        },
+        "monster": {
+          "bounding_box": "full",
+          "spawns": [
+            {
+              "type": "minecraft:guardian",
+              "maxCount": 4,
+              "minCount": 2,
+              "weight": 1
+            }
+          ]
+        },
+        "underground_water_creature": {
+          "bounding_box": "full",
+          "spawns": []
+        }
+      },
+      "step": "surface_structures"
+    }
+  },
+  "minecraft:nether_fossil": {
+    "source": "structure/nether_fossil.json",
+    "sha256": "05f9fa1b1e1e53a09512f943d1518dea42d9ca798c84e613364aa74a5097ca0a",
+    "definition": {
+      "type": "minecraft:nether_fossil",
+      "biomes": "#minecraft:has_structure/nether_fossil",
+      "height": {
+        "type": "minecraft:uniform",
+        "max_inclusive": {
+          "below_top": 2
+        },
+        "min_inclusive": {
+          "absolute": 32
+        }
+      },
+      "spawn_overrides": {},
+      "step": "underground_decoration",
+      "terrain_adaptation": "beard_thin"
+    }
+  },
+  "minecraft:ocean_ruin_cold": {
+    "source": "structure/ocean_ruin_cold.json",
+    "sha256": "d50aa6ede8f501b094fdce664a0b789c7b25e51d04361c2abee0599f2d39da54",
+    "definition": {
+      "type": "minecraft:ocean_ruin",
+      "biome_temp": "cold",
+      "biomes": "#minecraft:has_structure/ocean_ruin_cold",
+      "cluster_probability": 0.9,
+      "large_probability": 0.3,
+      "spawn_overrides": {},
+      "step": "surface_structures"
+    }
+  },
+  "minecraft:ocean_ruin_warm": {
+    "source": "structure/ocean_ruin_warm.json",
+    "sha256": "9d3ca38f185dd353a78484b41cedb5b15c10d5fc273b2440a7f33e037ca5c8e4",
+    "definition": {
+      "type": "minecraft:ocean_ruin",
+      "biome_temp": "warm",
+      "biomes": "#minecraft:has_structure/ocean_ruin_warm",
+      "cluster_probability": 0.9,
+      "large_probability": 0.3,
+      "spawn_overrides": {},
+      "step": "surface_structures"
+    }
+  },
+  "minecraft:pillager_outpost": {
+    "source": "structure/pillager_outpost.json",
+    "sha256": "43a0be5b0684fa5bbdca4951b1f7724e7d385f95fd2fd7e3a6a484b6ea9fa9cc",
+    "definition": {
+      "type": "minecraft:jigsaw",
+      "biomes": "#minecraft:has_structure/pillager_outpost",
+      "max_distance_from_center": 80,
+      "project_start_to_heightmap": "WORLD_SURFACE_WG",
+      "size": 7,
+      "spawn_overrides": {
+        "monster": {
+          "bounding_box": "full",
+          "spawns": [
+            {
+              "type": "minecraft:pillager",
+              "maxCount": 1,
+              "minCount": 1,
+              "weight": 1
+            }
+          ]
+        }
+      },
+      "start_height": {
+        "absolute": 0
+      },
+      "start_pool": "minecraft:pillager_outpost/base_plates",
+      "step": "surface_structures",
+      "terrain_adaptation": "beard_thin",
+      "use_expansion_hack": true
+    }
+  },
+  "minecraft:ruined_portal": {
+    "source": "structure/ruined_portal.json",
+    "sha256": "df33800dcba4df909e5f97f2c25d1287030559065813c52e2c1b7e123361f643",
+    "definition": {
+      "type": "minecraft:ruined_portal",
+      "biomes": "#minecraft:has_structure/ruined_portal_standard",
+      "setups": [
+        {
+          "air_pocket_probability": 1.0,
+          "can_be_cold": true,
+          "mossiness": 0.2,
+          "overgrown": false,
+          "placement": "underground",
+          "replace_with_blackstone": false,
+          "vines": false,
+          "weight": 0.5
+        },
+        {
+          "air_pocket_probability": 0.5,
+          "can_be_cold": true,
+          "mossiness": 0.2,
+          "overgrown": false,
+          "placement": "on_land_surface",
+          "replace_with_blackstone": false,
+          "vines": false,
+          "weight": 0.5
+        }
+      ],
+      "spawn_overrides": {},
+      "step": "surface_structures"
+    }
+  },
+  "minecraft:ruined_portal_desert": {
+    "source": "structure/ruined_portal_desert.json",
+    "sha256": "42fb1b6abd143b0b9bcc4e7e072db3ae113df97c573ea79326072b62b920be79",
+    "definition": {
+      "type": "minecraft:ruined_portal",
+      "biomes": "#minecraft:has_structure/ruined_portal_desert",
+      "setups": [
+        {
+          "air_pocket_probability": 0.0,
+          "can_be_cold": false,
+          "mossiness": 0.0,
+          "overgrown": false,
+          "placement": "partly_buried",
+          "replace_with_blackstone": false,
+          "vines": false,
+          "weight": 1.0
+        }
+      ],
+      "spawn_overrides": {},
+      "step": "surface_structures"
+    }
+  },
+  "minecraft:ruined_portal_jungle": {
+    "source": "structure/ruined_portal_jungle.json",
+    "sha256": "b8280f68cea43e6770c29ba6652e94e3876577bc99c4ac55a310f121440d4bc1",
+    "definition": {
+      "type": "minecraft:ruined_portal",
+      "biomes": "#minecraft:has_structure/ruined_portal_jungle",
+      "setups": [
+        {
+          "air_pocket_probability": 0.5,
+          "can_be_cold": false,
+          "mossiness": 0.8,
+          "overgrown": true,
+          "placement": "on_land_surface",
+          "replace_with_blackstone": false,
+          "vines": true,
+          "weight": 1.0
+        }
+      ],
+      "spawn_overrides": {},
+      "step": "surface_structures"
+    }
+  },
+  "minecraft:ruined_portal_mountain": {
+    "source": "structure/ruined_portal_mountain.json",
+    "sha256": "7fdde2fdf45dd1d4d87b36d2b7fbcc41bca654f5b711c004db4ca6933ca0688b",
+    "definition": {
+      "type": "minecraft:ruined_portal",
+      "biomes": "#minecraft:has_structure/ruined_portal_mountain",
+      "setups": [
+        {
+          "air_pocket_probability": 1.0,
+          "can_be_cold": true,
+          "mossiness": 0.2,
+          "overgrown": false,
+          "placement": "in_mountain",
+          "replace_with_blackstone": false,
+          "vines": false,
+          "weight": 0.5
+        },
+        {
+          "air_pocket_probability": 0.5,
+          "can_be_cold": true,
+          "mossiness": 0.2,
+          "overgrown": false,
+          "placement": "on_land_surface",
+          "replace_with_blackstone": false,
+          "vines": false,
+          "weight": 0.5
+        }
+      ],
+      "spawn_overrides": {},
+      "step": "surface_structures"
+    }
+  },
+  "minecraft:ruined_portal_nether": {
+    "source": "structure/ruined_portal_nether.json",
+    "sha256": "6e872050ef9d7042be08ae3e0b88110ff82f06174c97bd5103ae202a5be5994a",
+    "definition": {
+      "type": "minecraft:ruined_portal",
+      "biomes": "#minecraft:has_structure/ruined_portal_nether",
+      "setups": [
+        {
+          "air_pocket_probability": 0.5,
+          "can_be_cold": false,
+          "mossiness": 0.0,
+          "overgrown": false,
+          "placement": "in_nether",
+          "replace_with_blackstone": true,
+          "vines": false,
+          "weight": 1.0
+        }
+      ],
+      "spawn_overrides": {},
+      "step": "surface_structures"
+    }
+  },
+  "minecraft:ruined_portal_ocean": {
+    "source": "structure/ruined_portal_ocean.json",
+    "sha256": "3f02919aaa1c4ac8ce9131afd7bc84d355b39f1052d077661cc7e8cb9e2ef0f8",
+    "definition": {
+      "type": "minecraft:ruined_portal",
+      "biomes": "#minecraft:has_structure/ruined_portal_ocean",
+      "setups": [
+        {
+          "air_pocket_probability": 0.0,
+          "can_be_cold": true,
+          "mossiness": 0.8,
+          "overgrown": false,
+          "placement": "on_ocean_floor",
+          "replace_with_blackstone": false,
+          "vines": false,
+          "weight": 1.0
+        }
+      ],
+      "spawn_overrides": {},
+      "step": "surface_structures"
+    }
+  },
+  "minecraft:ruined_portal_swamp": {
+    "source": "structure/ruined_portal_swamp.json",
+    "sha256": "493baea6f04bd336e560e7489ca1bb5a3501541596838f03301663d1713b6c2d",
+    "definition": {
+      "type": "minecraft:ruined_portal",
+      "biomes": "#minecraft:has_structure/ruined_portal_swamp",
+      "setups": [
+        {
+          "air_pocket_probability": 0.0,
+          "can_be_cold": false,
+          "mossiness": 0.5,
+          "overgrown": false,
+          "placement": "on_ocean_floor",
+          "replace_with_blackstone": false,
+          "vines": true,
+          "weight": 1.0
+        }
+      ],
+      "spawn_overrides": {},
+      "step": "surface_structures"
+    }
+  },
+  "minecraft:shipwreck": {
+    "source": "structure/shipwreck.json",
+    "sha256": "7e8f0e01a71dc40c849d359a77851abe39dcb591394bd746abda3518d56a6a3f",
+    "definition": {
+      "type": "minecraft:shipwreck",
+      "biomes": "#minecraft:has_structure/shipwreck",
+      "is_beached": false,
+      "spawn_overrides": {},
+      "step": "surface_structures"
+    }
+  },
+  "minecraft:shipwreck_beached": {
+    "source": "structure/shipwreck_beached.json",
+    "sha256": "92c022883d6e6ff74183d2c99a14b265368dd914f79ae989b71d9752cbff95c6",
+    "definition": {
+      "type": "minecraft:shipwreck",
+      "biomes": "#minecraft:has_structure/shipwreck_beached",
+      "is_beached": true,
+      "spawn_overrides": {},
+      "step": "surface_structures"
+    }
+  },
+  "minecraft:stronghold": {
+    "source": "structure/stronghold.json",
+    "sha256": "7002abbc2ef8fa717ff373acb23d544fbea6eafbd73eaf7fed32474ebe975b95",
+    "definition": {
+      "type": "minecraft:stronghold",
+      "biomes": "#minecraft:has_structure/stronghold",
+      "spawn_overrides": {},
+      "step": "surface_structures",
+      "terrain_adaptation": "bury"
+    }
+  },
+  "minecraft:swamp_hut": {
+    "source": "structure/swamp_hut.json",
+    "sha256": "71181214a11943106b40bf43ae253b76b31700e8b43ead003f6c5ce1f4f06cf9",
+    "definition": {
+      "type": "minecraft:swamp_hut",
+      "biomes": "#minecraft:has_structure/swamp_hut",
+      "spawn_overrides": {
+        "creature": {
+          "bounding_box": "piece",
+          "spawns": [
+            {
+              "type": "minecraft:cat",
+              "maxCount": 1,
+              "minCount": 1,
+              "weight": 1
+            }
+          ]
+        },
+        "monster": {
+          "bounding_box": "piece",
+          "spawns": [
+            {
+              "type": "minecraft:witch",
+              "maxCount": 1,
+              "minCount": 1,
+              "weight": 1
+            }
+          ]
+        }
+      },
+      "step": "surface_structures"
+    }
+  },
+  "minecraft:trail_ruins": {
+    "source": "structure/trail_ruins.json",
+    "sha256": "8ed3bdf72ec060de4e9d761b9a1f93199dc19088d0492908b69abb731e4553b6",
+    "definition": {
+      "type": "minecraft:jigsaw",
+      "biomes": "#minecraft:has_structure/trail_ruins",
+      "max_distance_from_center": 80,
+      "project_start_to_heightmap": "WORLD_SURFACE_WG",
+      "size": 7,
+      "spawn_overrides": {},
+      "start_height": {
+        "absolute": -15
+      },
+      "start_pool": "minecraft:trail_ruins/tower",
+      "step": "underground_structures",
+      "terrain_adaptation": "bury",
+      "use_expansion_hack": false
+    }
+  },
+  "minecraft:trial_chambers": {
+    "source": "structure/trial_chambers.json",
+    "sha256": "486cb9de3032bffeba87056456234e4da7770db9966509ec8ca91f2aa27a68d5",
+    "definition": {
+      "type": "minecraft:jigsaw",
+      "biomes": "#minecraft:has_structure/trial_chambers",
+      "dimension_padding": 10,
+      "liquid_settings": "ignore_waterlogging",
+      "max_distance_from_center": 116,
+      "pool_aliases": [
+        {
+          "type": "minecraft:random_group",
+          "groups": [
+            {
+              "data": [
+                {
+                  "type": "minecraft:direct",
+                  "alias": "minecraft:trial_chambers/spawner/contents/ranged",
+                  "target": "minecraft:trial_chambers/spawner/ranged/skeleton"
+                },
+                {
+                  "type": "minecraft:direct",
+                  "alias": "minecraft:trial_chambers/spawner/contents/slow_ranged",
+                  "target": "minecraft:trial_chambers/spawner/slow_ranged/skeleton"
+                }
+              ],
+              "weight": 1
+            },
+            {
+              "data": [
+                {
+                  "type": "minecraft:direct",
+                  "alias": "minecraft:trial_chambers/spawner/contents/ranged",
+                  "target": "minecraft:trial_chambers/spawner/ranged/stray"
+                },
+                {
+                  "type": "minecraft:direct",
+                  "alias": "minecraft:trial_chambers/spawner/contents/slow_ranged",
+                  "target": "minecraft:trial_chambers/spawner/slow_ranged/stray"
+                }
+              ],
+              "weight": 1
+            },
+            {
+              "data": [
+                {
+                  "type": "minecraft:direct",
+                  "alias": "minecraft:trial_chambers/spawner/contents/ranged",
+                  "target": "minecraft:trial_chambers/spawner/ranged/poison_skeleton"
+                },
+                {
+                  "type": "minecraft:direct",
+                  "alias": "minecraft:trial_chambers/spawner/contents/slow_ranged",
+                  "target": "minecraft:trial_chambers/spawner/slow_ranged/poison_skeleton"
+                }
+              ],
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "type": "minecraft:random",
+          "alias": "minecraft:trial_chambers/spawner/contents/melee",
+          "targets": [
+            {
+              "data": "minecraft:trial_chambers/spawner/melee/zombie",
+              "weight": 1
+            },
+            {
+              "data": "minecraft:trial_chambers/spawner/melee/husk",
+              "weight": 1
+            },
+            {
+              "data": "minecraft:trial_chambers/spawner/melee/spider",
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "type": "minecraft:random",
+          "alias": "minecraft:trial_chambers/spawner/contents/small_melee",
+          "targets": [
+            {
+              "data": "minecraft:trial_chambers/spawner/small_melee/slime",
+              "weight": 1
+            },
+            {
+              "data": "minecraft:trial_chambers/spawner/small_melee/cave_spider",
+              "weight": 1
+            },
+            {
+              "data": "minecraft:trial_chambers/spawner/small_melee/silverfish",
+              "weight": 1
+            },
+            {
+              "data": "minecraft:trial_chambers/spawner/small_melee/baby_zombie",
+              "weight": 1
+            }
+          ]
+        }
+      ],
+      "size": 20,
+      "spawn_overrides": {
+        "ambient": {
+          "bounding_box": "piece",
+          "spawns": []
+        },
+        "axolotls": {
+          "bounding_box": "piece",
+          "spawns": []
+        },
+        "creature": {
+          "bounding_box": "piece",
+          "spawns": []
+        },
+        "misc": {
+          "bounding_box": "piece",
+          "spawns": []
+        },
+        "monster": {
+          "bounding_box": "piece",
+          "spawns": []
+        },
+        "underground_water_creature": {
+          "bounding_box": "piece",
+          "spawns": []
+        },
+        "water_ambient": {
+          "bounding_box": "piece",
+          "spawns": []
+        },
+        "water_creature": {
+          "bounding_box": "piece",
+          "spawns": []
+        }
+      },
+      "start_height": {
+        "type": "minecraft:uniform",
+        "max_inclusive": {
+          "absolute": -20
+        },
+        "min_inclusive": {
+          "absolute": -40
+        }
+      },
+      "start_pool": "minecraft:trial_chambers/chamber/end",
+      "step": "underground_structures",
+      "terrain_adaptation": "encapsulate",
+      "use_expansion_hack": false
+    }
+  },
+  "minecraft:village_desert": {
+    "source": "structure/village_desert.json",
+    "sha256": "5e8eeb422b66a3eb78120ddbfc5d8ddaf668e7df005f3eac4eee03bffc3c6033",
+    "definition": {
+      "type": "minecraft:jigsaw",
+      "biomes": "#minecraft:has_structure/village_desert",
+      "max_distance_from_center": 80,
+      "project_start_to_heightmap": "WORLD_SURFACE_WG",
+      "size": 6,
+      "spawn_overrides": {},
+      "start_height": {
+        "absolute": 0
+      },
+      "start_pool": "minecraft:village/desert/town_centers",
+      "step": "surface_structures",
+      "terrain_adaptation": "beard_thin",
+      "use_expansion_hack": true
+    }
+  },
+  "minecraft:village_plains": {
+    "source": "structure/village_plains.json",
+    "sha256": "9e5229c49cf4d44593f42ca922101f051b326270ac49421805232e8e27654c11",
+    "definition": {
+      "type": "minecraft:jigsaw",
+      "biomes": "#minecraft:has_structure/village_plains",
+      "max_distance_from_center": 80,
+      "project_start_to_heightmap": "WORLD_SURFACE_WG",
+      "size": 6,
+      "spawn_overrides": {},
+      "start_height": {
+        "absolute": 0
+      },
+      "start_pool": "minecraft:village/plains/town_centers",
+      "step": "surface_structures",
+      "terrain_adaptation": "beard_thin",
+      "use_expansion_hack": true
+    }
+  },
+  "minecraft:village_savanna": {
+    "source": "structure/village_savanna.json",
+    "sha256": "43521dd63c2bdc443b82c85740c538052123f76e1f72d540c8c994bf50655f2f",
+    "definition": {
+      "type": "minecraft:jigsaw",
+      "biomes": "#minecraft:has_structure/village_savanna",
+      "max_distance_from_center": 80,
+      "project_start_to_heightmap": "WORLD_SURFACE_WG",
+      "size": 6,
+      "spawn_overrides": {},
+      "start_height": {
+        "absolute": 0
+      },
+      "start_pool": "minecraft:village/savanna/town_centers",
+      "step": "surface_structures",
+      "terrain_adaptation": "beard_thin",
+      "use_expansion_hack": true
+    }
+  },
+  "minecraft:village_snowy": {
+    "source": "structure/village_snowy.json",
+    "sha256": "ca705d0a7b451527b6a209da8f235f0bf39933af237cae65e44e2cfc89a1b1a9",
+    "definition": {
+      "type": "minecraft:jigsaw",
+      "biomes": "#minecraft:has_structure/village_snowy",
+      "max_distance_from_center": 80,
+      "project_start_to_heightmap": "WORLD_SURFACE_WG",
+      "size": 6,
+      "spawn_overrides": {},
+      "start_height": {
+        "absolute": 0
+      },
+      "start_pool": "minecraft:village/snowy/town_centers",
+      "step": "surface_structures",
+      "terrain_adaptation": "beard_thin",
+      "use_expansion_hack": true
+    }
+  },
+  "minecraft:village_taiga": {
+    "source": "structure/village_taiga.json",
+    "sha256": "4f84ac374ec1477f9e9c891876da68220111985d60267de91722c057bf79cc5d",
+    "definition": {
+      "type": "minecraft:jigsaw",
+      "biomes": "#minecraft:has_structure/village_taiga",
+      "max_distance_from_center": 80,
+      "project_start_to_heightmap": "WORLD_SURFACE_WG",
+      "size": 6,
+      "spawn_overrides": {},
+      "start_height": {
+        "absolute": 0
+      },
+      "start_pool": "minecraft:village/taiga/town_centers",
+      "step": "surface_structures",
+      "terrain_adaptation": "beard_thin",
+      "use_expansion_hack": true
+    }
+  }
+}

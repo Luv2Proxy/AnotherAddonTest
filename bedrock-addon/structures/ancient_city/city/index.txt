@@ -1,7 +1,0 @@
-﻿Directory: bedrock-addon\structures\ancient_city\city
-================================================================================
-
-DIRECTORIES
------------
-entrance
-

@@ -1,7 +1,0 @@
-﻿Directory: bedrock-addon\structures\bastion\hoglin_stable\rampart_plates
-================================================================================
-
-FILES
------
-rampart_plate_1.mcstructure
-

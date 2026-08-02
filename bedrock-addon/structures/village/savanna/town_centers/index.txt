@@ -1,3 +1,0 @@
-﻿Directory: bedrock-addon\structures\village\savanna\town_centers
-================================================================================
-

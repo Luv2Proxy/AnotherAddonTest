@@ -1,9 +1,0 @@
-﻿Directory: bedrock-addon\structures\bastion\treasure\corners\edges
-================================================================================
-
-FILES
------
-bottom.mcstructure
-middle.mcstructure
-top.mcstructure
-

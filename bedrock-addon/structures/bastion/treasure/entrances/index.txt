@@ -1,7 +1,0 @@
-﻿Directory: bedrock-addon\structures\bastion\treasure\entrances
-================================================================================
-
-FILES
------
-entrance_0.mcstructure
-

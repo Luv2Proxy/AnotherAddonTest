@@ -1,3 +1,0 @@
-﻿Directory: bedrock-addon\structures\village\plains\houses
-================================================================================
-

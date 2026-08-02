@@ -1,7 +1,0 @@
-﻿Directory: bedrock-addon\structures\trial_chambers\chests
-================================================================================
-
-DIRECTORIES
------------
-connectors
-

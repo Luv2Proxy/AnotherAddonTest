@@ -11,178 +11,20 @@ import { WorldgenJigsawRuntime } from "./worldgen/WorldgenJigsawRuntime.js";
 import { runWorldgenSelfTest } from "./worldgen/WorldgenSelfTest.js";
 
 const DIMENSION_ID = "sky_archipelago:archipelago";
-const SPAWN_FALLBACK = Object.freeze({
-  centerX: 0,
-  centerZ: 0,
-  maxRadiusBlocks: 98304,
-  ringStepBlocks: 64,
-  pointsPerRing: 128,
-  maxCandidates: 120000,
-  maxAttemptsPerTick: 256,
-  searchIntervalTicks: 1,
-  spawnYFallback: 120
-});
-
+const SPAWN_FALLBACK = Object.freeze({ centerX: 0, centerZ: 0, maxRadiusBlocks: 98304, ringStepBlocks: 64, pointsPerRing: 128, maxCandidates: 120000, maxAttemptsPerTick: 256, spawnYFallback: 120 });
 const generator = new IslandGenerator();
-let bulkTerrain = null;
-let structureSets = null;
-let placementCoordinator = null;
-let placementQueue = null;
-let worldgen = null;
-let lastTickStats = null;
-let startupSelfTest = null;
-let structureProcessBusy = false;
-let placementProcessBusy = false;
-let spawnFallbackSearch = null;
+let bulkTerrain = null, structureSets = null, placementCoordinator = null, placementQueue = null, worldgen = null, lastTickStats = null, startupSelfTest = null;
+let structureProcessBusy = false, placementProcessBusy = false, spawnFallbackSearch = null;
 
-function archipelago() { return world.getDimension(DIMENSION_ID); }
-function registry() { return new JigsawRegistry(getGeneratedJigsawData()); }
-function buildRuntime() {
-  const data = getGeneratedJigsawData();
-  const jigsawRegistry = new JigsawRegistry(data);
-  const densityField = new StructureDensityField();
-  placementCoordinator = new StructurePlacementCoordinator(generator, { registry: jigsawRegistry, terrainOptions: { minY: -64, maxY: 320 }, densityField });
-  placementQueue = new StructurePlacementQueue({ maxPerTick: 1, maxRetries: 3, retryDelay: 20 });
-  structureSets = new StructureSetRuntime(generator, { data, registry: jigsawRegistry, dimensionId: DIMENSION_ID, radius: 128, maxPlansPerTick: 1, maxPlacementsPerTick: 1, placementCoordinator, placementQueue, densityField });
-  worldgen = new WorldgenJigsawRuntime(archipelago(), { data, registry: jigsawRegistry, generator, structureSets, densityField, placementCoordinator, placementQueue });
-  structureSets.refresh(jigsawRegistry);
-}
-
-system.beforeEvents.startup.subscribe((event) => { event.dimensionRegistry.registerCustomDimension(DIMENSION_ID); });
-
-function runStartupSelfTest() {
-  try {
-    const test = runWorldgenSelfTest({ data: getGeneratedJigsawData(), registry: worldgen?.registry, seed: generator.layoutSeed, deep: false });
-    startupSelfTest = test;
-    if (!test.ok) console.warn(`[Sky Archipelago] worldgen self-test errors: ${test.errors.join(" | ")}`);
-    if (test.warnings.length) console.warn(`[Sky Archipelago] worldgen self-test warnings: ${test.warnings.slice(0, 12).join(" | ")}`);
-  } catch (error) {
-    startupSelfTest = { ok: false, errors: [String(error)], warnings: [], snapshot: worldgen?.registry?.snapshot?.() ?? {} };
-    console.warn(`[Sky Archipelago] worldgen self-test failed: ${error}`);
-  }
-}
-
-function spawnFallbackCandidate(index) {
-  if (index === 0) return { x: SPAWN_FALLBACK.centerX, z: SPAWN_FALLBACK.centerZ, radius: 0 };
-  const ringIndex = Math.floor((index - 1) / SPAWN_FALLBACK.pointsPerRing) + 1;
-  const pointIndex = (index - 1) % SPAWN_FALLBACK.pointsPerRing;
-  const radius = ringIndex * SPAWN_FALLBACK.ringStepBlocks;
-  const angle = (Math.PI * 2 * pointIndex) / SPAWN_FALLBACK.pointsPerRing;
-  return {
-    x: SPAWN_FALLBACK.centerX + Math.round(Math.cos(angle) * radius),
-    z: SPAWN_FALLBACK.centerZ + Math.round(Math.sin(angle) * radius),
-    radius
-  };
-}
-
-function totalSpawnCandidates() {
-  const rings = Math.floor(SPAWN_FALLBACK.maxRadiusBlocks / SPAWN_FALLBACK.ringStepBlocks);
-  return Math.min(SPAWN_FALLBACK.maxCandidates, 1 + rings * SPAWN_FALLBACK.pointsPerRing);
-}
-
-function beginSpawnFallbackSearch() {
-  if (spawnFallbackSearch || !generator.dimension) return;
-  const dimension = archipelago();
-  const total = totalSpawnCandidates();
-  spawnFallbackSearch = { nextIndex: 0, total, attempts: 0, startedTick: system.currentTick };
-  console.warn(`[Sky Archipelago] No anchor spawn at default location; starting spawn fallback search (${total} candidates).`);
-
-  system.runJob(function* () {
-    while (spawnFallbackSearch) {
-      let processed = 0;
-      while (processed++ < SPAWN_FALLBACK.maxAttemptsPerTick && spawnFallbackSearch && spawnFallbackSearch.nextIndex < spawnFallbackSearch.total) {
-        const state = spawnFallbackSearch;
-        const candidate = spawnFallbackCandidate(state.nextIndex++);
-        state.attempts++;
-        const resolved = generator.resolveAnchorSpawnPos?.(candidate.x, candidate.z);
-        if (resolved) {
-          try {
-            world.setDefaultSpawnLocation({ x: resolved.x + 0.5, y: resolved.y, z: resolved.z + 0.5 }, dimension);
-          } catch (error) {
-            console.warn(`[Sky Archipelago] Failed to set fallback spawn: ${error}`);
-          }
-          console.warn(`[Sky Archipelago] Spawn fallback selected ${resolved.x},${resolved.y},${resolved.z} after ${state.attempts} attempts at radius ${candidate.radius}.`);
-          spawnFallbackSearch = null;
-          break;
-        }
-      }
-      if (!spawnFallbackSearch) return;
-      if (spawnFallbackSearch.nextIndex >= spawnFallbackSearch.total) {
-        console.warn(`[Sky Archipelago] Spawn fallback exhausted ${spawnFallbackSearch.attempts} candidates; retaining safe script spawn.`);
-        spawnFallbackSearch = null;
-        return;
-      }
-      yield;
-    }
-  });
-}
-
-world.afterEvents.worldLoad.subscribe(() => {
-  generator.load();
-  generator.dimension = archipelago();
-  bulkTerrain = installBulkTerrainRuntime(generator);
-  buildRuntime();
-  system.run(runStartupSelfTest);
-  system.run(() => {
-    const test = startupSelfTest;
-    const snapshot = test?.snapshot ?? worldgen?.registry?.snapshot?.() ?? {};
-    world.sendMessage(`§aSky Archipelago loaded. §7Worldgen: ${snapshot.pieces ?? 0} pieces, ${snapshot.pools ?? 0} pools, ${snapshot.structures ?? 0} structures, ${snapshot.structureSets ?? 0} sets.`);
-    world.sendMessage(`§7Bulk terrain writer enabled: greedy cuboids + batched fillBlocks + stone variants + ore veins.`);
-    beginSpawnFallbackSearch();
-  });
-});
-
-system.runInterval(() => {
-  if (!structureSets || !worldgen) return;
-  for (const player of world.getAllPlayers()) {
-    if (player.dimension.id === DIMENSION_ID) {
-      generator.requestAround(player);
-      structureSets.enqueueAround(player.location.x, player.location.z);
-    }
-  }
-  generator.tick();
-
-  if (!structureProcessBusy) {
-    structureProcessBusy = true;
-    structureSets.process()
-      .then(stats => { lastTickStats = stats; })
-      .catch(error => console.warn(`[Sky Archipelago] structure-set runtime error: ${error}`))
-      .finally(() => { structureProcessBusy = false; });
-  }
-
-  if (placementQueue && !placementProcessBusy) {
-    placementProcessBusy = true;
-    placementQueue.process(placementCoordinator)
-      .catch(error => console.warn(`[Sky Archipelago] placement queue error: ${error}`))
-      .finally(() => { placementProcessBusy = false; });
-  }
-}, 1);
-
-system.afterEvents.scriptEventReceive.subscribe((event) => {
-  const player = event.sourceEntity;
-  if (!player || player.typeId !== "minecraft:player") return;
-  if (event.id === "sky_archipelago:enter") { player.teleport({ x: 0.5, y: 120, z: 0.5 }, { dimension: archipelago() }); player.sendMessage("§bWelcome to Sky Archipelago."); return; }
-  if (event.id === "sky_archipelago:lobby") { player.teleport({ x: 0.5, y: 100, z: 0.5 }, { dimension: world.getDimension("minecraft:overworld") }); player.sendMessage("§eReturned to the Overworld lobby."); return; }
-  if (event.id === "sky_archipelago:reset") { generator.reset(); buildRuntime(); player.sendMessage("§eSky Archipelago generation state reset. Existing blocks are not erased."); return; }
-  if (event.id === "sky_archipelago:status") {
-    const snapshot = worldgen?.snapshot?.() ?? {}, native = generator.native?.snapshot?.(), bulk = bulkTerrain?.snapshot?.();
-    player.sendMessage(`§bSky Archipelago §7| generated=${generator.generated?.size ?? 0} queued=${generator.queue?.length ?? 0} structureJobs=${generator.structureJobs?.length ?? 0}`);
-    player.sendMessage(`§7Sets=${snapshot.structureSets ?? 0} | densityBoxes=${snapshot.densityBoxes ?? 0} | junctions=${snapshot.densityJunctions ?? 0} | pendingPlans=${structureSets?.pending?.length ?? 0} | pendingPlacements=${placementQueue?.size?.() ?? 0}`);
-    player.sendMessage(`§7Bulk: chunks=${bulk?.chunks ?? 0} fills=${bulk?.fills ?? 0} singles=${bulk?.singles ?? 0} variants=${bulk?.variants ?? 0} failed=${bulk?.failed ?? 0} pending=${bulk?.pendingChunks ?? 0}`);
-    player.sendMessage(`§7Last tick: ${JSON.stringify(lastTickStats ?? {})} | Native overlap records: ${native?.overlap?.length ?? 0}`); return;
-  }
-  if (event.id === "sky_archipelago:test_worldgen") {
-    try {
-      const test = runWorldgenSelfTest({ data: getGeneratedJigsawData(), registry: worldgen?.registry, seed: generator.layoutSeed, deep: true });
-      player.sendMessage(`§bWorldgen self-test: ${test.ok ? "§aPASS" : "§cFAIL"}`);
-      player.sendMessage(`§7Pieces=${test.snapshot.pieces} Pools=${test.snapshot.pools} Structures=${test.snapshot.structures} Sets=${test.snapshot.structureSets}`);
-      if (test.warnings.length) player.sendMessage(`§eWarnings: ${test.warnings.slice(0, 3).join(" | ")}`);
-      if (test.errors.length) player.sendMessage(`§cErrors: ${test.errors.slice(0, 3).join(" | ")}`);
-    } catch (e) { player.sendMessage(`§cWorldgen self-test exception: ${e}`); }
-    return;
-  }
-  if (event.id === "sky_archipelago:refresh_structures") {
-    try { const r = registry(); generator.registry?.refresh?.(); structureSets?.refresh?.(r); placementCoordinator?.refresh?.(r); worldgen?.refresh?.(); player.sendMessage("§aStructure registries refreshed from generated jigsaw data."); }
-    catch (e) { player.sendMessage(`§cStructure registry refresh failed: ${e}`); }
-  }
-});
+function archipelago(){return world.getDimension(DIMENSION_ID);}
+function registry(){return new JigsawRegistry(getGeneratedJigsawData());}
+function buildRuntime(){const data=getGeneratedJigsawData(),jigsawRegistry=new JigsawRegistry(data),densityField=new StructureDensityField();placementCoordinator=new StructurePlacementCoordinator(generator,{registry:jigsawRegistry,terrainOptions:{minY:-64,maxY:320},densityField});placementQueue=new StructurePlacementQueue({maxPerTick:1,maxRetries:3,retryDelay:20});structureSets=new StructureSetRuntime(generator,{data,registry:jigsawRegistry,dimensionId:DIMENSION_ID,radius:128,maxPlansPerTick:1,maxPlacementsPerTick:1,placementCoordinator,placementQueue,densityField});worldgen=new WorldgenJigsawRuntime(archipelago(),{data,registry:jigsawRegistry,generator,structureSets,densityField,placementCoordinator,placementQueue});structureSets.refresh(jigsawRegistry);}
+system.beforeEvents.startup.subscribe(event=>{event.dimensionRegistry.registerCustomDimension(DIMENSION_ID);});
+function runStartupSelfTest(){try{const test=runWorldgenSelfTest({data:getGeneratedJigsawData(),registry:worldgen?.registry,seed:generator.layoutSeed,deep:false});startupSelfTest=test;if(!test.ok)console.warn(`[Sky Archipelago] worldgen self-test errors: ${test.errors.join(" | ")}`);if(test.warnings.length)console.warn(`[Sky Archipelago] worldgen self-test warnings: ${test.warnings.slice(0,12).join(" | ")}`);}catch(error){startupSelfTest={ok:false,errors:[String(error)],warnings:[],snapshot:worldgen?.registry?.snapshot?.()??{}};console.warn(`[Sky Archipelago] worldgen self-test failed: ${error}`);}}
+function spawnFallbackCandidate(index){if(index===0)return{x:SPAWN_FALLBACK.centerX,z:SPAWN_FALLBACK.centerZ,radius:0};const ringIndex=Math.floor((index-1)/SPAWN_FALLBACK.pointsPerRing)+1,pointIndex=(index-1)%SPAWN_FALLBACK.pointsPerRing,radius=ringIndex*SPAWN_FALLBACK.ringStepBlocks,angle=Math.PI*2*pointIndex/SPAWN_FALLBACK.pointsPerRing;return{x:SPAWN_FALLBACK.centerX+Math.round(Math.cos(angle)*radius),z:SPAWN_FALLBACK.centerZ+Math.round(Math.sin(angle)*radius),radius};}
+function totalSpawnCandidates(){const rings=Math.floor(SPAWN_FALLBACK.maxRadiusBlocks/SPAWN_FALLBACK.ringStepBlocks);return Math.min(SPAWN_FALLBACK.maxCandidates,1+rings*SPAWN_FALLBACK.pointsPerRing);}
+function* spawnFallbackGenerator(){while(spawnFallbackSearch){let processed=0;while(processed++<SPAWN_FALLBACK.maxAttemptsPerTick&&spawnFallbackSearch&&spawnFallbackSearch.nextIndex<spawnFallbackSearch.total){const state=spawnFallbackSearch,candidate=spawnFallbackCandidate(state.nextIndex++);state.attempts++;let resolved=null;try{if(typeof generator.resolveAnchorSpawnPos==="function")resolved=generator.resolveAnchorSpawnPos(candidate.x,candidate.z);else if(typeof generator.resolveAnchorSpawn==="function")resolved=generator.resolveAnchorSpawn(candidate.x,candidate.z);}catch(error){if(state.attempts<=3)console.warn(`[Sky Archipelago] Spawn fallback resolver error: ${error}`);}if(resolved){try{world.setDefaultSpawnLocation({x:resolved.x+0.5,y:resolved.y??SPAWN_FALLBACK.spawnYFallback,z:resolved.z+0.5},archipelago());}catch(error){console.warn(`[Sky Archipelago] Failed to set fallback spawn: ${error}`);}console.warn(`[Sky Archipelago] Spawn fallback selected ${resolved.x},${resolved.y??SPAWN_FALLBACK.spawnYFallback},${resolved.z} after ${state.attempts} attempts at radius ${candidate.radius}.`);spawnFallbackSearch=null;return;}}if(!spawnFallbackSearch)return;if(spawnFallbackSearch.nextIndex>=spawnFallbackSearch.total){console.warn(`[Sky Archipelago] Spawn fallback exhausted ${spawnFallbackSearch.attempts} candidates; retaining safe script spawn.`);spawnFallbackSearch=null;return;}yield;}}
+function beginSpawnFallbackSearch(){if(spawnFallbackSearch||!generator.dimension)return;const total=totalSpawnCandidates();spawnFallbackSearch={nextIndex:0,total,attempts:0,startedTick:system.currentTick};console.warn(`[Sky Archipelago] No anchor spawn at default location; starting spawn fallback search (${total} candidates).`);try{system.runJob(spawnFallbackGenerator());}catch(error){console.warn(`[Sky Archipelago] Spawn fallback job could not start: ${error}`);spawnFallbackSearch=null;}}
+world.afterEvents.worldLoad.subscribe(()=>{generator.load();generator.dimension=archipelago();bulkTerrain=installBulkTerrainRuntime(generator);buildRuntime();system.run(runStartupSelfTest);system.run(()=>{const test=startupSelfTest,snapshot=test?.snapshot??worldgen?.registry?.snapshot?.()??{};world.sendMessage(`§aSky Archipelago loaded. §7Worldgen: ${snapshot.pieces??0} pieces, ${snapshot.pools??0} pools, ${snapshot.structures??0} structures, ${snapshot.structureSets??0} sets.`);world.sendMessage(`§7Bulk terrain writer enabled: greedy cuboids + batched fillBlocks + stone variants + ore veins.`);beginSpawnFallbackSearch();});});
+system.runInterval(()=>{if(!structureSets||!worldgen)return;for(const player of world.getAllPlayers())if(player.dimension.id===DIMENSION_ID){generator.requestAround(player);structureSets.enqueueAround(player.location.x,player.location.z);}generator.tick();if(!structureProcessBusy){structureProcessBusy=true;structureSets.process().then(stats=>{lastTickStats=stats;}).catch(error=>console.warn(`[Sky Archipelago] structure-set runtime error: ${error}`)).finally(()=>{structureProcessBusy=false;});}if(placementQueue&&!placementProcessBusy){placementProcessBusy=true;placementQueue.process(placementCoordinator).catch(error=>console.warn(`[Sky Archipelago] placement queue error: ${error}`)).finally(()=>{placementProcessBusy=false;});}},1);
+system.afterEvents.scriptEventReceive.subscribe(event=>{const player=event.sourceEntity;if(!player||player.typeId!=="minecraft:player")return;if(event.id==="sky_archipelago:enter"){player.teleport({x:0.5,y:120,z:0.5},{dimension:archipelago()});player.sendMessage("§bWelcome to Sky Archipelago.");return;}if(event.id==="sky_archipelago:lobby"){player.teleport({x:0.5,y:100,z:0.5},{dimension:world.getDimension("minecraft:overworld")});player.sendMessage("§eReturned to the Overworld lobby.");return;}if(event.id==="sky_archipelago:reset"){generator.reset();buildRuntime();player.sendMessage("§eSky Archipelago generation state reset. Existing blocks are not erased.");return;}if(event.id==="sky_archipelago:status"){const snapshot=worldgen?.snapshot?.()??{},native=generator.native?.snapshot?.(),bulk=bulkTerrain?.snapshot?.();player.sendMessage(`§bSky Archipelago §7| generated=${generator.generated?.size??0} queued=${generator.queue?.length??0} structureJobs=${generator.structureJobs?.length??0}`);player.sendMessage(`§7Sets=${snapshot.structureSets??0} | densityBoxes=${snapshot.densityBoxes??0} | junctions=${snapshot.densityJunctions??0} | pendingPlans=${structureSets?.pending?.length??0} | pendingPlacements=${placementQueue?.size?.()??0}`);player.sendMessage(`§7Bulk: chunks=${bulk?.chunks??0} fills=${bulk?.fills??0} singles=${bulk?.singles??0} variants=${bulk?.variants??0} failed=${bulk?.failed??0} pending=${bulk?.pendingChunks??0}`);player.sendMessage(`§7Last tick: ${JSON.stringify(lastTickStats??{})} | Native overlap records: ${native?.overlap?.length??0}`);return;}if(event.id==="sky_archipelago:test_worldgen"){try{const test=runWorldgenSelfTest({data:getGeneratedJigsawData(),registry:worldgen?.registry,seed:generator.layoutSeed,deep:true});player.sendMessage(`§bWorldgen self-test: ${test.ok?"§aPASS":"§cFAIL"}`);player.sendMessage(`§7Pieces=${test.snapshot.pieces} Pools=${test.snapshot.pools} Structures=${test.snapshot.structures} Sets=${test.snapshot.structureSets}`);if(test.warnings.length)player.sendMessage(`§eWarnings: ${test.warnings.slice(0,3).join(" | ")}`);if(test.errors.length)player.sendMessage(`§cErrors: ${test.errors.slice(0,3).join(" | ")}`);}catch(e){player.sendMessage(`§cWorldgen self-test exception: ${e}`);}return;}if(event.id==="sky_archipelago:refresh_structures"){try{const r=registry();generator.registry?.refresh?.();structureSets?.refresh?.(r);placementCoordinator?.refresh?.(r);worldgen?.refresh?.();player.sendMessage("§aStructure registries refreshed from generated jigsaw data.");}catch(e){player.sendMessage(`§cStructure registry refresh failed: ${e}`);}}});

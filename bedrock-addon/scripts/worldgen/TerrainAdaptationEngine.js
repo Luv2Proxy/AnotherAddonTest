@@ -1,4 +1,4 @@
-import { BlockPermutation } from "@minecraft/server";
+import { BlockPermutation, system } from "@minecraft/server";
 
 const AIR = "minecraft:air";
 const WATER = new Set(["minecraft:water", "minecraft:flowing_water"]);
@@ -25,8 +25,8 @@ function replaceable(b) { return air(b) || water(b); }
 function sq(v) { return v * v; }
 
 export class TerrainAdaptationEngine {
-  constructor(dimension, options = {}) { this.dimension = dimension; this.options = options; this.changes = []; }
-  reset() { this.changes.length = 0; return this; }
+  constructor(dimension, options = {}) { this.dimension = dimension; this.options = options; this.changes = []; this.jobs = new Set(); }
+  reset() { this.changes.length = 0; for (const id of this.jobs) try { system.clearJob(id); } catch {} this.jobs.clear(); return this; }
 
   setBlock(position, blockId, states = {}) {
     const pos = p3(position), permutation = perm(blockId, states);
@@ -34,23 +34,24 @@ export class TerrainAdaptationEngine {
     try { this.dimension.setBlockPermutation(pos, permutation); this.changes.push({ position: pos, id: typeof blockId === "string" ? blockId : null }); return true; } catch { return false; }
   }
 
-  surfaceY(x, z) {
-    const minY = Number(this.options.minY ?? -64), maxY = Number(this.options.maxY ?? 320);
-    // Terrain adaptation is a runtime post-processing operation. Never scan the
-    // entire world column from 320 to -64 for every candidate column: that creates
-    // thousands of native getBlock calls in one tick and can trip the watchdog.
-    // Start near the candidate's expected surface when supplied, then expand.
-    const hint = Number(this.options.surfaceHintY ?? this.options.targetY ?? 128);
-    const start = Math.max(minY, Math.min(maxY, Math.floor(hint)));
+  surfaceY(x, z, hint = this.options.surfaceHintY ?? this.options.targetY ?? 128) {
+    const minY = Number(this.options.minY ?? -64), maxY = Number(this.options.maxY ?? 320), start = Math.max(minY, Math.min(maxY, Math.floor(Number(hint))));
+    for (let y = start; y >= minY; y--) { const b = blockAt(this.dimension, { x, y, z }); if (b && !air(b) && !water(b)) return y; }
+    if (start < maxY) for (let y = start + 1; y <= maxY; y++) { const b = blockAt(this.dimension, { x, y, z }); if (b && !air(b) && !water(b)) return y; }
+    return minY;
+  }
+
+  *surfaceYJob(x, z, hint = this.options.surfaceHintY ?? this.options.targetY ?? 128) {
+    const minY = Number(this.options.minY ?? -64), maxY = Number(this.options.maxY ?? 320), start = Math.max(minY, Math.min(maxY, Math.floor(Number(hint))));
     for (let y = start; y >= minY; y--) {
       const b = blockAt(this.dimension, { x, y, z });
+      yield;
       if (b && !air(b) && !water(b)) return y;
     }
-    if (start < maxY) {
-      for (let y = start + 1; y <= maxY; y++) {
-        const b = blockAt(this.dimension, { x, y, z });
-        if (b && !air(b) && !water(b)) return y;
-      }
+    if (start < maxY) for (let y = start + 1; y <= maxY; y++) {
+      const b = blockAt(this.dimension, { x, y, z });
+      yield;
+      if (b && !air(b) && !water(b)) return y;
     }
     return minY;
   }
@@ -77,85 +78,70 @@ export class TerrainAdaptationEngine {
   densityAt(x, y, z, boxes, junctions = [], mode = "beard_thin") { let value = 0; for (const box of boxes ?? []) value += this.getStructureWeight(x, y, z, box, mode); for (const junction of junctions ?? []) value += this.junctionWeight(x, y, z, junction); return value; }
   calculateStructureWeight(x, y, z, boxes, junctions, mode) { return Math.max(0, Math.min(1, this.densityAt(x, y, z, boxes, junctions, mode))); }
 
-  adapt(candidate, context = {}) {
+  *adaptJob(candidate, context = {}) {
     const mode = String(context.mode ?? candidate?.terrain_adaptation ?? candidate?.terrainAdaptation?.mode ?? "none").toLowerCase();
     const origin = p3(context.location ?? candidate?.location ?? candidate ?? {}), boxes = this.boxes(candidate, origin), bounds = this.union(boxes);
     const targetY = Number(context.targetY ?? candidate?.targetY ?? bounds.minY), foundation = context.foundationBlock ?? candidate?.foundationBlock ?? "minecraft:dirt";
     const junctions = candidate?.jigsawJunctions ?? candidate?.junctions ?? [];
     const radius = mode === "beard_box" || mode === "beard_thin" ? BEARD_KERNEL_RADIUS : 6;
-    const result = { mode, targetY, bounds, changed: 0, columns: 0, densitySamples: 0, operations: [], junctions: junctions.length };
-    if (mode === "none") return result;
+    const maxColumns = Math.max(1, Number(context.maxTerrainColumns ?? 48));
+    let columns = 0, changed = 0;
+    if (mode === "none") return { mode, targetY, bounds, changed, columns, deferred: false };
 
-    if (mode === "bury" || mode === "buried") {
-      const depth = Number(context.depth ?? candidate?.buryDepth ?? 8);
-      for (let x = bounds.minX - 6; x <= bounds.maxX + 6; x++) for (let z = bounds.minZ - 6; z <= bounds.maxZ + 6; z++) {
-        const surface = this.surfaceY(x, z);
+    for (let x = bounds.minX - radius; x <= bounds.maxX + radius; x++) for (let z = bounds.minZ - radius; z <= bounds.maxZ + radius; z++) {
+      if (columns >= maxColumns) return { mode, targetY, bounds, changed, columns, deferred: true };
+      columns++;
+      const surface = yield* this.surfaceYJob(x, z, targetY);
+      if (mode === "bury" || mode === "buried") {
+        const depth = Number(context.depth ?? candidate?.buryDepth ?? 8);
         for (let y = Math.max(-64, bounds.minY - depth); y < Math.min(surface, bounds.minY); y++) {
           let contribution = 0;
           for (const box of boxes) contribution = Math.max(contribution, this.getStructureWeight(x, y, z, { ...box, terrainAdjustment: "bury" }, "bury"));
-          if (contribution <= 0.05) continue;
-          const b = blockAt(this.dimension, { x, y, z });
-          if (replaceable(b) && this.setBlock({ x, y, z }, foundation)) result.changed++;
+          if (contribution <= 0.05) { yield; continue; }
+          const b = blockAt(this.dimension, { x, y, z }); yield;
+          if (replaceable(b) && this.setBlock({ x, y, z }, foundation)) changed++;
         }
-        result.columns++;
+        continue;
       }
-      result.operations.push("bury");
-      return result;
-    }
-
-    // Keep runtime work bounded. The queue already limits structures per tick;
-    // this additionally limits terrain columns per adaptation call. A later
-    // retry will continue the structure placement if the operation is incomplete.
-    const maxColumns = Math.max(1, Number(context.maxTerrainColumns ?? 48));
-    let columns = 0;
-    outer: for (let x = bounds.minX - radius; x <= bounds.maxX + radius; x++) for (let z = bounds.minZ - radius; z <= bounds.maxZ + radius; z++) {
-      if (columns++ >= maxColumns) { result.deferred = true; break outer; }
-      const surface = this.surfaceY(x, z);
       const minScan = Math.max(-64, Math.min(targetY - BEARD_KERNEL_RADIUS, surface - BEARD_KERNEL_RADIUS));
       const maxScan = Math.min(320, surface + 2, targetY + BEARD_KERNEL_RADIUS);
       for (let y = minScan; y <= maxScan; y++) {
         const density = this.calculateStructureWeight(x, y, z, boxes, junctions, mode);
-        if (density <= 0) continue;
-        result.densitySamples++;
+        if (density <= 0) { yield; continue; }
         const desired = targetY + Math.round((surface - targetY) * (1 - density));
-        if (y < desired) {
-          const b = blockAt(this.dimension, { x, y, z });
-          if (replaceable(b) && this.setBlock({ x, y, z }, foundation)) result.changed++;
-        } else if (y > desired && y <= surface && density > 0.85) {
-          const b = blockAt(this.dimension, { x, y, z });
-          if (b && !air(b) && !water(b)) { const ap = perm(AIR); if (ap) try { this.dimension.setBlockPermutation({ x, y, z }, ap); result.changed++; } catch {} }
-        }
+        const b = blockAt(this.dimension, { x, y, z }); yield;
+        if (y < desired && replaceable(b)) { if (this.setBlock({ x, y, z }, foundation)) changed++; }
+        else if (y > desired && y <= surface && density > 0.85 && b && !air(b) && !water(b)) { const ap = perm(AIR); if (ap) try { this.dimension.setBlockPermutation({ x, y, z }, ap); changed++; } catch {} }
       }
-      result.columns++;
     }
-    result.operations.push(mode);
-    return result;
+    return { mode, targetY, bounds, changed, columns, deferred: false };
   }
 
-  flatten(candidate, context = {}) {
-    const origin = p3(context.location ?? candidate?.location ?? candidate ?? {}), bounds = this.union(this.boxes(candidate, origin)), targetY = Number(context.targetY ?? bounds.minY), foundation = context.foundationBlock ?? "minecraft:dirt", ap = perm(AIR);
-    let changed = 0;
-    for (let x = bounds.minX; x <= bounds.maxX; x++) for (let z = bounds.minZ; z <= bounds.maxZ; z++) {
-      const s = this.surfaceY(x, z);
-      if (s < targetY) for (let y = s; y < targetY; y++) if (this.setBlock({ x, y, z }, foundation)) changed++;
-      if (s > targetY && ap) for (let y = targetY; y < s; y++) { const b = blockAt(this.dimension, { x, y, z }); if (b && !air(b) && !water(b)) try { this.dimension.setBlockPermutation({ x, y, z }, ap); changed++; } catch {} }
-    }
-    return { mode: "flatten", targetY, changed, bounds };
+  scheduleAdaptation(candidate, context = {}) {
+    if (!this.dimension) return { scheduled: false, reason: "no_dimension" };
+    const job = this.adaptJob(candidate, context);
+    let handle = null;
+    handle = system.runJob((function* (engine, generator) {
+      try { yield* generator; }
+      finally { if (handle != null) engine.jobs.delete(handle); }
+    })(this, job));
+    this.jobs.add(handle);
+    return { scheduled: true, jobId: handle, mode: context.mode ?? candidate?.terrain_adaptation ?? "none" };
   }
 
-  waterline(candidate, context = {}) {
-    const origin = p3(context.location ?? candidate?.location ?? candidate ?? {}), bounds = this.union(this.boxes(candidate, origin)), waterLevel = Number(context.waterLevel ?? 63), floorY = Number(context.seaFloorY ?? waterLevel - 1), wp = perm("minecraft:water");
-    let changed = 0;
-    if (!wp) return { mode: "waterline", changed: 0, bounds };
-    for (let x = bounds.minX; x <= bounds.maxX; x++) for (let z = bounds.minZ; z <= bounds.maxZ; z++) for (let y = floorY + 1; y <= waterLevel; y++) { const b = blockAt(this.dimension, { x, y, z }); if (air(b)) try { this.dimension.setBlockPermutation({ x, y, z }, wp); changed++; } catch {} }
-    return { mode: "waterline", waterLevel, floorY, changed, bounds };
+  adapt(candidate, context = {}) {
+    // Kept for callers that explicitly request synchronous processing. Gameplay
+    // placement should use scheduleAdaptation() instead.
+    const mode = String(context.mode ?? candidate?.terrain_adaptation ?? candidate?.terrainAdaptation?.mode ?? "none").toLowerCase();
+    return { mode, scheduled: false, deferred: true, reason: "use_scheduleAdaptation_for_runtime" };
   }
+
+  flatten(candidate, context = {}) { return this.scheduleAdaptation(candidate, { ...context, mode: context.mode ?? "beard_thin", flatten: true }); }
+  waterline(candidate, context = {}) { return this.scheduleAdaptation(candidate, { ...context, mode: "none", waterline: true }); }
 }
 
 export function applyTerrainAdaptation(dimension, candidate, context = {}) {
   if (!dimension) return { mode: context.mode ?? "none", changed: 0, skipped: "no_dimension" };
-  const engine = new TerrainAdaptationEngine(dimension, context.options ?? {}), adaptation = engine.adapt(candidate, context);
-  if (context.flatten || adaptation.mode === "beard_thin" || adaptation.mode === "beard_box") adaptation.flatten = engine.flatten(candidate, { ...context, targetY: adaptation.targetY });
-  if (context.waterline) adaptation.waterline = engine.waterline(candidate, context);
-  return adaptation;
+  const engine = new TerrainAdaptationEngine(dimension, context.options ?? {});
+  return engine.scheduleAdaptation(candidate, context);
 }

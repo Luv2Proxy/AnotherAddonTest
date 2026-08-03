@@ -17,6 +17,8 @@ let placementQueue = null;
 let worldgen = null;
 let lastTickStats = null;
 let startupSelfTest = null;
+let structureProcessBusy = false;
+let placementProcessBusy = false;
 
 function archipelago() { return world.getDimension(DIMENSION_ID); }
 function registry() { return new JigsawRegistry(getGeneratedJigsawData()); }
@@ -25,8 +27,11 @@ function buildRuntime() {
   const jigsawRegistry = new JigsawRegistry(data);
   const densityField = new StructureDensityField();
   placementCoordinator = new StructurePlacementCoordinator(generator, { registry: jigsawRegistry, terrainOptions: { minY: -64, maxY: 320 }, densityField });
-  placementQueue = new StructurePlacementQueue({ maxPerTick: 2, maxRetries: 3, retryDelay: 20 });
-  structureSets = new StructureSetRuntime(generator, { data, registry: jigsawRegistry, dimensionId: DIMENSION_ID, radius: 512, maxPlansPerTick: 1, maxPlacementsPerTick: 2, placementCoordinator, placementQueue, densityField });
+  placementQueue = new StructurePlacementQueue({ maxPerTick: 1, maxRetries: 3, retryDelay: 20 });
+  // Keep the random-spread planning window deliberately small. A 512-block
+  // synchronous search across every structure set is too expensive for Bedrock's
+  // script tick. The runtime revisits cells as the player moves.
+  structureSets = new StructureSetRuntime(generator, { data, registry: jigsawRegistry, dimensionId: DIMENSION_ID, radius: 96, maxPlansPerTick: 1, maxPlacementsPerTick: 1, placementCoordinator, placementQueue, densityField });
   worldgen = new WorldgenJigsawRuntime(archipelago(), { data, registry: jigsawRegistry, generator, structureSets, densityField, placementCoordinator, placementQueue });
   structureSets.refresh(jigsawRegistry);
 }
@@ -51,8 +56,6 @@ world.afterEvents.worldLoad.subscribe(() => {
   generator.load();
   generator.dimension = archipelago();
   buildRuntime();
-  // Defer diagnostics until after world-load initialization. The deep structure-set
-  // planner is intentionally not run automatically because it can exceed the watchdog.
   system.run(runStartupSelfTest);
   system.run(() => {
     const test = startupSelfTest;
@@ -71,8 +74,24 @@ system.runInterval(() => {
   }
   generator.tick();
   worldgen.tick();
-  structureSets.process().then(stats => { lastTickStats = stats; }).catch(error => console.warn(`[Sky Archipelago] structure-set runtime error: ${error}`));
-  placementQueue?.process(placementCoordinator).catch(error => console.warn(`[Sky Archipelago] placement queue error: ${error}`));
+
+  // Never allow two long async processing passes to overlap. Overlapping passes
+  // multiply native getBlock/setBlock work and were a major contributor to the
+  // watchdog interruptions.
+  if (!structureProcessBusy) {
+    structureProcessBusy = true;
+    structureSets.process()
+      .then(stats => { lastTickStats = stats; })
+      .catch(error => console.warn(`[Sky Archipelago] structure-set runtime error: ${error}`))
+      .finally(() => { structureProcessBusy = false; });
+  }
+
+  if (placementQueue && !placementProcessBusy) {
+    placementProcessBusy = true;
+    placementQueue.process(placementCoordinator)
+      .catch(error => console.warn(`[Sky Archipelago] placement queue error: ${error}`))
+      .finally(() => { placementProcessBusy = false; });
+  }
 }, 1);
 
 system.afterEvents.scriptEventReceive.subscribe((event) => {

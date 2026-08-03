@@ -6,8 +6,11 @@ import { StructurePlacementCoordinator } from "./StructurePlacementCoordinator.j
 import { JigsawExpansionEngine } from "./JigsawExpansionEngine.js";
 import { JigsawCollisionValidator } from "./JigsawCollisionValidator.js";
 import { StructureTerrainValidation, validateTerrain, validateWater, validateUnderground } from "./StructureTerrainValidation.js";
+import { GeneratedStructurePlanner } from "./GeneratedStructurePlanner.js";
+import { StructureDensityField } from "./StructureDensityField.js";
+import { getGeneratedJigsawData } from "./JigsawDataLoader.js";
 
-const RUNTIME_DB = "sky_archipelago:structure_set_runtime_v3";
+const RUNTIME_DB = "sky_archipelago:structure_set_runtime_v4";
 
 function surfaceY(generator, x, z, fallback = 128) {
   try {
@@ -28,7 +31,6 @@ function familyOf(candidate) {
   const id = String(candidate?.structure ?? candidate?.id ?? "").toLowerCase();
   return candidate?.family ?? (id.includes("ancient_city") ? "ancient_city/" : id.includes("trial_chambers") ? "trial_chambers/" : id.includes("village/") ? "village/" : id.includes("bastion") ? "bastion/" : id.includes("shipwreck") ? "shipwreck/" : "");
 }
-
 function isJigsaw(candidate) {
   return Boolean(candidate?.jigsaw || candidate?.assetKind === "jigsaw" || candidate?.jigsawPool || familyOf(candidate));
 }
@@ -36,14 +38,17 @@ function isJigsaw(candidate) {
 export class StructureSetRuntime {
   constructor(generator, options = {}) {
     this.generator = generator;
-    this.registry = options.registry ?? new JigsawRegistry();
-    this.sets = options.sets ?? this.registry.structureSetIds?.() ?? [...(this.registry.structureSets?.keys?.() ?? [])];
+    this.data = options.data ?? getGeneratedJigsawData();
+    this.registry = options.registry ?? new JigsawRegistry(this.data);
+    this.sets = options.sets ?? [...(this.registry.structureSets?.keys?.() ?? [])];
     this.planner = options.planner ?? new StructureSetGenerator(this.registry);
-    this.adapter = options.adapter ?? new StructureSetRuntimeAdapter(this, { registry: this.registry, radius: options.radius });
+    this.generatedPlanner = options.generatedPlanner ?? new GeneratedStructurePlanner({ registry: this.registry });
+    this.adapter = options.adapter ?? new StructureSetRuntimeAdapter(this, { registry: this.registry });
     this.placementCoordinator = options.placementCoordinator ?? new StructurePlacementCoordinator(generator, { registry: this.registry });
     this.placementQueue = options.placementQueue;
-    this.jigsaw = options.jigsaw ?? new JigsawExpansionEngine(this.registry, { maxDepth: 12, maxPieces: 96 });
+    this.jigsaw = options.jigsaw ?? new JigsawExpansionEngine(this.registry, { maxDepth: options.maxDepth ?? 12, maxPieces: options.maxPieces ?? 96 });
     this.collision = options.collision ?? new JigsawCollisionValidator({ padding: 1 });
+    this.densityField = options.densityField ?? new StructureDensityField();
     this.dimensionId = options.dimensionId ?? "sky_archipelago:archipelago";
     this.radius = Number(options.radius ?? 512);
     this.maxPlansPerTick = Math.max(1, Number(options.maxPlansPerTick ?? 1));
@@ -71,7 +76,7 @@ export class StructureSetRuntime {
 
   save() {
     try {
-      world.setDynamicProperty(RUNTIME_DB, JSON.stringify({ version: 3, seed: String(this.seed), completed: [...this.completed].slice(-2048), failed: [...this.failed].slice(-512) }));
+      world.setDynamicProperty(RUNTIME_DB, JSON.stringify({ version: 4, seed: String(this.seed), completed: [...this.completed].slice(-2048), failed: [...this.failed].slice(-512) }));
     } catch (e) { console.warn(`[Sky Archipelago] structure persistence save failed: ${e}`); }
   }
 
@@ -80,12 +85,13 @@ export class StructureSetRuntime {
     if (registry) this.registry = registry;
     else if (this.generator?.jigsawRegistry) this.registry = this.generator.jigsawRegistry;
     this.planner.registry = this.registry;
+    this.generatedPlanner = new GeneratedStructurePlanner({ registry: this.registry });
     this.adapter.refresh(this.registry);
     this.placementCoordinator.refresh(this.registry);
     this.jigsaw.registry = this.registry;
     this.jigsaw.poolExpander.registry = this.registry;
     this.jigsaw.connectorResolver.registry = this.registry;
-    this.sets = this.registry.structureSetIds?.() ?? [...(this.registry.structureSets?.keys?.() ?? [])];
+    this.sets = [...(this.registry.structureSets?.keys?.() ?? [])];
     return this;
   }
 
@@ -106,8 +112,10 @@ export class StructureSetRuntime {
   resolveLocation(candidate) {
     const family = familyOf(candidate);
     const category = String(candidate?.category ?? "").toLowerCase();
+    const metadata = this.generatedPlanner.metadata(candidate?.structure ?? candidate?.id);
     let y = surfaceY(this.generator, candidate.x, candidate.z, candidate.y);
-    if (category.includes("underground") || family.includes("ancient_city") || family.includes("trial_chambers")) y = Math.max(-32, y - Number(candidate.depth ?? 24));
+    if (metadata.start_height?.value?.absolute != null) y = Number(metadata.start_height.value.absolute);
+    else if (category.includes("underground") || family.includes("ancient_city") || family.includes("trial_chambers")) y = Math.max(-32, y - Number(candidate.depth ?? 24));
     if (category.includes("water") || family.includes("shipwreck") || family.includes("underwater") || family.includes("coral")) y = Math.max(0, y - 8);
     return { x: Math.floor(candidate.x), y: Math.floor(y), z: Math.floor(candidate.z) };
   }
@@ -116,10 +124,12 @@ export class StructureSetRuntime {
     const category = String(candidate?.category ?? "").toLowerCase();
     if (category.includes("water")) return validateWater(this.generator, location, { waterY: candidate.waterY ?? 62, tolerance: 12 });
     if (category.includes("underground")) return validateUnderground(this.generator, location, { depth: candidate.depth ?? 24 });
-    return validateTerrain(this.generator, location, { radius: candidate.footprintRadius ?? 4, maxSlope: candidate.maxSlope ?? 8 });
+    return validateTerrain(this.generator, location, { radius: candidate.footprintRadius ?? candidate.footprint?.x / 2 ?? 4, maxSlope: candidate.maxSlope ?? 8 });
   }
 
   async enqueueCandidate(candidate, context) {
+    const planned = this.generatedPlanner.planCandidate(candidate, context.host ?? {});
+    candidate = { ...candidate, ...planned };
     const location = this.resolveLocation(candidate);
     const terrain = this.terrainCheck(candidate, location);
     if (!terrain.valid && String(candidate.category ?? "").toLowerCase() !== "water") return { placed: false, reason: "terrain_invalid", terrain };
@@ -140,7 +150,25 @@ export class StructureSetRuntime {
 
   async placeJigsaw(candidate, context) {
     const startId = candidate.structure ?? candidate.id;
-    const expansion = this.jigsaw.expand(startId, context.location, candidate.seed ?? String(this.seed), { maxPieces: 96 });
+    // Native data-driven Jigsaw is preferred whenever the engine exposes it.
+    if (candidate.native !== false && typeof this.generator?.placeStructure === "function") {
+      const nativeResult = this.generator.placeStructure(startId, context.location, {
+        seed: context.seed,
+        rotation: context.options?.rotation ?? 0,
+        terrain_adaptation: candidate.terrain_adaptation,
+        heightmap_projection: candidate.heightmap_projection,
+        includeEntities: true,
+        keepJigsaws: false
+      });
+      if (nativeResult?.placed) {
+        if (nativeResult.bounds) this.densityField.addBox(nativeResult.bounds, { mode: candidate.terrain_adaptation ?? "none", radius: candidate.beardRadius ?? 12 });
+        for (const j of nativeResult.junctions ?? []) this.densityField.addJunction(j);
+        return nativeResult;
+      }
+    }
+
+    // Legacy/unsupported Jigsaw systems use the exact extracted connector graph.
+    const expansion = this.jigsaw.expand(startId, context.location, candidate.seed ?? String(this.seed), { maxPieces: candidate.maxPieces ?? 96, maxDepth: candidate.max_depth ?? 12 });
     const accepted = [];
     for (const piece of expansion) {
       const pieceBounds = this.collision.canPlace(piece.piece, piece.location, piece.rotation, accepted);
@@ -153,7 +181,10 @@ export class StructureSetRuntime {
     let placed = 0;
     for (const piece of accepted) {
       const result = await this.placementCoordinator.place({ ...candidate, structure: piece.id, x: piece.location.x, y: piece.location.y, z: piece.location.z }, { ...context, location: piece.location, options: { ...(context.options ?? {}), jigsawDepth: piece.depth, jigsawParent: piece.parent, rotation: piece.rotation } });
-      if (result?.placed) placed++;
+      if (result?.placed) {
+        placed++;
+        if (piece.bounds) this.densityField.addBox(piece.bounds, { mode: candidate.terrain_adaptation ?? "none", radius: candidate.beardRadius ?? 12 });
+      }
     }
     return { placed: placed > 0, placedPieces: placed, expandedPieces: expansion.length, acceptedPieces: accepted.length };
   }
@@ -171,7 +202,7 @@ export class StructureSetRuntime {
       planned++;
       for (const candidate of plan.placements.slice(0, this.maxPlacementsPerTick)) {
         try {
-          const result = await this.enqueueCandidate(candidate, { setId: job.setId, seed, dimension: world.getDimension(this.dimensionId) });
+          const result = await this.enqueueCandidate(candidate, { setId: job.setId, seed, dimension: world.getDimension(this.dimensionId), host: job.host });
           if (result?.queued) queued++;
           else if (result?.placed) placed++;
           else skipped++;
@@ -184,11 +215,13 @@ export class StructureSetRuntime {
       this.active.set(job.key, { planned: true, timestamp: Date.now() });
     }
     this.save();
-    return { planned, placed, queued, skipped };
+    return { planned, placed, queued, skipped, densityBoxes: this.densityField.boxes.length, junctions: this.densityField.junctions.length };
   }
 
   tick() {
     this.refresh();
     for (const player of world.getAllPlayers()) if (player.dimension?.id === this.dimensionId) this.enqueueAround(player.location.x, player.location.z);
   }
+
+  densityAt(x, y, z) { return this.densityField.densityAt(x, y, z); }
 }

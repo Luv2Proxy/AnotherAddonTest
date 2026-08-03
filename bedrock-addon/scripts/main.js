@@ -11,6 +11,18 @@ import { WorldgenJigsawRuntime } from "./worldgen/WorldgenJigsawRuntime.js";
 import { runWorldgenSelfTest } from "./worldgen/WorldgenSelfTest.js";
 
 const DIMENSION_ID = "sky_archipelago:archipelago";
+const SPAWN_FALLBACK = Object.freeze({
+  centerX: 0,
+  centerZ: 0,
+  maxRadiusBlocks: 98304,
+  ringStepBlocks: 64,
+  pointsPerRing: 128,
+  maxCandidates: 120000,
+  maxAttemptsPerTick: 256,
+  searchIntervalTicks: 1,
+  spawnYFallback: 120
+});
+
 const generator = new IslandGenerator();
 let bulkTerrain = null;
 let structureSets = null;
@@ -21,6 +33,7 @@ let lastTickStats = null;
 let startupSelfTest = null;
 let structureProcessBusy = false;
 let placementProcessBusy = false;
+let spawnFallbackSearch = null;
 
 function archipelago() { return world.getDimension(DIMENSION_ID); }
 function registry() { return new JigsawRegistry(getGeneratedJigsawData()); }
@@ -49,12 +62,64 @@ function runStartupSelfTest() {
   }
 }
 
+function spawnFallbackCandidate(index) {
+  if (index === 0) return { x: SPAWN_FALLBACK.centerX, z: SPAWN_FALLBACK.centerZ, radius: 0 };
+  const ringIndex = Math.floor((index - 1) / SPAWN_FALLBACK.pointsPerRing) + 1;
+  const pointIndex = (index - 1) % SPAWN_FALLBACK.pointsPerRing;
+  const radius = ringIndex * SPAWN_FALLBACK.ringStepBlocks;
+  const angle = (Math.PI * 2 * pointIndex) / SPAWN_FALLBACK.pointsPerRing;
+  return {
+    x: SPAWN_FALLBACK.centerX + Math.round(Math.cos(angle) * radius),
+    z: SPAWN_FALLBACK.centerZ + Math.round(Math.sin(angle) * radius),
+    radius
+  };
+}
+
+function totalSpawnCandidates() {
+  const rings = Math.floor(SPAWN_FALLBACK.maxRadiusBlocks / SPAWN_FALLBACK.ringStepBlocks);
+  return Math.min(SPAWN_FALLBACK.maxCandidates, 1 + rings * SPAWN_FALLBACK.pointsPerRing);
+}
+
+function beginSpawnFallbackSearch() {
+  if (spawnFallbackSearch || !generator.dimension) return;
+  const dimension = archipelago();
+  const total = totalSpawnCandidates();
+  spawnFallbackSearch = { nextIndex: 0, total, attempts: 0, startedTick: system.currentTick };
+  console.warn(`[Sky Archipelago] No anchor spawn at default location; starting spawn fallback search (${total} candidates).`);
+
+  system.runJob(function* () {
+    while (spawnFallbackSearch) {
+      let processed = 0;
+      while (processed++ < SPAWN_FALLBACK.maxAttemptsPerTick && spawnFallbackSearch && spawnFallbackSearch.nextIndex < spawnFallbackSearch.total) {
+        const state = spawnFallbackSearch;
+        const candidate = spawnFallbackCandidate(state.nextIndex++);
+        state.attempts++;
+        const resolved = generator.resolveAnchorSpawnPos?.(candidate.x, candidate.z);
+        if (resolved) {
+          try {
+            world.setDefaultSpawnLocation({ x: resolved.x + 0.5, y: resolved.y, z: resolved.z + 0.5 }, dimension);
+          } catch (error) {
+            console.warn(`[Sky Archipelago] Failed to set fallback spawn: ${error}`);
+          }
+          console.warn(`[Sky Archipelago] Spawn fallback selected ${resolved.x},${resolved.y},${resolved.z} after ${state.attempts} attempts at radius ${candidate.radius}.`);
+          spawnFallbackSearch = null;
+          break;
+        }
+      }
+      if (!spawnFallbackSearch) return;
+      if (spawnFallbackSearch.nextIndex >= spawnFallbackSearch.total) {
+        console.warn(`[Sky Archipelago] Spawn fallback exhausted ${spawnFallbackSearch.attempts} candidates; retaining safe script spawn.`);
+        spawnFallbackSearch = null;
+        return;
+      }
+      yield;
+    }
+  });
+}
+
 world.afterEvents.worldLoad.subscribe(() => {
   generator.load();
   generator.dimension = archipelago();
-  // Install after world load: the bulk runtime intentionally performs all
-  // BlockPermutation resolution and world mutation from normal execution,
-  // never during module evaluation/early execution.
   bulkTerrain = installBulkTerrainRuntime(generator);
   buildRuntime();
   system.run(runStartupSelfTest);
@@ -63,6 +128,7 @@ world.afterEvents.worldLoad.subscribe(() => {
     const snapshot = test?.snapshot ?? worldgen?.registry?.snapshot?.() ?? {};
     world.sendMessage(`§aSky Archipelago loaded. §7Worldgen: ${snapshot.pieces ?? 0} pieces, ${snapshot.pools ?? 0} pools, ${snapshot.structures ?? 0} structures, ${snapshot.structureSets ?? 0} sets.`);
     world.sendMessage(`§7Bulk terrain writer enabled: greedy cuboids + batched fillBlocks + stone variants + ore veins.`);
+    beginSpawnFallbackSearch();
   });
 });
 

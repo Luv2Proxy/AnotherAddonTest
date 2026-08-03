@@ -4,6 +4,41 @@ import { CategoryPlacementEngines } from "./CategoryPlacementEngines.js";
 import { classifyPlacement } from "./PlacementEngineAdapters.js";
 import { computeTerrainAdaptation, validateIslandPlacement } from "./StructurePlacementPolicies.js";
 import { ProcessorPipeline } from "./ProcessorPipeline.js";
+import { TerrainAdaptationEngine } from "./TerrainAdaptationEngine.js";
+
+function normalizeBounds(value, location = { x: 0, y: 0, z: 0 }) {
+  if (!value) return null;
+  if (value.minX != null) return {
+    minX: Number(value.minX), minY: Number(value.minY), minZ: Number(value.minZ),
+    maxX: Number(value.maxX), maxY: Number(value.maxY), maxZ: Number(value.maxZ)
+  };
+  const min = value.min ?? value.minimum ?? value.from;
+  const max = value.max ?? value.maximum ?? value.to;
+  if (min && max) return {
+    minX: Number(min.x), minY: Number(min.y), minZ: Number(min.z),
+    maxX: Number(max.x), maxY: Number(max.y), maxZ: Number(max.z)
+  };
+  if (value.size) return {
+    minX: Number(value.x ?? location.x), minY: Number(value.y ?? location.y), minZ: Number(value.z ?? location.z),
+    maxX: Number(value.x ?? location.x) + Number(value.size.x ?? 1) - 1,
+    maxY: Number(value.y ?? location.y) + Number(value.size.y ?? 1) - 1,
+    maxZ: Number(value.z ?? location.z) + Number(value.size.z ?? 1) - 1
+  };
+  return null;
+}
+
+function boundsFromResult(result, location, candidate) {
+  const direct = normalizeBounds(result?.bounds, location) ?? normalizeBounds(result?.boundingBox, location) ?? normalizeBounds(result?.box, location);
+  if (direct) return [direct];
+  const pieces = result?.pieces ?? result?.placedPieces;
+  if (Array.isArray(pieces)) {
+    const boxes = pieces.map(piece => normalizeBounds(piece?.bounds ?? piece?.boundingBox ?? piece?.box, piece?.origin ?? location)).filter(Boolean);
+    if (boxes.length) return boxes;
+  }
+  const candidateBounds = candidate?.pieceBounds ?? candidate?.boundingBoxes;
+  if (Array.isArray(candidateBounds)) return candidateBounds.map(b => normalizeBounds(b, location)).filter(Boolean);
+  return [];
+}
 
 export class StructurePlacementCoordinator {
   constructor(generator, options = {}) {
@@ -12,6 +47,7 @@ export class StructurePlacementCoordinator {
     this.orchestrator = options.orchestrator ?? new PlacementEngineOrchestrator(generator, { registry: this.registry });
     this.engines = options.engines ?? new CategoryPlacementEngines(generator);
     this.processors = options.processors ?? new ProcessorPipeline(this.registry);
+    this.terrain = options.terrain ?? new TerrainAdaptationEngine(generator?.dimension ?? null, options.terrainOptions ?? {});
     this.placed = new Set();
     this.failed = new Map();
   }
@@ -21,6 +57,7 @@ export class StructurePlacementCoordinator {
     this.processors.registry = this.registry;
     this.orchestrator.refresh(this.registry);
     this.engines.generator = this.generator;
+    return this;
   }
 
   key(candidate, location, context = {}) {
@@ -44,6 +81,47 @@ export class StructurePlacementCoordinator {
     return { ...candidate, blocks };
   }
 
+  applyTerrain(result, candidate, context, terrainAdaptation, location) {
+    if (!this.terrain?.dimension) return { result, terrain: null };
+    const boxes = boundsFromResult(result, location, candidate);
+    if (!boxes.length) return { result, terrain: null, reason: "placement_result_has_no_bounds" };
+
+    const mode = terrainAdaptation.mode;
+    if (!mode || mode === "none") return { result, terrain: null, boxes };
+
+    const adaptationCandidate = {
+      ...candidate,
+      pieceBounds: boxes,
+      terrain_adaptation: mode,
+      targetY: terrainAdaptation.targetY,
+      foundationBlock: context.options?.foundationBlock ?? "minecraft:dirt"
+    };
+    const terrainResult = this.terrain.adapt(adaptationCandidate, {
+      ...context,
+      location,
+      mode,
+      targetY: terrainAdaptation.targetY,
+      foundationBlock: context.options?.foundationBlock ?? "minecraft:dirt"
+    });
+
+    if (terrainAdaptation.flatten || context.options?.flatten) {
+      terrainResult.flatten = this.terrain.flatten(adaptationCandidate, {
+        ...context,
+        location,
+        targetY: terrainAdaptation.targetY,
+        foundationBlock: context.options?.foundationBlock ?? "minecraft:dirt"
+      });
+    }
+    if (terrainAdaptation.waterline != null || context.options?.waterline) {
+      terrainResult.waterline = this.terrain.waterline(adaptationCandidate, {
+        ...context,
+        location,
+        waterLevel: terrainAdaptation.waterline ?? context.options?.waterLevel
+      });
+    }
+    return { result, terrain: terrainResult, boxes };
+  }
+
   async place(candidate, context = {}) {
     const classification = classifyPlacement(this.registry, candidate);
     const rawLocation = context.location ?? { x: candidate?.x ?? 0, y: candidate?.y ?? 128, z: candidate?.z ?? 0 };
@@ -51,9 +129,7 @@ export class StructurePlacementCoordinator {
     const location = policyResult.location;
     const placementKey = context.placementKey ?? this.key(candidate, location, context);
 
-    if (this.placed.has(placementKey)) {
-      return { placed: false, reason: "already_placed", placementKey, classification };
-    }
+    if (this.placed.has(placementKey)) return { placed: false, reason: "already_placed", placementKey, classification };
 
     const host = context.host ?? candidate?.host;
     const validation = validateIslandPlacement({
@@ -70,24 +146,16 @@ export class StructurePlacementCoordinator {
       return result;
     }
 
-    const terrainAdaptation = computeTerrainAdaptation({
-      category: classification.category,
-      candidate,
-      host: host ?? {},
-      location
-    });
-
-    const adaptedLocation = {
-      ...location,
-      y: terrainAdaptation.mode === "none" ? location.y : terrainAdaptation.targetY
-    };
-
+    const terrainAdaptation = computeTerrainAdaptation({ category: classification.category, candidate, host: host ?? {}, location });
+    const adaptedLocation = { ...location, y: terrainAdaptation.mode === "none" ? location.y : terrainAdaptation.targetY };
     const processedCandidate = this.applyProcessors(candidate, { ...context, location: adaptedLocation });
+
     const engineContext = {
       ...context,
       location: adaptedLocation,
       placementKey,
       host,
+      dimension: context.dimension ?? this.generator?.dimension,
       options: {
         ...(context.options ?? {}),
         ...policyResult.policy,
@@ -102,8 +170,17 @@ export class StructurePlacementCoordinator {
     if (result && typeof result !== "object") result = { placed: result !== false };
     result = result ?? { placed: false, reason: "no_placement_adapter" };
 
-    if (result.placed) this.placed.add(placementKey);
-    else this.failed.set(placementKey, { ...result, timestamp: Date.now() });
+    if (!result.placed) {
+      this.failed.set(placementKey, { ...result, timestamp: Date.now() });
+      return { ...result, placementKey, location: adaptedLocation, policy: policyResult.policy, classification, validation, terrainAdaptation };
+    }
+
+    // Terrain adaptation is applied after placement, using the actual bounds
+    // returned by the Bedrock structure manager whenever available. This is
+    // materially closer to vanilla Beardifier semantics than adapting the
+    // requested origin before the structure's final transformed bounds exist.
+    const terrainApplied = this.applyTerrain(result, processedCandidate, engineContext, terrainAdaptation, adaptedLocation);
+    this.placed.add(placementKey);
 
     return {
       ...result,
@@ -112,7 +189,10 @@ export class StructurePlacementCoordinator {
       policy: policyResult.policy,
       classification,
       validation,
-      terrainAdaptation
+      terrainAdaptation,
+      terrain: terrainApplied.terrain,
+      terrainBounds: terrainApplied.boxes,
+      terrainReason: terrainApplied.reason
     };
   }
 }

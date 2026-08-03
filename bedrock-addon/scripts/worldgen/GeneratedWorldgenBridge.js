@@ -13,15 +13,6 @@ function normalizeProjection(v){
   return "none";
 }
 
-/**
- * Generated-JS-first worldgen bridge.
- *
- * This module intentionally treats generated/jigsaw-data.js as the source of
- * truth for every structure system. Native Bedrock JSON is represented inside
- * that generated module as metadata; if a structure is supported natively,
- * callers can use the returned definition. Otherwise the same metadata feeds
- * the Script API fallback.
- */
 export class GeneratedWorldgenBridge {
   constructor({ data = getGeneratedJigsawData(), registry = null } = {}) {
     this.data = data;
@@ -29,22 +20,15 @@ export class GeneratedWorldgenBridge {
     this.structureSets = new StructureSetGenerator(this.registry);
     this.cache = new Map();
   }
-
-  structure(id) {
-    return unwrap(this.registry.structure(id) ?? generatedStructure(id));
+  refresh(registry = this.registry) {
+    if (registry) { this.registry = registry; this.structureSets.registry = registry; }
+    this.cache.clear();
+    return this;
   }
-
-  structureSet(id) {
-    return unwrap(this.registry.structureSet(id) ?? generatedStructureSet(id));
-  }
-
-  pool(id) {
-    return unwrap(this.registry.pool(id) ?? generatedPool(id));
-  }
-
-  processor(id) {
-    return unwrap(this.registry.processor(id));
-  }
+  structure(id) { return unwrap(this.registry.structure(id) ?? generatedStructure(id)); }
+  structureSet(id) { return unwrap(this.registry.structureSet(id) ?? generatedStructureSet(id)); }
+  pool(id) { return unwrap(this.registry.pool(id) ?? generatedPool(id)); }
+  processor(id) { return unwrap(this.registry.processor(id)); }
 
   resolveStructureMetadata(id) {
     const key = String(id ?? "");
@@ -83,58 +67,23 @@ export class GeneratedWorldgenBridge {
     };
   }
 
-  planStructureSets(ids, center, seed, options = {}) {
-    return this.structureSets.allAround(ids, center, seed, options);
-  }
-
+  planStructureSets(ids, center, seed, options = {}) { return this.structureSets.allAround(ids, center, seed, options); }
+  planSet(id, center, seed, options = {}) { return this.structureSets.planAround(id, center, seed, options); }
   candidateFromStructureSet(id, center, seed, options = {}) {
-    const plan = this.structureSets.planAround(id, center, seed, options);
-    return plan.placements.map(p => ({
-      ...p,
-      metadata: this.resolveStructureMetadata(p.structure),
-      structure: p.structure,
-      terrain_adaptation: this.resolveStructureMetadata(p.structure).terrain_adaptation,
-      heightmap_projection: this.resolveStructureMetadata(p.structure).heightmap_projection,
-      start_pool: this.resolveStructureMetadata(p.structure).start_pool
-    }));
+    const plan = this.planSet(id, center, seed, options);
+    return (plan.placements ?? []).map(p => {
+      const metadata = this.resolveStructureMetadata(p.structure);
+      return { ...p, metadata, structure: p.structure, terrain_adaptation: metadata.terrain_adaptation, heightmap_projection: metadata.heightmap_projection, start_pool: metadata.start_pool };
+    });
   }
-
   terrainContextForCandidate(candidate, host = {}) {
     const metadata = this.resolveStructureMetadata(candidate.structure ?? candidate.id);
-    return {
-      ...candidate,
-      ...metadata,
-      host,
-      projection: metadata.heightmap_projection,
-      terrain_adaptation: metadata.terrain_adaptation,
-      start_pool: metadata.start_pool,
-      jigsawJunctions: candidate.jigsawJunctions ?? candidate.junctions ?? []
-    };
+    return { ...candidate, ...metadata, host, projection: metadata.heightmap_projection, terrain_adaptation: metadata.terrain_adaptation, start_pool: metadata.start_pool, jigsawJunctions: candidate.jigsawJunctions ?? candidate.junctions ?? [] };
   }
-
-  isNativeSupported(id) {
-    const m = this.resolveStructureMetadata(id);
-    return Boolean(m.native && m.start_pool);
-  }
-
-  shouldUseFallback(id) {
-    return !this.isNativeSupported(id);
-  }
-
-  validate(id) {
-    return this.registry.validateStructure(id);
-  }
-
-  snapshot() {
-    return {
-      registry: this.registry.snapshot(),
-      generatedSchema: this.data.schema_version,
-      missingTemplates: this.data.missing_templates?.length ?? 0,
-      nativeKinds: Object.keys(this.data.native ?? {})
-    };
-  }
+  isNativeSupported(id) { const m = this.resolveStructureMetadata(id); return Boolean(m.native && m.start_pool); }
+  shouldUseFallback(id) { return !this.isNativeSupported(id); }
+  validate(id) { return this.registry.validateStructure(id); }
+  snapshot() { return { registry: this.registry.snapshot(), generatedSchema: this.data.schema_version, missingTemplates: this.data.missing_templates?.length ?? 0, nativeKinds: Object.keys(this.data.native ?? {}) }; }
 }
 
-export function createGeneratedWorldgenBridge(options) {
-  return new GeneratedWorldgenBridge(options);
-}
+export function createGeneratedWorldgenBridge(options) { return new GeneratedWorldgenBridge(options); }

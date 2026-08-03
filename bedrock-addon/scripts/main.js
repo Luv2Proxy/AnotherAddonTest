@@ -1,5 +1,6 @@
 import { world, system } from "@minecraft/server";
 import { IslandGenerator } from "./worldgen/IslandGenerator.js";
+import { installBulkTerrainRuntime } from "./worldgen/BulkTerrainRuntime.js";
 import { JigsawRegistry } from "./worldgen/JigsawRegistry.js";
 import { StructureSetRuntime } from "./worldgen/StructureSetRuntime.js";
 import { StructurePlacementCoordinator } from "./worldgen/StructurePlacementCoordinator.js";
@@ -11,6 +12,7 @@ import { runWorldgenSelfTest } from "./worldgen/WorldgenSelfTest.js";
 
 const DIMENSION_ID = "sky_archipelago:archipelago";
 const generator = new IslandGenerator();
+let bulkTerrain = null;
 let structureSets = null;
 let placementCoordinator = null;
 let placementQueue = null;
@@ -50,12 +52,17 @@ function runStartupSelfTest() {
 world.afterEvents.worldLoad.subscribe(() => {
   generator.load();
   generator.dimension = archipelago();
+  // Install after world load: the bulk runtime intentionally performs all
+  // BlockPermutation resolution and world mutation from normal execution,
+  // never during module evaluation/early execution.
+  bulkTerrain = installBulkTerrainRuntime(generator);
   buildRuntime();
   system.run(runStartupSelfTest);
   system.run(() => {
     const test = startupSelfTest;
     const snapshot = test?.snapshot ?? worldgen?.registry?.snapshot?.() ?? {};
     world.sendMessage(`§aSky Archipelago loaded. §7Worldgen: ${snapshot.pieces ?? 0} pieces, ${snapshot.pools ?? 0} pools, ${snapshot.structures ?? 0} structures, ${snapshot.structureSets ?? 0} sets.`);
+    world.sendMessage(`§7Bulk terrain writer enabled: greedy cuboids + batched fillBlocks + stone variants + ore veins.`);
   });
 });
 
@@ -69,9 +76,6 @@ system.runInterval(() => {
   }
   generator.tick();
 
-  // StructureSetRuntime.enqueueAround() is already called above. Do not call
-  // worldgen.tick() here as well: that used to refresh/queue the same runtime a
-  // second time every tick.
   if (!structureProcessBusy) {
     structureProcessBusy = true;
     structureSets.process()
@@ -95,9 +99,10 @@ system.afterEvents.scriptEventReceive.subscribe((event) => {
   if (event.id === "sky_archipelago:lobby") { player.teleport({ x: 0.5, y: 100, z: 0.5 }, { dimension: world.getDimension("minecraft:overworld") }); player.sendMessage("§eReturned to the Overworld lobby."); return; }
   if (event.id === "sky_archipelago:reset") { generator.reset(); buildRuntime(); player.sendMessage("§eSky Archipelago generation state reset. Existing blocks are not erased."); return; }
   if (event.id === "sky_archipelago:status") {
-    const snapshot = worldgen?.snapshot?.() ?? {}, native = generator.native?.snapshot?.();
+    const snapshot = worldgen?.snapshot?.() ?? {}, native = generator.native?.snapshot?.(), bulk = bulkTerrain?.snapshot?.();
     player.sendMessage(`§bSky Archipelago §7| generated=${generator.generated?.size ?? 0} queued=${generator.queue?.length ?? 0} structureJobs=${generator.structureJobs?.length ?? 0}`);
     player.sendMessage(`§7Sets=${snapshot.structureSets ?? 0} | densityBoxes=${snapshot.densityBoxes ?? 0} | junctions=${snapshot.densityJunctions ?? 0} | pendingPlans=${structureSets?.pending?.length ?? 0} | pendingPlacements=${placementQueue?.size?.() ?? 0}`);
+    player.sendMessage(`§7Bulk: chunks=${bulk?.chunks ?? 0} fills=${bulk?.fills ?? 0} singles=${bulk?.singles ?? 0} variants=${bulk?.variants ?? 0} failed=${bulk?.failed ?? 0} pending=${bulk?.pendingChunks ?? 0}`);
     player.sendMessage(`§7Last tick: ${JSON.stringify(lastTickStats ?? {})} | Native overlap records: ${native?.overlap?.length ?? 0}`); return;
   }
   if (event.id === "sky_archipelago:test_worldgen") {

@@ -14,17 +14,24 @@ export function getStructurePlacementPolicy(category) { return POLICIES[category
 
 export function terrainAdaptationMode(candidate, category) {
   const explicit = candidate?.terrain_adaptation ?? candidate?.terrainAdaptation ?? candidate?.options?.terrain_adaptation;
-  if (explicit) return explicit;
+  if (explicit) return String(explicit).toLowerCase();
+  const id = String(candidate?.structure ?? candidate?.id ?? candidate?.family ?? "").toLowerCase();
+  if (id.includes("stronghold")) return "bury";
+  if (id.includes("ancient_city") || id.includes("trial_chambers") || id.includes("bastion")) return "beard_box";
+  if (id.includes("trail_ruins")) return "bury";
+  if (id.includes("village/") || id.includes("village_")) return "beard_thin";
   if (category === StructureCategory.GROUND_VILLAGE) return "beard_thin";
-  if (category === StructureCategory.UNDERGROUND) return "bury";
+  if (category === StructureCategory.STRONGHOLD) return "bury";
+  if (category === StructureCategory.UNDERGROUND) return "beard_box";
   if (category === StructureCategory.WATER) return "none";
   return "none";
 }
 
 export function projectHeight(candidate, host, category) {
-  const projection = candidate?.heightmap_projection ?? candidate?.heightmapProjection ?? candidate?.projection;
+  const projection = String(candidate?.heightmap_projection ?? candidate?.heightmapProjection ?? candidate?.projection ?? "").toLowerCase();
   if (projection === "none") return Number(candidate?.y ?? host?.y ?? 0);
-  if (projection === "sea_floor") return Number(host?.seaFloorY ?? host?.floorY ?? host?.y ?? 0);
+  if (projection === "ocean_floor" || projection === "ocean_floor_wg" || projection === "sea_floor") return Number(host?.seaFloorY ?? host?.floorY ?? host?.y ?? 0);
+  if (projection === "motion_blocking") return Number(host?.motionBlockingY ?? host?.surfaceY ?? host?.y ?? candidate?.y ?? 0);
   return Number(host?.surfaceY ?? host?.worldSurfaceY ?? host?.y ?? candidate?.y ?? 0);
 }
 
@@ -39,14 +46,13 @@ export function validateIslandPlacement({ category, host, footprintRadius = 4, s
 }
 
 export function computeTerrainAdaptation({ category, candidate = {}, host = {}, location = { x: 0, y: 0, z: 0 } }) {
-  const mode = terrainAdaptationMode(candidate, category), targetY = projectHeight(candidate, host, category), currentY = Number(location.y ?? 0);
-  const deltaY = targetY - currentY;
+  const mode = terrainAdaptationMode(candidate, category), targetY = projectHeight(candidate, host, category), currentY = Number(location.y ?? 0), deltaY = targetY - currentY;
   return {
     mode,
     targetY,
     deltaY,
     foundation: mode === "beard_thin" ? "thin" : mode === "beard_box" ? "box" : mode === "encapsulate" ? "encapsulate" : mode === "bury" ? "bury" : "none",
-    flatten: category === StructureCategory.GROUND_VILLAGE,
+    flatten: mode === "beard_thin" || category === StructureCategory.GROUND_VILLAGE,
     waterline: category === StructureCategory.WATER ? Number(host?.seaLevel ?? host?.waterLevel ?? 63) : null
   };
 }

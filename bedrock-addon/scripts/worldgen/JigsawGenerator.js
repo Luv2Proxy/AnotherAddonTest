@@ -5,6 +5,14 @@ import { StructureSetGenerator } from "./StructureSetGenerator.js";
 import { getGeneratedJigsawData, generatedStructure } from "./JigsawDataLoader.js";
 import { ProcessorEngine } from "./ProcessorEngine.js";
 import { TerrainProjection } from "./TerrainProjection.js";
+import { TerrainAdaptationEngine } from "./TerrainAdaptationEngine.js";
+
+function normalizeBounds(value) {
+  if (!value) return null;
+  if (value.minX != null) return { minX:Number(value.minX), minY:Number(value.minY), minZ:Number(value.minZ), maxX:Number(value.maxX), maxY:Number(value.maxY), maxZ:Number(value.maxZ) };
+  if (value.min && value.max) return { minX:Number(value.min.x), minY:Number(value.min.y), minZ:Number(value.min.z), maxX:Number(value.max.x), maxY:Number(value.max.y), maxZ:Number(value.max.z) };
+  return null;
+}
 
 export class JigsawGenerator {
   constructor(dimension, options = {}) {
@@ -15,6 +23,7 @@ export class JigsawGenerator {
     this.overlap=options.overlapGuard??null; this.layoutSeed=options.layoutSeed??0;
     this.processors=options.processorEngine??new ProcessorEngine(options.data??getGeneratedJigsawData(),this.layoutSeed);
     this.projection=options.projection??new TerrainProjection(dimension,options);
+    this.terrain=options.terrain??new TerrainAdaptationEngine(dimension,{minY:-64,maxY:320});
   }
   dataSnapshot(){return this.registry.snapshot();}
   definition(identifier){return generatedStructure(identifier)??this.registry.structure(identifier);}
@@ -23,8 +32,38 @@ export class JigsawGenerator {
   planStructureSet(setId,seed=this.layoutSeed,options={}){return this.structureSets.plan(setId,seed,options);}
   async projectPiece(origin,size,projection="rigid",options={}){return this.projection.project(origin,size,projection,options);}
   async projectPlan(plan,options={}){if(!plan?.pieces)return plan;const projection=options.projection??plan.projection??"rigid";if(projection==="rigid")return plan;const pieces=[];for(const piece of plan.pieces){const size=piece.size??piece.bounds?.size??{x:1,y:1,z:1};const origin=piece.origin??piece.location??{x:0,y:0,z:0};pieces.push({...piece,origin:await this.projectPiece(origin,size,projection,{...options,piece})});}return{...plan,pieces,projection};}
-  placeStructure(identifier,location,options={}){const resolved=this.resolveStructureIdentifier(identifier);if(typeof this.manager?.placeJigsawStructure!=="function")return{placed:false,native:false,reason:"native_jigsaw_structure_api_unavailable",plan:this.plan(resolved,location,options.seed??this.layoutSeed,options)};const bounds=this.manager.placeJigsawStructure(resolved,this.dimension,location,{includeEntities:true,keepJigsaws:false,...options});return{placed:true,native:true,identifier:resolved,location,bounds};}
-  placePool(pool,target,maxDepth,location,options={}){const poolId=String(pool).includes(":")?pool:`minecraft:${pool}`,depth=Math.max(1,Math.min(20,Number(maxDepth)||1));if(typeof this.manager?.placeJigsaw!=="function")return{placed:false,native:false,reason:"native_jigsaw_pool_api_unavailable",plan:this.planner.planPool(poolId,location,options.seed??this.layoutSeed,{...options,maxDepth:depth})};const bounds=this.manager.placeJigsaw(poolId,target??"",depth,this.dimension,location,{includeEntities:true,keepJigsaws:false,...options});return{placed:true,native:true,pool:poolId,target,maxDepth:depth,location,bounds};}
+
+  applyTerrainAdaptation(identifier, result, location, options = {}) {
+    const definition=this.definition(identifier)??{};
+    const mode=String(options.terrain_adaptation??options.terrainAdaptation??definition.terrain_adaptation??"none").toLowerCase();
+    const bounds=normalizeBounds(result?.bounds);
+    if(!result?.placed||!bounds||mode==="none")return result;
+    const candidate={id:identifier,pieceBounds:[bounds],terrain_adaptation:mode,foundationBlock:options.foundationBlock??"minecraft:dirt",jigsawJunctions:result?.junctions??result?.plan?.junctions??[]};
+    const adaptation=this.terrain.adapt(candidate,{mode,targetY:Number(options.targetY??location.y),location,foundationBlock:candidate.foundationBlock});
+    if(options.flatten||mode==="beard_thin"||mode==="beard_box")adaptation.flatten=this.terrain.flatten(candidate,{targetY:Number(options.targetY??location.y),location,foundationBlock:candidate.foundationBlock});
+    if(options.waterline!=null)adaptation.waterline=this.terrain.waterline(candidate,{waterLevel:options.waterline,location});
+    return{...result,terrain:adaptation};
+  }
+
+  placeStructure(identifier,location,options={}){
+    const resolved=this.resolveStructureIdentifier(identifier);
+    if(typeof this.manager?.placeJigsawStructure!=="function")return{placed:false,native:false,reason:"native_jigsaw_structure_api_unavailable",plan:this.plan(resolved,location,options.seed??this.layoutSeed,options)};
+    const bounds=this.manager.placeJigsawStructure(resolved,this.dimension,location,{includeEntities:true,keepJigsaws:false,...options});
+    const result={placed:true,native:true,identifier:resolved,location,bounds};
+    return this.applyTerrainAdaptation(resolved,result,location,options);
+  }
+
+  // Alias used by the placement coordinator/adapters.
+  placeJigsawStructure(identifier,dimensionOrLocation,locationOrOptions,maybeOptions={}){
+    if(dimensionOrLocation&&typeof dimensionOrLocation.getBlock==="function"){
+      const oldDimension=this.dimension;this.dimension=dimensionOrLocation;this.manager=world.structureManager;
+      try{return this.placeStructure(identifier,locationOrOptions,maybeOptions);}finally{this.dimension=oldDimension;}
+    }
+    return this.placeStructure(identifier,dimensionOrLocation,locationOrOptions??{});
+  }
+
+  placePool(pool,target,maxDepth,location,options={}){const poolId=String(pool).includes(":")?pool:`minecraft:${pool}`,depth=Math.max(1,Math.min(20,Number(maxDepth)||1));if(typeof this.manager?.placeJigsaw!=="function")return{placed:false,native:false,reason:"native_jigsaw_pool_api_unavailable",plan:this.planner.planPool(poolId,location,options.seed??this.layoutSeed,{...options,maxDepth:depth})};const bounds=this.manager.placeJigsaw(poolId,target??"",depth,this.dimension,location,{includeEntities:true,keepJigsaws:false,...options});const result={placed:true,native:true,pool:poolId,target,maxDepth:depth,location,bounds};return this.applyTerrainAdaptation(target||poolId,result,location,options);}
+  placeJigsaw(pool,target,maxDepth,location,options={}){return this.placePool(pool,target,maxDepth,location,options);}
   processBlock(block,processorList,context={}){return this.processors.apply(block,{...context,processorList});}
   processTemplateBlocks(blocks,processorList,context={}){return this.processors.applyTemplateBlocks(blocks,{...context,processorList});}
   placeRoot(identifier,location,options={}){return this.placeStructure(identifier,location,options);}

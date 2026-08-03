@@ -11,7 +11,7 @@ let structureSets = null;
 let placementCoordinator = null;
 let placementQueue = null;
 
-function archipelago(){return world.getDimension(DIMENSION_ID);}
+function archipelago() { return world.getDimension(DIMENSION_ID); }
 
 system.beforeEvents.startup.subscribe((event) => {
   event.dimensionRegistry.registerCustomDimension(DIMENSION_ID);
@@ -19,8 +19,12 @@ system.beforeEvents.startup.subscribe((event) => {
 
 world.afterEvents.worldLoad.subscribe(() => {
   generator.load();
+  generator.dimension = archipelago();
   const registry = new JigsawRegistry();
-  placementCoordinator = new StructurePlacementCoordinator(generator, { registry });
+  placementCoordinator = new StructurePlacementCoordinator(generator, {
+    registry,
+    terrainOptions: { minY: -64, maxY: 320 }
+  });
   placementQueue = new StructurePlacementQueue({ maxPerTick: 2, maxRetries: 3, retryDelay: 20 });
   structureSets = new StructureSetRuntime(generator, {
     registry,
@@ -66,7 +70,10 @@ world.afterEvents.scriptEventReceive.subscribe((event) => {
   if (event.id === "sky_archipelago:reset") {
     generator.reset();
     const registry = new JigsawRegistry();
-    placementCoordinator = new StructurePlacementCoordinator(generator, { registry });
+    placementCoordinator = new StructurePlacementCoordinator(generator, {
+      registry,
+      terrainOptions: { minY: -64, maxY: 320 }
+    });
     placementQueue = new StructurePlacementQueue({ maxPerTick: 2, maxRetries: 3, retryDelay: 20 });
     structureSets = new StructureSetRuntime(generator, { registry, dimensionId: DIMENSION_ID, placementCoordinator, placementQueue });
     player.sendMessage("§eSky Archipelago generation state reset. Existing blocks are not erased.");

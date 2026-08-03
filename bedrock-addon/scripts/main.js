@@ -4,14 +4,19 @@ import { JigsawRegistry } from "./worldgen/JigsawRegistry.js";
 import { StructureSetRuntime } from "./worldgen/StructureSetRuntime.js";
 import { StructurePlacementCoordinator } from "./worldgen/StructurePlacementCoordinator.js";
 import { StructurePlacementQueue } from "./worldgen/StructurePlacementQueue.js";
+import { getGeneratedJigsawData } from "./worldgen/JigsawDataLoader.js";
+import { StructureDensityField } from "./worldgen/StructureDensityField.js";
+import { WorldgenJigsawRuntime } from "./worldgen/WorldgenJigsawRuntime.js";
 
 const DIMENSION_ID = "sky_archipelago:archipelago";
 const generator = new IslandGenerator();
 let structureSets = null;
 let placementCoordinator = null;
 let placementQueue = null;
+let worldgen = null;
 
 function archipelago() { return world.getDimension(DIMENSION_ID); }
+function registry() { return new JigsawRegistry(getGeneratedJigsawData()); }
 
 system.beforeEvents.startup.subscribe((event) => {
   event.dimensionRegistry.registerCustomDimension(DIMENSION_ID);
@@ -20,34 +25,57 @@ system.beforeEvents.startup.subscribe((event) => {
 world.afterEvents.worldLoad.subscribe(() => {
   generator.load();
   generator.dimension = archipelago();
-  const registry = new JigsawRegistry();
+
+  const data = getGeneratedJigsawData();
+  const jigsawRegistry = new JigsawRegistry(data);
+  const densityField = new StructureDensityField();
+
   placementCoordinator = new StructurePlacementCoordinator(generator, {
-    registry,
-    terrainOptions: { minY: -64, maxY: 320 }
+    registry: jigsawRegistry,
+    terrainOptions: { minY: -64, maxY: 320 },
+    densityField
   });
+
   placementQueue = new StructurePlacementQueue({ maxPerTick: 2, maxRetries: 3, retryDelay: 20 });
+
   structureSets = new StructureSetRuntime(generator, {
-    registry,
+    data,
+    registry: jigsawRegistry,
     dimensionId: DIMENSION_ID,
     radius: 512,
     maxPlansPerTick: 1,
     maxPlacementsPerTick: 2,
     placementCoordinator,
+    placementQueue,
+    densityField
+  });
+
+  worldgen = new WorldgenJigsawRuntime(archipelago(), {
+    data,
+    registry: jigsawRegistry,
+    generator,
+    structureSets,
+    densityField,
+    placementCoordinator,
     placementQueue
   });
-  structureSets.refresh();
+
+  structureSets.refresh(jigsawRegistry);
   world.sendMessage("§aSky Archipelago loaded. §e/scriptevent sky_archipelago:enter §7to enter the archipelago.");
+  world.sendMessage(`§7Worldgen metadata: ${jigsawRegistry.snapshot().pieces} pieces, ${jigsawRegistry.snapshot().pools} pools, ${jigsawRegistry.snapshot().structures} structures, ${jigsawRegistry.snapshot().structureSets} structure sets.`);
 });
 
 system.runInterval(() => {
+  if (!structureSets || !worldgen) return;
   for (const player of world.getAllPlayers()) {
     if (player.dimension.id === DIMENSION_ID) {
       generator.requestAround(player);
-      structureSets?.enqueueAround(player.location.x, player.location.z);
+      structureSets.enqueueAround(player.location.x, player.location.z);
     }
   }
   generator.tick();
-  structureSets?.process().catch(error => console.warn(`[Sky Archipelago] structure-set runtime error: ${error}`));
+  worldgen.tick();
+  structureSets.process().catch(error => console.warn(`[Sky Archipelago] structure-set runtime error: ${error}`));
   placementQueue?.process(placementCoordinator).catch(error => console.warn(`[Sky Archipelago] placement queue error: ${error}`));
 }, 1);
 
@@ -69,35 +97,33 @@ world.afterEvents.scriptEventReceive.subscribe((event) => {
 
   if (event.id === "sky_archipelago:reset") {
     generator.reset();
-    const registry = new JigsawRegistry();
-    placementCoordinator = new StructurePlacementCoordinator(generator, {
-      registry,
-      terrainOptions: { minY: -64, maxY: 320 }
-    });
+    const r = registry();
+    const density = new StructureDensityField();
+    placementCoordinator = new StructurePlacementCoordinator(generator, { registry: r, terrainOptions: { minY: -64, maxY: 320 }, densityField: density });
     placementQueue = new StructurePlacementQueue({ maxPerTick: 2, maxRetries: 3, retryDelay: 20 });
-    structureSets = new StructureSetRuntime(generator, { registry, dimensionId: DIMENSION_ID, placementCoordinator, placementQueue });
+    structureSets = new StructureSetRuntime(generator, { data: getGeneratedJigsawData(), registry: r, dimensionId: DIMENSION_ID, placementCoordinator, placementQueue, densityField: density });
+    worldgen = new WorldgenJigsawRuntime(archipelago(), { data: getGeneratedJigsawData(), registry: r, generator, structureSets, placementCoordinator, placementQueue, densityField: density });
     player.sendMessage("§eSky Archipelago generation state reset. Existing blocks are not erased.");
     return;
   }
 
   if (event.id === "sky_archipelago:status") {
-    const snapshot = generator.native?.snapshot?.() ?? {};
-    const setCount = structureSets?.sets?.length ?? 0;
-    const pending = structureSets?.pending?.length ?? 0;
-    const placementPending = placementQueue?.size?.() ?? 0;
-    player.sendMessage(`§bSky Archipelago §7| generated=${generator.generated?.size ?? 0} queued=${generator.queue?.length ?? 0} structures=${generator.structureJobs?.length ?? 0}`);
-    player.sendMessage(`§7Generated structure sets: ${setCount} | pending plans: ${pending} | pending placements: ${placementPending}`);
-    player.sendMessage(`§7Native overlap records: ${snapshot.overlap?.length ?? 0}`);
+    const snapshot = worldgen?.snapshot?.() ?? {};
+    const native = generator.native?.snapshot?.() ?? {};
+    player.sendMessage(`§bSky Archipelago §7| generated=${generator.generated?.size ?? 0} queued=${generator.queue?.length ?? 0} structureJobs=${generator.structureJobs?.length ?? 0}`);
+    player.sendMessage(`§7Sets=${snapshot.structureSets ?? 0} | densityBoxes=${snapshot.densityBoxes ?? 0} | junctions=${snapshot.densityJunctions ?? 0}`);
+    player.sendMessage(`§7Native overlap records: ${native.overlap?.length ?? 0}`);
     return;
   }
 
   if (event.id === "sky_archipelago:refresh_structures") {
     try {
-      const registry = new JigsawRegistry();
+      const r = registry();
       generator.registry?.refresh?.();
-      structureSets?.refresh?.(registry);
-      placementCoordinator?.refresh?.(registry);
-      player.sendMessage("§aStructure registries refreshed from generated jigsaw data and the active Bedrock pack.");
+      structureSets?.refresh?.(r);
+      placementCoordinator?.refresh?.(r);
+      worldgen?.refresh?.();
+      player.sendMessage("§aStructure registries refreshed from generated jigsaw data.");
     } catch (e) {
       player.sendMessage(`§cStructure registry refresh failed: ${e}`);
     }

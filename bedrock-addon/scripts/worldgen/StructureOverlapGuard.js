@@ -1,3 +1,5 @@
+import { world } from "@minecraft/server";
+
 const DB = "sky_archipelago:structure_occupancy_v2";
 
 export class StructureOverlapGuard {
@@ -11,9 +13,7 @@ export class StructureOverlapGuard {
     return { min: { x: Math.floor(Math.min(bounds.min.x, bounds.max.x)) - padding, y: Math.floor(Math.min(bounds.min.y, bounds.max.y)) - padding, z: Math.floor(Math.min(bounds.min.z, bounds.max.z)) - padding }, max: { x: Math.floor(Math.max(bounds.min.x, bounds.max.x)) + padding, y: Math.floor(Math.max(bounds.min.y, bounds.max.y)) + padding, z: Math.floor(Math.max(bounds.min.z, bounds.max.z)) + padding } };
   }
 
-  intersects(a, b) {
-    return a.min.x <= b.max.x && a.max.x >= b.min.x && a.min.y <= b.max.y && a.max.y >= b.min.y && a.min.z <= b.max.z && a.max.z >= b.min.z;
-  }
+  intersects(a, b) { return a.min.x <= b.max.x && a.max.x >= b.min.x && a.min.y <= b.max.y && a.max.y >= b.min.y && a.min.z <= b.max.z && a.max.z >= b.min.z; }
 
   touchedCells(bounds) {
     const out = [];
@@ -25,7 +25,7 @@ export class StructureOverlapGuard {
     if (this.loaded) return;
     this.loaded = true;
     try {
-      const raw = world?.getDynamicProperty?.(DB);
+      const raw = world.getDynamicProperty(DB);
       const data = typeof raw === "string" ? JSON.parse(raw) : null;
       for (const r of data?.records ?? []) if (r?.id && r?.bounds) this.records.set(r.id, r);
       this.rebuildIndex();
@@ -42,7 +42,9 @@ export class StructureOverlapGuard {
   rebuildIndex() {
     this.cells.clear();
     for (const r of this.records.values()) for (const cell of this.touchedCells(r.bounds)) {
-      const list = this.cells.get(cell) ?? []; if (!list.includes(r.id)) list.push(r.id); this.cells.set(cell, list);
+      const list = this.cells.get(cell) ?? [];
+      if (!list.includes(r.id)) list.push(r.id);
+      this.cells.set(cell, list);
     }
   }
 
@@ -53,18 +55,29 @@ export class StructureOverlapGuard {
   }
 
   canReserve(id, bounds, padding = 0) {
-    this.load(); const b = this.normalize(bounds, padding); if (!b) return false;
+    this.load();
+    const b = this.normalize(bounds, padding);
+    if (!b) return false;
     return !this.candidateRecords(b).some(r => r.id !== id && this.intersects(b, r.bounds));
   }
 
   reserve(id, bounds, padding = 0, meta = {}) {
-    this.load(); const b = this.normalize(bounds, padding); if (!b || !this.canReserve(id, b)) return false;
-    this.records.set(id, { id, bounds: b, ...meta }); this.rebuildIndex(); this.persist(); return true;
+    this.load();
+    const b = this.normalize(bounds, padding);
+    if (!b || !this.canReserve(id, b)) return false;
+    this.records.set(id, { id, bounds: b, ...meta });
+    this.rebuildIndex();
+    this.persist();
+    return true;
   }
 
   replace(id, bounds, padding = 0, meta = {}) {
-    this.load(); this.records.delete(id); this.rebuildIndex();
-    const ok = this.reserve(id, bounds, padding, meta); if (!ok) this.persist(); return ok;
+    this.load();
+    this.records.delete(id);
+    this.rebuildIndex();
+    const ok = this.reserve(id, bounds, padding, meta);
+    if (!ok) this.persist();
+    return ok;
   }
 
   release(id) { this.load(); this.records.delete(id); this.rebuildIndex(); this.persist(); }

@@ -16,6 +16,7 @@ let placementCoordinator = null;
 let placementQueue = null;
 let worldgen = null;
 let lastTickStats = null;
+let startupSelfTest = null;
 
 function archipelago() { return world.getDimension(DIMENSION_ID); }
 function registry() { return new JigsawRegistry(getGeneratedJigsawData()); }
@@ -30,16 +31,34 @@ function buildRuntime() {
   structureSets.refresh(jigsawRegistry);
 }
 
-system.beforeEvents.startup.subscribe((event) => { event.dimensionRegistry.registerCustomDimension(DIMENSION_ID); });
+system.beforeEvents.startup.subscribe((event) => {
+  event.dimensionRegistry.registerCustomDimension(DIMENSION_ID);
+});
+
+function runStartupSelfTest() {
+  try {
+    const test = runWorldgenSelfTest({ data: getGeneratedJigsawData(), registry: worldgen?.registry, seed: generator.layoutSeed, deep: false });
+    startupSelfTest = test;
+    if (!test.ok) console.warn(`[Sky Archipelago] worldgen self-test errors: ${test.errors.join(" | ")}`);
+    if (test.warnings.length) console.warn(`[Sky Archipelago] worldgen self-test warnings: ${test.warnings.slice(0, 12).join(" | ")}`);
+  } catch (error) {
+    startupSelfTest = { ok: false, errors: [String(error)], warnings: [], snapshot: worldgen?.registry?.snapshot?.() ?? {} };
+    console.warn(`[Sky Archipelago] worldgen self-test failed: ${error}`);
+  }
+}
 
 world.afterEvents.worldLoad.subscribe(() => {
   generator.load();
   generator.dimension = archipelago();
   buildRuntime();
-  const test = runWorldgenSelfTest({ data: getGeneratedJigsawData(), registry: worldgen.registry, seed: generator.layoutSeed });
-  if (!test.ok) console.warn(`[Sky Archipelago] worldgen self-test errors: ${test.errors.join(" | ")}`);
-  if (test.warnings.length) console.warn(`[Sky Archipelago] worldgen self-test warnings: ${test.warnings.slice(0, 12).join(" | ")}`);
-  world.sendMessage(`§aSky Archipelago loaded. §7Worldgen: ${test.snapshot.pieces} pieces, ${test.snapshot.pools} pools, ${test.snapshot.structures} structures, ${test.snapshot.structureSets} sets.`);
+  // Defer diagnostics until after world-load initialization. The deep structure-set
+  // planner is intentionally not run automatically because it can exceed the watchdog.
+  system.run(runStartupSelfTest);
+  system.run(() => {
+    const test = startupSelfTest;
+    const snapshot = test?.snapshot ?? worldgen?.registry?.snapshot?.() ?? {};
+    world.sendMessage(`§aSky Archipelago loaded. §7Worldgen: ${snapshot.pieces ?? 0} pieces, ${snapshot.pools ?? 0} pools, ${snapshot.structures ?? 0} structures, ${snapshot.structureSets ?? 0} sets.`);
+  });
 });
 
 system.runInterval(() => {
@@ -56,7 +75,7 @@ system.runInterval(() => {
   placementQueue?.process(placementCoordinator).catch(error => console.warn(`[Sky Archipelago] placement queue error: ${error}`));
 }, 1);
 
-world.afterEvents.scriptEventReceive.subscribe((event) => {
+system.afterEvents.scriptEventReceive.subscribe((event) => {
   const player = event.sourceEntity;
   if (!player || player.typeId !== "minecraft:player") return;
   if (event.id === "sky_archipelago:enter") { player.teleport({ x: 0.5, y: 120, z: 0.5 }, { dimension: archipelago() }); player.sendMessage("§bWelcome to Sky Archipelago."); return; }
@@ -69,11 +88,14 @@ world.afterEvents.scriptEventReceive.subscribe((event) => {
     player.sendMessage(`§7Last tick: ${JSON.stringify(lastTickStats ?? {})} | Native overlap records: ${native?.overlap?.length ?? 0}`); return;
   }
   if (event.id === "sky_archipelago:test_worldgen") {
-    const test = runWorldgenSelfTest({ data: getGeneratedJigsawData(), registry: worldgen?.registry, seed: generator.layoutSeed });
-    player.sendMessage(`§bWorldgen self-test: ${test.ok ? "§aPASS" : "§cFAIL"}`);
-    player.sendMessage(`§7Pieces=${test.snapshot.pieces} Pools=${test.snapshot.pools} Structures=${test.snapshot.structures} Sets=${test.snapshot.structureSets}`);
-    if (test.warnings.length) player.sendMessage(`§eWarnings: ${test.warnings.slice(0, 3).join(" | ")}`);
-    if (test.errors.length) player.sendMessage(`§cErrors: ${test.errors.slice(0, 3).join(" | ")}`); return;
+    try {
+      const test = runWorldgenSelfTest({ data: getGeneratedJigsawData(), registry: worldgen?.registry, seed: generator.layoutSeed, deep: true });
+      player.sendMessage(`§bWorldgen self-test: ${test.ok ? "§aPASS" : "§cFAIL"}`);
+      player.sendMessage(`§7Pieces=${test.snapshot.pieces} Pools=${test.snapshot.pools} Structures=${test.snapshot.structures} Sets=${test.snapshot.structureSets}`);
+      if (test.warnings.length) player.sendMessage(`§eWarnings: ${test.warnings.slice(0, 3).join(" | ")}`);
+      if (test.errors.length) player.sendMessage(`§cErrors: ${test.errors.slice(0, 3).join(" | ")}`);
+    } catch (e) { player.sendMessage(`§cWorldgen self-test exception: ${e}`); }
+    return;
   }
   if (event.id === "sky_archipelago:refresh_structures") {
     try { const r = registry(); generator.registry?.refresh?.(); structureSets?.refresh?.(r); placementCoordinator?.refresh?.(r); worldgen?.refresh?.(); player.sendMessage("§aStructure registries refreshed from generated jigsaw data."); }

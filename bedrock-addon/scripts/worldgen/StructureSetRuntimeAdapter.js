@@ -10,15 +10,19 @@ export class StructureSetRuntimeAdapter {
   refresh(registry = this.runtime?.registry) {
     if (registry) {
       this.registry = registry;
+      this.planner.refresh?.(registry);
       this.planner.registry = registry;
     }
+    return this;
   }
 
   plan(job, seed) {
     const origin = { x: job.x, y: job.y ?? 128, z: job.z };
     const placements = this.planner.plan(job.setId, origin, seed, {
       radius: this.runtime?.radius ?? 512,
-      count: this.runtime?.maxPlacementsPerTick ?? 2
+      count: this.runtime?.maxPlacementsPerTick ?? 2,
+      host: job.host,
+      dimension: this.runtime?.generator?.dimension
     });
     return { ...job, placements };
   }

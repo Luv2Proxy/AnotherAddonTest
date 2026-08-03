@@ -1,15 +1,14 @@
 import { getGeneratedJigsawData } from "./JigsawDataLoader.js";
 import { JigsawRegistry } from "./JigsawRegistry.js";
-import { GeneratedStructurePlanner } from "./GeneratedStructurePlanner.js";
-import { StructureSetPlacementPlanner } from "./StructureSetPlacementPlanner.js";
 import { StructureDensityField } from "./StructureDensityField.js";
 
 /**
- * Runtime diagnostics.
+ * Worldgen diagnostics intentionally avoid running the procedural placement
+ * planner. The planner is a gameplay system and may scan thousands of cells;
+ * running it synchronously from a ScriptEvent can trip Bedrock's watchdog.
  *
- * `deep=false` is safe for startup: it validates generated metadata and structure
- * records but does not invoke the potentially expensive structure-set placement
- * planner. `deep=true` is intended for an explicit diagnostic ScriptEvent.
+ * deep=true now means "include bounded diagnostic metadata", not "simulate
+ * world generation". Actual generation is exercised by the live runtime.
  */
 export function runWorldgenSelfTest(options = {}) {
   const data = options.data ?? getGeneratedJigsawData();
@@ -25,7 +24,8 @@ export function runWorldgenSelfTest(options = {}) {
   if (!snapshot.structureSets) warnings.push("No generated Structure Sets found.");
 
   const structures = [];
-  for (const id of Object.keys(data.structures ?? {})) {
+  const structureIds = Object.keys(data.structures ?? {});
+  for (const id of structureIds) {
     try {
       const result = registry.validateStructure(id, 20);
       structures.push({ id, valid: result.valid, errors: result.errors ?? [] });
@@ -36,20 +36,20 @@ export function runWorldgenSelfTest(options = {}) {
   }
 
   const sets = [];
-  if (deep) {
-    // This is deliberately opt-in. The placement planner can perform substantial
-    // deterministic search and should never run automatically during world load.
-    const placement = new StructureSetPlacementPlanner(registry);
-    for (const id of Object.keys(data.structure_sets ?? data.structureSets ?? {})) {
-      try {
-        const candidates = placement.plan(id, { x: 0, y: 128, z: 0 }, options.seed ?? 0, { radius: 512, count: 2 });
-        sets.push({ id, candidates: candidates.length, sample: candidates.slice(0, 2).map(c => ({ structure: c.structure, x: c.x, z: c.z, native: c.native ?? false })) });
-      } catch (e) {
-        errors.push(`Structure Set ${id}: ${String(e)}`);
-      }
-    }
-  } else {
-    for (const id of Object.keys(data.structure_sets ?? data.structureSets ?? {})) sets.push({ id, candidates: null, deferred: true });
+  const setIds = Object.keys(data.structure_sets ?? data.structureSets ?? {});
+  for (const id of setIds) {
+    const definition = registry.structureSet?.(id) ?? data.structure_sets?.[id] ?? data.structureSets?.[id];
+    const entries = definition?.structures ?? definition?.elements ?? definition?.entries ?? [];
+    if (!entries.length) warnings.push(`${id}: structure set has no entries`);
+    // Do not call StructureSetPlacementPlanner.plan() here. It is a synchronous
+    // search operation and is the source of watchdog hangs during diagnostics.
+    sets.push({
+      id,
+      candidates: null,
+      deferred: true,
+      entries: entries.length,
+      deepRequested: deep
+    });
   }
 
   const missing = data.missing_templates ?? data.missing ?? [];
@@ -69,6 +69,7 @@ export function runWorldgenSelfTest(options = {}) {
       sample: density.densityAt(0, 128, 0)
     },
     generatedSchema: data.schema_version ?? null,
-    deep
+    deep,
+    plannerSimulation: "deferred_to_live_runtime"
   };
 }

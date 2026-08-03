@@ -19,17 +19,6 @@ let lastTickStats = null;
 
 function archipelago() { return world.getDimension(DIMENSION_ID); }
 function registry() { return new JigsawRegistry(getGeneratedJigsawData()); }
-function findPlayer(name) {
-  const needle = String(name ?? "").trim().toLowerCase();
-  if (!needle) return null;
-  return world.getAllPlayers().find(p => p.name.toLowerCase() === needle) ?? null;
-}
-function resolveEventPlayer(event) {
-  if (event.initiator?.typeId === "minecraft:player") return event.initiator;
-  if (event.sourceEntity?.typeId === "minecraft:player") return event.sourceEntity;
-  const args = String(event.message ?? "").trim().split(/\s+/);
-  return findPlayer(args[0]);
-}
 function buildRuntime() {
   const data = getGeneratedJigsawData();
   const jigsawRegistry = new JigsawRegistry(data);
@@ -44,17 +33,13 @@ function buildRuntime() {
 system.beforeEvents.startup.subscribe((event) => { event.dimensionRegistry.registerCustomDimension(DIMENSION_ID); });
 
 world.afterEvents.worldLoad.subscribe(() => {
-  try {
-    generator.load();
-    generator.dimension = archipelago();
-    buildRuntime();
-    const test = runWorldgenSelfTest({ data: getGeneratedJigsawData(), registry: worldgen.registry, seed: generator.layoutSeed });
-    if (!test.ok) console.warn(`[Sky Archipelago] worldgen self-test errors: ${test.errors.join(" | ")}`);
-    if (test.warnings.length) console.warn(`[Sky Archipelago] worldgen self-test warnings: ${test.warnings.slice(0, 12).join(" | ")}`);
-    world.sendMessage(`§aSky Archipelago loaded. §7Worldgen: ${test.snapshot.pieces} pieces, ${test.snapshot.pools} pools, ${test.snapshot.structures} structures, ${test.snapshot.structureSets} sets.`);
-  } catch (error) {
-    console.warn(`[Sky Archipelago] startup initialization failed: ${error?.stack ?? error}`);
-  }
+  generator.load();
+  generator.dimension = archipelago();
+  buildRuntime();
+  const test = runWorldgenSelfTest({ data: getGeneratedJigsawData(), registry: worldgen.registry, seed: generator.layoutSeed });
+  if (!test.ok) console.warn(`[Sky Archipelago] worldgen self-test errors: ${test.errors.join(" | ")}`);
+  if (test.warnings.length) console.warn(`[Sky Archipelago] worldgen self-test warnings: ${test.warnings.slice(0, 12).join(" | ")}`);
+  world.sendMessage(`§aSky Archipelago loaded. §7Worldgen: ${test.snapshot.pieces} pieces, ${test.snapshot.pools} pools, ${test.snapshot.structures} structures, ${test.snapshot.structureSets} sets.`);
 });
 
 system.runInterval(() => {
@@ -67,72 +52,31 @@ system.runInterval(() => {
   }
   generator.tick();
   worldgen.tick();
-  structureSets.process().then(stats => { lastTickStats = stats; }).catch(error => console.warn(`[Sky Archipelago] structure-set runtime error: ${error?.stack ?? error}`));
-  placementQueue?.process(placementCoordinator).catch(error => console.warn(`[Sky Archipelago] placement queue error: ${error?.stack ?? error}`));
+  structureSets.process().then(stats => { lastTickStats = stats; }).catch(error => console.warn(`[Sky Archipelago] structure-set runtime error: ${error}`));
+  placementQueue?.process(placementCoordinator).catch(error => console.warn(`[Sky Archipelago] placement queue error: ${error}`));
 }, 1);
 
-// /scriptevent belongs to SystemAfterEvents, not WorldAfterEvents.
-// Direct player commands have sourceType=Server and no sourceEntity, so player-facing commands accept the player name as the first argument.
-// Example: /scriptevent sky_archipelago:status Armaan
-system.afterEvents.scriptEventReceive.subscribe((event) => {
-  try {
-    const id = String(event.id ?? "");
-    const message = String(event.message ?? "").trim();
-    const player = resolveEventPlayer(event);
-    const args = message ? message.split(/\s+/) : [];
-
-    if (id === "sky_archipelago:debug") {
-      world.sendMessage(`§b[Sky Archipelago] ScriptEvent received: id=${id} source=${event.sourceType ?? "unknown"} message=${message || "<empty>"}`);
-      return;
-    }
-    if (id === "sky_archipelago:enter") {
-      if (!player) { world.sendMessage("§cUsage: /scriptevent sky_archipelago:enter <player>"); return; }
-      player.teleport({ x: 0.5, y: 120, z: 0.5 }, { dimension: archipelago() });
-      player.sendMessage("§bWelcome to Sky Archipelago.");
-      return;
-    }
-    if (id === "sky_archipelago:lobby") {
-      if (!player) { world.sendMessage("§cUsage: /scriptevent sky_archipelago:lobby <player>"); return; }
-      player.teleport({ x: 0.5, y: 100, z: 0.5 }, { dimension: world.getDimension("minecraft:overworld") });
-      player.sendMessage("§eReturned to the Overworld lobby.");
-      return;
-    }
-    if (id === "sky_archipelago:reset") {
-      generator.reset();
-      buildRuntime();
-      const text = "§eSky Archipelago generation state reset. Existing blocks are not erased.";
-      if (player) player.sendMessage(text); else world.sendMessage(text);
-      return;
-    }
-    if (id === "sky_archipelago:status") {
-      const snapshot = worldgen?.snapshot?.() ?? {}, native = generator.native?.snapshot?.();
-      const text = `§bSky Archipelago §7| generated=${generator.generated?.size ?? 0} queued=${generator.queue?.length ?? 0} structureJobs=${generator.structureJobs?.length ?? 0}\n§7Sets=${snapshot.structureSets ?? 0} | densityBoxes=${snapshot.densityBoxes ?? 0} | junctions=${snapshot.densityJunctions ?? 0} | pendingPlans=${structureSets?.pending?.length ?? 0} | pendingPlacements=${placementQueue?.size?.() ?? 0}\n§7Last tick: ${JSON.stringify(lastTickStats ?? {})} | Native overlap records: ${native?.overlap?.length ?? 0}`;
-      if (player) player.sendMessage(text); else world.sendMessage(text);
-      return;
-    }
-    if (id === "sky_archipelago:test_worldgen") {
-      const test = runWorldgenSelfTest({ data: getGeneratedJigsawData(), registry: worldgen?.registry, seed: generator.layoutSeed });
-      const text = `§bWorldgen self-test: ${test.ok ? "§aPASS" : "§cFAIL"}\n§7Pieces=${test.snapshot.pieces} Pools=${test.snapshot.pools} Structures=${test.snapshot.structures} Sets=${test.snapshot.structureSets}${test.warnings.length ? `\n§eWarnings: ${test.warnings.slice(0, 3).join(" | ")}` : ""}${test.errors.length ? `\n§cErrors: ${test.errors.slice(0, 3).join(" | ")}` : ""}`;
-      if (player) player.sendMessage(text); else world.sendMessage(text);
-      return;
-    }
-    if (id === "sky_archipelago:refresh_structures") {
-      try {
-        const r = registry();
-        generator.registry?.refresh?.();
-        structureSets?.refresh?.(r);
-        placementCoordinator?.refresh?.(r);
-        worldgen?.refresh?.();
-        const text = "§aStructure registries refreshed from generated jigsaw data.";
-        if (player) player.sendMessage(text); else world.sendMessage(text);
-      } catch (e) {
-        const text = `§cStructure registry refresh failed: ${e?.stack ?? e}`;
-        if (player) player.sendMessage(text); else world.sendMessage(text);
-      }
-      return;
-    }
-    console.warn(`[Sky Archipelago] Unknown script event: ${id} message=${message} source=${event.sourceType ?? "unknown"}`);
-  } catch (error) {
-    console.warn(`[Sky Archipelago] script event handler failed: ${error?.stack ?? error}`);
+world.afterEvents.scriptEventReceive.subscribe((event) => {
+  const player = event.sourceEntity;
+  if (!player || player.typeId !== "minecraft:player") return;
+  if (event.id === "sky_archipelago:enter") { player.teleport({ x: 0.5, y: 120, z: 0.5 }, { dimension: archipelago() }); player.sendMessage("§bWelcome to Sky Archipelago."); return; }
+  if (event.id === "sky_archipelago:lobby") { player.teleport({ x: 0.5, y: 100, z: 0.5 }, { dimension: world.getDimension("minecraft:overworld") }); player.sendMessage("§eReturned to the Overworld lobby."); return; }
+  if (event.id === "sky_archipelago:reset") { generator.reset(); buildRuntime(); player.sendMessage("§eSky Archipelago generation state reset. Existing blocks are not erased."); return; }
+  if (event.id === "sky_archipelago:status") {
+    const snapshot = worldgen?.snapshot?.() ?? {}, native = generator.native?.snapshot?.();
+    player.sendMessage(`§bSky Archipelago §7| generated=${generator.generated?.size ?? 0} queued=${generator.queue?.length ?? 0} structureJobs=${generator.structureJobs?.length ?? 0}`);
+    player.sendMessage(`§7Sets=${snapshot.structureSets ?? 0} | densityBoxes=${snapshot.densityBoxes ?? 0} | junctions=${snapshot.densityJunctions ?? 0} | pendingPlans=${structureSets?.pending?.length ?? 0} | pendingPlacements=${placementQueue?.size?.() ?? 0}`);
+    player.sendMessage(`§7Last tick: ${JSON.stringify(lastTickStats ?? {})} | Native overlap records: ${native?.overlap?.length ?? 0}`); return;
+  }
+  if (event.id === "sky_archipelago:test_worldgen") {
+    const test = runWorldgenSelfTest({ data: getGeneratedJigsawData(), registry: worldgen?.registry, seed: generator.layoutSeed });
+    player.sendMessage(`§bWorldgen self-test: ${test.ok ? "§aPASS" : "§cFAIL"}`);
+    player.sendMessage(`§7Pieces=${test.snapshot.pieces} Pools=${test.snapshot.pools} Structures=${test.snapshot.structures} Sets=${test.snapshot.structureSets}`);
+    if (test.warnings.length) player.sendMessage(`§eWarnings: ${test.warnings.slice(0, 3).join(" | ")}`);
+    if (test.errors.length) player.sendMessage(`§cErrors: ${test.errors.slice(0, 3).join(" | ")}`); return;
+  }
+  if (event.id === "sky_archipelago:refresh_structures") {
+    try { const r = registry(); generator.registry?.refresh?.(); structureSets?.refresh?.(r); placementCoordinator?.refresh?.(r); worldgen?.refresh?.(); player.sendMessage("§aStructure registries refreshed from generated jigsaw data."); }
+    catch (e) { player.sendMessage(`§cStructure registry refresh failed: ${e}`); }
   }
 });

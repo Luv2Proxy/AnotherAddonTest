@@ -5,7 +5,7 @@ import { StructureSetRuntimeAdapter } from "./StructureSetRuntimeAdapter.js";
 import { StructurePlacementCoordinator } from "./StructurePlacementCoordinator.js";
 import { JigsawExpansionEngine } from "./JigsawExpansionEngine.js";
 import { JigsawCollisionValidator } from "./JigsawCollisionValidator.js";
-import { StructureTerrainValidation, validateTerrain, validateWater, validateUnderground } from "./StructureTerrainValidation.js";
+import { validateTerrain, validateWater, validateUnderground } from "./StructureTerrainValidation.js";
 import { GeneratedStructurePlanner } from "./GeneratedStructurePlanner.js";
 import { StructureDensityField } from "./StructureDensityField.js";
 import { getGeneratedJigsawData } from "./JigsawDataLoader.js";

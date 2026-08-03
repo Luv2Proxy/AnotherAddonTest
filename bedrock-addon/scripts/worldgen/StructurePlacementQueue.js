@@ -1,12 +1,13 @@
 export class StructurePlacementQueue {
   constructor(options = {}) {
-    this.maxPerTick = Math.max(1, Number(options.maxPerTick ?? 2));
+    this.maxPerTick = Math.max(1, Number(options.maxPerTick ?? 1));
     this.maxRetries = Math.max(0, Number(options.maxRetries ?? 2));
     this.retryDelay = Math.max(1, Number(options.retryDelay ?? 20));
     this.queue = [];
     this.keys = new Set();
     this.retries = new Map();
     this.nextAttempt = new Map();
+    this.active = false;
   }
 
   enqueue(candidate, context = {}) {
@@ -20,35 +21,46 @@ export class StructurePlacementQueue {
   size() { return this.queue.length; }
 
   async process(coordinator) {
+    if (this.active || !coordinator) return { processed: 0, placed: 0, failed: 0, deferred: this.queue.length, queued: this.queue.length, busy: this.active };
+    this.active = true;
     let processed = 0, placed = 0, failed = 0, deferred = 0;
     const remaining = [];
-    while (this.queue.length && processed < this.maxPerTick) {
-      const item = this.queue.shift();
-      const attempts = this.retries.get(item.key) ?? 0;
-      const next = this.nextAttempt.get(item.key) ?? 0;
-      if (Date.now() < next) { remaining.push(item); deferred++; continue; }
-      processed++;
-      try {
-        const result = await coordinator.place(item.candidate, { ...item.context, placementKey: item.key });
-        if (result.placed || result.reason === "already_placed") {
-          placed += result.placed ? 1 : 0;
-          this.keys.delete(item.key); this.retries.delete(item.key); this.nextAttempt.delete(item.key);
-        } else if (attempts < this.maxRetries) {
-          this.retries.set(item.key, attempts + 1);
-          this.nextAttempt.set(item.key, Date.now() + this.retryDelay * 50);
-          remaining.push(item); deferred++;
-        } else {
-          this.keys.delete(item.key); this.retries.delete(item.key); this.nextAttempt.delete(item.key); failed++;
+    try {
+      while (this.queue.length && processed < this.maxPerTick) {
+        const item = this.queue.shift();
+        const attempts = this.retries.get(item.key) ?? 0;
+        const next = this.nextAttempt.get(item.key) ?? 0;
+        if (Date.now() < next) { remaining.push(item); deferred++; continue; }
+        processed++;
+        try {
+          const result = await coordinator.place(item.candidate, { ...item.context, placementKey: item.key });
+          if (result?.placed || result?.reason === "already_placed") {
+            placed += result?.placed ? 1 : 0;
+            this.keys.delete(item.key); this.retries.delete(item.key); this.nextAttempt.delete(item.key);
+          } else if (attempts < this.maxRetries) {
+            this.retries.set(item.key, attempts + 1);
+            this.nextAttempt.set(item.key, Date.now() + this.retryDelay * 50);
+            remaining.push(item); deferred++;
+          } else {
+            this.keys.delete(item.key); this.retries.delete(item.key); this.nextAttempt.delete(item.key); failed++;
+          }
+        } catch (error) {
+          // Watchdog interruptions are not useful retry candidates in the same
+          // tick. Requeue them with the normal retry delay so the next tick starts
+          // with a clean script slice.
+          if (attempts < this.maxRetries) {
+            this.retries.set(item.key, attempts + 1);
+            this.nextAttempt.set(item.key, Date.now() + this.retryDelay * 50);
+            remaining.push(item); deferred++;
+          } else {
+            this.keys.delete(item.key); this.retries.delete(item.key); this.nextAttempt.delete(item.key); failed++;
+          }
         }
-      } catch (error) {
-        if (attempts < this.maxRetries) {
-          this.retries.set(item.key, attempts + 1);
-          this.nextAttempt.set(item.key, Date.now() + this.retryDelay * 50);
-          remaining.push(item); deferred++;
-        } else { this.keys.delete(item.key); this.retries.delete(item.key); this.nextAttempt.delete(item.key); failed++; }
       }
+      this.queue.unshift(...remaining);
+      return { processed, placed, failed, deferred, queued: this.queue.length, busy: false };
+    } finally {
+      this.active = false;
     }
-    this.queue.unshift(...remaining);
-    return { processed, placed, failed, deferred, queued: this.queue.length };
   }
 }

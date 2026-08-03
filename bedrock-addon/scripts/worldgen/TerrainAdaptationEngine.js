@@ -6,7 +6,7 @@ const BEARD_KERNEL_RADIUS = 12;
 const BEARD_KERNEL_SIZE = 24;
 const BEARD_KERNEL = new Float64Array(BEARD_KERNEL_SIZE ** 3);
 for(let x=0;x<BEARD_KERNEL_SIZE;x++)for(let y=0;y<BEARD_KERNEL_SIZE;y++)for(let z=0;z<BEARD_KERNEL_SIZE;z++){const dx=x-BEARD_KERNEL_RADIUS,dy=y-BEARD_KERNEL_RADIUS,dz=z-BEARD_KERNEL_RADIUS;BEARD_KERNEL[(x*BEARD_KERNEL_SIZE+y)*BEARD_KERNEL_SIZE+z]=Math.exp(-(dx*dx+dz*dz)/16-(dy*dy)/2);}
-function p3(p){return{x:Math.floor(Number(p?.x??0)),y:Math.floor(Number(p?.y??0)),z:Math.floor(Number(p?.z??0));}}
+function p3(p){return{x:Math.floor(Number(p?.x??0)),y:Math.floor(Number(p?.y??0)),z:Math.floor(Number(p?.z??0))};}
 function id(block){try{return block?.typeId??null;}catch{return null;}}
 function blockAt(d,p){try{return d?.getBlock(p)??null;}catch{return null;}}
 function perm(idValue,states){try{return typeof idValue==="string"?BlockPermutation.resolve(idValue,states):idValue;}catch{return null;}}
@@ -34,35 +34,9 @@ export class TerrainAdaptationEngine{
  junctionWeight(x,y,z,junction){const jx=Number(junction.sourceX??junction.x??0),jy=Number(junction.sourceY??junction.y??0),jz=Number(junction.sourceZ??junction.z??0);return this.computeBeardContributionInterpolated(x-jx,y-jy,z-jz);}
  densityAt(x,y,z,boxes,junctions=[],mode="beard_thin"){let value=0;for(const box of boxes??[])value+=this.getStructureWeight(x,y,z,box,mode);for(const junction of junctions??[])value+=this.junctionWeight(x,y,z,junction);return value;}
  calculateStructureWeight(x,y,z,boxes,junctions,mode){return Math.max(0,Math.min(1,this.densityAt(x,y,z,boxes,junctions,mode)));}
-
- *adaptJob(candidate,context={}){
-  const mode=String(context.mode??candidate?.terrain_adaptation??candidate?.terrainAdaptation?.mode??"none").toLowerCase(),origin=p3(context.location??candidate?.location??candidate??{}),boxes=this.boxes(candidate,origin),bounds=this.union(boxes),targetY=Number(context.targetY??candidate?.targetY??bounds.minY),foundation=context.foundationBlock??candidate?.foundationBlock??"minecraft:dirt",junctions=candidate?.jigsawJunctions??candidate?.junctions??[],radius=mode==="beard_box"||mode==="beard_thin"?BEARD_KERNEL_RADIUS:6,maxColumns=Math.max(1,Number(context.maxTerrainColumns??48));let columns=0,changed=0;
-  if(mode==="none")return{mode,targetY,bounds,changed,columns,deferred:false};
-
-  // Bury/foundation is a rectangular volume operation. Bedrock's native
-  // fillBlocks implementation is dramatically cheaper than thousands of
-  // getBlock/setBlock calls. Restrict it to the area below the structure so
-  // the placed structure itself is never overwritten.
-  if((mode==="bury"||mode==="buried")&&context.fastFill!==false){
-   const depth=Math.max(1,Number(context.depth??candidate?.buryDepth??8));
-   const foundationPerm=perm(foundation);
-   if(foundationPerm){
-    for(const box of boxes){
-     const min={x:Math.floor(box.minX),y:Math.max(-64,Math.floor(box.minY-depth)),z:Math.floor(box.minZ)},max={x:Math.floor(box.maxX),y:Math.floor(box.minY-1),z:Math.floor(box.maxZ)};
-     if(max.y>=min.y&&max.x>=min.x&&max.z>=min.z){try{this.dimension.fillBlocks(new BlockVolume(min,max),foundationPerm,{blockFilter:{includeTypes:[AIR,"minecraft:water","minecraft:flowing_water"]},ignoreChunkBoundErrors:true});changed++;}catch{}}
-     yield;
-    }
-   }
-   return{mode,targetY,bounds,changed,columns:0,deferred:false,fastFill:true};
-  }
-
-  for(let x=bounds.minX-radius;x<=bounds.maxX+radius;x++)for(let z=bounds.minZ-radius;z<=bounds.maxZ+radius;z++){
-   if(columns>=maxColumns)return{mode,targetY,bounds,changed,columns,deferred:true};columns++;const surface=yield* this.surfaceYJob(x,z,targetY);
-   const minScan=Math.max(-64,Math.min(targetY-BEARD_KERNEL_RADIUS,surface-BEARD_KERNEL_RADIUS)),maxScan=Math.min(320,surface+2,targetY+BEARD_KERNEL_RADIUS);
-   for(let y=minScan;y<=maxScan;y++){const density=this.calculateStructureWeight(x,y,z,boxes,junctions,mode);if(density<=0){yield;continue;}const desired=targetY+Math.round((surface-targetY)*(1-density)),b=blockAt(this.dimension,{x,y,z});yield;if(y<desired&&replaceable(b)){if(this.setBlock({x,y,z},foundation))changed++;}else if(y>desired&&y<=surface&&density>.85&&b&&!air(b)&&!water(b)){const ap=perm(AIR);if(ap)try{this.dimension.setBlockPermutation({x,y,z},ap);changed++;}catch{}}}
-  }
-  return{mode,targetY,bounds,changed,columns,deferred:false,fastFill:false};
- }
+ *adaptJob(candidate,context={}){const mode=String(context.mode??candidate?.terrain_adaptation??candidate?.terrainAdaptation?.mode??"none").toLowerCase(),origin=p3(context.location??candidate?.location??candidate??{}),boxes=this.boxes(candidate,origin),bounds=this.union(boxes),targetY=Number(context.targetY??candidate?.targetY??bounds.minY),foundation=context.foundationBlock??candidate?.foundationBlock??"minecraft:dirt",junctions=candidate?.jigsawJunctions??candidate?.junctions??[],radius=mode==="beard_box"||mode==="beard_thin"?BEARD_KERNEL_RADIUS:6,maxColumns=Math.max(1,Number(context.maxTerrainColumns??48));let columns=0,changed=0;if(mode==="none")return{mode,targetY,bounds,changed,columns,deferred:false};
+  if((mode==="bury"||mode==="buried")&&context.fastFill!==false){const depth=Math.max(1,Number(context.depth??candidate?.buryDepth??8)),foundationPerm=perm(foundation);if(foundationPerm){for(const box of boxes){const min={x:Math.floor(box.minX),y:Math.max(-64,Math.floor(box.minY-depth)),z:Math.floor(box.minZ)},max={x:Math.floor(box.maxX),y:Math.floor(box.minY-1),z:Math.floor(box.maxZ)};if(max.y>=min.y&&max.x>=min.x&&max.z>=min.z){try{this.dimension.fillBlocks(new BlockVolume(min,max),foundationPerm,{blockFilter:{includeTypes:[AIR,"minecraft:water","minecraft:flowing_water"]},ignoreChunkBoundErrors:true});changed++;}catch{}}yield;}}return{mode,targetY,bounds,changed,columns:0,deferred:false,fastFill:true};}
+  for(let x=bounds.minX-radius;x<=bounds.maxX+radius;x++)for(let z=bounds.minZ-radius;z<=bounds.maxZ+radius;z++){if(columns>=maxColumns)return{mode,targetY,bounds,changed,columns,deferred:true};columns++;const surface=yield* this.surfaceYJob(x,z,targetY);const minScan=Math.max(-64,Math.min(targetY-BEARD_KERNEL_RADIUS,surface-BEARD_KERNEL_RADIUS)),maxScan=Math.min(320,surface+2,targetY+BEARD_KERNEL_RADIUS);for(let y=minScan;y<=maxScan;y++){const density=this.calculateStructureWeight(x,y,z,boxes,junctions,mode);if(density<=0){yield;continue;}const desired=targetY+Math.round((surface-targetY)*(1-density)),b=blockAt(this.dimension,{x,y,z});yield;if(y<desired&&replaceable(b)){if(this.setBlock({x,y,z},foundation))changed++;}else if(y>desired&&y<=surface&&density>.85&&b&&!air(b)&&!water(b)){const ap=perm(AIR);if(ap)try{this.dimension.setBlockPermutation({x,y,z},ap);changed++;}catch{}}}}return{mode,targetY,bounds,changed,columns,deferred:false,fastFill:false};}
  scheduleAdaptation(candidate,context={}){if(!this.dimension)return{scheduled:false,reason:"no_dimension"};const job=this.adaptJob(candidate,context);let handle=null;handle=system.runJob((function*(engine,generator){try{yield* generator;}finally{if(handle!=null)engine.jobs.delete(handle);}})(this,job));this.jobs.add(handle);return{scheduled:true,jobId:handle,mode:context.mode??candidate?.terrain_adaptation??"none"};}
  adapt(candidate,context={}){const mode=String(context.mode??candidate?.terrain_adaptation??candidate?.terrainAdaptation?.mode??"none").toLowerCase();return{mode,scheduled:false,deferred:true,reason:"use_scheduleAdaptation_for_runtime"};}
  flatten(candidate,context={}){return this.scheduleAdaptation(candidate,{...context,mode:context.mode??"beard_thin"});}

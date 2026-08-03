@@ -3,29 +3,36 @@
 // shoreline blending rather than using a generic grass/dirt rule.
 import { BlockPermutation } from "@minecraft/server";
 
-const P = (id) => BlockPermutation.resolve(id);
-const SURFACE = Object.freeze({
-  grass: [P("minecraft:grass_block"), P("minecraft:dirt"), P("minecraft:stone"), 5],
-  snow: [P("minecraft:snow_block"), P("minecraft:dirt"), P("minecraft:stone"), 4],
-  sand: [P("minecraft:sand"), P("minecraft:sand"), P("minecraft:sandstone"), 4],
-  redSand: [P("minecraft:red_sand"), P("minecraft:orange_terracotta"), P("minecraft:terracotta"), 4],
-  gravel: [P("minecraft:gravel"), P("minecraft:gravel"), P("minecraft:stone"), 3],
-  coarse: [P("minecraft:coarse_dirt"), P("minecraft:dirt"), P("minecraft:stone"), 4],
-  mushroom: [P("minecraft:mycelium"), P("minecraft:dirt"), P("minecraft:dirt"), 5]
-});
+let SURFACE = null;
+
+function getSurface() {
+  if (SURFACE) return SURFACE;
+  const P = (id) => BlockPermutation.resolve(id);
+  SURFACE = Object.freeze({
+    grass: [P("minecraft:grass_block"), P("minecraft:dirt"), P("minecraft:stone"), 5],
+    snow: [P("minecraft:snow_block"), P("minecraft:dirt"), P("minecraft:stone"), 4],
+    sand: [P("minecraft:sand"), P("minecraft:sand"), P("minecraft:sandstone"), 4],
+    redSand: [P("minecraft:red_sand"), P("minecraft:orange_terracotta"), P("minecraft:terracotta"), 4],
+    gravel: [P("minecraft:gravel"), P("minecraft:gravel"), P("minecraft:stone"), 3],
+    coarse: [P("minecraft:coarse_dirt"), P("minecraft:dirt"), P("minecraft:stone"), 4],
+    mushroom: [P("minecraft:mycelium"), P("minecraft:dirt"), P("minecraft:dirt"), 5]
+  });
+  return SURFACE;
+}
 
 export function profileForBiome(biomeId, cold=false, x=0, z=0){
+  const SURFACE = getSurface();
   const id=String(biomeId??"").toLowerCase();
   if(id.includes("mushroom"))return SURFACE.mushroom;
   if(id.includes("badlands")||id.includes("mesa"))return SURFACE.redSand;
   if(id.includes("desert")||id.includes("beach"))return SURFACE.sand;
   if(id.includes("stony_shore")||id.includes("stony_peaks")||id.includes("jagged_peaks")||id.includes("windswept_gravelly"))return SURFACE.gravel;
   if(id.includes("snowy")||id.includes("frozen")||id.includes("grove")||cold)return SURFACE.snow;
-  if(id.includes("river")||id.includes("swamp")||id.includes("mangrove"))return shoreline(id,x,z,cold);
+  if(id.includes("river")||id.includes("swamp")||id.includes("mangrove"))return shoreline(id,x,z,cold,SURFACE);
   return SURFACE.grass;
 }
 
-function shoreline(id,x,z,cold){
+function shoreline(id,x,z,cold,SURFACE){
   const river=id.includes("river")||id.includes("swamp")||id.includes("mangrove");
   const h=hash01(x,z,6026299900829495408n), warmth=river?0.55+h*.55:h*1.6;
   let sand=smooth(.3,1.05,warmth);if(!river)sand=Math.max(.78,sand);if(cold)sand*=.35;if(river)sand*=.52;

@@ -28,17 +28,12 @@ function buildRuntime() {
   const densityField = new StructureDensityField();
   placementCoordinator = new StructurePlacementCoordinator(generator, { registry: jigsawRegistry, terrainOptions: { minY: -64, maxY: 320 }, densityField });
   placementQueue = new StructurePlacementQueue({ maxPerTick: 1, maxRetries: 3, retryDelay: 20 });
-  // Keep the random-spread planning window deliberately small. A 512-block
-  // synchronous search across every structure set is too expensive for Bedrock's
-  // script tick. The runtime revisits cells as the player moves.
-  structureSets = new StructureSetRuntime(generator, { data, registry: jigsawRegistry, dimensionId: DIMENSION_ID, radius: 96, maxPlansPerTick: 1, maxPlacementsPerTick: 1, placementCoordinator, placementQueue, densityField });
+  structureSets = new StructureSetRuntime(generator, { data, registry: jigsawRegistry, dimensionId: DIMENSION_ID, radius: 128, maxPlansPerTick: 1, maxPlacementsPerTick: 1, placementCoordinator, placementQueue, densityField });
   worldgen = new WorldgenJigsawRuntime(archipelago(), { data, registry: jigsawRegistry, generator, structureSets, densityField, placementCoordinator, placementQueue });
   structureSets.refresh(jigsawRegistry);
 }
 
-system.beforeEvents.startup.subscribe((event) => {
-  event.dimensionRegistry.registerCustomDimension(DIMENSION_ID);
-});
+system.beforeEvents.startup.subscribe((event) => { event.dimensionRegistry.registerCustomDimension(DIMENSION_ID); });
 
 function runStartupSelfTest() {
   try {
@@ -73,11 +68,10 @@ system.runInterval(() => {
     }
   }
   generator.tick();
-  worldgen.tick();
 
-  // Never allow two long async processing passes to overlap. Overlapping passes
-  // multiply native getBlock/setBlock work and were a major contributor to the
-  // watchdog interruptions.
+  // StructureSetRuntime.enqueueAround() is already called above. Do not call
+  // worldgen.tick() here as well: that used to refresh/queue the same runtime a
+  // second time every tick.
   if (!structureProcessBusy) {
     structureProcessBusy = true;
     structureSets.process()

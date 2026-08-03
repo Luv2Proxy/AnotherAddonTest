@@ -22,15 +22,21 @@ export function planColumn(segments,minY,maxY,settings,x,z,layoutSeed){
   solid.sort((a,b)=>a[0]-b[0]);
   const merged=[];
   for(const r of solid){const p=merged[merged.length-1];if(p&&r[0]<=p[1]+1)p[1]=Math.max(p[1],r[1]);else merged.push([...r]);}
-  const ocean=settings.oceanEnabled, oceanTop=ocean?Math.min(maxY-1,settings.oceanLevelY):minY-1, floorTop=ocean?minY:minY;
+  const ocean=settings.oceanEnabled, oceanTop=ocean?Math.min(maxY-1,settings.oceanLevelY):minY-1, floorTop=minY;
+  // Build a direct interval lookup. This preserves exact interval semantics while
+  // removing the O(number-of-segments) scan from every Y-level materialAt call.
+  const intervalIndex=new Int16Array(Math.max(0,maxY-minY));
+  intervalIndex.fill(-1);
+  for(let i=0;i<merged.length;i++){
+    const r=merged[i],from=Math.max(minY,r[0]),to=Math.min(maxY-1,r[1]);
+    for(let y=from;y<=to;y++)intervalIndex[y-minY]=i;
+  }
   return {solid:merged,highest,ocean,oceanTop,floorTop,minY,maxY,materialAt(y){
     if(y<minY||y>=maxY)return null;
-    if(contains(merged,y))return y<=settings.deepslateStartY?DEEPSLATE:(y<=settings.deepslateStartY+8&&hash01(x,y,z,layoutSeed)<1-(y-settings.deepslateStartY-1)/7?DEEPSLATE:STONE);
+    if(intervalIndex[y-minY]>=0)return y<=settings.deepslateStartY?DEEPSLATE:(y<=settings.deepslateStartY+8&&hash01(x,y,z,layoutSeed)<1-(y-settings.deepslateStartY-1)/7?DEEPSLATE:STONE);
     if(ocean&&y===minY)return BEDROCK;
     if(ocean&&y>minY&&y<=floorTop)return STONE;
     if(ocean&&y>minY&&y<=oceanTop)return WATER;
     return null;
   }};
 }
-
-function contains(rs,y){for(const r of rs)if(y>=r[0]&&y<=r[1])return true;return false;}
